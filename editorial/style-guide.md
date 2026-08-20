@@ -518,6 +518,11 @@ Il nome del file è lo slug della rubrica: `cronaca-pagelle.md`, `editoriale.md`
 `classifiche.md`, `rubrica-fissa.md`, `mercato.md`. Con due approfondimenti:
 `approfondimento-1.md`, `approfondimento-2.md`.
 
+Un approfondimento può portare, al posto del numero, un breve slug descrittivo
+(`approfondimento-<slug>.md`, p.es. `approfondimento-asta.md`): il nome del file
+è il permalink dell'articolo e un permalink che dice di che cosa parla vale più
+di un contatore. La rubrica resta comunque dichiarata in `column`.
+
 ---
 
 ## 10. I tormentoni
