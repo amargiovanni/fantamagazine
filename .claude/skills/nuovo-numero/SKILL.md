@@ -30,7 +30,8 @@ because the jokes have to compound across issues instead of resetting.
   - `post` — after a matchday: match report, report cards, standings;
   - `midweek` — Wednesday/Thursday long-form, no fresh data needed.
 - The **number** is the next free one: list `content/<season>/` and take the
-  highest `issue-NNN` plus one. `issue-000` is the demo issue and counts.
+  highest `issue-NNN` plus one. `issue-000` is the demo issue and counts. If
+  `content/<season>/` does not exist yet, the issue number is **0**.
 - Fix the **season** (`2026-27` unless told otherwise) and, for `pre`/`post`,
   the **matchday**.
 
@@ -65,7 +66,9 @@ Read, in this order, all of it, every time:
 3. The **last three issues** in `content/<season>/` — so the issue does not
    repeat a joke, reuse an opening, or hit the same target twice in a row.
 4. `editorial/albo.json` — who has already won what, and when.
-5. The data files for this issue, plus `data/<season>/league.json` for the exact
+5. `editorial/opt-out.json` — the managers who asked not to appear. They are
+   never named, never nicknamed, never awarded; see style guide §3.
+6. The data files for this issue, plus `data/<season>/league.json` for the exact
    team and manager names.
 
 Then note explicitly, before drafting: which running jokes are `attivo`, who was
@@ -122,22 +125,22 @@ chapters of an inchiesta) — they are what makes the magazine recognisable.
 
 ## Step 5 — Traceability check on what you just wrote
 
-Re-read the drafts against the data before moving on:
+Re-read the drafts against the data before moving on, and **run the checklist
+in style guide §11 line by line** — it is the authoritative list, not a summary
+of it. Do not paraphrase it from memory: open §11 and tick each item against the
+text you actually wrote.
 
-- **Every factual claim traces to `data/` or to a dossier.** Scores, points,
-  positions, modules, benched players, credits: all of them exist in a file. No
-  invented results, no rounded-in-your-favour numbers, no matchday that was
-  never scraped.
-- **Every quotation is invented and must stay unbelievable.** If someone could
-  screenshot it and pass it off as real in the league chat, it is too realistic:
-  raise the absurdity a notch.
-- **The red line holds** (style guide §3): the jokes hit the manager's
-  *choices*, never the person. No private life, work, family, appearance.
-  Apply the *test dello striscione* to every line.
-- **Coverage and rotation:** in a `post` issue every manager appears at least
-  once, and the main target differs from the previous issue.
+Two items are worth restating here because they are the ones that end the job
+if they fail:
 
-Fix the text, never the data.
+- **No invented facts.** Every score, position, module and benched player exists
+  in a file under `data/`. Invented *quotes* are required; invented *results*
+  are a defect. Fix the text, never the data.
+- **The opt-out list is absolute.** Cross-check every article against
+  `editorial/opt-out.json`: nobody on that list may be named, nicknamed,
+  alluded to recognisably, or awarded, and their results appear only inside
+  aggregate tables. A doubt about identifiability resolves in favour of the
+  opt-out.
 
 ## Step 6 — Update the editorial memory
 
@@ -173,6 +176,9 @@ points at a matchday with no data. If it fails, fix the content and build again
 ```
 npm run dev
 ```
+
+Start it **in the background** — it is a long-running server and blocks the
+session otherwise — then read back the local URL it prints.
 
 Hand the local URL to the editor and **stop**. Report which articles were
 written, which awards were assigned, which running jokes were born, changed

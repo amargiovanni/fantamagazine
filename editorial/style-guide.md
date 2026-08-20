@@ -77,7 +77,8 @@ il giornale sopravvive solo finché ridono tutti, compreso il bersaglio.
 Bersagli **leciti** — tutto ciò che il fantallenatore ha deciso:
 
 - formazioni, moduli, panchine, cambi, capitani;
-- il mercato: aste, crediti spesi, colpi annunciati, scambi;
+- il mercato: colpi annunciati, scambi, aste e crediti — ma **solo se il dato
+  risulta agli atti** (`league.json` o un numero precedente di questa testata);
 - l'orario di inserimento della formazione e i ritardi;
 - dichiarazioni (nostre, inventate) e previsioni pubblicate su questa testata;
 - la classifica, la fantamedia, ogni numero che risulta agli atti;
@@ -96,6 +97,37 @@ Bersagli **vietati**, senza eccezioni e senza "ma qui era simpatico":
 Inoltre: i **calciatori veri di Serie A** si commentano solo come li
 commenterebbe un giornale sportivo. Un 4,5 in pagella a un difensore reale è
 cronaca; un insulto personale a un difensore reale non è satira, è un tweet.
+
+### Il diritto di non comparire
+
+La lega è stata avvisata prima che il giornale esistesse: *chi non vuole
+comparire parla ora*. Chi lo ha detto è iscritto in `editorial/opt-out.json`, e
+quella lista **vince su qualsiasi battuta**.
+
+Per un presidente iscritto all'opt-out:
+
+- non si scrive **mai** il suo nome, né quello della sua squadra, né un suo
+  soprannome, né una perifrasi che lo renda riconoscibile ("il presidente che
+  sappiamo", "un ex vincitore di questa lega");
+- non gli si assegnano premi, non finisce nell'albo, non ha un dossier attivo;
+- i suoi risultati compaiono **solo dentro le tabelle aggregate** (classifica,
+  risultati di giornata), dove sono un fatto della competizione e non un
+  bersaglio;
+- la regola di copertura del §3 ("in un numero `post` tutti i presidenti sono
+  nominati") **non si applica a lui**: l'opt-out batte la copertura.
+
+Il file è un array, senza commenti:
+
+```json
+[
+  { "manager": "Nome Presidente", "since": "2026-09-14" }
+]
+```
+
+`manager` è il nome come compare in `data/<stagione>/league.json`
+(`teams[].manager`); `since` è la data in cui l'iscritto ha parlato. Si esce
+dall'opt-out solo su richiesta esplicita dell'interessato, rimuovendo la riga.
+Un dubbio sull'identificabilità si risolve **sempre** a favore dell'opt-out.
 
 ### Il test dello striscione
 
@@ -129,10 +161,12 @@ In pratica, mentre si scrive:
 | punteggi, gol, fantapunti | `data/<stagione>/matchday-NN/results.json` |
 | formazioni, moduli, panchine, voti dei singoli | `.../lineups.json` |
 | posizioni, punti, fantapunti totali | `.../standings.json` |
-| squadre, presidenti, crediti | `data/<stagione>/league.json` |
+| squadre, presidenti, crediti residui | `data/<stagione>/league.json` — `teams[].credits` è **il residuo della squadra**, un numero solo: il prezzo pagato per il singolo giocatore **non risulta agli atti** e non si cita mai |
 | soprannomi, tormentoni, precedenti | `editorial/dossier/<manager>.md` |
 | premi già assegnati | `editorial/albo.json` |
 | dichiarazioni citate di numeri passati | `content/<stagione>/issue-NNN/*.md` |
+| chi non va nominato | `editorial/opt-out.json` |
+| i tre numeri veri di un numero `pre` | la **giornata precedente** già committata: della giornata in corso non esiste ancora un solo dato |
 
 **Regola del fatto minimo:** ogni articolo contiene almeno **tre numeri veri**
 presi dai dati. Un pezzo senza numeri è un pezzo che sta bluffando, e si vede.
@@ -173,7 +207,9 @@ OCCHIELLO IN MAIUSCOLO: fatto all'indicativo presente, poi la caduta
 
 **Regole dure:**
 
-- massimo **nove parole**, indicativamente sotto i 65 caratteri;
+- massimo **nove parole** e **65 caratteri**, contati **dopo** l'occhiello:
+  l'occhiello (`SCANDALO:`, `ESCLUSIVO:`, …) è tipografia, non testo, e non
+  entra nel conteggio;
 - **presente indicativo** — il passato remoto è da settimanale, il futuro è da
   oroscopo (e infatti lo usiamo solo lì);
 - **un numero concreto** ogni volta che è possibile;
@@ -187,10 +223,14 @@ OCCHIELLO IN MAIUSCOLO: fatto all'indicativo presente, poi la caduta
 **Esempi in target** (questo è il livello, non un'aspirazione):
 
 - `SCANDALO: schiera quattro attaccanti, ne segnano zero`
-- `ESCLUSIVO: il suo capitano era in tribuna, lui lo scopre oggi`
-- `L'INCHIESTA: chi ha visto la formazione di Ottavio? Nessuno, era le 14:59`
-- `DOCUMENTI: 245 crediti spesi, 58 punti raccolti, nessun pentimento`
+- `ESCLUSIVO: il capitano era in tribuna, lui lo scopre oggi`
+- `L'INCHIESTA: chi ha visto la sua formazione? Erano le 14:59`
+- `DOCUMENTI: 58 fantapunti, zero gol, nessuna spiegazione`
 - `IL CASO: primo in classifica, e adesso qualcuno spieghi come`
+
+Sono tutti sotto le nove parole e i 65 caratteri dopo l'occhiello, e ognuno
+poggia su un dato che esiste davvero in `data/`. Se un titolo non supera
+entrambe le prove, non è un titolo: è un appunto.
 
 Il campo `headline` di `issue.json` è il titolo di apertura del numero: è
 sempre uno di questi, ed è il pezzo di testo più letto che scriviamo.
@@ -252,7 +292,7 @@ fatto della giornata e lo tratta come una questione morale nazionale.
 ### 6.3 `rubrica-fissa` — Le rubriche fisse
 
 Un solo file `rubrica-fissa.md` per numero, che ne contiene **due o tre** tra
-le seguenti. Lunghezza totale: 250–450 parole.
+le seguenti. Lunghezza: 250–450 parole **per rubrica**, non complessive.
 
 **Lo Sconfitto della Settimana** (obbligatorio in ogni numero `post`) — quattro
 blocchi, sempre in quest'ordine e sempre etichettati:
@@ -380,7 +420,7 @@ array di oggetti:
 | Premio | A chi | Criterio verificabile sui dati |
 |---|---|---|
 | **La Panchina d'Oro del Disonore** | a chi ha tenuto fuori il migliore | Il fantavoto più alto della panchina supera di **almeno 3** il fantavoto più basso tra i titolari (`lineups.json`). Vince il delta maggiore. |
-| **La Mano de Dios del Mercato** | al colpo di mercato più inutile | Il giocatore più pagato in asta — o quello celebrato come colpo in un numero precedente — chiude la giornata con il fantavoto più basso della rosa titolare (`lineups.json` + `content/`). Assegnabile **una volta ogni cinque numeri**. |
+| **La Mano de Dios del Mercato** | al colpo di mercato più inutile | Il giocatore celebrato come colpo di mercato in un numero precedente di questa testata chiude la giornata con il fantavoto più basso tra i titolari (`content/` per la celebrazione, `lineups.json` per il fantavoto). Il prezzo d'asta **non è un criterio**: non risulta agli atti. Assegnabile **una volta ogni cinque numeri**. |
 | **Il Cucchiaio di Legno** *(trofeo itinerante)* | all'ultimo in classifica | Ultima posizione in `standings.json` a fine giornata. Si registra quando **cambia di mano**; se resta allo stesso presidente, si registra ogni tre giornate come "conferma". |
 | **L'Ordine del Modulo Impossibile** | all'architetto | Terzo cambio di modulo in tre giornate consecutive, **oppure** un modulo con quattro attaccanti, **oppure** un modulo che non esiste (`lineups.json`, campo `module`). |
 | **Il Premio Nostradamus al Contrario** | al profeta | Una previsione, un consiglio o una dichiarazione **pubblicata su questa testata** viene smentita dai fatti. Obbligatorio citare il numero in cui la profezia è uscita. |
@@ -504,6 +544,7 @@ Direttore in carne e ossa:
 - [ ] Ogni articolo contiene almeno tre numeri veri.
 - [ ] Ogni citazione virgolettata passa il test dell'incredibilità (§4).
 - [ ] Nessuna battuta tocca la linea rossa (§3). Test dello striscione superato.
+- [ ] Nessun iscritto a `editorial/opt-out.json` è nominato, alluso o premiato.
 - [ ] In un numero `post`, tutti i presidenti sono nominati almeno una volta.
 - [ ] Il bersaglio principale è diverso da quello del numero precedente.
 - [ ] Massimo tre premi, nessun presidente premiato due volte.
