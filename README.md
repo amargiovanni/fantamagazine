@@ -38,3 +38,56 @@ The project is organized into three components:
    ```
 
 Note: Credentials live only in `.env`, never committed to git.
+
+Live URL: (set after first deploy)
+
+## Recalibration (before the first real scrape)
+
+The scraper was built and tested against captured fixtures, not a live
+session — `scraper/src/selectors.ts` (`SEL` and `PAGES`) is provisional until
+it has been checked against the real site. Before trusting any scraped data:
+
+1. Capture the live markup once real credentials exist in `.env`:
+   ```
+   npm run scrape -- --capture
+   ```
+   This dumps the pages the scraper depends on to `scraper/debug/` without
+   parsing anything.
+2. Diff the captured HTML against `scraper/src/selectors.ts` and update `SEL`
+   (element selectors) and `PAGES` (URL paths) wherever the real markup
+   disagrees with the provisional ones.
+3. Refresh the scraper's fixtures from the newly captured HTML and run
+   `npm test` from the repo root until it's green again — the parsers are
+   tested against fixtures, so a selector change is only trusted once the
+   suite reflects it.
+4. Only then run the real scrapes:
+   ```
+   npm run scrape -- --league
+   npm run scrape -- --matchday <n>
+   ```
+
+## Deploying
+
+The site deploys to Cloudflare Workers static assets via `site/wrangler.jsonc`
+(worker name `fantidiano`). Wrangler needs to be authenticated once per
+machine:
+
+```
+npx wrangler login
+```
+
+After that, `npm run deploy` from the repo root builds the site and pushes
+it (`astro build && wrangler deploy`, run from `site/`). Once the first
+deploy succeeds, set `site` in `site/astro.config.mjs` to the resulting
+`*.workers.dev` URL and redeploy so absolute URLs (OG tags, etc.) resolve
+correctly, then update the "Live URL" line above.
+
+## Go live with real league data
+
+1. Fill in `.env` with real fantacalcio.it credentials, then run the
+   recalibration procedure above (`--capture`, align `selectors.ts`, refresh
+   fixtures, green tests) — the pipeline was only ever exercised against the
+   demo dataset until this step.
+2. Run `npm run scrape -- --league` once, then `npm run scrape -- --matchday <n>`
+   for each matchday to publish, and produce issues with `/nuovo-numero`.
+3. `npx wrangler login` (first time only), then `npm run deploy`.
