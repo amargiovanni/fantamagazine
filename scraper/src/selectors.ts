@@ -18,6 +18,7 @@ export const SEL = {
   },
   lineups: {
     teamBlock: '[data-lineup-team]',
+    teamAttr: 'data-lineup-team',
     module: '.module',
     starterRow: '.starters [data-player]',
     benchRow: '.bench [data-player]',
