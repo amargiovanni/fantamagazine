@@ -371,14 +371,17 @@ img {
 
    The scope is deliberately narrow. `white-space: pre-line` applies only to
    the pagella entries — paragraphs that open with the team name in bold,
-   inside the section whose heading Astro slugs to `le-pagelle` — so that the
+   inside the section whose heading Astro slugs to `le-pagelle…` — so that the
    surrounding prose, hard-wrapped at ~80 columns in the source, keeps
-   reflowing normally. A later section of the same level ends the scope. */
-.prose #le-pagelle ~ p:has(> strong:first-child) {
+   reflowing normally. A later section of the same level ends the scope. The
+   prefix match keeps a heading like "Le pagelle della giornata" working. */
+.prose [id^='le-pagelle'] ~ p:has(> strong:first-child) {
   white-space: pre-line;
 }
 
-.prose #le-pagelle ~ h2 ~ p {
+/* The guard has to repeat `:has(...)`: without it the selector is less
+   specific than the rule above and never wins. */
+.prose [id^='le-pagelle'] ~ h2 ~ p:has(> strong:first-child) {
   white-space: normal;
 }
 
