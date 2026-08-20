@@ -102,8 +102,14 @@ function payload(module: unknown): unknown {
 
 /* --------------------------------------------------------------- reading */
 
-function readTeams(module: unknown, path: string): Team[] {
-  const league = record(payload(module), path, 'league.json');
+/**
+ * The three parsers below take already-decoded JSON, not a module, so they can
+ * be exercised directly by the unit tests with malformed input — the files in
+ * the repository are valid, and a validator nobody can feed bad data to is a
+ * validator nobody has tested.
+ */
+export function parseTeams(value: unknown, path: string): Team[] {
+  const league = record(value, path, 'league.json');
   return list(league.teams, path, 'teams').map((raw, index) => {
     const team = record(raw, path, `teams[${index}]`);
     return {
@@ -115,8 +121,11 @@ function readTeams(module: unknown, path: string): Team[] {
   });
 }
 
-function readStandings(module: unknown, path: string): { matchday: number; rows: StandingsRow[] } {
-  const standings = record(payload(module), path, 'standings.json');
+export function parseStandings(
+  value: unknown,
+  path: string,
+): { matchday: number; rows: StandingsRow[] } {
+  const standings = record(value, path, 'standings.json');
   return {
     matchday: num(standings, 'matchday', path, 'standings.json'),
     rows: list(standings.rows, path, 'rows').map((raw, index) => {
@@ -136,12 +145,55 @@ function readStandings(module: unknown, path: string): { matchday: number; rows:
 }
 
 /** `../../../data/2026-27/matchday-00/standings.json` → `2026-27` / `0`. */
-function locate(path: string): { season: string; matchday: number } | null {
+export function locate(path: string): { season: string; matchday: number } | null {
   const match = /\/([^/]+)\/matchday-(\d+)\/standings\.json$/.exec(path);
   return match ? { season: match[1]!, matchday: Number(match[2]) } : null;
 }
 
 /* ----------------------------------------------------------------- API */
+
+/**
+ * The standings file to show: the highest matchday of the most recent season.
+ * Split out of `getLatestStandings` so the ordering rule — season first, then
+ * matchday — is testable without a repository full of fixtures.
+ */
+export function latestStandingsPath(
+  paths: readonly string[],
+): { path: string; season: string; matchday: number } | null {
+  const located = paths
+    .map((path) => ({ path, at: locate(path) }))
+    .filter((item): item is { path: string; at: { season: string; matchday: number } } =>
+      item.at !== null,
+    )
+    .sort((a, b) =>
+      a.at.season === b.at.season
+        ? b.at.matchday - a.at.matchday
+        : b.at.season.localeCompare(a.at.season),
+    );
+
+  const latest = located[0];
+  return latest ? { path: latest.path, ...latest.at } : null;
+}
+
+/**
+ * Standings rows joined with their teams, sorted by position. A row whose
+ * `teamId` is unknown keeps the id as its name rather than rendering
+ * `undefined` — the league file and the matchday file are scraped separately
+ * and can legitimately disagree for one build.
+ */
+export function joinTeams(
+  rows: readonly StandingsRow[],
+  teams: ReadonlyMap<string, Team>,
+): StandingsEntry[] {
+  return rows
+    .slice()
+    .sort((a, b) => a.position - b.position)
+    .map((row) => ({
+      ...row,
+      teamName: teams.get(row.teamId)?.name ?? row.teamId,
+      manager: teams.get(row.teamId)?.manager ?? '—',
+    }));
+}
 
 /** Teams of a season, by id. Empty when the season has no `league.json`. */
 export function getTeams(season: string): ReadonlyMap<string, Team> {
@@ -150,7 +202,7 @@ export function getTeams(season: string): ReadonlyMap<string, Team> {
   );
   if (!entry) return new Map();
 
-  return new Map(readTeams(entry[1], entry[0]).map((team) => [team.id, team]));
+  return new Map(parseTeams(payload(entry[1]), entry[0]).map((team) => [team.id, team]));
 }
 
 /**
@@ -161,45 +213,20 @@ export function getTeams(season: string): ReadonlyMap<string, Team> {
  * state before the season starts, not an error.
  */
 export function getLatestStandings(): Standings | null {
-  const candidates = Object.entries(STANDINGS_FILES)
-    .map(([path, module]) => ({ path, module, at: locate(path) }))
-    .filter(
-      (item): item is { path: string; module: unknown; at: { season: string; matchday: number } } =>
-        item.at !== null,
-    )
-    .sort((a, b) =>
-      a.at.season === b.at.season
-        ? b.at.matchday - a.at.matchday
-        : b.at.season.localeCompare(a.at.season),
-    );
-
-  const latest = candidates[0];
+  const latest = latestStandingsPath(Object.keys(STANDINGS_FILES));
   if (!latest) return null;
 
-  const standings = readStandings(latest.module, latest.path);
-  const teams = getTeams(latest.at.season);
+  const standings = parseStandings(payload(STANDINGS_FILES[latest.path]), latest.path);
 
   return {
-    season: latest.at.season,
-    matchday: latest.at.matchday,
-    entries: standings.rows
-      .slice()
-      .sort((a, b) => a.position - b.position)
-      .map((row) => ({
-        ...row,
-        teamName: teams.get(row.teamId)?.name ?? row.teamId,
-        manager: teams.get(row.teamId)?.manager ?? '—',
-      })),
+    season: latest.season,
+    matchday: latest.matchday,
+    entries: joinTeams(standings.rows, getTeams(latest.season)),
   };
 }
 
-/** The Albo d'Oro della Vergogna, most recent issue first. */
-export function getAwards(): Award[] {
-  const entry = Object.entries(ALBO_FILE)[0];
-  if (!entry) return [];
-
-  const [path, module] = entry;
-  return list(payload(module), path, 'albo.json')
+export function parseAwards(value: unknown, path: string): Award[] {
+  return list(value, path, 'albo.json')
     .map((raw, index) => {
       const award = record(raw, path, `[${index}]`);
       return {
@@ -210,6 +237,14 @@ export function getAwards(): Award[] {
       };
     })
     .sort((a, b) => b.issue - a.issue);
+}
+
+/** The Albo d'Oro della Vergogna, most recent issue first. */
+export function getAwards(): Award[] {
+  const entry = Object.entries(ALBO_FILE)[0];
+  if (!entry) return [];
+
+  return parseAwards(payload(entry[1]), entry[0]);
 }
 
 /** The award to shout about on the front page, or `null` before there is one. */

@@ -44,6 +44,10 @@ export function leadParagraphs(body: string, count = 1): string[] {
 /**
  * A one-paragraph teaser, cut at a word boundary and closed with an ellipsis
  * when it had to be cut. Returns an empty string for a body with no prose.
+ *
+ * The cut only backtracks to the previous space when it lands *inside* a word:
+ * a cut that already falls on a word end keeps that word, so a limit landing
+ * right after a comma does not silently cost the teaser a whole word.
  */
 export function excerpt(body: string, maxChars = 200): string {
   const [first] = leadParagraphs(body, 1);
@@ -51,6 +55,8 @@ export function excerpt(body: string, maxChars = 200): string {
   if (first.length <= maxChars) return first;
 
   const cut = first.slice(0, maxChars);
+  const endsOnWordBoundary = /\s/.test(first.charAt(maxChars));
   const lastSpace = cut.lastIndexOf(' ');
-  return `${cut.slice(0, lastSpace > 0 ? lastSpace : cut.length).replace(/[.,;:—-]$/, '')}…`;
+  const kept = endsOnWordBoundary || lastSpace <= 0 ? cut : cut.slice(0, lastSpace);
+  return `${kept.replace(/[\s.,;:—-]+$/, '')}…`;
 }
