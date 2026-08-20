@@ -118,9 +118,15 @@ fantamagazine/
      stats with build-time SVG charts.
   4. *Mercato e formazioni* — pre-matchday: mocked probable lineups,
      deliberately terrible advice, invented transfer gossip.
-- **Issue types:** `pre` (before a matchday: column 4 + editorial) and
-  `post` (after: columns 1–3 + editorial). Both produced by the same
-  workflow.
+  5. *Approfondimenti* — midweek long-form satire: fake investigative
+     journalism on a manager's season, invented exclusive interviews,
+     historical retrospectives ("i grandi disastri del passato"),
+     dossier-style exposés. Fed entirely by existing `data/` history
+     and the dossiers — no fresh scrape needed.
+- **Issue types:** `pre` (before a matchday: column 4 + editorial),
+  `post` (after: columns 1–3 + editorial), and `midweek` (Wednesday
+  and/or Thursday: editorial + one or more column-5 deep-dives, same
+  merciless tone). All three produced by the same workflow.
 - **Editorial memory:** `editorial/dossier/<manager>.md` holds each
   manager's nicknames, running jokes, accumulated awards, and notable
   history. The style guide fixes tone and recurring formats. Both are
@@ -158,6 +164,9 @@ fantamagazine/
   performance — no private facts beyond the game.
 
 ## Operational flow (one issue)
+
+Midweek issues skip steps 1–2 (they use already-committed data); pre
+and post issues run the full flow:
 
 1. `npm run scrape -- --matchday <n>` (local, seconds).
 2. Review the JSON diff (`git diff data/`).
