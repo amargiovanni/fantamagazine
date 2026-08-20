@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { assertMatchdayData, issueDirName } from './issue-data';
 
 export type IssueEntry = CollectionEntry<'issues'>;
 export type ArticleEntry = CollectionEntry<'articles'>;
@@ -20,16 +21,6 @@ const AVAILABLE_MATCHDAY_DATA: ReadonlySet<string> = new Set(
     .map((match) => `${match[1]}/${match[2]}`),
 );
 
-/** The season an entry belongs to, taken from its id (`2026-27/issue-000/...`). */
-function seasonOf(entry: IssueEntry | ArticleEntry): string {
-  return entry.id.split('/')[0]!;
-}
-
-/** `0` → `issue-000`, the directory naming used under `content/`. */
-function issueDirName(issueNumber: number): string {
-  return `issue-${String(issueNumber).padStart(3, '0')}`;
-}
-
 /** Path segment for an issue: `/numeri/numero-0/`. */
 export function issueSlug(issueNumber: number): string {
   return `numero-${issueNumber}`;
@@ -39,27 +30,16 @@ export function issueSlug(issueNumber: number): string {
  * Referential integrity, enforced at build time (design spec: "Article →
  * missing data | Astro build fails with a named error").
  *
- * An issue that declares a matchday must have the scraped data for it in the
- * repository, otherwise the articles quote numbers nothing backs up.
+ * A `post` issue that quotes a matchday must have the scraped data for it in
+ * the repository, otherwise the articles quote numbers nothing backs up. A
+ * `pre` issue is exempt: it announces the giornata about to be played and
+ * draws its numbers from the previous one. The rule itself, and the reasoning
+ * behind it, live in `issue-data.ts`; this is only the glob that feeds it.
  *
- * @throws Error when `matchday` is set but `data/<season>/matchday-NN/results.json` is missing.
+ * @throws Error when the issue requires a matchday whose `results.json` is missing.
  */
 export function assertIssueData(issue: IssueEntry): void {
-  const { matchday, number } = issue.data;
-  if (matchday === null) return;
-
-  const season = seasonOf(issue);
-  const dir = `${season}/matchday-${String(matchday).padStart(2, '0')}`;
-  if (AVAILABLE_MATCHDAY_DATA.has(dir)) return;
-
-  const known = [...AVAILABLE_MATCHDAY_DATA].sort().join(', ') || '(none)';
-  throw new Error(
-    `Issue ${number} (${issue.id}) declares matchday ${matchday}, but ` +
-      `data/${dir}/results.json does not exist. Scrape that matchday ` +
-      `(npm run scrape -- --matchday ${matchday}) and commit data/${dir}/, ` +
-      `or set "matchday": null in content/${season}/${issueDirName(number)}/issue.json. ` +
-      `Matchday data currently committed: ${known}.`,
-  );
+  assertMatchdayData(issue, AVAILABLE_MATCHDAY_DATA);
 }
 
 /**
