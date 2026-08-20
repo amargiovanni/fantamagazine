@@ -78,3 +78,42 @@ export async function getArticlesForIssue(issueNumber: number): Promise<ArticleE
   const articles = await getCollection('articles', (article) => article.id.includes(dir));
   return articles.sort((a, b) => a.data.order - b.data.order);
 }
+
+/**
+ * What the paper calls each kind of edition. Product copy, in Italian by
+ * design — the reader's language, not the codebase's.
+ */
+export const ISSUE_TYPE_LABELS: Record<IssueEntry['data']['type'], string> = {
+  post: 'Edizione del Lunedì',
+  pre: 'Edizione del Mercato',
+  midweek: "L'Inchiesta del Mercoledì",
+};
+
+/**
+ * Path segment for an article: the last segment of its id, i.e. the file name
+ * under `content/<season>/issue-NNN/`. Taken from the id rather than from
+ * `column` so that two articles sharing a column can still coexist.
+ */
+export function articleSlug(article: ArticleEntry): string {
+  return article.id.split('/').pop()!;
+}
+
+/** `/numeri/numero-0/` — the canonical URL of an issue. */
+export function issuePath(issueNumber: number): string {
+  return `/numeri/${issueSlug(issueNumber)}/`;
+}
+
+/** `/numeri/numero-0/editoriale/` — the canonical URL of an article. */
+export function articlePath(issueNumber: number, article: ArticleEntry): string {
+  return `${issuePath(issueNumber)}${articleSlug(article)}/`;
+}
+
+/**
+ * The issue an article belongs to, from its id (`2026-27/issue-000/...`).
+ * Needed by the article permalink page, which is routed by slug, not by number.
+ */
+export function issueNumberOf(article: ArticleEntry): number {
+  const match = /\/issue-(\d+)\//.exec(article.id);
+  if (!match) throw new Error(`Article ${article.id} is not inside an issue-NNN directory.`);
+  return Number(match[1]);
+}

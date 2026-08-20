@@ -1,0 +1,108 @@
+---
+import { ISSUE_TYPE_LABELS, issuePath, type IssueEntry } from '../lib/issues';
+
+/**
+ * Prev/next between issues, printed as the two "continua" pointers at the foot
+ * of a page. `previous` is the older issue, `next` the newer one — reading
+ * order, not array order.
+ */
+interface Props {
+  previous?: IssueEntry;
+  next?: IssueEntry;
+}
+
+const { previous, next } = Astro.props;
+---
+
+{
+  (previous || next) && (
+    <nav class="issue-nav" aria-label="Altri numeri">
+      <hr class="rule--halftone" />
+      <div class="issue-nav__row">
+        {previous ? (
+          <a class="issue-nav__link" href={issuePath(previous.data.number)} rel="prev">
+            <span class="dateline">
+              <span aria-hidden="true">← </span>Numero {previous.data.number} ·{' '}
+              {ISSUE_TYPE_LABELS[previous.data.type]}
+            </span>
+            <span class="issue-nav__headline">{previous.data.headline}</span>
+          </a>
+        ) : (
+          <p class="issue-nav__end">Qui comincia l'archivio.</p>
+        )}
+
+        {next ? (
+          <a
+            class="issue-nav__link issue-nav__link--next"
+            href={issuePath(next.data.number)}
+            rel="next"
+          >
+            <span class="dateline">
+              Numero {next.data.number} · {ISSUE_TYPE_LABELS[next.data.type]}
+              <span aria-hidden="true"> →</span>
+            </span>
+            <span class="issue-nav__headline">{next.data.headline}</span>
+          </a>
+        ) : (
+          <p class="issue-nav__end issue-nav__end--next">
+            Più recente di così, c'è solo il futuro.
+          </p>
+        )}
+      </div>
+    </nav>
+  )
+}
+
+<style>
+  .issue-nav {
+    margin-top: var(--space-5);
+  }
+
+  .issue-nav__row {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 48rem) {
+    .issue-nav__row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-5);
+    }
+
+    .issue-nav__link--next,
+    .issue-nav__end--next {
+      text-align: end;
+      border-inline-start: 1px solid var(--rule);
+      padding-inline-start: var(--space-4);
+    }
+  }
+
+  .issue-nav__link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .issue-nav__headline {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-top: var(--space-1);
+    text-wrap: balance;
+  }
+
+  .issue-nav__link:hover .issue-nav__headline,
+  .issue-nav__link:focus-visible .issue-nav__headline {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.18em;
+  }
+
+  .issue-nav__end {
+    margin: 0;
+    font-style: italic;
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+  }
+</style>

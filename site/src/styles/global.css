@@ -290,6 +290,69 @@ img {
   transform: rotate(-1.5deg);
 }
 
+/* Section header: a centred small-caps label ruled off on both sides. */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-text);
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-4);
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  flex: 1 1 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* Riquadro: the boxed sidebar item of a printed page. */
+.panel {
+  background: var(--paper-sunk);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--rule-strong);
+  padding: var(--space-3);
+}
+
+.panel__title {
+  font-size: var(--step-1);
+  margin: 0 0 var(--space-1);
+}
+
+/* Strillo: the ink band that shouts one thing across the width of the page.
+   Ink and paper are swapped by the theme together, so the band stays the
+   inverse of the page in both modes (measured ≥ 12:1 either way). */
+.strillo {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-3) var(--space-4);
+  border-block: 3px solid var(--rule-strong);
+}
+
+.strillo .kicker,
+.strillo .dateline {
+  /* The scandal red is unreadable on ink; the band earns its emphasis from
+     weight and letterspacing instead. */
+  color: inherit;
+  opacity: 0.72;
+}
+
+.strillo a {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+
+.strillo a:hover,
+.strillo a:focus-visible {
+  color: inherit;
+  text-decoration-thickness: 2px;
+}
+
 /* ------------------------------------------------------- article prose */
 
 .prose {

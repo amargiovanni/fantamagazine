@@ -1,0 +1,196 @@
+---
+/**
+ * `/numeri/numero-N/<article>/` — the permalink of a single piece.
+ */
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { COLUMN_LABELS } from '../../../content.config';
+import {
+  ISSUE_TYPE_LABELS,
+  articlePath,
+  articleSlug,
+  getArticlesForIssue,
+  getIssuesSorted,
+  issuePath,
+  issueSlug,
+} from '../../../lib/issues';
+import { excerpt } from '../../../lib/text';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const issues = await getIssuesSorted();
+  const perIssue = await Promise.all(
+    issues.map(async (issue) => {
+      const articles = await getArticlesForIssue(issue.data.number);
+      return articles.map((article, index) => ({
+        params: { slug: issueSlug(issue.data.number), article: articleSlug(article) },
+        props: {
+          issue,
+          article,
+          // Reading order inside the issue, by `order`.
+          previous: articles[index - 1],
+          next: articles[index + 1],
+        },
+      }));
+    }),
+  );
+
+  return perIssue.flat();
+};
+
+const { issue, article, previous, next } = Astro.props;
+const { Content } = await render(article);
+
+const dateLabel = new Intl.DateTimeFormat('it-IT', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(new Date(`${issue.data.date}T00:00:00Z`));
+---
+
+<Base
+  title={article.data.title}
+  description={excerpt(article.body ?? '', 160) || issue.data.headline}
+  issueNumber={issue.data.number}
+  date={issue.data.date}
+>
+  <article class="piece">
+    <header class="piece__head">
+      <p class="kicker">{COLUMN_LABELS[article.data.column]}</p>
+      <h1 class="piece__title">{article.data.title}</h1>
+      <p class="byline">
+        di <strong>{article.data.byline}</strong>
+      </p>
+      <p class="piece__folio">
+        <a href={issuePath(issue.data.number)}>Numero {issue.data.number}</a>
+        <span class="dateline"> · {dateLabel} · {ISSUE_TYPE_LABELS[issue.data.type]}</span>
+      </p>
+      <hr class="rule--double" />
+    </header>
+
+    <div class="prose prose--columns table-scroll">
+      <Content />
+    </div>
+  </article>
+
+  <nav class="piece__nav" aria-label="Altri articoli del numero">
+    <hr class="rule--halftone" />
+    <div class="piece__nav-row">
+      {
+        previous ? (
+          <a class="piece__nav-link" href={articlePath(issue.data.number, previous)} rel="prev">
+            <span class="dateline">
+              <span aria-hidden="true">← </span>
+              {COLUMN_LABELS[previous.data.column]}
+            </span>
+            <span class="piece__nav-title">{previous.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next ? (
+          <a
+            class="piece__nav-link piece__nav-link--next"
+            href={articlePath(issue.data.number, next)}
+            rel="next"
+          >
+            <span class="dateline">
+              {COLUMN_LABELS[next.data.column]}
+              <span aria-hidden="true"> →</span>
+            </span>
+            <span class="piece__nav-title">{next.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+    </div>
+    <p class="piece__back">
+      <a href={issuePath(issue.data.number)}>Torna al numero {issue.data.number}</a>
+    </p>
+  </nav>
+</Base>
+
+<style>
+  .piece__title {
+    font-size: var(--step-4);
+    margin: 0 0 var(--space-2);
+    max-width: 24ch;
+    overflow-wrap: break-word;
+    hyphens: manual;
+  }
+
+  .piece__folio {
+    margin: var(--space-2) 0 0;
+    font-size: var(--step--2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .piece__folio a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .piece__nav {
+    margin-top: var(--space-5);
+  }
+
+  .piece__nav-row {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 48rem) {
+    .piece__nav-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-5);
+    }
+
+    .piece__nav-link--next {
+      text-align: end;
+      border-inline-start: 1px solid var(--rule);
+      padding-inline-start: var(--space-4);
+    }
+  }
+
+  .piece__nav-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .piece__nav-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-top: var(--space-1);
+    text-wrap: balance;
+  }
+
+  .piece__nav-link:hover .piece__nav-title,
+  .piece__nav-link:focus-visible .piece__nav-title {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.18em;
+  }
+
+  .piece__back {
+    margin: var(--space-4) 0 0;
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .piece__back a {
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+  }
+</style>

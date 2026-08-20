@@ -1,0 +1,440 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import { COLUMN_LABELS } from '../content.config';
+import type { Award, Standings } from '../lib/data';
+import {
+  ISSUE_TYPE_LABELS,
+  articlePath,
+  type ArticleEntry,
+  type IssueEntry,
+} from '../lib/issues';
+import { excerpt, leadParagraphs } from '../lib/text';
+
+/**
+ * The prima pagina: one issue laid out as a scandal sheet.
+ *
+ * Composition, top to bottom — the order a broadsheet reader's eye takes:
+ * folio strip, giant headline, the lead story with its drop cap next to the
+ * standings riquadro, an ink strillo band for the latest award, then the rest
+ * of the issue in the three-column broadsheet grid.
+ *
+ * Static only: no client-side JavaScript, no state, no interactivity beyond
+ * links and CSS hover.
+ */
+interface Props {
+  issue: IssueEntry;
+  /** Articles of the issue, already sorted by `order`. */
+  articles: ArticleEntry[];
+  standings: Standings | null;
+  award: Award | null;
+}
+
+const { issue, articles, standings, award } = Astro.props;
+
+const [lead, ...rest] = articles;
+const leadBody = lead ? leadParagraphs(lead.body ?? '', 2) : [];
+/* A parody paper needs a folio to send the reader to. The lead is on page 1,
+   so it continues on the next one. */
+const jumpPage = lead ? lead.data.order + 1 : 2;
+const podium = standings ? standings.entries.slice(0, 3) : [];
+
+/* A front page shouts one title, not two. When the issue headline IS the lead
+   piece's title — the usual case for a post-giornata number — the giant
+   headline stands in for it and links to the piece, instead of being printed
+   twice a few centimetres apart. */
+const normalize = (value: string): string => value.replace(/\s+/g, ' ').trim().toLowerCase();
+const headlineIsLead =
+  lead !== undefined && normalize(lead.data.title) === normalize(issue.data.headline);
+const leadHref = lead ? articlePath(issue.data.number, lead) : '#';
+const matchdayLabel =
+  issue.data.matchday === null ? 'Fuori giornata' : `Giornata ${issue.data.matchday}`;
+---
+
+<div class="front">
+  <div class="front__edition">
+    <span class="seal">Edizione straordinaria</span>
+    <span class="dateline">{ISSUE_TYPE_LABELS[issue.data.type]}</span>
+    <span class="dateline">{matchdayLabel}</span>
+  </div>
+
+  <h1 class="front__headline" id="front-headline">
+    {
+      headlineIsLead ? (
+        <a class="front__headline-link" href={leadHref}>
+          {issue.data.headline}
+        </a>
+      ) : (
+        issue.data.headline
+      )
+    }
+  </h1>
+
+  <hr class="rule--double" />
+
+  <div class="front__top">
+    {
+      lead && (
+        <article class="lead" aria-labelledby={headlineIsLead ? 'front-headline' : undefined}>
+          <p class="kicker">{COLUMN_LABELS[lead.data.column]}</p>
+          {!headlineIsLead && (
+            <h2 class="lead__title">
+              <a href={leadHref}>{lead.data.title}</a>
+            </h2>
+          )}
+          <p class="byline">
+            di <strong>{lead.data.byline}</strong>
+          </p>
+          <div class="prose lead__body">
+            {leadBody.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+          <p class="lead__jump">
+            <a href={leadHref}>
+              Continua a pagina {jumpPage}
+              <span aria-hidden="true"> →</span>
+            </a>
+          </p>
+        </article>
+      )
+    }
+
+    <aside class="front__aside" aria-labelledby="classifica-parziale">
+      <section class="panel">
+        <p class="kicker">La classifica</p>
+        <h2 class="panel__title" id="classifica-parziale">Il podio della vergogna</h2>
+        {
+          standings ? (
+            <>
+              <p class="dateline panel__note">Dopo la giornata {standings.matchday}</p>
+              <ol class="podium">
+                {podium.map((entry) => (
+                  <li class="podium__row">
+                    <span class="podium__pos">{entry.position}</span>
+                    <span class="podium__team">
+                      <span class="podium__name">{entry.teamName}</span>
+                      <span class="podium__manager">{entry.manager}</span>
+                    </span>
+                    <span class="podium__score">
+                      <strong>{entry.points}</strong>
+                      <span class="podium__fanta">
+                        {entry.fantapointsTotal.toLocaleString('it-IT', {
+                          minimumFractionDigits: 1,
+                          maximumFractionDigits: 1,
+                        })}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+              <p class="panel__more">
+                <a href="/classifiche/">
+                  Classifica completa<span aria-hidden="true"> →</span>
+                </a>
+              </p>
+            </>
+          ) : (
+            <p class="panel__empty">
+              Nessuna giornata agli atti. Per ora sono tutti innocenti.
+            </p>
+          )
+        }
+      </section>
+    </aside>
+  </div>
+
+  {
+    award && (
+      <aside class="strillo" aria-label="Albo d'Oro della Vergogna">
+        <p class="kicker strillo__label">Albo d'Oro della Vergogna</p>
+        <p class="strillo__award">
+          {award.award}: <strong>{award.manager}</strong>
+        </p>
+        <p class="strillo__motivation">{award.motivation}</p>
+        <p class="strillo__more">
+          <a href="/albo/">
+            Tutte le onorificenze<span aria-hidden="true"> →</span>
+          </a>
+        </p>
+      </aside>
+    )
+  }
+
+  {
+    rest.length > 0 && (
+      <section class="front__more">
+        <h2 class="section-title">In questo numero</h2>
+        <div class="front-grid">
+          {rest.map((article, index) => (
+            <ArticleCard
+              title={article.data.title}
+              column={article.data.column}
+              byline={article.data.byline}
+              href={articlePath(issue.data.number, article)}
+              lead={excerpt(article.body ?? '', 150)}
+              /* Keep the three-column grid flush: the opening card takes two
+                 columns whenever the remainder would otherwise leave a hole. */
+              class={index === 0 && rest.length % 3 !== 0 ? 'span-2' : undefined}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</div>
+
+<style>
+  .front__edition {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  /* The shout. Bodoni at its heaviest, tight, and allowed to break rather
+     than push the page sideways on a 360px screen. */
+  .front__headline {
+    font-size: clamp(2.35rem, 1.1rem + 5.6vw, 5.2rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.028em;
+    margin: 0;
+    /* Headlines are never hyphenated in print; `break-word` stays as the
+       last-resort guard against a single word wider than a 360px screen. */
+    overflow-wrap: break-word;
+    hyphens: manual;
+  }
+
+  .front__headline-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .front__headline-link:hover,
+  .front__headline-link:focus-visible {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.06em;
+  }
+
+  .front__top {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-4);
+  }
+
+  @media (min-width: 64rem) {
+    .front__headline-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .front__headline-link:hover,
+  .front__headline-link:focus-visible {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.06em;
+  }
+
+  .front__top {
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+    }
+
+    .front__aside {
+      border-inline-start: 1px solid var(--rule);
+      padding-inline-start: var(--space-4);
+    }
+  }
+
+  .lead__title {
+    font-size: var(--step-3);
+    margin: 0 0 var(--space-2);
+  }
+
+  .lead__title a {
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 180ms ease-out;
+  }
+
+  .lead__title a:hover,
+  .lead__title a:focus-visible {
+    background-size: 100% 2px;
+  }
+
+  .lead__body {
+    margin-top: var(--space-3);
+  }
+
+  .lead__jump {
+    margin: 0;
+    font-family: var(--font-text);
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .lead__jump a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
+
+  /* Two columns for the lead only once there is room for a real measure. */
+  @media (min-width: 48rem) {
+    .lead__body {
+      columns: 2;
+      column-gap: var(--space-4);
+      column-rule: 1px solid var(--rule);
+      max-width: none;
+    }
+  }
+
+  .panel__note {
+    display: block;
+    margin: 0 0 var(--space-2);
+  }
+
+  .podium {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .podium__row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding-block: var(--space-2);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .podium__pos {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent);
+    min-width: 1.1em;
+  }
+
+  .podium__team {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .podium__name {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .podium__manager {
+    font-size: var(--step--2);
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.09em;
+    color: var(--ink-faint);
+  }
+
+  .podium__score {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+
+  .podium__score strong {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+  }
+
+  .podium__fanta {
+    font-size: var(--step--2);
+    color: var(--ink-faint);
+  }
+
+  .panel__more,
+  .panel__empty {
+    margin: var(--space-3) 0 0;
+    font-size: var(--step--1);
+  }
+
+  .panel__empty {
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .strillo {
+    margin-block: var(--space-5);
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .strillo__label {
+    margin: 0;
+  }
+
+  .strillo__award {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .strillo__award strong {
+    font-style: italic;
+  }
+
+  .strillo__motivation {
+    margin: 0;
+    font-size: var(--step--1);
+    max-width: var(--measure);
+    opacity: 0.86;
+  }
+
+  .strillo__more {
+    margin: var(--space-1) 0 0;
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 48rem) {
+    .strillo {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      column-gap: var(--space-4);
+    }
+
+    .strillo__label,
+    .strillo__award,
+    .strillo__motivation {
+      grid-column: 1;
+    }
+
+    .strillo__more {
+      grid-column: 2;
+      grid-row: 2 / span 2;
+      align-self: center;
+      white-space: nowrap;
+    }
+  }
+
+  .front__more {
+    margin-top: var(--space-5);
+  }
+</style>
