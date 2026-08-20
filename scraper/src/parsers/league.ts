@@ -2,6 +2,12 @@ import type { Page } from 'playwright';
 import { LeagueSchema, type League } from '../schemas.js';
 import { SEL } from '../selectors.js';
 
+/**
+ * `credits` uses `|| NaN`, not `?? NaN`: an empty cell yields `''` and
+ * `Number('')` is `0`, which would report a team that has spent its whole
+ * budget. NaN is mapped to `null` below — "not shown" — which is what
+ * `TeamSchema` allows and what the site now renders.
+ */
 export async function parseLeague(page: Page, scrapedAt: string): Promise<League> {
   const raw = await page.evaluate((sel) => {
     const mode = document.querySelector(sel.mode)?.getAttribute(sel.modeAttr) ?? 'unknown';
@@ -9,7 +15,7 @@ export async function parseLeague(page: Page, scrapedAt: string): Promise<League
       id: row.getAttribute(sel.teamIdAttr) ?? '',
       name: row.querySelector(sel.teamName)?.textContent?.trim() ?? '',
       manager: row.querySelector(sel.manager)?.textContent?.trim() ?? '',
-      credits: Number(row.querySelector(sel.credits)?.textContent?.trim() ?? NaN),
+      credits: Number(row.querySelector(sel.credits)?.textContent?.trim() || NaN),
     }));
     return { mode, teams };
   }, SEL.league);

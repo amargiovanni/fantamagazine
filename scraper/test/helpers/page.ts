@@ -24,14 +24,15 @@ export function setupBrowser(): void {
 }
 
 /**
- * Loads `scraper/fixtures/<fixtureFile>` into a fresh page and runs `fn`
- * against it. The page is closed after `fn` resolves or throws.
+ * Loads `html` into a fresh page and runs `fn` against it. The page is closed
+ * after `fn` resolves or throws. Use it for the one-off malformed markup a
+ * single test needs; a page shape more than one test cares about belongs in
+ * `scraper/fixtures/` and goes through `withFixturePage`.
  */
-export async function withFixturePage(fixtureFile: string, fn: (page: Page) => Promise<void>): Promise<void> {
+export async function withHtmlPage(html: string, fn: (page: Page) => Promise<void>): Promise<void> {
   if (!browser) {
     throw new Error('Browser not initialized: call setupBrowser() in the test suite first.');
   }
-  const html = readFileSync(join(fixturesDir, fixtureFile), 'utf8');
   const page = await browser.newPage();
   try {
     await page.setContent(html);
@@ -39,4 +40,12 @@ export async function withFixturePage(fixtureFile: string, fn: (page: Page) => P
   } finally {
     await page.close();
   }
+}
+
+/**
+ * Loads `scraper/fixtures/<fixtureFile>` into a fresh page and runs `fn`
+ * against it. The page is closed after `fn` resolves or throws.
+ */
+export async function withFixturePage(fixtureFile: string, fn: (page: Page) => Promise<void>): Promise<void> {
+  return withHtmlPage(readFileSync(join(fixturesDir, fixtureFile), 'utf8'), fn);
 }
