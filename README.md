@@ -84,6 +84,25 @@ correctly, then update the "Live URL" line above.
 
 ## Go live with real league data
 
+**Step 0 — purge the demo.** Everything shipped in the repository describes a
+fictional league: eight invented managers, one invented matchday, one issue
+written about them. None of it may survive the first real scrape. Fictional
+managers sitting next to real ones make the archive unreadable — an albo entry
+gives no clue which of the two it judges — and the editorial cadences count
+issues and awards, so an award already "assigned" to Ottavio makes the newsroom
+believe a rotation is in progress that never happened. Before anything else,
+delete:
+
+- `content/2026-27/issue-000/` — the demo issue;
+- `data/2026-27/matchday-00/` and `data/2026-27/league.json` — the demo dataset;
+- the eight dossiers in `editorial/dossier/` (`baldassarre.md`, `clemente.md`,
+  `ernesto.md`, `furio.md`, `gastone.md`, `ottavio.md`, `prospero.md`,
+  `ulderico.md`) — **keep `_template.md`**, which is the format, not a manager;
+
+and reset `editorial/albo.json` to `[]`, so the award cadences restart from
+zero. `editorial/opt-out.json` is not demo data: it is filled in from what the
+real league says, before the first issue.
+
 1. Fill in `.env` with real fantacalcio.it credentials, then run the
    recalibration procedure above (`--capture`, align `selectors.ts`, refresh
    fixtures, green tests) — the pipeline was only ever exercised against the
