@@ -29,9 +29,12 @@ because the jokes have to compound across issues instead of resetting.
   - `pre` — before a matchday: market gossip and probable lineups;
   - `post` — after a matchday: match report, report cards, standings;
   - `midweek` — Wednesday/Thursday long-form, no fresh data needed.
-- The **number** is the next free one: list `content/<season>/` and take the
-  highest `issue-NNN` plus one. `issue-000` is the demo issue and counts. If
-  `content/<season>/` does not exist yet, the issue number is **0**.
+- The **number** is the next free one, and numbering is **continuous across
+  seasons**: take the highest `issue-NNN` found anywhere under `content/` — every
+  season, not only this one — and add one. Numbers are never reused, so the
+  archive and the URLs stay unambiguous when a second season starts.
+  `issue-000` is the demo issue and counts. Only when `content/` holds no issues
+  at all is the number **0**.
 - Fix the **season** (`2026-27` unless told otherwise) and, for `pre`/`post`,
   the **matchday**.
 
