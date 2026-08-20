@@ -351,6 +351,12 @@ Contiene:
 
 Ornella non dice mai "forse": dice "risulta".
 
+Un numero `post` può ospitare `mercato` come teaser del prossimo turno,
+oltre alle rubriche già previste per quel tipo in §9: in quel caso **"Le
+posizioni"** sostituisce **"Le probabili formazioni"** — il turno appena
+giocato è già in classifica, non c'è più nulla da prevedere sullo
+schieramento.
+
 ### 6.6 `approfondimento` — L'inchiesta
 
 Firma: **Ornella Malaparte** o **Aldo Catenaccio** secondo il taglio (inchiesta
@@ -497,7 +503,7 @@ Un file per numero, in `content/<stagione>/issue-NNN/issue.json`:
 | `type` | Rubriche | Cartella dati richiesta |
 |---|---|---|
 | `pre` | `mercato` + `editoriale` | `data/<stagione>/matchday-NN/` deve esistere |
-| `post` | `cronaca-pagelle` + `classifiche` + `editoriale` + `rubrica-fissa` | `data/<stagione>/matchday-NN/` deve esistere |
+| `post` | `cronaca-pagelle` + `classifiche` + `editoriale` + `rubrica-fissa` (+ `mercato` opzionale, come teaser — vedi §6.5) | `data/<stagione>/matchday-NN/` deve esistere |
 | `midweek` | `editoriale` + 1–2 `approfondimento` | nessuna: usa solo storia già committata |
 
 ### Nomi dei file

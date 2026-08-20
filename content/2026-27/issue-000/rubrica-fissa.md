@@ -1,6 +1,6 @@
 ---
 column: rubrica-fissa
-title: "IL CASO: perde per mezzo fantapunto, in panchina ne aveva quattro"
+title: "IL CASO: perde per mezzo fantapunto, in panchina ne ha quattro"
 byline: "Zia Fantina"
 order: 4
 ---
