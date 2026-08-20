@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
   "mode": "classic",
-  "scrapedAt": "2026-08-20T16:45:50.548Z",
+  "scrapedAt": "2026-08-20T16:54:10.375Z",
   "teams": [
     {
       "teamId": "5627067",
@@ -12,151 +12,176 @@
           "name": "Christensen O.",
           "role": "P",
           "club": "Fiorentina",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "De Gea",
           "role": "P",
           "club": "Fiorentina",
-          "price": 62
+          "price": 62,
+          "quotation": 13
         },
         {
           "name": "Perin",
           "role": "P",
           "club": "Juventus",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "Kelly L.",
           "role": "D",
           "club": "Juventus",
-          "price": 6
+          "price": 6,
+          "quotation": 5
         },
         {
           "name": "Couto",
           "role": "D",
           "club": "Como",
-          "price": 26
+          "price": 26,
+          "quotation": 8
         },
         {
           "name": "Delprato",
           "role": "D",
           "club": "Parma",
-          "price": 10
+          "price": 10,
+          "quotation": 8
         },
         {
           "name": "Tavares N.",
           "role": "D",
           "club": "Lazio",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "Cambiaso",
           "role": "D",
           "club": "Juventus",
-          "price": 10
+          "price": 10,
+          "quotation": 9
         },
         {
           "name": "Dragusin",
           "role": "D",
           "club": "Fiorentina",
-          "price": 12
+          "price": 12,
+          "quotation": 8
         },
         {
           "name": "Stones",
           "role": "D",
           "club": "Inter",
-          "price": 20
+          "price": 20,
+          "quotation": 12
         },
         {
           "name": "Zappacosta",
           "role": "D",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 8
         },
         {
           "name": "Rodriguez Je.",
           "role": "C",
           "club": "Como",
-          "price": 9
+          "price": 9,
+          "quotation": 12
         },
         {
           "name": "Adzic",
           "role": "C",
           "club": "Sassuolo",
-          "price": 11
+          "price": 11,
+          "quotation": 5
         },
         {
           "name": "Zhegrova",
           "role": "C",
           "club": "Juventus",
-          "price": 5
+          "price": 5,
+          "quotation": 6
         },
         {
           "name": "Samardzic",
           "role": "C",
           "club": "Atalanta",
-          "price": 12
+          "price": 12,
+          "quotation": 12
         },
         {
           "name": "McKennie",
           "role": "C",
           "club": "Juventus",
-          "price": 51
+          "price": 51,
+          "quotation": 17
         },
         {
           "name": "De Bruyne",
           "role": "C",
           "club": "Napoli",
-          "price": 52
+          "price": 52,
+          "quotation": 15
         },
         {
           "name": "Rabiot",
           "role": "C",
           "club": "Milan",
-          "price": 58
+          "price": 58,
+          "quotation": 22
         },
         {
           "name": "Zaccagni",
           "role": "C",
           "club": "Lazio",
-          "price": 71
+          "price": 71,
+          "quotation": 16
         },
         {
           "name": "Elphege",
           "role": "A",
           "club": "Parma",
-          "price": 1
+          "price": 1,
+          "quotation": 3
         },
         {
           "name": "Pellegrino M.",
           "role": "A",
           "club": "Fiorentina",
-          "price": 10
+          "price": 10,
+          "quotation": 15
         },
         {
           "name": "Diao",
           "role": "A",
           "club": "Como",
-          "price": 50
+          "price": 50,
+          "quotation": 11
         },
         {
           "name": "Dovbyk",
           "role": "A",
           "club": "Bologna",
-          "price": 225
+          "price": 225,
+          "quotation": 16
         },
         {
           "name": "De Ketelaere",
           "role": "A",
           "club": "Atalanta",
-          "price": 75
+          "price": 75,
+          "quotation": 17
         },
         {
           "name": "Davis K.",
           "role": "A",
           "club": "Udinese",
-          "price": 165
+          "price": 165,
+          "quotation": 19
         }
       ]
     },
@@ -169,151 +194,176 @@
           "name": "Tornqvist",
           "role": "P",
           "club": "Como",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "Butez",
           "role": "P",
           "club": "Como",
-          "price": 86
+          "price": 86,
+          "quotation": 16
         },
         {
           "name": "Vigorito",
           "role": "P",
           "club": "Como",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "Tiago Gabriel",
           "role": "D",
           "club": "Lecce",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Kristensen T.",
           "role": "D",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Hien",
           "role": "D",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 8
         },
         {
           "name": "Ismajli",
           "role": "D",
           "club": "Torino",
-          "price": 5
+          "price": 5,
+          "quotation": 7
         },
         {
           "name": "Zappa",
           "role": "D",
           "club": "Cagliari",
-          "price": 3
+          "price": 3,
+          "quotation": 4
         },
         {
           "name": "Walukiewicz",
           "role": "D",
           "club": "Sassuolo",
-          "price": 2
+          "price": 2,
+          "quotation": 4
         },
         {
           "name": "N'Dicka",
           "role": "D",
           "club": "Roma",
-          "price": 15
+          "price": 15,
+          "quotation": 13
         },
         {
           "name": "Martin",
           "role": "D",
           "club": "Genoa",
-          "price": 2
+          "price": 2,
+          "quotation": 5
         },
         {
           "name": "Zerbin",
           "role": "C",
           "club": "Frosinone",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Vlasic",
           "role": "C",
           "club": "Torino",
-          "price": 90
+          "price": 90,
+          "quotation": 14
         },
         {
           "name": "Zalewski",
           "role": "C",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "McTominay",
           "role": "C",
           "club": "Napoli",
-          "price": 183
+          "price": 183,
+          "quotation": 28
         },
         {
           "name": "Gaetano",
           "role": "C",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Loftus-Cheek",
           "role": "C",
           "club": "Milan",
-          "price": 1
+          "price": 1,
+          "quotation": 4
         },
         {
           "name": "Orsolini",
           "role": "C",
           "club": "Bologna",
-          "price": 125
+          "price": 125,
+          "quotation": 26
         },
         {
           "name": "Pasalic",
           "role": "C",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 9
         },
         {
           "name": "Vaz",
           "role": "A",
           "club": "Roma",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "Borrelli",
           "role": "A",
           "club": "Cagliari",
-          "price": 9
+          "price": 9,
+          "quotation": 4
         },
         {
           "name": "Hojlund",
           "role": "A",
           "club": "Napoli",
-          "price": 240
+          "price": 240,
+          "quotation": 28
         },
         {
           "name": "Mota",
           "role": "A",
           "club": "Monza",
-          "price": 3
+          "price": 3,
+          "quotation": 5
         },
         {
           "name": "Dia",
           "role": "A",
           "club": "Lazio",
-          "price": 1
+          "price": 1,
+          "quotation": 10
         },
         {
           "name": "Scamacca",
           "role": "A",
           "club": "Atalanta",
-          "price": 86
+          "price": 86,
+          "quotation": 19
         }
       ]
     },
@@ -326,151 +376,176 @@
           "name": "Desplanches",
           "role": "P",
           "club": "Frosinone",
-          "price": 2
+          "price": 2,
+          "quotation": 2
         },
         {
           "name": "Corvi",
           "role": "P",
           "club": "Parma",
-          "price": 5
+          "price": 5,
+          "quotation": 1
         },
         {
           "name": "Palmisani",
           "role": "P",
           "club": "Frosinone",
-          "price": 1
+          "price": 1,
+          "quotation": 4
         },
         {
           "name": "Mangas",
           "role": "D",
           "club": "Monza",
-          "price": 8
+          "price": 8,
+          "quotation": 6
         },
         {
           "name": "Calvani",
           "role": "D",
           "club": "Frosinone",
-          "price": 2
+          "price": 2,
+          "quotation": 4
         },
         {
           "name": "Troilo",
           "role": "D",
           "club": "Parma",
-          "price": 2
+          "price": 2,
+          "quotation": 3
         },
         {
           "name": "Valle",
           "role": "D",
           "club": "Como",
-          "price": 9
+          "price": 9,
+          "quotation": 6
         },
         {
           "name": "Haps",
           "role": "D",
           "club": "Venezia",
-          "price": 4
+          "price": 4,
+          "quotation": 5
         },
         {
           "name": "Pedraza",
           "role": "D",
           "club": "Lazio",
-          "price": 9
+          "price": 9,
+          "quotation": 5
         },
         {
           "name": "Pellegrini Lu.",
           "role": "D",
           "club": "Lazio",
-          "price": 1
+          "price": 1,
+          "quotation": 2
         },
         {
           "name": "Marusic",
           "role": "D",
           "club": "Lazio",
-          "price": 3
+          "price": 3,
+          "quotation": 6
         },
         {
           "name": "Amondarain",
           "role": "C",
           "club": "Bologna",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Taylor K.",
           "role": "C",
           "club": "Lazio",
-          "price": 51
+          "price": 51,
+          "quotation": 13
         },
         {
           "name": "Jashari",
           "role": "C",
           "club": "Milan",
-          "price": 3
+          "price": 3,
+          "quotation": 4
         },
         {
           "name": "Casadei",
           "role": "C",
           "club": "Torino",
-          "price": 17
+          "price": 17,
+          "quotation": 10
         },
         {
           "name": "Colpani",
           "role": "C",
           "club": "Monza",
-          "price": 6
+          "price": 6,
+          "quotation": 8
         },
         {
           "name": "Da Cunha",
           "role": "C",
           "club": "Como",
-          "price": 90
+          "price": 90,
+          "quotation": 18
         },
         {
           "name": "Adopo",
           "role": "C",
           "club": "Cagliari",
-          "price": 2
+          "price": 2,
+          "quotation": 6
         },
         {
           "name": "Calhanoglu",
           "role": "C",
           "club": "Inter",
-          "price": 160
+          "price": 160,
+          "quotation": 27
         },
         {
           "name": "Esposito F.P.",
           "role": "A",
           "club": "Inter",
-          "price": 31
+          "price": 31,
+          "quotation": 16
         },
         {
           "name": "Yeboah J.",
           "role": "A",
           "club": "Venezia",
-          "price": 21
+          "price": 21,
+          "quotation": 8
         },
         {
           "name": "Raimondo",
           "role": "A",
           "club": "Frosinone",
-          "price": 4
+          "price": 4,
+          "quotation": 7
         },
         {
           "name": "Thuram",
           "role": "A",
           "club": "Inter",
-          "price": 300
+          "price": 300,
+          "quotation": 29
         },
         {
           "name": "Raspadori",
           "role": "A",
           "club": "Atalanta",
-          "price": 64
+          "price": 64,
+          "quotation": 13
         },
         {
           "name": "Milik",
           "role": "A",
           "club": "Juventus",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         }
       ]
     },
@@ -483,151 +558,176 @@
           "name": "Pessina Mas.",
           "role": "P",
           "club": "Bologna",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "Di Gregorio",
           "role": "P",
           "club": "Juventus",
-          "price": 1
+          "price": 1,
+          "quotation": 9
         },
         {
           "name": "Skorupski",
           "role": "P",
           "club": "Bologna",
-          "price": 42
+          "price": 42,
+          "quotation": 10
         },
         {
           "name": "Koulierakis",
           "role": "D",
           "club": "Roma",
-          "price": 10
+          "price": 10,
+          "quotation": 8
         },
         {
           "name": "Bracaglia",
           "role": "D",
           "club": "Frosinone",
-          "price": 5
+          "price": 5,
+          "quotation": 5
         },
         {
           "name": "Obrador",
           "role": "D",
           "club": "Sassuolo",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "Bartesaghi",
           "role": "D",
           "club": "Milan",
-          "price": 11
+          "price": 11,
+          "quotation": 8
         },
         {
           "name": "Doekhi",
           "role": "D",
           "club": "Lazio",
-          "price": 13
+          "price": 13,
+          "quotation": 7
         },
         {
           "name": "Carlos Augusto",
           "role": "D",
           "club": "Inter",
-          "price": 10
+          "price": 10,
+          "quotation": 7
         },
         {
           "name": "Di Lorenzo",
           "role": "D",
           "club": "Napoli",
-          "price": 42
+          "price": 42,
+          "quotation": 12
         },
         {
           "name": "Dimarco",
           "role": "D",
           "club": "Inter",
-          "price": 195
+          "price": 195,
+          "quotation": 32
         },
         {
           "name": "Grillitsch",
           "role": "C",
           "club": "Frosinone",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Vergara",
           "role": "C",
           "club": "Napoli",
-          "price": 2
+          "price": 2,
+          "quotation": 8
         },
         {
           "name": "Paz N.",
           "role": "C",
           "club": "Como",
-          "price": 201
+          "price": 201,
+          "quotation": 30
         },
         {
           "name": "Karlstrom",
           "role": "C",
           "club": "Udinese",
-          "price": 2
+          "price": 2,
+          "quotation": 6
         },
         {
           "name": "Thorstvedt",
           "role": "C",
           "club": "Sassuolo",
-          "price": 11
+          "price": 11,
+          "quotation": 10
         },
         {
           "name": "Cancellieri",
           "role": "C",
           "club": "Lazio",
-          "price": 1
+          "price": 1,
+          "quotation": 9
         },
         {
           "name": "Mkhitaryan",
           "role": "C",
           "club": "Inter",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Cristante",
           "role": "C",
           "club": "Roma",
-          "price": 1
+          "price": 1,
+          "quotation": 8
         },
         {
           "name": "Kevin Carlos",
           "role": "A",
           "club": "Cagliari",
-          "price": 7
+          "price": 7,
+          "quotation": 13
         },
         {
           "name": "Ekhator",
           "role": "A",
           "club": "Juventus",
-          "price": 1
+          "price": 1,
+          "quotation": 3
         },
         {
           "name": "Adams C.",
           "role": "A",
           "club": "Torino",
-          "price": 2
+          "price": 2,
+          "quotation": 9
         },
         {
           "name": "Ghedjemis",
           "role": "A",
           "club": "Frosinone",
-          "price": 1
+          "price": 1,
+          "quotation": 9
         },
         {
           "name": "Ramos G.",
           "role": "A",
           "club": "Milan",
-          "price": 296
+          "price": 296,
+          "quotation": 27
         },
         {
           "name": "Geubbels",
           "role": "A",
           "club": "Lecce",
-          "price": 142
+          "price": 142,
+          "quotation": 9
         }
       ]
     },
@@ -640,151 +740,176 @@
           "name": "Caprile",
           "role": "P",
           "club": "Cagliari",
-          "price": 33
+          "price": 33,
+          "quotation": 9
         },
         {
           "name": "Maignan",
           "role": "P",
           "club": "Milan",
-          "price": 75
+          "price": 75,
+          "quotation": 15
         },
         {
           "name": "Muric",
           "role": "P",
           "club": "Sassuolo",
-          "price": 12
+          "price": 12,
+          "quotation": 7
         },
         {
           "name": "Wesley",
           "role": "D",
           "club": "Roma",
-          "price": 105
+          "price": 105,
+          "quotation": 17
         },
         {
           "name": "Candè",
           "role": "D",
           "club": "Sassuolo",
-          "price": 1
+          "price": 1,
+          "quotation": 3
         },
         {
           "name": "Ahanor",
           "role": "D",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "Comuzzo",
           "role": "D",
           "club": "Torino",
-          "price": 5
+          "price": 5,
+          "quotation": 6
         },
         {
           "name": "Bertola",
           "role": "D",
           "club": "Udinese",
-          "price": 2
+          "price": 2,
+          "quotation": 4
         },
         {
           "name": "Monterisi",
           "role": "D",
           "club": "Frosinone",
-          "price": 2
+          "price": 2,
+          "quotation": 6
         },
         {
           "name": "Mina",
           "role": "D",
           "club": "Cagliari",
-          "price": 10
+          "price": 10,
+          "quotation": 8
         },
         {
           "name": "Mancini",
           "role": "D",
           "club": "Roma",
-          "price": 44
+          "price": 44,
+          "quotation": 15
         },
         {
           "name": "Conceicao",
           "role": "C",
           "club": "Juventus",
-          "price": 31
+          "price": 31,
+          "quotation": 12
         },
         {
           "name": "Bernabè",
           "role": "C",
           "club": "Parma",
-          "price": 10
+          "price": 10,
+          "quotation": 7
         },
         {
           "name": "El Aynaoui",
           "role": "C",
           "club": "Roma",
-          "price": 2
+          "price": 2,
+          "quotation": 4
         },
         {
           "name": "Douglas Luiz",
           "role": "C",
           "club": "Juventus",
-          "price": 1
+          "price": 1,
+          "quotation": 4
         },
         {
           "name": "Chukwueze",
           "role": "C",
           "club": "Milan",
-          "price": 5
+          "price": 5,
+          "quotation": 6
         },
         {
           "name": "Matic",
           "role": "C",
           "club": "Sassuolo",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Pulisic",
           "role": "C",
           "club": "Milan",
-          "price": 160
+          "price": 160,
+          "quotation": 25
         },
         {
           "name": "Barella",
           "role": "C",
           "club": "Inter",
-          "price": 65
+          "price": 65,
+          "quotation": 17
         },
         {
           "name": "Romero D.",
           "role": "A",
           "club": "Parma",
-          "price": 1
+          "price": 1,
+          "quotation": 10
         },
         {
           "name": "Rrahmani Al.",
           "role": "A",
           "club": "Venezia",
-          "price": 2
+          "price": 2,
+          "quotation": 8
         },
         {
           "name": "Ratkov",
           "role": "A",
           "club": "Lazio",
-          "price": 1
+          "price": 1,
+          "quotation": 10
         },
         {
           "name": "Nkunku",
           "role": "A",
           "club": "Milan",
-          "price": 7
+          "price": 7,
+          "quotation": 13
         },
         {
           "name": "Piccoli",
           "role": "A",
           "club": "Bologna",
-          "price": 29
+          "price": 29,
+          "quotation": 8
         },
         {
           "name": "Kean",
           "role": "A",
           "club": "Fiorentina",
-          "price": 210
+          "price": 210,
+          "quotation": 25
         }
       ]
     },
@@ -797,151 +922,176 @@
           "name": "Vismara",
           "role": "P",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "Carnesecchi",
           "role": "P",
           "club": "Atalanta",
-          "price": 65
+          "price": 65,
+          "quotation": 16
         },
         {
           "name": "Sportiello",
           "role": "P",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "Puczka",
           "role": "D",
           "club": "Genoa",
-          "price": 1
+          "price": 1,
+          "quotation": 2
         },
         {
           "name": "Bella-Kotchap",
           "role": "D",
           "club": "Venezia",
-          "price": 6
+          "price": 6,
+          "quotation": 6
         },
         {
           "name": "Bernasconi",
           "role": "D",
           "club": "Atalanta",
-          "price": 9
+          "price": 9,
+          "quotation": 6
         },
         {
           "name": "Norton-Cuffy",
           "role": "D",
           "club": "Genoa",
-          "price": 21
+          "price": 21,
+          "quotation": 8
         },
         {
           "name": "Lucumì",
           "role": "D",
           "club": "Juventus",
-          "price": 6
+          "price": 6,
+          "quotation": 8
         },
         {
           "name": "Ostigard",
           "role": "D",
           "club": "Genoa",
-          "price": 41
+          "price": 41,
+          "quotation": 11
         },
         {
           "name": "Obert",
           "role": "D",
           "club": "Cagliari",
-          "price": 3
+          "price": 3,
+          "quotation": 7
         },
         {
           "name": "Vojvoda",
           "role": "D",
           "club": "Udinese",
-          "price": 15
+          "price": 15,
+          "quotation": 8
         },
         {
           "name": "Schmid",
           "role": "C",
           "club": "Frosinone",
-          "price": 11
+          "price": 11,
+          "quotation": 8
         },
         {
           "name": "Calò",
           "role": "C",
           "club": "Frosinone",
-          "price": 10
+          "price": 10,
+          "quotation": 7
         },
         {
           "name": "Alajbegovic",
           "role": "C",
           "club": "Juventus",
-          "price": 69
+          "price": 69,
+          "quotation": 12
         },
         {
           "name": "Cacciamani",
           "role": "C",
           "club": "Torino",
-          "price": 6
+          "price": 6,
+          "quotation": 5
         },
         {
           "name": "Cissè A.",
           "role": "C",
           "club": "Milan",
-          "price": 1
+          "price": 1,
+          "quotation": 3
         },
         {
           "name": "Ederson D.S.",
           "role": "C",
           "club": "Atalanta",
-          "price": 61
+          "price": 61,
+          "quotation": 12
         },
         {
           "name": "Zaniolo",
           "role": "C",
           "club": "Udinese",
-          "price": 101
+          "price": 101,
+          "quotation": 18
         },
         {
           "name": "Bernardeschi",
           "role": "C",
           "club": "Bologna",
-          "price": 19
+          "price": 19,
+          "quotation": 9
         },
         {
           "name": "Adams A.",
           "role": "A",
           "club": "Venezia",
-          "price": 60
+          "price": 60,
+          "quotation": 12
         },
         {
           "name": "Santos A.",
           "role": "A",
           "club": "Napoli",
-          "price": 50
+          "price": 50,
+          "quotation": 14
         },
         {
           "name": "Krstovic",
           "role": "A",
           "club": "Atalanta",
-          "price": 120
+          "price": 120,
+          "quotation": 18
         },
         {
           "name": "Leao",
           "role": "A",
           "club": "Milan",
-          "price": 81
+          "price": 81,
+          "quotation": 18
         },
         {
           "name": "Cutrone",
           "role": "A",
           "club": "Monza",
-          "price": 12
+          "price": 12,
+          "quotation": 9
         },
         {
           "name": "Berardi",
           "role": "A",
           "club": "Sassuolo",
-          "price": 82
+          "price": 82,
+          "quotation": 18
         }
       ]
     },
@@ -954,151 +1104,176 @@
           "name": "Okoye",
           "role": "P",
           "club": "Udinese",
-          "price": 19
+          "price": 19,
+          "quotation": 9
         },
         {
           "name": "Stankovic F.",
           "role": "P",
           "club": "Venezia",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "Svilar",
           "role": "P",
           "club": "Roma",
-          "price": 100
+          "price": 100,
+          "quotation": 18
         },
         {
           "name": "Coco",
           "role": "D",
           "club": "Torino",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Jimenez A.",
           "role": "D",
           "club": "Fiorentina",
-          "price": 15
+          "price": 15,
+          "quotation": 8
         },
         {
           "name": "Valeri",
           "role": "D",
           "club": "Parma",
-          "price": 9
+          "price": 9,
+          "quotation": 8
         },
         {
           "name": "Chalobah T.",
           "role": "D",
           "club": "Como",
-          "price": 4
+          "price": 4,
+          "quotation": 9
         },
         {
           "name": "Pavlovic",
           "role": "D",
           "club": "Milan",
-          "price": 1
+          "price": 1,
+          "quotation": 14
         },
         {
           "name": "Molina N.",
           "role": "D",
           "club": "Roma",
-          "price": 40
+          "price": 40,
+          "quotation": 18
         },
         {
           "name": "Rrahmani",
           "role": "D",
           "club": "Napoli",
-          "price": 25
+          "price": 25,
+          "quotation": 14
         },
         {
           "name": "Gabbia",
           "role": "D",
           "club": "Milan",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Rowe",
           "role": "C",
           "club": "Bologna",
-          "price": 36
+          "price": 36,
+          "quotation": 11
         },
         {
           "name": "Berisha M.",
           "role": "C",
           "club": "Lecce",
-          "price": 2
+          "price": 2,
+          "quotation": 5
         },
         {
           "name": "Fazzini",
           "role": "C",
           "club": "Cagliari",
-          "price": 3
+          "price": 3,
+          "quotation": 7
         },
         {
           "name": "Baldanzi",
           "role": "C",
           "club": "Genoa",
-          "price": 10
+          "price": 10,
+          "quotation": 11
         },
         {
           "name": "Saelemaekers",
           "role": "C",
           "club": "Milan",
-          "price": 31
+          "price": 31,
+          "quotation": 10
         },
         {
           "name": "Zambo Anguissa",
           "role": "C",
           "club": "Napoli",
-          "price": 2
+          "price": 2,
+          "quotation": 11
         },
         {
           "name": "Politano",
           "role": "C",
           "club": "Napoli",
-          "price": 13
+          "price": 13,
+          "quotation": 10
         },
         {
           "name": "Pellegrini Lo.",
           "role": "C",
           "club": "Roma",
-          "price": 1
+          "price": 1,
+          "quotation": 10
         },
         {
           "name": "Kulenovic",
           "role": "A",
           "club": "Torino",
-          "price": 1
+          "price": 1,
+          "quotation": 4
         },
         {
           "name": "Noslin",
           "role": "A",
           "club": "Lazio",
-          "price": 2
+          "price": 2,
+          "quotation": 6
         },
         {
           "name": "Malen",
           "role": "A",
           "club": "Roma",
-          "price": 296
+          "price": 296,
+          "quotation": 34
         },
         {
           "name": "Colombo",
           "role": "A",
           "club": "Genoa",
-          "price": 28
+          "price": 28,
+          "quotation": 11
         },
         {
           "name": "Pinamonti",
           "role": "A",
           "club": "Sassuolo",
-          "price": 21
+          "price": 21,
+          "quotation": 13
         },
         {
           "name": "Petagna *",
           "role": "A",
           "club": "Monza",
-          "price": 1
+          "price": 1,
+          "quotation": 2
         }
       ]
     },
@@ -1111,151 +1286,176 @@
           "name": "Martinez Jo.",
           "role": "P",
           "club": "Inter",
-          "price": 76
+          "price": 76,
+          "quotation": 17
         },
         {
           "name": "Provedel",
           "role": "P",
           "club": "Inter",
-          "price": 55
+          "price": 55,
+          "quotation": 2
         },
         {
           "name": "Di Gennaro",
           "role": "P",
           "club": "Inter",
-          "price": 1
+          "price": 1,
+          "quotation": 1
         },
         {
           "name": "Rensch",
           "role": "D",
           "club": "Roma",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Ramon",
           "role": "D",
           "club": "Como",
-          "price": 26
+          "price": 26,
+          "quotation": 10
         },
         {
           "name": "Idzes",
           "role": "D",
           "club": "Sassuolo",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Kalulu",
           "role": "D",
           "club": "Juventus",
-          "price": 40
+          "price": 40,
+          "quotation": 13
         },
         {
           "name": "Hermoso",
           "role": "D",
           "club": "Roma",
-          "price": 3
+          "price": 3,
+          "quotation": 10
         },
         {
           "name": "Gallo",
           "role": "D",
           "club": "Lecce",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "Akanji",
           "role": "D",
           "club": "Inter",
-          "price": 50
+          "price": 50,
+          "quotation": 16
         },
         {
           "name": "Bastoni",
           "role": "D",
           "club": "Inter",
-          "price": 40
+          "price": 40,
+          "quotation": 14
         },
         {
           "name": "Baturina",
           "role": "C",
           "club": "Como",
-          "price": 87
+          "price": 87,
+          "quotation": 19
         },
         {
           "name": "Mastantuono",
           "role": "C",
           "club": "Fiorentina",
-          "price": 74
+          "price": 74,
+          "quotation": 12
         },
         {
           "name": "Ekkelenkamp",
           "role": "C",
           "club": "Udinese",
-          "price": 22
+          "price": 22,
+          "quotation": 10
         },
         {
           "name": "Liberali",
           "role": "C",
           "club": "Como",
-          "price": 6
+          "price": 6,
+          "quotation": 6
         },
         {
           "name": "Pisilli",
           "role": "C",
           "club": "Roma",
-          "price": 2
+          "price": 2,
+          "quotation": 5
         },
         {
           "name": "Perrone",
           "role": "C",
           "club": "Como",
-          "price": 3
+          "price": 3,
+          "quotation": 10
         },
         {
           "name": "Frendrup",
           "role": "C",
           "club": "Genoa",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Thuram K.",
           "role": "C",
           "club": "Juventus",
-          "price": 19
+          "price": 19,
+          "quotation": 10
         },
         {
           "name": "Douvikas",
           "role": "A",
           "club": "Como",
-          "price": 211
+          "price": 211,
+          "quotation": 20
         },
         {
           "name": "Castro S.",
           "role": "A",
           "club": "Roma",
-          "price": 42
+          "price": 42,
+          "quotation": 14
         },
         {
           "name": "Vitinha O.",
           "role": "A",
           "club": "Genoa",
-          "price": 10
+          "price": 10,
+          "quotation": 8
         },
         {
           "name": "Soulè",
           "role": "A",
           "club": "Roma",
-          "price": 7
+          "price": 7,
+          "quotation": 12
         },
         {
           "name": "Simeone",
           "role": "A",
           "club": "Torino",
-          "price": 82
+          "price": 82,
+          "quotation": 15
         },
         {
           "name": "Dybala",
           "role": "A",
           "club": "Roma",
-          "price": 120
+          "price": 120,
+          "quotation": 14
         }
       ]
     },
@@ -1268,151 +1468,176 @@
           "name": "Motta",
           "role": "P",
           "club": "Lazio",
-          "price": 6
+          "price": 6,
+          "quotation": 1
         },
         {
           "name": "Mandas",
           "role": "P",
           "club": "Lazio",
-          "price": 35
+          "price": 35,
+          "quotation": 9
         },
         {
           "name": "Falcone",
           "role": "P",
           "club": "Lecce",
-          "price": 20
+          "price": 20,
+          "quotation": 8
         },
         {
           "name": "Zè Pedro",
           "role": "D",
           "club": "Cagliari",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Floriani Mussolini",
           "role": "D",
           "club": "Lazio",
-          "price": 1
+          "price": 1,
+          "quotation": 3
         },
         {
           "name": "Solet",
           "role": "D",
           "club": "Udinese",
-          "price": 65
+          "price": 65,
+          "quotation": 13
         },
         {
           "name": "Kempf",
           "role": "D",
           "club": "Como",
-          "price": 13
+          "price": 13,
+          "quotation": 5
         },
         {
           "name": "Circati *",
           "role": "D",
           "club": "Parma",
-          "price": 8
+          "price": 8,
+          "quotation": 6
         },
         {
           "name": "Marin R.",
           "role": "D",
           "club": "Napoli",
-          "price": 1
+          "price": 1,
+          "quotation": 2
         },
         {
           "name": "Kabasele",
           "role": "D",
           "club": "Udinese",
-          "price": 1
+          "price": 1,
+          "quotation": 4
         },
         {
           "name": "Spinazzola",
           "role": "D",
           "club": "Napoli",
-          "price": 20
+          "price": 20,
+          "quotation": 8
         },
         {
           "name": "Romano",
           "role": "C",
           "club": "Cagliari",
-          "price": 2
+          "price": 2,
+          "quotation": 5
         },
         {
           "name": "Atta",
           "role": "C",
           "club": "Fiorentina",
-          "price": 61
+          "price": 61,
+          "quotation": 17
         },
         {
           "name": "Pierotti",
           "role": "C",
           "club": "Lecce",
-          "price": 5
+          "price": 5,
+          "quotation": 6
         },
         {
           "name": "Gudmundsson A.",
           "role": "C",
           "club": "Fiorentina",
-          "price": 32
+          "price": 32,
+          "quotation": 13
         },
         {
           "name": "Rovella",
           "role": "C",
           "club": "Lazio",
-          "price": 5
+          "price": 5,
+          "quotation": 6
         },
         {
           "name": "Lobotka",
           "role": "C",
           "club": "Napoli",
-          "price": 1
+          "price": 1,
+          "quotation": 7
         },
         {
           "name": "Modric",
           "role": "C",
           "club": "Milan",
-          "price": 25
+          "price": 25,
+          "quotation": 12
         },
         {
           "name": "Locatelli",
           "role": "C",
           "club": "Juventus",
-          "price": 3
+          "price": 3,
+          "quotation": 8
         },
         {
           "name": "Neres",
           "role": "A",
           "club": "Napoli",
-          "price": 29
+          "price": 29,
+          "quotation": 6
         },
         {
           "name": "Laurientè",
           "role": "A",
           "club": "Sassuolo",
-          "price": 63
+          "price": 63,
+          "quotation": 15
         },
         {
           "name": "Kolo Muani",
           "role": "A",
           "club": "Juventus",
-          "price": 302
+          "price": 302,
+          "quotation": 26
         },
         {
           "name": "David",
           "role": "A",
           "club": "Juventus",
-          "price": 1
+          "price": 1,
+          "quotation": 9
         },
         {
           "name": "Maldini",
           "role": "A",
           "club": "Cagliari",
-          "price": 19
+          "price": 19,
+          "quotation": 5
         },
         {
           "name": "Boga",
           "role": "A",
           "club": "Juventus",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         }
       ]
     },
@@ -1425,151 +1650,176 @@
           "name": "Bijlow",
           "role": "P",
           "club": "Genoa",
-          "price": 14
+          "price": 14,
+          "quotation": 8
         },
         {
           "name": "Milinkovic-Savic V.",
           "role": "P",
           "club": "Napoli",
-          "price": 15
+          "price": 15,
+          "quotation": 5
         },
         {
           "name": "Meret",
           "role": "P",
           "club": "Napoli",
-          "price": 31
+          "price": 31,
+          "quotation": 11
         },
         {
           "name": "Joao Mario",
           "role": "D",
           "club": "Fiorentina",
-          "price": 1
+          "price": 1,
+          "quotation": 3
         },
         {
           "name": "Gaspar K.",
           "role": "D",
           "club": "Lecce",
-          "price": 1
+          "price": 1,
+          "quotation": 5
         },
         {
           "name": "Bisseck",
           "role": "D",
           "club": "Inter",
-          "price": 30
+          "price": 30,
+          "quotation": 11
         },
         {
           "name": "Spence",
           "role": "D",
           "club": "Inter",
-          "price": 40
+          "price": 40,
+          "quotation": 12
         },
         {
           "name": "Scalvini",
           "role": "D",
           "club": "Atalanta",
-          "price": 1
+          "price": 1,
+          "quotation": 10
         },
         {
           "name": "Carboni A.",
           "role": "D",
           "club": "Monza",
-          "price": 1
+          "price": 1,
+          "quotation": 3
         },
         {
           "name": "Pavard",
           "role": "D",
           "club": "Inter",
-          "price": 1
+          "price": 1,
+          "quotation": 6
         },
         {
           "name": "Bremer",
           "role": "D",
           "club": "Juventus",
-          "price": 56
+          "price": 56,
+          "quotation": 15
         },
         {
           "name": "Sucic P.",
           "role": "C",
           "club": "Inter",
-          "price": 19
+          "price": 19,
+          "quotation": 8
         },
         {
           "name": "Isaksen",
           "role": "C",
           "club": "Lazio",
-          "price": 1
+          "price": 1,
+          "quotation": 9
         },
         {
           "name": "Ndour",
           "role": "C",
           "club": "Fiorentina",
-          "price": 1
+          "price": 1,
+          "quotation": 8
         },
         {
           "name": "Diouf",
           "role": "C",
           "club": "Inter",
-          "price": 26
+          "price": 26,
+          "quotation": 8
         },
         {
           "name": "Konè M.",
           "role": "C",
           "club": "Roma",
-          "price": 8
+          "price": 8,
+          "quotation": 10
         },
         {
           "name": "Fagioli",
           "role": "C",
           "club": "Fiorentina",
-          "price": 1
+          "price": 1,
+          "quotation": 8
         },
         {
           "name": "Frattesi",
           "role": "C",
           "club": "Lazio",
-          "price": 30
+          "price": 30,
+          "quotation": 7
         },
         {
           "name": "Zielinski",
           "role": "C",
           "club": "Inter",
-          "price": 50
+          "price": 50,
+          "quotation": 10
         },
         {
           "name": "Bowie",
           "role": "A",
           "club": "Sassuolo",
-          "price": 6
+          "price": 6,
+          "quotation": 10
         },
         {
           "name": "Bonny",
           "role": "A",
           "club": "Inter",
-          "price": 15
+          "price": 15,
+          "quotation": 7
         },
         {
           "name": "Yildiz",
           "role": "A",
           "club": "Juventus",
-          "price": 327
+          "price": 327,
+          "quotation": 23
         },
         {
           "name": "Tourè E.",
           "role": "A",
           "club": "Parma",
-          "price": 10
+          "price": 10,
+          "quotation": 11
         },
         {
           "name": "Esposito Se.",
           "role": "A",
           "club": "Cagliari",
-          "price": 1
+          "price": 1,
+          "quotation": 13
         },
         {
           "name": "Martinez L.",
           "role": "A",
           "club": "Inter",
-          "price": 296
+          "price": 296,
+          "quotation": 35
         }
       ]
     }
