@@ -4,10 +4,12 @@
 export const SEL = {
   league: {
     teamRow: '[data-team-id]',
+    teamIdAttr: 'data-team-id',
     teamName: '.team-name',
     manager: '.team-manager',
     credits: '.team-credits',
     mode: '[data-league-mode]',
+    modeAttr: 'data-league-mode',
   },
   standings: {
     row: '.standings-row',
