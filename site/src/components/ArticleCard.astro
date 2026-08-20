@@ -1,0 +1,80 @@
+---
+import { COLUMN_LABELS, type Column } from '../content.config';
+
+/**
+ * One article as it appears on a front page or an index: kicker, headline,
+ * byline, optional lead. Link target is passed in — this component does not
+ * know how routes are built.
+ */
+interface Props {
+  title: string;
+  column: Column;
+  byline: string;
+  href: string;
+  /** Optional standfirst / first lines of the piece. */
+  lead?: string;
+  /** The lead story: bigger headline. Pair it with `class="span-2"` in a grid. */
+  featured?: boolean;
+  /** Extra classes, e.g. the grid's `span-2` / `span-full`. */
+  class?: string;
+}
+
+const { title, column, byline, href, lead, featured = false, class: className } = Astro.props;
+---
+
+<article class:list={['card', className, { 'card--featured': featured }]}>
+  <p class="kicker">{COLUMN_LABELS[column]}</p>
+  <h2 class="card__title">
+    <a href={href}>{title}</a>
+  </h2>
+  {lead && <p class="card__lead">{lead}</p>}
+  <p class="byline">di <strong>{byline}</strong></p>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .card__title {
+    font-size: var(--step-2);
+    margin: 0;
+  }
+
+  .card__title a {
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 180ms ease-out;
+  }
+
+  .card__title a:hover,
+  .card__title a:focus-visible {
+    background-size: 100% 2px;
+  }
+
+  .card__lead {
+    margin: var(--space-1) 0 0;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+
+  .card--featured .card__title {
+    font-size: var(--step-4);
+    letter-spacing: -0.02em;
+  }
+
+  .card--featured .card__lead {
+    font-size: var(--step-0);
+    color: var(--ink);
+    max-width: var(--measure);
+  }
+
+  .card + .card {
+    margin-top: 0;
+  }
+</style>

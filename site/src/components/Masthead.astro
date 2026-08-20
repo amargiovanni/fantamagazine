@@ -1,0 +1,160 @@
+---
+/**
+ * The masthead of Il Fatto Fantidiano.
+ *
+ * An ORIGINAL parody lockup: Bodoni wordmark in ink only, italic second word,
+ * a rotated "parodia" seal and a halftone rule. It deliberately does not
+ * reproduce the logo, colour lockup or trade dress of any real newspaper.
+ */
+interface Props {
+  /** Issue number shown in the folio line, when the page belongs to one. */
+  issueNumber?: number;
+  /** ISO date (YYYY-MM-DD) shown in the dateline. */
+  date?: string;
+}
+
+const { issueNumber, date } = Astro.props;
+
+const NAV = [
+  { href: '/', label: 'Prima pagina' },
+  { href: '/numeri/', label: 'Archivio' },
+  { href: '/albo/', label: "Albo d'Oro della Vergogna" },
+  { href: '/classifiche/', label: 'Classifiche' },
+];
+
+const dateLabel = date
+  ? new Date(`${date}T00:00:00Z`).toLocaleDateString('it-IT', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })
+  : 'Edizione permanente';
+---
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead__folio">
+      <span class="dateline">{dateLabel}</span>
+      <span class="seal">Parodia</span>
+      <span class="dateline">
+        {issueNumber === undefined ? 'Fantac-ACCIA' : `Numero ${issueNumber}`} · Anno I
+      </span>
+    </div>
+
+    <hr class="rule--double" />
+
+    <a class="masthead__wordmark" href="/">
+      <span class="masthead__il">Il Fatto</span>
+      <span class="masthead__name">Fantidiano</span>
+    </a>
+
+    <p class="masthead__tagline">
+      Le notizie che i fantallenatori vorrebbero insabbiare
+    </p>
+
+    <hr class="rule--halftone" />
+
+    <nav class="masthead__nav" aria-label="Sezioni">
+      <ul>
+        {NAV.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .masthead {
+    padding-block: var(--space-3) 0;
+    border-bottom: 3px solid var(--rule-strong);
+    background: linear-gradient(to bottom, var(--paper-sunk), transparent 70%);
+  }
+
+  .masthead__folio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .masthead__wordmark {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--ink);
+    margin-block: var(--space-2);
+    line-height: 0.9;
+  }
+
+  .masthead__wordmark:hover {
+    color: var(--ink);
+  }
+
+  .masthead__il {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1rem, 0.4rem + 2.4vw, 2rem);
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    text-indent: 0.34em; /* compensate the trailing letter-space */
+    color: var(--ink-soft);
+  }
+
+  .masthead__name {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-style: italic;
+    font-size: var(--step-masthead);
+    letter-spacing: -0.02em;
+    /* Ink on paper only: the red belongs to the seal, not to the wordmark. */
+    color: var(--ink);
+  }
+
+  .masthead__tagline {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+
+  .masthead__nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2) var(--space-4);
+    list-style: none;
+    margin: 0;
+    padding: 0 0 var(--space-2);
+  }
+
+  .masthead__nav a {
+    font-size: var(--step--2);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+    padding-block: 0.2em;
+    border-bottom: 2px solid transparent;
+  }
+
+  .masthead__nav a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  @media (max-width: 40rem) {
+    .masthead__folio {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+</style>

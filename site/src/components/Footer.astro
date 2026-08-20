@@ -1,0 +1,62 @@
+---
+/**
+ * Footer. Carries the satire disclaimer verbatim — it is a legal-ish
+ * requirement of this project, not copy: do not reword it.
+ */
+const DISCLAIMER =
+  'Il Fatto Fantidiano è una testata satirica non registrata e non affiliata ad alcuna testata reale né a fantacalcio.it. Ogni citazione è inventata, ogni sfottò è affettuoso, ogni classifica purtroppo è vera.';
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <hr class="rule--halftone" />
+    <div class="footer__grid">
+      <p class="footer__mark">
+        <span class="kicker">Colophon</span>
+        Il Fatto Fantidiano — organo della Procura Fantidiana, stampato su carta
+        che non esiste, distribuito a chi non l'ha chiesto.
+      </p>
+      <p class="footer__disclaimer">{DISCLAIMER}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 3px solid var(--rule-strong);
+    background: var(--paper-sunk);
+    padding-block: var(--space-3) var(--space-5);
+    margin-top: var(--space-5);
+  }
+
+  .footer__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 64rem) {
+    .footer__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      column-gap: var(--space-5);
+    }
+
+    .footer__disclaimer {
+      border-inline-start: 1px solid var(--rule);
+      padding-inline-start: var(--space-4);
+    }
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+
+  .footer__mark .kicker {
+    display: block;
+  }
+
+  .footer__disclaimer {
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+/**
+ * THROWAWAY front page — replaced by the real one in Task 10.
+ *
+ * It exists to prove the pipeline end to end: collections load, the build-time
+ * referential check runs, the layout and the design system render, and the
+ * markdown (tables, drop caps, pagelle line breaks) comes out right.
+ */
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getArticlesForIssue, getIssuesSorted, issueSlug } from '../lib/issues';
+
+const issues = await getIssuesSorted();
+const latest = issues[0];
+const articles = latest ? await getArticlesForIssue(latest.data.number) : [];
+// Render every piece of the issue: the throwaway page doubles as the proof
+// that the whole Markdown surface (tables, drop caps, pagelle) comes out right.
+const rendered = await Promise.all(
+  articles.map(async (article) => ({ article, Content: (await render(article)).Content })),
+);
+---
+
+<Base
+  title={latest ? latest.data.headline : 'Prima pagina'}
+  description={latest?.data.headline}
+  issueNumber={latest?.data.number}
+  date={latest?.data.date}
+>
+  {
+    latest ? (
+      <>
+        <p class="kicker">
+          Numero {latest.data.number} · edizione {latest.data.type} ·{' '}
+          {latest.data.matchday === null
+            ? 'senza giornata'
+            : `giornata ${latest.data.matchday}`}
+        </p>
+        <hr class="rule--double" />
+
+        <div class="front-grid">
+          {articles.map((article, index) => (
+            <ArticleCard
+              title={article.data.title}
+              column={article.data.column}
+              byline={article.data.byline}
+              href={`/numeri/${issueSlug(latest.data.number)}/${article.data.column}/`}
+              featured={index === 0}
+              class={index === 0 ? 'span-2' : undefined}
+            />
+          ))}
+        </div>
+
+        {rendered.map(({ article, Content }) => (
+          <section class="preview">
+            <hr class="rule--halftone" />
+            <p class="kicker">{article.data.title}</p>
+            <p class="byline">di <strong>{article.data.byline}</strong></p>
+            <div class="prose prose--columns table-scroll">
+              <Content />
+            </div>
+          </section>
+        ))}
+      </>
+    ) : (
+      <p>Nessun numero pubblicato.</p>
+    )
+  }
+</Base>
