@@ -1,6 +1,19 @@
-// PROVISIONAL selectors, designed against our synthetic fixtures.
-// After the first real `--capture` run, align these with the captured
-// HTML in scraper/fixtures/captured/ and update the fixtures to match.
+import { COMPETITION_DASHBOARD, LEAGUE_BASE } from './config.js';
+
+// PROVISIONAL page paths, composed from LEAGUE_BASE, and PROVISIONAL
+// selectors, designed against our synthetic fixtures. After the first real
+// `--capture` run, align both with the captured HTML in
+// scraper/fixtures/captured/ and update the fixtures to match. Page paths
+// live next to SEL so URL recalibration happens alongside selector
+// recalibration.
+export const PAGES = {
+  dashboard: COMPETITION_DASHBOARD,
+  roster: `${LEAGUE_BASE}/rosters`,
+  lineups: (matchday: number) => `${LEAGUE_BASE}/formazioni/${matchday}`,
+  results: (matchday: number) => `${LEAGUE_BASE}/risultati/${matchday}`,
+  standings: (matchday: number) => `${LEAGUE_BASE}/classifica/${matchday}`,
+} as const;
+
 export const SEL = {
   league: {
     teamRow: '[data-team-id]',
