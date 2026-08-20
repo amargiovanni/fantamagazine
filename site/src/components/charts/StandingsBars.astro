@@ -66,7 +66,8 @@ const leader = entries[0];
   <figcaption class="chart__caption">
     <span class="kicker">Fantapunti totali</span>
     <span class="chart__note">
-      Giornata {matchday} · scala 0–{number.format(domain)} fantapunti, base zero.
+      Giornata {matchday} · ordine di classifica, non di fantapunti · scala
+      0–{number.format(domain)} fantapunti, base zero.
     </span>
   </figcaption>
 
@@ -83,7 +84,8 @@ const leader = entries[0];
         entries
           .map((entry) => `${entry.teamName}: ${number.format(entry.fantapointsTotal)}`)
           .join('; ')
-      }. Gli stessi numeri sono nella tabella qui sopra.
+      }. Le barre seguono l'ordine di classifica, non quello dei fantapunti. Gli stessi
+      numeri sono nella tabella qui sopra.
     </desc>
 
     {
@@ -117,7 +119,9 @@ const leader = entries[0];
               <tspan class="bars__rank">{entry.position}</tspan>
               <tspan dx="7">{entry.teamName}</tspan>
             </text>
-            {/* rx rounds all four corners; the 6px stub squares the baseline end. */}
+            {/* rx rounds all four corners; the 6px stub squares the baseline
+                end — and is skipped at zero, where a stub would draw a bar for a
+                team that has nothing to show. */}
             <rect
               class:list={['bars__bar', { 'bars__bar--lead': lead }]}
               x="0"
@@ -126,13 +130,15 @@ const leader = entries[0];
               height={BAR}
               rx="4"
             />
-            <rect
-              class:list={['bars__bar', { 'bars__bar--lead': lead }]}
-              x="0"
-              y={top + 20}
-              width="6"
-              height={BAR}
-            />
+            {entry.fantapointsTotal > 0 && (
+              <rect
+                class:list={['bars__bar', { 'bars__bar--lead': lead }]}
+                x="0"
+                y={top + 20}
+                width="6"
+                height={BAR}
+              />
+            )}
             <text
               class="bars__value"
               x={x(entry.fantapointsTotal)}

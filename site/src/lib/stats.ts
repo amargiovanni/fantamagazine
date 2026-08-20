@@ -134,10 +134,13 @@ export function pointsByTeamAcrossMatchdays(data: readonly MatchdayStandings[]):
 export function axisTicks(max: number, targetSteps = 4): number[] {
   if (!Number.isFinite(max) || max <= 0 || targetSteps < 1) return [0, 1];
 
-  const magnitude = 10 ** Math.floor(Math.log10(max / targetSteps));
-  const step =
-    [1, 2, 2.5, 5, 10].map((factor) => factor * magnitude).find((candidate) => candidate >= max / targetSteps) ??
-    magnitude * 10;
+  const raw = max / targetSteps;
+  // `magnitude <= raw < 10 * magnitude` by construction, so the last candidate
+  // always clears `raw` and `find` always returns.
+  const magnitude = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 2.5, 5, 10]
+    .map((factor) => factor * magnitude)
+    .find((candidate) => candidate >= raw)!;
 
   const top = Math.ceil(max / step) * step;
   const ticks: number[] = [];
@@ -147,6 +150,37 @@ export function axisTicks(max: number, targetSteps = 4): number[] {
     ticks.push(Number((index * step).toFixed(6)));
   }
   return ticks;
+}
+
+/**
+ * The contiguous runs of observed matchdays in a series, as index runs.
+ *
+ * A `null` ends the run it interrupts: a gap in the data has to be a gap in the
+ * line, never a segment drawn straight through a matchday nobody played. Runs
+ * are non-empty, so consecutive nulls produce no empty run, and a run of one is
+ * a legitimate result — an observation with no neighbours cannot be a line, but
+ * it still happened and the chart draws it as a dot.
+ *
+ * Lives here rather than in the chart component because it is the only real
+ * branching in the trend, and a chart's branches are exactly what a visual check
+ * cannot cover: the interesting cases only appear on data the repository does
+ * not have yet.
+ */
+export function lineRuns(series: readonly (number | null)[]): number[][] {
+  const runs: number[][] = [];
+  let run: number[] = [];
+
+  series.forEach((value, index) => {
+    if (value === null) {
+      if (run.length > 0) runs.push(run);
+      run = [];
+      return;
+    }
+    run.push(index);
+  });
+  if (run.length > 0) runs.push(run);
+
+  return runs;
 }
 
 /**

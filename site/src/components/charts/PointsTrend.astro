@@ -21,7 +21,7 @@
  *   paper's voice.
  */
 import type { TeamSeries } from '../../lib/stats';
-import { axisTicks } from '../../lib/stats';
+import { axisTicks, lineRuns } from '../../lib/stats';
 
 interface Props {
   series: TeamSeries[];
@@ -50,24 +50,18 @@ const y = (value: number): number => H - PAD.bottom - (value / domain) * (H - PA
 const number = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 1 });
 
 /**
- * A team's line, split into the contiguous runs of matchdays it actually has
- * data for: a gap in the data is a gap in the line. A run of a single
- * observation cannot be a line, so it is drawn as a dot — an observation with
- * no neighbours still happened.
+ * A team's line, placed: the contiguous runs of observed matchdays (from
+ * `lineRuns`, which is where that rule is tested) turned into coordinates. A run
+ * of two or more is a polyline; a run of one cannot be a line and is drawn as a
+ * dot, because an observation with no neighbours still happened.
  */
 function segments(points: (number | null)[]): {
   lines: string[];
   dots: { cx: number; cy: number }[];
 } {
-  const runs: { cx: number; cy: number }[][] = [];
-  points.forEach((value, index) => {
-    if (value === null) {
-      runs.push([]);
-      return;
-    }
-    const run = runs.at(-1) ?? runs[runs.push([]) - 1]!;
-    run.push({ cx: x(index), cy: y(value) });
-  });
+  const runs = lineRuns(points).map((run) =>
+    run.map((index) => ({ cx: x(index), cy: y(points[index]!) })),
+  );
 
   return {
     lines: runs

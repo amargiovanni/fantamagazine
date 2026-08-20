@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   axisTicks,
   latestStandings,
+  lineRuns,
   matchdaysOf,
   pointsByTeamAcrossMatchdays,
   type MatchdayStandings,
@@ -167,5 +168,44 @@ describe('axisTicks', () => {
   it('falls back to a 0–1 axis when there is nothing to plot', () => {
     expect(axisTicks(0)).toEqual([0, 1]);
     expect(axisTicks(Number.NaN)).toEqual([0, 1]);
+  });
+});
+
+describe('lineRuns', () => {
+  it('returns one run over a series with no gaps', () => {
+    expect(lineRuns([3, 4, 6])).toEqual([[0, 1, 2]]);
+  });
+
+  it('breaks the line at an interior gap', () => {
+    expect(lineRuns([0, null, 4, 7])).toEqual([[0], [2, 3]]);
+  });
+
+  it('skips a leading null instead of starting the line at zero', () => {
+    expect(lineRuns([null, 1, 3])).toEqual([[1, 2]]);
+  });
+
+  it('ends the run at a trailing null', () => {
+    expect(lineRuns([1, 3, null])).toEqual([[0, 1]]);
+  });
+
+  it('produces no empty run for consecutive nulls', () => {
+    expect(lineRuns([1, null, null, 4])).toEqual([[0], [3]]);
+    expect(lineRuns([null, null])).toEqual([]);
+  });
+
+  it('keeps a lone observation as a run of one — the chart draws it as a dot', () => {
+    expect(lineRuns([null, 5, null])).toEqual([[1]]);
+  });
+
+  it('is empty for an empty series', () => {
+    expect(lineRuns([])).toEqual([]);
+  });
+
+  it('treats zero as an observation, never as a gap', () => {
+    expect(lineRuns([0, 0])).toEqual([[0, 1]]);
+  });
+
+  it('returns indices into the original series, so gaps keep the x positions honest', () => {
+    expect(lineRuns([null, null, 2, 3, null, 9])).toEqual([[2, 3], [5]]);
   });
 });
