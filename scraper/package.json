@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "scrape": "tsc -p . && node dist/src/cli.js",
+    "typecheck": "tsc -p . --noEmit",
     "test": "vitest run"
   },
   "devDependencies": {
