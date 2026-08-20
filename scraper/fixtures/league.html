@@ -2,63 +2,130 @@
 <html lang="it">
 <head>
   <meta charset="utf-8" />
-  <title>Il Fatto Fantidiano — Rosa Squadre 2026-27</title>
+  <title>Il Fatto Fantidiano — Dashboard (fixture)</title>
 </head>
 <body>
-  <main data-league-mode="classic">
-    <h1>Il Fatto Fantidiano — Rosa Squadre</h1>
-    <p>Stagione 2026-27, modalità Classic. Crediti residui dopo l'asta.</p>
-    <table class="teams">
-      <thead>
-        <tr>
-          <th>Squadra</th>
-          <th>Presidente</th>
-          <th>Crediti residui</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr data-team-id="t1">
-          <td class="team-name">Real Sarcasmo</td>
-          <td class="team-manager">Furio</td>
-          <td class="team-credits">245</td>
-        </tr>
-        <tr data-team-id="t2">
-          <td class="team-name">Sconforto Cosenza</td>
-          <td class="team-manager">Ottavio</td>
-          <td class="team-credits">198</td>
-        </tr>
-        <tr data-team-id="t3">
-          <td class="team-name">Atletico Malinconia</td>
-          <td class="team-manager">Clemente</td>
-          <td class="team-credits">210</td>
-        </tr>
-        <tr data-team-id="t4">
-          <td class="team-name">Palla Lunga e Pedalare FC</td>
-          <td class="team-manager">Gastone</td>
-          <td class="team-credits">180</td>
-        </tr>
-        <tr data-team-id="t5">
-          <td class="team-name">Dinamo Rimpianto</td>
-          <td class="team-manager">Ernesto</td>
-          <td class="team-credits">225</td>
-        </tr>
-        <tr data-team-id="t6">
-          <td class="team-name">Bidone d'Oro United</td>
-          <td class="team-manager">Ulderico</td>
-          <td class="team-credits">150</td>
-        </tr>
-        <tr data-team-id="t7">
-          <td class="team-name">Aspettative Zero</td>
-          <td class="team-manager">Prospero</td>
-          <td class="team-credits">165</td>
-        </tr>
-        <tr data-team-id="t8">
-          <td class="team-name">Cugini della Zia</td>
-          <td class="team-manager">Baldassarre</td>
-          <td class="team-credits">200</td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
+  <!--
+    SANITIZED SYNTHETIC FIXTURE. It mirrors the STRUCTURE of the live
+    dashboard's `ui-standings-card` (captured 2026-08-20 into the gitignored
+    scraper/fixtures/captured/) with INVENTED teams, managers and ids. No real
+    league member's name is ever committed to this repository.
+
+    What is copied from the real markup, and what the parser depends on:
+      - `ui-standings-card > ul > li`, one li per team;
+      - a roster link whose href ends in the team id
+        (`/fantac-accia/view/rosters/<id>`), carrying the team name;
+      - a sibling `small` carrying the manager;
+      - a leading position span and a trailing points span, which the league
+        parser ignores.
+
+    The generated Angular attributes of the real page (`ng-star-inserted`,
+    `_ngcontent-ng-c*`, `ng-tns-c*`) are reproduced on purpose: they change on
+    every deploy, and a selector that accidentally depended on one has to fail
+    here rather than in production.
+  -->
+  <app-root class="platform-game-prod">
+    <ui-main-nav class="ng-star-inserted"><header><section class="flex h-[50px] mx-auto"></section></header></ui-main-nav>
+    <ui-league-card data-competition-id="900000"><h5 class="league-name ng-star-inserted">Lega di Prova</h5></ui-league-card>
+    <view-competition-dashboard>
+      <aside>
+        <ui-standings-card class="flex flex-col gap-2 rounded-2xl bg-surface p-3">
+          <header class="px-1"><h2 class="text-2xl">Classifica</h2></header><!---->
+          <ul class="flex flex-col divide-y ng-star-inserted">
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 1° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000001"> Real Sarcasmo </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Furio </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 2° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000002"> Sconforto Cosenza </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Ottavio </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 3° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000003"> Atletico Malinconia </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Clemente </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 4° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000004"> Palla Lunga e Pedalare FC </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Gastone </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 5° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000005"> Dinamo Rimpianto </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Ernesto </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 6° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000006"> Bidone d'Oro United </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Ulderico </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 7° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000007"> Aspettative Zero </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Prospero </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+      <li class="flex items-center gap-3 px-1 py-2 ng-star-inserted">
+        <span class="w-5 shrink-0 text-center text-sm font-semibold tabular-nums text-primary"> 8° </span>
+        <ui-team-logo class="shrink-0 rounded-full border border-[var(--muted-lightest)] ng-star-inserted">
+          <nz-avatar class="ant-avatar ant-avatar-circle ant-avatar-image"><!----><!----></nz-avatar>
+        </ui-team-logo><!----><!---->
+        <span class="flex min-w-0 flex-1 flex-col leading-tight">
+          <a class="truncate text-sm font-medium hover:underline ng-star-inserted" href="/fantac-accia/view/rosters/9000008"> Cugini della Zia </a><!----><!---->
+          <small class="truncate text-xs text-[var(--text-color-soft)] ng-star-inserted"> Baldassarre </small><!---->
+        </span>
+        <span class="min-w-[3.5rem] shrink-0 rounded-sm px-2 py-1 text-center text-sm font-medium tabular-nums"> 0pt </span>
+      </li>
+            <!---->
+          </ul><!----><!---->
+          <a class="mt-auto block pt-2 text-center ng-star-inserted" href="/fantac-accia/view/competition/900000/standings"> Vai alla classifica completa </a><!---->
+        </ui-standings-card>
+      </aside>
+    </view-competition-dashboard>
+  </app-root>
 </body>
 </html>

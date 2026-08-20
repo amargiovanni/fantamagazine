@@ -59,13 +59,29 @@ export async function dumpDebug(page: Page, step: string): Promise<string> {
 }
 
 /**
+ * How long the SPA is given to render after a navigation resolves.
+ *
+ * `networkidle` is not usable on this site: the ad and consent stack keeps
+ * requests in flight indefinitely, so a wait for it either times out or
+ * resolves at an arbitrary moment. Every navigation therefore settles on
+ * `domcontentloaded` and then waits an explicit beat for Angular to paint.
+ */
+const SPA_SETTLE_MS = 3000;
+
+/** Navigates to `url` the way this site tolerates: no `networkidle`. */
+export async function gotoSettled(page: Page, url: string): Promise<void> {
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(SPA_SETTLE_MS);
+}
+
+/**
  * Navigates to `url` and saves the raw page HTML to
  * `CAPTURED_ROOT` (default `scraper/fixtures/captured/`) as `<name>.html`
  * (gitignored). Used by `--capture` to collect real markup for selector
  * recalibration against the live site.
  */
 export async function capturePage(page: Page, url: string, name: string): Promise<string> {
-  await page.goto(url, { waitUntil: 'networkidle' });
+  await gotoSettled(page, url);
 
   const dir = capturedRoot();
   mkdirSync(dir, { recursive: true });
@@ -77,10 +93,41 @@ export async function capturePage(page: Page, url: string, name: string): Promis
 }
 
 /**
+ * Dismisses the PubTech consent banner if it is showing.
+ *
+ * The banner is not always rendered (it depends on a cookie the profile may
+ * already carry), so its absence is a normal outcome and not an error — hence
+ * the short timeout and the swallowed rejection. When it IS showing it covers
+ * the login form, and every click below it times out.
+ */
+async function dismissConsent(page: Page): Promise<void> {
+  try {
+    await page.click(SEL.login.consentAccept, { timeout: CONSENT_TIMEOUT_MS });
+  } catch {
+    // No banner on this load: nothing to dismiss.
+  }
+}
+
+const CONSENT_TIMEOUT_MS = 5000;
+const LOGIN_NAV_TIMEOUT_MS = 45_000;
+
+/**
  * Launches chromium (headless unless HEADFUL=1, to allow manual captcha
  * rescue), logs into leghe.fantacalcio.it, verifies the login succeeded,
  * then runs `fn` with the authenticated page. The browser is always closed,
  * whether `fn` succeeds, throws, or login itself fails.
+ *
+ * There is no login button to click: requesting a league URL while
+ * unauthenticated redirects to `/login?next=...`, so the flow is
+ * navigate -> consent -> fill -> submit -> wait for the URL to stop being a
+ * login URL -> confirm the logged-in marker.
+ *
+ * THE WHOLE SEQUENCE is wrapped, not just the marker check. The first version
+ * only dumped on a failed marker, so the failure that actually happened — a
+ * click timing out against a consent banner — escaped with a Playwright stack
+ * and no evidence of what the page looked like. Every step that can time out
+ * is inside the `try`, and `fn` is wrapped too so a mid-scrape failure leaves
+ * the same trail.
  *
  * Never logs the username or password.
  */
@@ -91,20 +138,40 @@ export async function withSession(fn: (page: Page) => Promise<void>): Promise<vo
   try {
     const page = await browser.newPage();
 
-    await page.goto(LEAGUE_BASE, { waitUntil: 'networkidle' });
-    await page.click(SEL.login.open);
-    await page.fill(SEL.login.user, username);
-    await page.fill(SEL.login.pass, password);
-    await page.click(SEL.login.submit);
-    await page.waitForLoadState('networkidle');
+    try {
+      await gotoSettled(page, LEAGUE_BASE);
+      await dismissConsent(page);
 
-    const loggedIn = (await page.locator(SEL.login.loggedInMarker).count()) > 0;
-    if (!loggedIn) {
+      await page.fill(SEL.login.user, username);
+      await page.fill(SEL.login.pass, password);
+      await page.click(SEL.login.submit);
+
+      // The redirect target is a competition dashboard whose id we do not
+      // want to hardcode into the login step: "no longer on /login" is the
+      // real success condition, and it survives the site changing where it
+      // sends us next.
+      await page.waitForURL((url) => !url.pathname.includes('/login'), {
+        timeout: LOGIN_NAV_TIMEOUT_MS,
+      });
+      await page.waitForTimeout(SPA_SETTLE_MS);
+
+      const loggedIn = (await page.locator(SEL.login.loggedInMarker).count()) > 0;
+      if (!loggedIn) {
+        throw new Error(
+          `Login failed: logged-in marker "${SEL.login.loggedInMarker}" not found after submitting credentials.`,
+        );
+      }
+    } catch (err) {
       await dumpDebug(page, 'login-failed');
-      throw new Error('Login failed: logged-in marker not found after submitting credentials.');
+      throw err;
     }
 
-    await fn(page);
+    try {
+      await fn(page);
+    } catch (err) {
+      await dumpDebug(page, 'session-failed');
+      throw err;
+    }
   } finally {
     await browser.close();
   }

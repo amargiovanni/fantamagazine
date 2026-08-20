@@ -1,24 +1,17 @@
 import { parseArgs } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import type { Page } from 'playwright';
-import { capturePage, dumpDebug, withSession } from './browser.js';
-import { PAGES } from './selectors.js';
+import { capturePage, dumpDebug, gotoSettled, withSession } from './browser.js';
+import { NotCalibratedError, PAGES } from './selectors.js';
 import { parseLeague } from './parsers/league.js';
-import { parseLineups } from './parsers/lineups.js';
-import { parseResults } from './parsers/results.js';
 import { parseStandings } from './parsers/standings.js';
 import { writeData } from './io.js';
-import { LeagueSchema, LineupsSchema, ResultsSchema, StandingsSchema } from './schemas.js';
+import { LeagueSchema, StandingsSchema } from './schemas.js';
 
 export const USAGE = 'Usage: npm run scrape -- --league | --matchday <1-38> | --capture';
 
 const MIN_MATCHDAY = 1;
 const MAX_MATCHDAY = 38;
-
-// --capture doesn't take a --matchday of its own; matchday-specific pages
-// (lineups/results/standings) are captured for this representative
-// matchday. Provisional, like the page paths themselves.
-const CAPTURE_MATCHDAY = 1;
 
 export type CliCommand = 'league' | 'matchday' | 'capture';
 
@@ -89,53 +82,64 @@ async function step<T>(page: Page, name: string, fn: () => Promise<T>): Promise<
   }
 }
 
+/**
+ * Writes `data/<season>/league.json` from the live competition dashboard.
+ *
+ * Only the dashboard is loaded: since the 2026-08-20 recalibration the team
+ * list comes from its standings card, so the separate roster navigation the
+ * first version did is gone.
+ */
 async function runLeague(page: Page): Promise<void> {
   const scrapedAt = new Date().toISOString();
 
-  await step(page, 'navigate:dashboard', () => page.goto(PAGES.dashboard, { waitUntil: 'networkidle' }));
-  await step(page, 'navigate:roster', () => page.goto(PAGES.roster, { waitUntil: 'networkidle' }));
+  await step(page, 'navigate:dashboard', () => gotoSettled(page, PAGES.dashboard));
   const league = await step(page, 'parse:league', () => parseLeague(page, scrapedAt));
   await step(page, 'write:league', async () => writeData('2026-27/league.json', LeagueSchema, league));
 }
 
 /**
- * All three pages are navigated and parsed BEFORE anything is written.
+ * Captures the real page set for selector recalibration.
  *
- * A matchday directory holding `lineups.json` but no `results.json` is worse
- * than one that does not exist: the site's referential check keys on
- * `results.json`, and the newsroom reads whatever files it finds. The failure
- * is not hypothetical — run before kickoff, the results and standings pages
- * have nothing to parse, which is exactly when a half-populated directory
- * would be left behind.
+ * Both halves of the split site are taken: the Angular shells (which is what
+ * an operator sees in the address bar) and the `legacy=true` documents their
+ * iframes actually render, because only the latter contain the standings and
+ * calendar tables. One team's roster is captured too — the id is read off the
+ * dashboard rather than hardcoded, so this keeps working when the league's
+ * membership changes.
  */
-async function runMatchday(page: Page, matchday: number): Promise<void> {
-  const dir = `2026-27/matchday-${pad2(matchday)}`;
-
-  await step(page, 'navigate:lineups', () => page.goto(PAGES.lineups(matchday), { waitUntil: 'networkidle' }));
-  const lineups = await step(page, 'parse:lineups', () => parseLineups(page, matchday));
-
-  await step(page, 'navigate:results', () => page.goto(PAGES.results(matchday), { waitUntil: 'networkidle' }));
-  const results = await step(page, 'parse:results', () => parseResults(page, matchday));
-
-  await step(page, 'navigate:standings', () => page.goto(PAGES.standings(matchday), { waitUntil: 'networkidle' }));
-  const standings = await step(page, 'parse:standings', () => parseStandings(page, matchday));
-
-  await step(page, 'write:lineups', async () => writeData(`${dir}/lineups.json`, LineupsSchema, lineups));
-  await step(page, 'write:results', async () => writeData(`${dir}/results.json`, ResultsSchema, results));
-  await step(page, 'write:standings', async () => writeData(`${dir}/standings.json`, StandingsSchema, standings));
-}
-
 async function runCapture(page: Page): Promise<void> {
   await step(page, 'capture:dashboard', () => capturePage(page, PAGES.dashboard, 'dashboard'));
-  await step(page, 'capture:roster', () => capturePage(page, PAGES.roster, 'roster'));
-  await step(page, 'capture:lineups', () =>
-    capturePage(page, PAGES.lineups(CAPTURE_MATCHDAY), 'lineups'),
+
+  const league = await step(page, 'parse:league', () => parseLeague(page, new Date().toISOString()));
+  const firstTeamId = league.teams[0]!.id;
+
+  await step(page, 'capture:standings', () => capturePage(page, PAGES.standings, 'standings'));
+  await step(page, 'capture:standings-legacy', () =>
+    capturePage(page, PAGES.standingsLegacy, 'standings-legacy'),
   );
-  await step(page, 'capture:results', () =>
-    capturePage(page, PAGES.results(CAPTURE_MATCHDAY), 'results'),
+  await step(page, 'capture:rosters', () => capturePage(page, PAGES.rosters, 'rosters'));
+  await step(page, 'capture:roster-one-team', () =>
+    capturePage(page, PAGES.roster(firstTeamId), 'roster-one-team'),
   );
-  await step(page, 'capture:standings', () =>
-    capturePage(page, PAGES.standings(CAPTURE_MATCHDAY), 'standings'),
+  await step(page, 'capture:fixtures', () => capturePage(page, PAGES.fixtures, 'fixtures'));
+  await step(page, 'capture:fixtures-legacy', () =>
+    capturePage(page, PAGES.fixturesLegacy, 'fixtures-legacy'),
+  );
+}
+
+/**
+ * Writes the season-to-date standings from the legacy classifica table.
+ *
+ * Not wired to a command yet: `--matchday` is refused until matchday 1 (see
+ * `main`), and there is no per-matchday standings URL to point this at. It is
+ * exercised by the parser tests against `fixtures/standings.html` and will
+ * become `--matchday`'s standings step once that URL is verified.
+ */
+export async function runStandings(page: Page, matchday: number): Promise<void> {
+  await step(page, 'navigate:standings', () => gotoSettled(page, PAGES.standingsLegacy));
+  const standings = await step(page, 'parse:standings', () => parseStandings(page, matchday));
+  await step(page, 'write:standings', async () =>
+    writeData(`2026-27/matchday-${pad2(matchday)}/standings.json`, StandingsSchema, standings),
   );
 }
 
@@ -149,15 +153,21 @@ export async function main(): Promise<void> {
     return;
   }
 
+  // Refused BEFORE the browser launches, not inside the session: there is
+  // nothing to log in for. Season 2026-27 has not started, the site publishes
+  // no lineups and no results, and the selectors for both are still the
+  // synthetic-fixture ones. Running anyway would either 404 or, worse, parse
+  // an empty page into a file that looks scraped.
+  if (args.command === 'matchday') {
+    console.error(new NotCalibratedError('--matchday').message);
+    process.exitCode = 1;
+    return;
+  }
+
   try {
     await withSession(async (page) => {
       if (args.command === 'league') {
         await runLeague(page);
-      } else if (args.command === 'matchday') {
-        if (args.matchday === undefined) {
-          throw new Error('Internal error: "matchday" command resolved without a matchday number.');
-        }
-        await runMatchday(page, args.matchday);
       } else {
         await runCapture(page);
       }

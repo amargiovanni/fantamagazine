@@ -58,7 +58,20 @@ function loadDotEnv(): void {
 }
 
 export const LEAGUE_BASE = 'https://leghe.fantacalcio.it/fantac-accia';
-export const COMPETITION_DASHBOARD = `${LEAGUE_BASE}/view/competition/173122/dashboard`;
+
+/**
+ * The competition the magazine covers. Calibrated 2026-08-20 against the live
+ * league: the Angular router carries the competition id in every path, and the
+ * dashboard's `ui-league-card` carries it as `data-competition-id`.
+ *
+ * The league holds MORE THAN ONE competition: the "Calendario" nav item leads
+ * to competition 173163, whose pages render the same components under a
+ * different id. Everything the magazine publishes today comes from 173122;
+ * covering the second competition is a separate task, not a constant to flip.
+ */
+export const COMPETITION_ID = '173122';
+
+export const COMPETITION_DASHBOARD = `${LEAGUE_BASE}/view/competition/${COMPETITION_ID}/dashboard`;
 
 /**
  * Reads FC_USERNAME/FC_PASSWORD from the environment, after loading .env

@@ -2,99 +2,203 @@
 <html lang="it">
 <head>
   <meta charset="utf-8" />
-  <title>Il Fatto Fantidiano — Classifica Giornata 3</title>
+  <title>Il Fatto Fantidiano — Classifica Giornata 3 (fixture)</title>
 </head>
 <body>
-  <main>
-    <h1>Il Fatto Fantidiano — Classifica</h1>
-    <p>Classifica dopo la 3ª giornata.</p>
-    <table class="standings">
+  <!--
+    SANITIZED SYNTHETIC FIXTURE. It mirrors the STRUCTURE of the live LEGACY
+    classifica table (captured 2026-08-20 into the gitignored
+    scraper/fixtures/captured/standings-legacy.html) with INVENTED teams and
+    INVENTED results. No real league member's name is ever committed here.
+
+    Note what page this is. The Angular `/view/competition/<id>/standings`
+    route renders a shell containing `iframe#legacy-viewport`; the table below
+    is what that iframe loads, and it is what `parseStandings` is pointed at.
+
+    Three things are copied deliberately, because the parser depends on each:
+      - the row's team id lives in `tr[data-id]`, and is the SAME id the
+        Angular roster URLs use;
+      - every cell is addressed by the `data-key` the legacy app renders, not
+        by column position — the table has fourteen columns, three of which
+        are hidden and two of which the schema has no field for;
+      - the `thead` repeats those same `data-key` values on its `th`s, which
+        is why the row selector is `tbody tr[data-id]` and not `[data-key]`.
+
+    The unrendered Handlebars copy of the table at the bottom is real too. The
+    live page ships one, and it is the reason the parser must never match on
+    `data-key` alone: were it ever parsed as DOM, it would contribute a row of
+    `{{...}}` placeholders that reads as NaN. It is kept here so that stays
+    tested rather than assumed.
+  -->
+  <div class="widget">
+    <table class="widget-body smart-table table table-striped">
       <thead>
-        <tr>
-          <th>Pos</th>
-          <th>Squadra</th>
-          <th>Punti</th>
-          <th>Fantapunti</th>
-          <th>V</th>
-          <th>N</th>
-          <th>P</th>
+        <tr class="subheader">
+          <th data-key="index" class="sortable cell-index x1"><div class="group-label visible-groups">Gruppo A</div></th>
+          <th data-key="shirt" class="cell-shirt x1 no-smart"></th>
+          <th data-key="teamName" class="sortable cell-text cell-main x6"></th>
+          <th data-key="rank-g" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>g</span></th>
+          <th data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>v</span></th>
+          <th data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>n</span></th>
+          <th data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>p</span></th>
+          <th data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>g+</span></th>
+          <th data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>g-</span></th>
+          <th data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>dr</span></th>
+          <th data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>pt</span></th>
+          <th data-key="rank-fp" class="sortable cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>pt totali</span></th>
+          <th data-key="all" class="cell-hidden"></th>
+          <th data-key="logo" class="cell-hidden"></th>
         </tr>
       </thead>
       <tbody>
-        <tr class="standings-row" data-team-id="t3">
-          <td class="pos">1</td>
-          <td class="team-name">Atletico Malinconia</td>
-          <td class="pts">7</td>
-          <td class="fpts">195.5</td>
-          <td class="w">2</td>
-          <td class="d">1</td>
-          <td class="l">0</td>
+        <tr data-all="" data-id="9000003" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>1</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000003">Atletico Malinconia</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>2</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>0</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>5</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>2</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>3</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>7</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>195.5</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
-        <tr class="standings-row" data-team-id="t1">
-          <td class="pos">2</td>
-          <td class="team-name">Real Sarcasmo</td>
-          <td class="pts">6</td>
-          <td class="fpts">190.0</td>
-          <td class="w">2</td>
-          <td class="d">0</td>
-          <td class="l">1</td>
+        <tr data-all="" data-id="9000001" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>2</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000001">Real Sarcasmo</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>2</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>0</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>4</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>3</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>1</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>6</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>190.0</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
-        <tr class="standings-row" data-team-id="t5">
-          <td class="pos">3</td>
-          <td class="team-name">Dinamo Rimpianto</td>
-          <td class="pts">6</td>
-          <td class="fpts">188.5</td>
-          <td class="w">2</td>
-          <td class="d">0</td>
-          <td class="l">1</td>
+        <tr data-all="" data-id="9000005" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>3</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000005">Dinamo Rimpianto</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>2</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>0</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>4</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>3</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>1</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>6</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>188.5</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
-        <tr class="standings-row" data-team-id="t8">
-          <td class="pos">4</td>
-          <td class="team-name">Cugini della Zia</td>
-          <td class="pts">4</td>
-          <td class="fpts">180.0</td>
-          <td class="w">1</td>
-          <td class="d">1</td>
-          <td class="l">1</td>
+        <tr data-all="" data-id="9000008" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>4</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000008">Cugini della Zia</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>3</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>3</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>0</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>4</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>180.0</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
-        <tr class="standings-row" data-team-id="t2">
-          <td class="pos">5</td>
-          <td class="team-name">Sconforto Cosenza</td>
-          <td class="pts">4</td>
-          <td class="fpts">175.5</td>
-          <td class="w">1</td>
-          <td class="d">1</td>
-          <td class="l">1</td>
+        <tr data-all="" data-id="9000002" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>5</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000002">Sconforto Cosenza</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>3</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>4</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>-1</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>4</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>175.5</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
-        <tr class="standings-row" data-team-id="t4">
-          <td class="pos">6</td>
-          <td class="team-name">Palla Lunga e Pedalare FC</td>
-          <td class="pts">3</td>
-          <td class="fpts">170.0</td>
-          <td class="w">1</td>
-          <td class="d">0</td>
-          <td class="l">2</td>
+        <tr data-all="" data-id="9000004" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>6</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000004">Palla Lunga e Pedalare FC</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>0</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>2</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>2</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>4</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>-2</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>3</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>170.0</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
-        <tr class="standings-row" data-team-id="t7">
-          <td class="pos">7</td>
-          <td class="team-name">Aspettative Zero</td>
-          <td class="pts">2</td>
-          <td class="fpts">165.5</td>
-          <td class="w">0</td>
-          <td class="d">2</td>
-          <td class="l">1</td>
+        <tr data-all="" data-id="9000007" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>7</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000007">Aspettative Zero</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>0</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>2</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>2</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>3</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>-1</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>2</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>165.5</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
-        <tr class="standings-row" data-team-id="t6">
-          <td class="pos">8</td>
-          <td class="team-name">Bidone d'Oro United</td>
-          <td class="pts">1</td>
-          <td class="fpts">150.0</td>
-          <td class="w">0</td>
-          <td class="d">1</td>
-          <td class="l">2</td>
+        <tr data-all="" data-id="9000006" data-logo="" class="">
+          <td data-key="index" class="cell-index x1"><span>8</span></td>
+          <td data-key="shirt" class="cell-shirt x1 no-smart"><span class="circle"></span></td>
+          <td data-key="teamName" class="cell-text cell-main x6"><span><a href="https://leghe.fantacalcio.it/lega-di-prova/rose?t=9000006">Bidone d'Oro United</a></span><span class="badge badge-bonusmalus" data-value="0">0</span></td>
+          <td data-key="rank-g" class="cell-digits-2 cell-secondary x1 hidden-no-versus"><span>3</span></td>
+          <td data-key="rank-v" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>0</span></td>
+          <td data-key="rank-n" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>1</span></td>
+          <td data-key="rank-p" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus"><span>2</span></td>
+          <td data-key="rank-gf" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>1</span></td>
+          <td data-key="rank-gs" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>5</span></td>
+          <td data-key="rank-dr" class="sortable cell-digits-2 cell-secondary x1 hidden-no-versus hidden-comp-royale"><span>-4</span></td>
+          <td data-key="rank-pt" class="sortable cell-digits-lg cell-secondary x1 cell-primary-no-versus hidden-comp-2"><span>1</span></td>
+          <td data-key="rank-fp" class="cell-digits-8 cell-secondary x3 cell-primary-no-versus"><span>150.0</span></td>
+          <td data-key="all" class="cell-hidden"></td>
+          <td data-key="logo" class="cell-hidden"></td>
         </tr>
       </tbody>
     </table>
-  </main>
+  </div>
+
+  <script class="handlebar-ranking" type="text/x-handlebars-template" data-wrap-unique-uid="5">
+    <table class="widget-body smart-table table table-striped">
+      <tbody>
+        {{#each data}}
+        <tr data-all="{{s.presidente}}" data-id="{{s.id}}" data-logo="{{s.logo}}" Class="{{#if own}}myself{{/if}}">
+          <td data-key="index" Class="cell-index x1"><span>{{or c.pos '-'}}</span></td>
+          <td data-key="teamName" Class="cell-text cell-main x6"><span>{{s.n}}</span></td>
+          <td data-key="rank-v" Class="cell-digits-2"><span>{{c.v}}</span></td>
+          <td data-key="rank-n" Class="cell-digits-2"><span>{{c.n}}</span></td>
+          <td data-key="rank-p" Class="cell-digits-2"><span>{{c.pr}}</span></td>
+          <td data-key="rank-pt" Class="cell-digits-lg"><span>{{fix c.p 0}}</span></td>
+          <td data-key="rank-fp" Class="cell-digits-8"><span>{{c.s_p}}</span></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
 </body>
 </html>

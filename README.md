@@ -17,9 +17,10 @@ The project is organized into three components:
    cp .env.example .env
    ```
 
-2. **Scrape league data** for a specific matchday:
+2. **Scrape league data**:
    ```
-   npm run scrape -- --matchday <n>
+   npm run scrape -- --league        # teams, managers
+   npm run scrape -- --matchday <n>  # NOT YET AVAILABLE — see "Recalibration status"
    ```
 
 3. **Create a new issue** using the editorial skill in Claude Code:
@@ -41,30 +42,83 @@ Note: Credentials live only in `.env`, never committed to git.
 
 Live URL: https://fantidiano.soapboxmargio.workers.dev
 
-## Recalibration (before the first real scrape)
+## Recalibration status
 
-The scraper was built and tested against captured fixtures, not a live
-session — `scraper/src/selectors.ts` (`SEL` and `PAGES`) is provisional until
-it has been checked against the real site. Before trusting any scraped data:
+First contact with the live site was made on **2026-08-20**. What follows is
+what is calibrated, what is not, and what the site turned out to look like.
 
-1. Capture the live markup once real credentials exist in `.env`:
-   ```
-   npm run scrape -- --capture
-   ```
-   This dumps the pages the scraper depends on to `scraper/debug/` without
-   parsing anything.
-2. Diff the captured HTML against `scraper/src/selectors.ts` and update `SEL`
-   (element selectors) and `PAGES` (URL paths) wherever the real markup
-   disagrees with the provisional ones.
-3. Refresh the scraper's fixtures from the newly captured HTML and run
-   `npm test` from the repo root until it's green again — the parsers are
-   tested against fixtures, so a selector change is only trusted once the
-   suite reflects it.
-4. Only then run the real scrapes:
-   ```
-   npm run scrape -- --league
-   npm run scrape -- --matchday <n>
-   ```
+### Calibrated (verified against the live site)
+
+- **Login.** There is no login button to click: any league URL requested
+  unauthenticated redirects to `/login?next=…`. A **PubTech consent banner**
+  may be covering the form — it is dismissed with `#pt-accept-all` on a short
+  timeout, and its absence is normal, not an error. The form is Angular
+  reactive; its inputs carry `formcontrolname`, no `name` and no `id`. Success
+  is "the URL no longer contains `/login`" plus the presence of `ui-main-nav`.
+- **`--capture`.** Pulls the real page set with the authenticated session:
+  dashboard, standings, rosters, one team's roster, fixtures — and, separately,
+  the `legacy=true` documents (see below). Output lands in
+  `scraper/fixtures/captured/` (gitignored).
+- **`--league`.** Writes `data/<season>/league.json` from the competition
+  dashboard: ten teams with id, name and manager.
+- **Standings parsing.** Calibrated against the live table. Pre-season it is
+  ten rows of honest zeros.
+
+### Two things the live site does that the selectors now account for
+
+1. **Half the site is a legacy app in an iframe.** The Angular routes
+   `/view/competition/<id>/standings` and `/view/competition/<id>/fixtures`
+   render only a shell containing `iframe#legacy-viewport`. The real tables
+   live at `…/classifica?id=<id>&app=true&legacy=true` and
+   `…/calendario?id=<id>&app=true&legacy=true`, which `PAGES.*Legacy`
+   addresses directly — a parser pointed at the shell sees no table at all.
+   The legacy markup is the friendlier of the two: every cell carries a
+   `data-key`, and the row's `data-id` is the SAME team id the Angular roster
+   URLs use, so standings rows join to `league.json` with no name matching.
+2. **The league holds more than one competition.** The magazine covers
+   competition **173122**. The "Calendario" nav item leads to competition
+   **173163**, which renders the same components under a different id. Nothing
+   is hardcoded to assume there is only one; covering the second is a separate
+   task, not a constant to flip.
+
+Also note: `networkidle` is unusable here. The ad and consent stack keeps
+requests in flight indefinitely, so every navigation settles on
+`domcontentloaded` plus an explicit wait for Angular to paint.
+
+### Not calibrated — awaiting matchday 1
+
+Season 2026-27 has not started. The site publishes **no lineups and no
+results**, so there is no markup to align those parsers with, and no
+per-matchday standings URL to verify. Accordingly:
+
+- `npm run scrape -- --matchday <n>` **refuses to run**, before the browser
+  even launches, with a message saying so. It does not guess a URL and it does
+  not write a `matchday-NN/` directory parsed out of an error page.
+- `SEL.lineups`, `SEL.results`, their fixtures and their tests are untouched
+  from the synthetic-fixture era and are explicitly marked as such.
+
+At matchday 1, re-run `npm run scrape -- --capture`, calibrate `PAGES`/`SEL`
+against the newly captured HTML, refresh the fixtures in `scraper/fixtures/`,
+and get `npm test` green before trusting a matchday scrape.
+
+### Known gaps
+
+- **`mode` is reported as `unknown`.** Nothing in the dashboard DOM states
+  whether the league is classic or mantra — the words appear only in CSS
+  custom property names. The roster pages do carry a signal
+  (`ui-role > div.game-type-1`), so it is recoverable at the cost of one page
+  load.
+- **`credits` is `null` for every team.** The figure exists, but on the
+  per-team roster page (beside `nz-icon[nztype="fc:credits"]`), i.e. one extra
+  navigation per team. `TeamSchema` allows `null` and the site renders it.
+
+### Fixtures are synthetic on purpose
+
+`scraper/fixtures/league.html` and `scraper/fixtures/standings.html` mirror the
+STRUCTURE of the real pages with INVENTED teams, managers, ids and results.
+Real league members' names live in `data/` — which is the product — and never
+in a fixture. Recalibration means updating the fixture's shape from the
+captured HTML, never pasting the captured HTML in.
 
 ## Deploying
 
@@ -103,10 +157,18 @@ and reset `editorial/albo.json` to `[]`, so the award cadences restart from
 zero. `editorial/opt-out.json` is not demo data: it is filled in from what the
 real league says, before the first issue.
 
-1. Fill in `.env` with real fantacalcio.it credentials, then run the
-   recalibration procedure above (`--capture`, align `selectors.ts`, refresh
-   fixtures, green tests) — the pipeline was only ever exercised against the
-   demo dataset until this step.
-2. Run `npm run scrape -- --league` once, then `npm run scrape -- --matchday <n>`
-   for each matchday to publish, and produce issues with `/nuovo-numero`.
+Step 0 is not optional and it is not merely tidy-up: **the demo dataset and a
+real `league.json` cannot coexist.** `data/2026-27/matchday-00/` references the
+demo team ids `t1`…`t8`, and the real league's ids are numeric. The site's
+standings join degrades gracefully rather than failing — `joinTeams` keeps the
+raw id when it does not recognise it — so the build stays green while the front
+page prints `1 t1 —` where a team and its manager belong. That was verified on
+2026-08-20 by scraping the real `league.json` over the demo one and building:
+green build, broken page. Purge first, then scrape.
+
+1. Fill in `.env` with real fantacalcio.it credentials. Login, `--capture` and
+   `--league` are calibrated (see "Recalibration status"); `--matchday` is not
+   and will refuse to run until it has been calibrated at matchday 1.
+2. Run `npm run scrape -- --league` once, and produce issues with
+   `/nuovo-numero`. Matchday scrapes begin once the season does.
 3. `npx wrangler login` (first time only), then `npm run deploy`.
