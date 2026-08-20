@@ -1,0 +1,67 @@
+{
+  "season": "2026-27",
+  "mode": "classic",
+  "scrapedAt": "2026-08-20T16:45:50.548Z",
+  "teams": [
+    {
+      "id": "5627067",
+      "name": "Amaro Luciano",
+      "manager": "max",
+      "credits": 55
+    },
+    {
+      "id": "18761003",
+      "name": "Aston pirla",
+      "manager": "Alessandro",
+      "credits": 139
+    },
+    {
+      "id": "5620502",
+      "name": "Atletico Piedini",
+      "manager": "Margio",
+      "credits": 203
+    },
+    {
+      "id": "5621158",
+      "name": "Borussia Addurmt",
+      "manager": "Rogerio",
+      "credits": 0
+    },
+    {
+      "id": "5620165",
+      "name": "COCA JUNIORS",
+      "manager": "PAOCRI86",
+      "credits": 217
+    },
+    {
+      "id": "5627234",
+      "name": "Deportivo La Carogna",
+      "manager": "Acciacarlos",
+      "credits": 148
+    },
+    {
+      "id": "8775876",
+      "name": "GinTonici",
+      "manager": "AnDreher",
+      "credits": 337
+    },
+    {
+      "id": "8775659",
+      "name": "J medical",
+      "manager": "Ciovazzocchetti",
+      "credits": 20
+    },
+    {
+      "id": "5322780",
+      "name": "Nostalgia Nera",
+      "manager": "Ferryssimo",
+      "credits": 266
+    },
+    {
+      "id": "7231597",
+      "name": "Squadra 9",
+      "manager": "Simone Di Loreto",
+      "credits": 0
+    }
+  ]
+}
