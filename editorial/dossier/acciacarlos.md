@@ -49,9 +49,9 @@
 | Asta 2026-27 | Sei giocatori dell'Atalanta su venticinque, come l'Aston pirla; tre dei sei sono i tre portieri Vismara, Carnesecchi e Sportiello | `rosters.json` |
 | Asta 2026-27 | Anche Krstovic, l'acquisto più caro della rosa, è dell'Atalanta: quattro dei sei sono portieri o l'attaccante di punta | `rosters.json` |
 | Asta 2026-27 | 148 crediti residui, 852 spesi, scarto sul coefficiente +19 | `league.json`, `rosters.json` |
+| Asta 2026-27 | Leao pagato 81 crediti e Berardi 82: due attaccanti separati da un solo credito | `rosters.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
-- Leao pagato 81 crediti e Berardi 82: due acquisti quasi identici nello stesso reparto — `rosters.json` — *ancora buono per:* una pagella o una statistica della vergogna.
 - Zaniolo pagato 101 crediti, quotazione 18 — `rosters.json` — *ancora buono per:* un Nostradamus al Contrario.
-- È il presidente meno citato del numero 1: la rotazione del bersaglio (§3) lo rende disponibile — `content/2026-27/issue-001/` — *ancora buono per:* un titolo d'apertura.
+- Nel numero 1 ha avuto una pagella e un segno d'oroscopo, e non è mai stato bersaglio principale: la rotazione del §3 lo lascia disponibile — `content/2026-27/issue-001/` — *ancora buono per:* un titolo d'apertura.

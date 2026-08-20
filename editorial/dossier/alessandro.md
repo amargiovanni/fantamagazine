@@ -49,9 +49,10 @@
 | Asta 2026-27 | Dodici giocatori su venticinque acquistati a un credito | `rosters.json` |
 | Asta 2026-27 | Tre portieri su tre presi dal Como: Tornqvist, Butez, Vigorito | `rosters.json` |
 | Asta 2026-27 | Hojlund pagato 240 crediti, quotazione 28, valore a coefficiente 98 | `rosters.json` |
+| Asta 2026-27 | Sei giocatori dell'Atalanta su venticinque, come il Deportivo La Carogna | `rosters.json`, pubblicato nel numero 1 |
+| Asta 2026-27 | 139 crediti residui, sesto tesoretto della lega | `league.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
-- Centrocampo da 403 crediti — più dell'attacco (340) e della difesa (30) messi insieme — con McTominay pagato 183 — `rosters.json` — *ancora buono per:* un'inchiesta tattica.
-- Sei giocatori dell'Atalanta, esattamente come il Deportivo La Carogna — `rosters.json` — *ancora buono per:* un pezzo sulle forniture parallele.
-- 139 crediti residui, sesto tesoretto della lega — `league.json` — *ancora buono per:* un oroscopo.
+- Centrocampo da 403 crediti, più dell'attacco (340) e della difesa (30) messi insieme — `rosters.json` — *ancora buono per:* un'inchiesta tattica.
+- Reparto portieri da 88 crediti, di cui 86 per il solo Butez — `rosters.json` — *ancora buono per:* un pezzo sul reparto portieri.

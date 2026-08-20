@@ -49,10 +49,12 @@
 | Asta 2026-27 | 205 punti di quotazione acquistati, il totale più basso della lega | `rosters.json` |
 | Asta 2026-27 | Scarto sul coefficiente inferiore al credito: 720 spesi contro 720,3 di valore, l'unico bilancio in pari della lega | `rosters.json` |
 | Asta 2026-27 | Bilancio d'asta di 986 crediti (720 + 266) contro i 1000 di dotazione | `league.json`, `rosters.json` |
+| Asta 2026-27 | 266 crediti residui, secondo tesoretto della lega | `league.json`, pubblicato nel numero 1 |
+| Asta 2026-27 | Circati, uno dei due giocatori della lega con l'asterisco di fuori listino, pagato 8 crediti | `rosters.json`, pubblicato nel numero 1 |
+| Asta 2026-27 | David e Boga pagati un credito ciascuno | `rosters.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
-- 266 crediti residui, secondo tesoretto della lega — `league.json` — *ancora buono per:* un oroscopo.
-- Circati, uno dei due giocatori della lega con l'asterisco di fuori listino, pagato 8 crediti — `rosters.json` — *ancora buono per:* un approfondimento sui casi limite del listino.
-- David e Boga pagati un credito ciascuno, nella stessa rosa in cui un attaccante ne è costato 302 — `rosters.json` — *ancora buono per:* una pagella.
 - 415 crediti su 720 (58%) in attacco, la quota offensiva più alta dopo Squadra 9 — `rosters.json` — *ancora buono per:* un'inchiesta tattica.
+- Reparto portieri da 61 crediti: Mandas 35, Falcone 20, Motta 6 — `rosters.json` — *ancora buono per:* un pezzo sul reparto portieri.
+- L'approfondimento sui casi limite del listino non è ancora stato scritto: il numero 1 si è limitato a registrare i due asterischi — `content/2026-27/issue-001/approfondimento-capitali.md` — *ancora buono per:* un approfondimento.

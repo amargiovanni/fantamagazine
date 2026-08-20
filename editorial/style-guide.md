@@ -361,8 +361,8 @@ schieramento.
 
 Nella variante teaser il `mercato` può inoltre ospitare **le pagelle delle
 rose**: una voce per ogni squadra della lega, nel formato rigido della pagella
-del §6.1 e sulla stessa scala fantidiana, al posto dei consigli sulle
-formazioni. Come in §6.1, il blocco delle pagelle non entra nel conteggio delle
+del §6.1 e sulla stessa scala fantidiana, in aggiunta ai consigli della
+redazione. Come in §6.1, il blocco delle pagelle non entra nel conteggio delle
 400–600 parole.
 
 ### 6.6 `approfondimento` — L'inchiesta

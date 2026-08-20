@@ -49,10 +49,10 @@
 | Asta 2026-27 | Yildiz pagato 327 crediti, quotazione 23, valore a coefficiente 81: il sovrapprezzo assoluto più alto dell'asta (+246) | `rosters.json` |
 | Asta 2026-27 | Otto giocatori dell'Inter su venticinque | `rosters.json` |
 | Asta 2026-27 | Bilancio d'asta di 982 crediti contro i 1000 di dotazione, zero residui | `league.json`, `rosters.json` |
+| Asta 2026-27 | Martinez L., quotazione 35 e la più alta della rosa, pagato 296: trentuno crediti meno di Yildiz, che ne quota 23 | `rosters.json`, pubblicato nel numero 1 |
+| Asta 2026-27 | Esposito Se. pagato 1 credito contro un valore a coefficiente di 46 | `rosters.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
-- Ha in rosa Martinez L., quotazione 35 (la più alta della propria rosa), pagato 31 crediti meno di Yildiz che ne quota 23 — `rosters.json` — *ancora buono per:* un'inchiesta.
 - 655 crediti su 982 (67%) al reparto offensivo, la quota più alta della lega — `rosters.json` — *ancora buono per:* una statistica della vergogna.
-- Esposito Se. pagato 1 credito contro un valore a coefficiente di 46 — `rosters.json` — *ancora buono per:* un Nostradamus al Contrario.
 - Nove giocatori acquistati a un credito — `rosters.json` — *ancora buono per:* una pagella.

@@ -50,10 +50,10 @@
 | Asta 2026-27 | Sedici giocatori su venticinque da tre soli club: 6 Roma, 5 Inter, 5 Como | `rosters.json` |
 | Asta 2026-27 | Douvikas pagato 211 crediti, quotazione 20, valore a coefficiente 70 | `rosters.json` |
 | Asta 2026-27 | Provedel pagato 55 crediti per una quotazione di 2: rapporto 7,83 sul coefficiente, il sovrapprezzo relativo record dell'intera asta | `rosters.json` |
+| Asta 2026-27 | 20 crediti residui, il residuo più basso tra chi ne ha lasciati | `league.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
-- 20 crediti residui, il residuo più basso tra chi ne ha lasciati — `league.json` — *ancora buono per:* un oroscopo.
 - Dybala pagato 120 crediti per una quotazione di 14 — `rosters.json` — *ancora buono per:* un Nostradamus al Contrario.
 - Soulè pagato 7 crediti contro un valore a coefficiente di 42 — `rosters.json` — *ancora buono per:* una pagella, se segna.
 - Scarto complessivo sul coefficiente: +56 crediti, terzo peggiore della lega — `content/2026-27/issue-001/approfondimento-asta.md` — *ancora buono per:* una statistica della vergogna.

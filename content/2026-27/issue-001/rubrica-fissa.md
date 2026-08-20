@@ -15,21 +15,21 @@ pagelle di questa testata hanno liquidato in due righe: sono quelli su cui resta
 più cielo da leggere. Saturno è in panchina, come sempre. Significa che è
 riposato.
 
-**PAOCRI86** — *Ascendente: Maignan pagato 75 crediti*
-Il tuo reparto portieri costa 120 crediti, il secondo della lega, e sarà l'unica
-parte della rosa che non ti darà problemi. Sarà anche l'unica di cui non parlerai.
+**PAOCRI86** — *Ascendente: un reparto portieri da 120 crediti*
+Sono i secondi più cari della lega, alla pari con quelli del GinTonici, e saranno
+l'unica parte della rosa che non ti darà problemi. Saranno anche l'unica di cui
+non parlerai.
 *Il consiglio di Madame:* i 217 crediti in cassa lasciali lì, si stanno ambientando.
 
-**Acciacarlos** — *Ascendente: Leao 81 crediti, Berardi 82*
-Hai comprato due attaccanti a un credito di distanza l'uno dall'altro e ne
-schiererai sempre uno solo. Sarà ogni volta quello sbagliato, con una precisione
-che gli astri non sanno spiegarsi.
+**Acciacarlos** — *Ascendente: due attaccanti separati da un solo credito*
+Leao è costato 81 e Berardi 82, e ne schiererai sempre uno solo. Sarà ogni volta
+quello sbagliato, con una precisione che gli astri non sanno spiegarsi.
 *Il consiglio di Madame:* mettili tutti e due, così sbagli una volta sola.
 
-**Ferryssimo** — *Ascendente: David e Boga, un credito l'uno*
-Hai due attaccanti pagati un credito in una rosa che il listino quota 205, la
-più bassa del campionato. Uno dei due farà una domenica memorabile, e quel
-giorno avrai schierato l'altro.
+**Ferryssimo** — *Ascendente: la rosa meno quotata del campionato*
+Duecentocinque punti di listino, e due dei tuoi attaccanti ne sono costati uno
+ciascuno. Uno tra David e Boga farà una domenica memorabile, e quel giorno avrai
+schierato l'altro.
 *Il consiglio di Madame:* alternali, così ne sbagli sempre esattamente uno.
 
 **Simone Di Loreto** — *Ascendente: otto giocatori dell'Inter su venticinque*

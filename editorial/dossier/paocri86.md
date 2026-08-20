@@ -49,9 +49,13 @@
 | Asta 2026-27 | 250 crediti in attacco su 815 spesi (30,7%), la quota offensiva più bassa della lega | `rosters.json` |
 | Asta 2026-27 | Di quei 250, 210 sono per il solo Kean: gli altri cinque attaccanti costano 40 crediti in tutto | `rosters.json` |
 | Asta 2026-27 | Scarto sul coefficiente di lega: −63 crediti, secondo miglior rapporto qualità-prezzo della lega | `rosters.json` |
+| Asta 2026-27 | Maignan pagato 75 crediti in un reparto portieri da 120, secondo più caro della lega alla pari con il GinTonici e dietro ai 132 del J medical | `rosters.json`, pubblicato nel numero 1 |
+| Asta 2026-27 | Nkunku pagato 7 crediti contro un valore a coefficiente di 46 | `rosters.json`, pubblicato nel numero 1 |
+| Asta 2026-27 | 217 crediti residui, terzo tesoretto della lega | `league.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
-- Maignan pagato 75 crediti in un reparto portieri da 120, il secondo più caro della lega — `rosters.json` — *ancora buono per:* una pagella.
-- Nkunku pagato 7 crediti contro un valore a coefficiente di 46 — `rosters.json` — *ancora buono per:* un Nostradamus al Contrario.
-- 217 crediti residui, terzo tesoretto della lega — `league.json` — *ancora buono per:* un oroscopo o un'inchiesta sul mercato di riparazione.
+- Pulisic pagato 160 crediti per una quotazione di 25 — `rosters.json` — *ancora buono per:* una pagella o un Nostradamus al Contrario.
+- Douglas Luiz e Matic pagati un credito ciascuno — `rosters.json` — *ancora buono per:* un pezzo sugli affari veri, se giocano.
+- Quattro giocatori del Milan su venticinque — `rosters.json` — *ancora buono per:* una pagella sulla concentrazione di club.
+- Il bilancio d'asta da 1032 crediti resta senza spiegazione: il numero 1 lo ha registrato e non lo ha sciolto — `content/2026-27/issue-001/approfondimento-capitali.md` — *ancora buono per:* un seguito, se quei crediti si muovono di nuovo.

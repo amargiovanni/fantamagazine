@@ -49,10 +49,10 @@
 | Asta 2026-27 | 263 punti di quotazione acquistati per 663 crediti, contro i 980 spesi dal J medical per gli stessi 263 punti | `rosters.json` |
 | Asta 2026-27 | 98 crediti per otto centrocampisti, la spesa di centrocampo più bassa della lega | `rosters.json` |
 | Asta 2026-27 | Malen pagato 296 crediti, quotazione 34, valore a coefficiente 119 | `rosters.json` |
+| Asta 2026-27 | Pavlovic pagato 1 credito contro un valore a coefficiente di 49, il miglior affare assoluto dell'asta | `rosters.json`, pubblicato nel numero 1 |
+| Asta 2026-27 | Petagna, uno dei due giocatori della lega con l'asterisco di fuori listino, pagato 1 credito | `rosters.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
 - Scarto complessivo sul coefficiente: −261 crediti, di gran lunga il migliore della lega — `content/2026-27/issue-001/approfondimento-asta.md` — *ancora buono per:* il giorno in cui vince, perché «nessuno arriva primo con le mani pulite» (§3).
-- Pavlovic pagato 1 credito contro un valore a coefficiente di 49, il miglior affare assoluto dell'asta — `rosters.json` — *ancora buono per:* una pagella.
-- Petagna, uno dei due giocatori della lega con l'asterisco di fuori listino, pagato 1 credito — `rosters.json` — *ancora buono per:* un approfondimento sui casi limite del listino.
 - Svilar pagato 100 crediti: reparto portieri da 120, secondo della lega alla pari con il COCA JUNIORS e dietro ai 132 del J medical — `rosters.json` — *ancora buono per:* una classifica.

@@ -37,7 +37,7 @@ Il miglior mercato del campionato lo ha fatto un uomo che a metà asta ha smesso
 
 **Amaro Luciano** — max · **5**
 Duecentosettanta punti di quotazione, il totale più alto della lega, e 55 crediti residui: solo in tre ne hanno lasciati meno.
-Ha comprato meglio di tutti e ha pagato Dovbyk 225 per una quotazione di 16: la competenza esiste, ma prende dei permessi.
+Ha comprato meglio di tutti e ha pagato Dovbyk 225 contro un valore a coefficiente di 56: la competenza esiste, ma prende dei permessi.
 
 **COCA JUNIORS** — PAOCRI86 · **5**
 Trenta virgola sette per cento del budget in attacco, la quota più bassa della lega: 250 crediti, di cui 210 per il solo Kean.

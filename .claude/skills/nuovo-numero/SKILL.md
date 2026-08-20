@@ -64,6 +64,17 @@ npm run scrape -- --matchday NN
 and wait. `midweek` issues skip this step entirely: they run on history that is
 already committed.
 
+`data/<season>/rosters.json` is a legal source for every issue type, `midweek`
+included: it carries each squad's players with the `price` paid at the auction
+and the current listino `quotation`. Both are agli atti and may be quoted.
+
+**They are different scales.** Restating style guide §4, because it is the
+easiest rule in this repository to get wrong: an overpayment claim compares
+`price` against `quotation` multiplied by the **league coefficient** — total
+league spend divided by total quotation bought — never `price` minus
+`quotation`. Compute the coefficient from the data before writing the claim;
+subtracting a quotation from a price is a bluff and reads as one.
+
 ## Step 3 — Read the editorial memory before writing a single line
 
 Read, in this order, all of it, every time:
@@ -132,6 +143,11 @@ A **numero speciale**, declared as such in the occhiello of one of its articles
 (e.g. `SPECIALE INSEDIAMENTO:`), may extend the `midweek` composition with
 `mercato.md` and `rubrica-fissa.md`, with `mercato` following the §6.5 teaser
 variant: "Le rose" replace "Le probabili formazioni" (style guide §9).
+
+In that teaser variant `mercato` may also carry **le pagelle delle rose** — one
+entry per squad in the rigid §6.1 pagella format, on the fantidiana scale, in
+addition to the usual consigli della redazione. As in §6.1, the pagelle block
+does not count towards the column's 400-600 words (style guide §6.5).
 
 Follow the style guide's per-column formats (report card layout, the four
 blocks of *Lo Sconfitto della Settimana*, the market disclaimer, the numbered

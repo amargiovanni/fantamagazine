@@ -49,10 +49,10 @@
 | Asta 2026-27 | 287 crediti in difesa, la spesa difensiva più alta della lega | `rosters.json` |
 | Asta 2026-27 | Geubbels pagato 142 crediti per una quotazione di 9: rapporto 4,49, secondo sovrapprezzo relativo dell'asta dietro ai 7,83 di Provedel | `rosters.json` |
 | Asta 2026-27 | Ramos G. pagato 296 crediti, quotazione 27, valore a coefficiente 95 | `rosters.json` |
+| Asta 2026-27 | Kevin Carlos pagato 7 crediti contro un valore a coefficiente di 46 | `rosters.json`, pubblicato nel numero 1 |
 
 ## Materiale inutilizzato
 
 - Scarto complessivo sul coefficiente: +101 crediti, il più alto della lega — `content/2026-27/issue-001/approfondimento-asta.md` — *ancora buono per:* una classifica della vergogna.
 - Dimarco pagato 195 e Paz N. 201: due acquisti sopra i 190 oltre a Ramos G. — `rosters.json` — *ancora buono per:* un'inchiesta sulla spesa concentrata.
-- Kevin Carlos pagato 7 crediti contro un valore a coefficiente di 46 — `rosters.json` — *ancora buono per:* un pezzo sugli affari veri, se segna.
 - Nove giocatori acquistati a un credito, tra cui Di Gregorio — `rosters.json` — *ancora buono per:* una pagella.
