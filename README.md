@@ -19,7 +19,7 @@ The project is organized into three components:
 
 2. **Scrape league data**:
    ```
-   npm run scrape -- --league        # teams, managers, credits, mode + every squad
+   npm run scrape -- --league        # teams, managers, credits, mode + every squad (price + quotation)
    npm run scrape -- --matchday <n>  # NOT YET AVAILABLE — see "Recalibration status"
    ```
 
@@ -75,9 +75,13 @@ what is calibrated, what is not, and what the site turned out to look like.
   `ui-team-roster` holds the lot: the header's `ui-team-card[data-id]` (team
   id, name, manager), the credits figure beside
   `nz-icon[nztype="fc:credits"]`, and a `nz-table` whose every row pairs a
-  `ui-player-card` (role chip, name, club) with a `td[data-key="cost"]` — the
-  **auction price**, which is what the newsroom actually wants and is a
-  different column from the player's current quotation.
+  `ui-player-card` (role chip, name, club) with two number columns that must
+  not be confused: `td[data-key="cost"]` is the **auction price** the manager
+  paid, and `td[data-key^="stats.quotation.current."]` is the player's
+  **current quotation**. Both are scraped. The quotation key is matched by
+  prefix because the site suffixes it with the game type
+  (`…current.classic`), so an exact match would return `null` for every player
+  in a mantra league.
 - **Standings parsing.** Calibrated against the live table. Pre-season it is
   ten rows of honest zeros.
 
@@ -140,11 +144,17 @@ only kind of scraping bug nobody notices:
   `ui-player-role[data-game-type]` (`1` classic, `2` mantra) and is reported
   as `unknown` unless every card on every team agrees; it is not decided by
   majority vote.
-- **What the roster table shows and `rosters.json` does not carry.** Beside
-  the auction price the table also has the player's current quotation (`Qa`),
-  his `FVMp`, and pre-season-empty `MV`/`FM` columns; the header adds the
-  squad's total value ("Valore rosa"). None is scraped yet — say so before
-  writing a piece that needs one.
+- **Price and quotation are on DIFFERENT SCALES — do not subtract them
+  naively.** The league's auction spent 8615 credits against a quotation total
+  of 2452, i.e. roughly **3.5 credits per quotation point**. A raw
+  `price - quotation` therefore reads as a huge "overpayment" for every single
+  player, which is an artefact of the scale and not a fact about anybody. The
+  honest comparison is against the league rate: expected price ≈ quotation ×
+  3.51, and the interesting number is the distance from that.
+- **What the roster table shows and `rosters.json` still does not carry.**
+  `FVMp` and the pre-season-empty `MV`/`FM` columns, plus the header's "Valore
+  rosa" (the squad's FVMp total). Say so before writing a piece that needs
+  one.
 - **A trailing `*` on a player's name is the site's own text**, not a parsing
   artifact: it marks a player off the current quotation list, and it is passed
   through verbatim rather than stripped. Two players carry one today.

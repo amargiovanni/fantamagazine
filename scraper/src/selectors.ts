@@ -189,6 +189,19 @@ export const SEL = {
     price: 'td[data-key="cost"]',
 
     /**
+     * The "Qa" column: the player's current quotation, which is NOT the price
+     * — the same row routinely carries 225 against 16.
+     *
+     * Matched by PREFIX because the site suffixes the key with the mode:
+     * `stats.quotation.current.classic` here, and the neighbouring FVMp column
+     * is keyed `stats.fmvp.classic` the same way, so the suffix plainly
+     * follows the game type rather than being part of the column's name. A
+     * mantra league would key it `…current.mantra` and an exact match would
+     * quietly return `null` for every player.
+     */
+    quotation: 'td[data-key^="stats.quotation.current."]',
+
+    /**
      * A pager that is NOT hidden means the table is showing a page of the
      * roster rather than all of it, and a squad parsed from it would be
      * silently short. Today `nzhideonsinglepage` keeps it `hidden`; the

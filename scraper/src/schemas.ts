@@ -33,6 +33,12 @@ export type League = z.infer<typeof LeagueSchema>;
  * separate column. It is nullable because a league that never ran an auction
  * renders the column empty; in this league it is always a number.
  *
+ * `quotation` is the player's CURRENT valuation (the table's "Qa" column) —
+ * what he is worth now, as opposed to what this manager paid. The pair is the
+ * point: `price` 225 against `quotation` 16 is an overpayment, and neither
+ * number says that on its own. They are separate columns of the same row and
+ * are never derived from each other.
+ *
  * `role` is whatever the page states, verbatim: `P`/`D`/`C`/`A` in classic. A
  * mantra player holds several roles, which the markup renders as several
  * `[data-role]` chips, and they are joined with `;` (`Dc;Ds`) rather than
@@ -43,6 +49,7 @@ export const RosterPlayerSchema = z.object({
   role: z.string().min(1),
   club: z.string().nullable(),      // Serie A club, if shown
   price: z.number().int().nonnegative().nullable(),
+  quotation: z.number().int().nonnegative().nullable(),
 });
 
 /**

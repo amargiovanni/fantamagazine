@@ -31,7 +31,7 @@ describe('RostersSchema', () => {
     teamId,
     teamName: 'Real Sarcasmo',
     credits: 42,
-    players: [{ name: 'Amilcare Buffagni', role: 'P', club: 'Vigevano', price: 31 }],
+    players: [{ name: 'Amilcare Buffagni', role: 'P', club: 'Vigevano', price: 31, quotation: 12 }],
   });
 
   it('accepts rosters with a nullable club, a nullable price and null credits', () => {
@@ -40,7 +40,7 @@ describe('RostersSchema', () => {
       teams: [
         roster('9000001'),
         { ...roster('9000002'), credits: null, players: [
-          { name: 'Ombretta Falconi', role: 'Dc;Ds', club: null, price: null },
+          { name: 'Ombretta Falconi', role: 'Dc;Ds', club: null, price: null, quotation: null },
         ] },
       ],
     };
@@ -58,7 +58,19 @@ describe('RostersSchema', () => {
     expect(() => RostersSchema.parse({
       season: '2026-27', mode: 'classic', scrapedAt: 'x',
       teams: [
-        { ...roster('9000001'), players: [{ name: 'X', role: 'P', club: null, price: 3.5 }] },
+        { ...roster('9000001'), players: [
+          { name: 'X', role: 'P', club: null, price: 3.5, quotation: 1 },
+        ] },
+        roster('9000002'),
+      ],
+    })).toThrow();
+  });
+
+  it('rejects a player missing the quotation field outright', () => {
+    expect(() => RostersSchema.parse({
+      season: '2026-27', mode: 'classic', scrapedAt: 'x',
+      teams: [
+        { ...roster('9000001'), players: [{ name: 'X', role: 'P', club: null, price: 1 }] },
         roster('9000002'),
       ],
     })).toThrow();

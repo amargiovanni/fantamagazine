@@ -21,9 +21,23 @@ function rosterPage(inner: string, teamId = TEAM_ID): string {
     </ui-team-roster>`;
 }
 
-/** One table row around `card`, with `cost` as the auction price cell. */
-function playerRow(card: string, cost = '1'): string {
-  return `<tr><td colspan="2">${card}</td><td data-key="cost"> ${cost} </td></tr>`;
+/**
+ * One table row around `card`: the auction price cell, then the quotation
+ * cell. `quotationKey` defaults to the MANTRA-suffixed key on purpose — the
+ * live classic page keys it `…current.classic`, the fixture covers that, and
+ * these inline cases prove the prefix match works for the other mode too.
+ */
+function playerRow(
+  card: string,
+  cost = '1',
+  quotation = '1',
+  quotationKey = 'stats.quotation.current.mantra',
+): string {
+  return (
+    `<tr><td colspan="2">${card}</td>` +
+    `<td data-key="cost"> ${cost} </td>` +
+    `<td data-key="${quotationKey}"> ${quotation} </td></tr>`
+  );
 }
 
 describe('parseRoster', () => {
@@ -56,9 +70,30 @@ describe('parseRoster', () => {
         role: 'P',
         club: 'Vigevano',
         price: 31,
+        quotation: 12,
       });
       // The most expensive signing is what the newsroom actually wants.
       expect(roster.players[4]).toMatchObject({ name: 'Genoveffa Tortelli', role: 'A', price: 214 });
+    });
+  });
+
+  /**
+   * The price and the quotation are two different columns of the same row, and
+   * the gap between them is the story: 214 paid for a player worth 18. Reading
+   * one column for both — or deriving one from the other — would erase exactly
+   * the number the piece is about.
+   */
+  it('reads the auction price and the current quotation as separate columns', async () => {
+    await withFixturePage('roster.html', async (page) => {
+      const { roster } = await parseRoster(page, TEAM_ID);
+
+      expect(roster.players.map((player) => [player.price, player.quotation])).toEqual([
+        [31, 12],
+        [8, 7],
+        [null, 9],
+        [1, null],
+        [214, 18],
+      ]);
     });
   });
 
@@ -104,7 +139,21 @@ describe('parseRoster', () => {
     await withFixturePage('roster.html', async (page) => {
       const { roster } = await parseRoster(page, TEAM_ID);
 
-      expect(roster.players[2]).toMatchObject({ name: 'Casimiro Ventura', price: null });
+      // His quotation is still 9: an empty price does not blank the row.
+      expect(roster.players[2]).toMatchObject({
+        name: 'Casimiro Ventura', price: null, quotation: 9,
+      });
+    });
+  });
+
+  it('leaves an empty quotation cell null rather than 0', async () => {
+    await withFixturePage('roster.html', async (page) => {
+      const { roster } = await parseRoster(page, TEAM_ID);
+
+      // And his price is still 1, so this is not a row that parsed as all-null.
+      expect(roster.players[3]).toMatchObject({
+        name: 'Pellegrino Sbarra', price: 1, quotation: null,
+      });
     });
   });
 
@@ -157,12 +206,14 @@ describe('parseRoster', () => {
         <div class="ant-card-meta-description">Vigevano</div>
       </ui-player-card>`;
 
-    await withHtmlPage(rosterPage(playerRow(card, '17')), async (page) => {
+    // The quotation column is keyed `…current.mantra` in a mantra league; an
+    // exact match on the classic key would return null for every player.
+    await withHtmlPage(rosterPage(playerRow(card, '17', '9')), async (page) => {
       const { roster, mode } = await parseRoster(page, TEAM_ID);
 
       expect(mode).toBe('mantra');
       expect(roster.players[0]).toEqual({
-        name: 'Ilario Peveri', role: 'Dc;Ds', club: 'Vigevano', price: 17,
+        name: 'Ilario Peveri', role: 'Dc;Ds', club: 'Vigevano', price: 17, quotation: 9,
       });
     });
   });

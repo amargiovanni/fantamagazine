@@ -34,10 +34,12 @@ export interface RosterPage {
  * **It refuses a paginated table.** The squad must be complete or absent; a
  * page-one-of-two parse is the one failure that looks like success.
  *
- * **`price` is the auction price** ("Costo"), not the current quotation, which
- * is a different column of the same table. A cell that holds no number yields
- * `null` rather than 0 — a player nobody paid for and a player bought for
- * nothing are not the same statement.
+ * **`price` and `quotation` are two different columns** of the same row:
+ * "Costo", what this manager paid at the auction, and "Qa", what the player is
+ * worth today. Both are read, neither is derived from the other, and the gap
+ * between them is the overpayment the magazine writes about. A cell that holds
+ * no number yields `null` rather than 0 — a player nobody paid for and a
+ * player bought for nothing are not the same statement.
  */
 export async function parseRoster(page: Page, teamId: string): Promise<RosterPage> {
   const raw = await page.evaluate((sel) => {
@@ -96,6 +98,7 @@ export async function parseRoster(page: Page, teamId: string): Promise<RosterPag
             .join(';'),
           club: club === '' ? null : club,
           price: int(text(row.querySelector(sel.price))),
+          quotation: int(text(row.querySelector(sel.quotation))),
         },
       ];
     });
