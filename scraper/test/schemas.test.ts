@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LeagueSchema, ResultsSchema } from '../src/schemas.js';
+import { LeagueSchema, ResultsSchema, RostersSchema } from '../src/schemas.js';
 
 describe('LeagueSchema', () => {
   it('accepts a valid league', () => {
@@ -22,6 +22,45 @@ describe('ResultsSchema', () => {
     expect(() => ResultsSchema.parse({
       matchday: 1,
       fixtures: [{ home: { teamId: 't1', goals: 2 }, away: { teamId: 't2', fantapoints: 61, goals: 0 } }],
+    })).toThrow();
+  });
+});
+
+describe('RostersSchema', () => {
+  const roster = (teamId: string) => ({
+    teamId,
+    teamName: 'Real Sarcasmo',
+    credits: 42,
+    players: [{ name: 'Amilcare Buffagni', role: 'P', club: 'Vigevano', price: 31 }],
+  });
+
+  it('accepts rosters with a nullable club, a nullable price and null credits', () => {
+    const rosters = {
+      season: '2026-27', mode: 'classic', scrapedAt: '2026-08-20T10:00:00Z',
+      teams: [
+        roster('9000001'),
+        { ...roster('9000002'), credits: null, players: [
+          { name: 'Ombretta Falconi', role: 'Dc;Ds', club: null, price: null },
+        ] },
+      ],
+    };
+    expect(RostersSchema.parse(rosters).teams).toHaveLength(2);
+  });
+
+  it('rejects a team with an empty squad', () => {
+    expect(() => RostersSchema.parse({
+      season: '2026-27', mode: 'classic', scrapedAt: 'x',
+      teams: [{ ...roster('9000001'), players: [] }, roster('9000002')],
+    })).toThrow();
+  });
+
+  it('rejects a fractional price, which would mean the cost column was misread', () => {
+    expect(() => RostersSchema.parse({
+      season: '2026-27', mode: 'classic', scrapedAt: 'x',
+      teams: [
+        { ...roster('9000001'), players: [{ name: 'X', role: 'P', club: null, price: 3.5 }] },
+        roster('9000002'),
+      ],
     })).toThrow();
   });
 });

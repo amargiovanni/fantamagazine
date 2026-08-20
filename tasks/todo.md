@@ -12,3 +12,14 @@
 - [x] 10 Site pages (front page, issues, archive)
 - [x] 11 Site pages (rubriche, albo, classifica charts)
 - [x] 12 Cloudflare deploy and verification
+
+## 13 Team rosters (FM-001)
+
+- [x] 13.1 `RosterSchema`/`RostersSchema` in `schemas.ts` (+ shared `LeagueModeSchema`)
+- [x] 13.2 `SEL.roster` entries calibrated against the captured roster page
+- [x] 13.3 `parseRoster(page, teamId)` — players, credits, league mode
+- [x] 13.4 Synthetic `fixtures/roster.html` + parser tests (TDD)
+- [x] 13.5 `--league` becomes a two-phase scrape: dashboard + 10 roster pages
+- [x] 13.6 `demo-data.test.ts` guards `rosters.json`
+- [x] 13.7 Real run against the live site; commit `league.json` + `rosters.json`
+- [x] 13.8 README: known gaps closed, daily ops updated

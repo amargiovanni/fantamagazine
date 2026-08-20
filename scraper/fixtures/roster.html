@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Il Fatto Fantidiano — Rosa di una squadra (fixture)</title>
+</head>
+<body>
+  <!--
+    SANITIZED SYNTHETIC FIXTURE. It mirrors the STRUCTURE of the live
+    per-team roster page (captured 2026-08-20 into the gitignored
+    scraper/fixtures/captured/roster-one-team.html) with an INVENTED team, an
+    INVENTED manager and INVENTED players. Neither a real league member nor a
+    real Serie A footballer is ever committed to this repository — real names
+    live in data/, which is the product.
+
+    What is copied from the real markup, and what the parser depends on:
+      - a single `ui-team-roster` holding everything;
+      - `header > ui-team-card > nz-card[data-id]` carrying the team id, and
+        `.ant-card-meta-title`/`.ant-card-meta-description` the team and
+        manager;
+      - the credits figure as a TEXT NODE beside `nz-icon[nztype="fc:credits"]`
+        inside a span, with a "Valore rosa" span rendered the same way right
+        before it — the trap the icon selector exists to avoid;
+      - `tbody tr`, each with `td[colspan=2] > ui-player-card[data-id]`
+        (role chip, name, club) and `td[data-key="cost"]` (the auction price);
+      - `ui-player-role[data-game-type]` on every player card, `1` for classic.
+
+    Reproduced ON PURPOSE because a selector that accidentally depended on one
+    has to fail here rather than in production:
+      - the generated Angular attributes (`ng-star-inserted`, `_ngcontent-*`,
+        `ng-tns-c*`) and the Tailwind utility classes;
+      - the `thead` repeating the same `data-key` attributes on its `th`s;
+      - the pitch view, whose `ui-player-role`s carry NO `data-game-type` and
+        whose player names are NOT in a `ui-player-card`;
+      - the sidebar team list, a dozen more `ui-team-card`s outside the root;
+      - a skeleton `tr` with no player card, as rendered mid-load;
+      - the hidden `nz-pagination` the table ships with `nzhideonsinglepage`.
+
+    Deliberate edge cases the tests assert on:
+      - Ombretta Falconi carries a `ui-loan-badge` with text, which must NOT be
+        glued onto the name;
+      - Pellegrino Sbarra has an EMPTY club cell -> club is null;
+      - Casimiro Ventura has an EMPTY cost cell -> price is null, never 0.
+  -->
+  <app-root class="platform-game-prod">
+    <ui-main-nav class="ng-star-inserted"><header><section class="flex h-[50px] mx-auto"></section></header></ui-main-nav>
+    <ui-league-card _nghost-ng-c4188914775="" data-competition-id="900000">
+      <h5 class="league-name truncate ng-star-inserted" data-id="1400000">Lega di Prova</h5>
+      <small class="truncate ng-star-inserted">Prova-League</small>
+    </ui-league-card>
+
+    <view-teams>
+      <!-- SIDEBAR: every other team of the league, outside `ui-team-roster`. An
+           unscoped `ui-team-card nz-card[data-id]` would pick the first of
+           these instead of the team being looked at. -->
+      <ui-team-list class="flex flex-col gap-2">
+        <ui-team-card _nghost-ng-c3763261877="" class="ng-tns-c3763261877-4 ng-star-inserted" data-size="small">
+          <nz-card nzsize="small" class="ant-card team-card ant-card-small" data-id="9000002">
+            <div class="ant-card-body">
+              <nz-card-meta class="ant-card-meta ng-star-inserted">
+                <div class="ant-card-meta-detail ng-star-inserted">
+                  <div class="ant-card-meta-title ng-star-inserted">Sconforto Cosenza<!----></div>
+                  <div class="ant-card-meta-description ng-star-inserted">ottavio<!----></div>
+                </div>
+              </nz-card-meta>
+            </div>
+          </nz-card>
+        </ui-team-card>
+        <ui-team-card _nghost-ng-c3763261877="" class="ng-tns-c3763261877-5 ng-star-inserted" data-size="small">
+          <nz-card nzsize="small" class="ant-card team-card ant-card-small" data-id="9000003">
+            <div class="ant-card-body">
+              <nz-card-meta class="ant-card-meta ng-star-inserted">
+                <div class="ant-card-meta-detail ng-star-inserted">
+                  <div class="ant-card-meta-title ng-star-inserted">Atletico Malinconia<!----></div>
+                  <div class="ant-card-meta-description ng-star-inserted">clemente<!----></div>
+                </div>
+              </nz-card-meta>
+            </div>
+          </nz-card>
+        </ui-team-card>
+      </ui-team-list>
+
+      <ui-team-roster _ngcontent-ng-c2082856116="" _nghost-ng-c1533346353="">
+        <header _ngcontent-ng-c1533346353="" class="flex items-center justify-center">
+          <ui-team-card _ngcontent-ng-c1533346353="" size="large" _nghost-ng-c3763261877="" class="ng-tns-c3763261877-1 ng-star-inserted" data-size="large" data-type="default">
+            <nz-card _ngcontent-ng-c3763261877="" nzsize="small" class="ant-card max-w-full ng-tns-c3763261877-1 team-card type-default ant-card-small" data-id="9000001">
+              <div class="ant-card-body">
+                <nz-skeleton _ngcontent-ng-c3763261877="" class="ant-skeleton ng-star-inserted">
+                  <nz-card-meta _ngcontent-ng-c3763261877="" class="ant-card-meta leading-tight flex items-center ng-star-inserted">
+                    <div class="ant-card-meta-avatar ng-star-inserted">
+                      <ui-team-logo _ngcontent-ng-c3763261877="" class="logo ng-tns-c3763261877-1 ng-star-inserted"><nz-avatar class="ant-avatar ant-avatar-circle"><!----></nz-avatar></ui-team-logo>
+                      <ui-team-shirt _ngcontent-ng-c3763261877="" class="shirt ng-tns-c3763261877-1 ng-star-inserted"><nz-avatar class="ant-avatar ant-avatar-circle"><!----></nz-avatar></ui-team-shirt>
+                    </div>
+                    <div class="ant-card-meta-detail ng-star-inserted">
+                      <div class="ant-card-meta-title ng-star-inserted"> Real Sarcasmo <!----><!----></div><!---->
+                      <div class="ant-card-meta-description ng-star-inserted">furio<!----><!----></div><!---->
+                    </div>
+                  </nz-card-meta>
+                </nz-skeleton>
+              </div>
+            </nz-card>
+          </ui-team-card>
+          <span _ngcontent-ng-c1533346353="" class="mx-auto ng-star-inserted"></span><!---->
+          <div _ngcontent-ng-c1533346353="" class="flex gap-8 text-xl mr-2">
+            <span _ngcontent-ng-c1533346353="" class="flex flex-col text-center">
+              <span _ngcontent-ng-c1533346353="">1157 <small _ngcontent-ng-c1533346353="">FVMp</small></span>
+              <small _ngcontent-ng-c1533346353="" class="text-xs">Valore rosa</small>
+            </span>
+            <span _ngcontent-ng-c1533346353="" class="flex flex-col text-center">
+              <span _ngcontent-ng-c1533346353="">42 <nz-icon _ngcontent-ng-c1533346353="" role="img" nztype="fc:credits" aria-label="fc:credits" class="anticon anticon-fc:credits"><svg viewBox="0 0 1024 1024" width="1em" height="1em" aria-hidden="true"><path d="M0 0h1v1H0z"></path></svg></nz-icon></span>
+              <small _ngcontent-ng-c1533346353="" class="text-xs">Crediti</small>
+            </span>
+          </div>
+        </header>
+        <hr _ngcontent-ng-c1533346353="" class="opacity-50 my-4">
+
+        <!-- PITCH VIEW: the last lineup, inside the root. Its `ui-player-role`s
+             carry no `data-game-type`, and its player names are bare spans —
+             a role or name selector that is not scoped to `ui-player-card`
+             picks these up. -->
+        <ui-team-lineup _ngcontent-ng-c1533346353="" class="relative isolate z-10" _nghost-ng-c3981353502="">
+          <div _ngcontent-ng-c3981353502="" class="lineup-stage relative h-64">
+            <section _ngcontent-ng-c3981353502="" class="team-lineup-field absolute inset-0 ng-star-inserted" data-zone="0">
+              <figure _ngcontent-ng-c3981353502="" class="relative grid-stack ng-star-inserted">
+                <figcaption _ngcontent-ng-c3981353502="" class="ng-star-inserted">
+                  <ui-player-role _ngcontent-ng-c3981353502="" type="simple" _nghost-ng-c4159189330="" data-type="simple">
+                    <ui-role _ngcontent-ng-c4159189330="" _nghost-ng-c2235846313="" class="ng-star-inserted"><div _ngcontent-ng-c2235846313="" class="game-type-1 role role-g" data-len="1" data-role-index="1" data-role="P"></div></ui-role>
+                  </ui-player-role>
+                  <span _ngcontent-ng-c3981353502="" class="mr-2 text-nowrap truncate">Amilcare Buffagni</span>
+                </figcaption>
+              </figure>
+            </section>
+          </div>
+        </ui-team-lineup>
+
+        <ui-player-list _ngcontent-ng-c1533346353="">
+          <nz-table nzsize="small" nzhideonsinglepage="" class="ant-table-wrapper select-none">
+            <nz-spin class="ant-spin-nested-loading">
+              <div class="ant-spin-container ng-star-inserted">
+                <div class="ant-table ant-table-small">
+                  <nz-table-inner-default class="ant-table-container ng-star-inserted">
+                    <div class="ant-table-content">
+                      <table nz-table-content="" style="table-layout: auto;">
+                        <colgroup class="ng-star-inserted"><col class="ng-star-inserted"><col class="ng-star-inserted"><col class="ng-star-inserted"></colgroup>
+                        <!-- The `thead` repeats the body's `data-key`s on its
+                             `th`s: `td[data-key="cost"]` alone is not enough,
+                             the row selector has to be `tbody tr`. -->
+                        <thead class="ant-table-thead ng-star-inserted">
+                          <tr class="ant-table-row ng-star-inserted">
+                            <th class="ant-table-cell ng-star-inserted" data-key="role"><span class="ant-table-column-title"><span class="text-nowrap ng-star-inserted"> R. </span></span></th>
+                            <th class="ant-table-cell ng-star-inserted" data-key="name"><span class="ant-table-column-title"><span class="text-nowrap ng-star-inserted"> Nome </span></span></th>
+                            <th class="ant-table-cell ng-star-inserted" data-key="cost"><span class="ant-table-column-title"><span class="text-nowrap ng-star-inserted"> Costo </span></span></th>
+                            <th class="ant-table-cell ng-star-inserted" data-key="stats.quotation.current.classic"><span class="ant-table-column-title"><span class="text-nowrap ng-star-inserted"> Qa </span></span></th>
+                          </tr>
+                        </thead>
+                        <tbody class="ant-table-tbody">
+                          <!-- SKELETON ROW: rendered while the SPA loads, no player card. -->
+                          <tr class="ant-table-row ng-star-inserted"><td colspan="4" class="!p-0 ant-table-cell"><nz-skeleton class="ant-skeleton ant-skeleton-active"><!----></nz-skeleton></td></tr>
+
+                          <tr class="ant-table-row ng-star-inserted">
+                            <td colspan="2" class="!p-0 ant-table-cell">
+                              <ui-player-card class="block group cursor-pointer" _nghost-ng-c3641055193="" data-id="9100001" data-size="small">
+                                <nz-card _ngcontent-ng-c3641055193="" nzsize="small" class="ant-card small ant-card-small" data-id="9100001">
+                                  <div class="ant-card-body">
+                                    <ui-player-role _ngcontent-ng-c3641055193="" type="vertical" _nghost-ng-c4159189330="" data-game-type="1" data-type="vertical" class="ng-star-inserted"><ui-role _ngcontent-ng-c4159189330="" _nghost-ng-c2235846313="" class="ng-star-inserted"><div _ngcontent-ng-c2235846313="" class="game-type-1 role role-g" data-len="1" data-role-index="1" data-role="P"></div></ui-role></ui-player-role>
+                                    <nz-card-meta _ngcontent-ng-c3641055193="" class="ant-card-meta overflow-hidden flex items-center ng-star-inserted">
+                                      <div class="ant-card-meta-avatar ng-star-inserted"><nz-avatar _ngcontent-ng-c3641055193="" class="ant-avatar ant-avatar-circle ng-star-inserted"><!----></nz-avatar></div>
+                                      <div class="ant-card-meta-detail ng-star-inserted">
+                                        <div class="ant-card-meta-title ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="player-name inline-flex ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="truncate">Amilcare Buffagni</span><ui-loan-badge _ngcontent-ng-c3641055193="" size="small" class="align-middle ng-star-inserted"><!----></ui-loan-badge></span></div>
+                                        <div class="ant-card-meta-description ng-star-inserted">Vigevano<!----><!----></div>
+                                      </div>
+                                    </nz-card-meta>
+                                  </div>
+                                </nz-card>
+                              </ui-player-card>
+                            </td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="cost" style="text-align: center;"><!----><!----> 31 <!----></td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="stats.quotation.current.classic" style="text-align: center;"><!----><!----> 12 <!----></td>
+                          </tr>
+
+                          <tr class="ant-table-row ng-star-inserted">
+                            <td colspan="2" class="!p-0 ant-table-cell">
+                              <ui-player-card class="block group cursor-pointer" _nghost-ng-c3641055193="" data-id="9100002" data-size="small">
+                                <nz-card _ngcontent-ng-c3641055193="" nzsize="small" class="ant-card small ant-card-small" data-id="9100002">
+                                  <div class="ant-card-body">
+                                    <ui-player-role _ngcontent-ng-c3641055193="" type="vertical" _nghost-ng-c4159189330="" data-game-type="1" data-type="vertical" class="ng-star-inserted"><ui-role _ngcontent-ng-c4159189330="" _nghost-ng-c2235846313="" class="ng-star-inserted"><div _ngcontent-ng-c2235846313="" class="game-type-1 role role-d" data-len="1" data-role-index="2" data-role="D"></div></ui-role></ui-player-role>
+                                    <nz-card-meta _ngcontent-ng-c3641055193="" class="ant-card-meta overflow-hidden flex items-center ng-star-inserted">
+                                      <div class="ant-card-meta-detail ng-star-inserted">
+                                        <div class="ant-card-meta-title ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="player-name inline-flex ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="truncate">Ombretta Falconi</span><ui-loan-badge _ngcontent-ng-c3641055193="" size="small" class="align-middle ng-star-inserted"><span class="badge">P</span><!----></ui-loan-badge></span></div>
+                                        <div class="ant-card-meta-description ng-star-inserted">Casalpusterlengo<!----><!----></div>
+                                      </div>
+                                    </nz-card-meta>
+                                  </div>
+                                </nz-card>
+                              </ui-player-card>
+                            </td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="cost" style="text-align: center;"><!----><!----> 8 <!----></td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="stats.quotation.current.classic" style="text-align: center;"><!----><!----> 7 <!----></td>
+                          </tr>
+
+                          <tr class="ant-table-row ng-star-inserted">
+                            <td colspan="2" class="!p-0 ant-table-cell">
+                              <ui-player-card class="block group cursor-pointer" _nghost-ng-c3641055193="" data-id="9100003" data-size="small">
+                                <nz-card _ngcontent-ng-c3641055193="" nzsize="small" class="ant-card small ant-card-small" data-id="9100003">
+                                  <div class="ant-card-body">
+                                    <ui-player-role _ngcontent-ng-c3641055193="" type="vertical" _nghost-ng-c4159189330="" data-game-type="1" data-type="vertical" class="ng-star-inserted"><ui-role _ngcontent-ng-c4159189330="" _nghost-ng-c2235846313="" class="ng-star-inserted"><div _ngcontent-ng-c2235846313="" class="game-type-1 role role-m" data-len="1" data-role-index="3" data-role="C"></div></ui-role></ui-player-role>
+                                    <nz-card-meta _ngcontent-ng-c3641055193="" class="ant-card-meta overflow-hidden flex items-center ng-star-inserted">
+                                      <div class="ant-card-meta-detail ng-star-inserted">
+                                        <div class="ant-card-meta-title ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="player-name inline-flex ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="truncate">Casimiro Ventura</span><ui-loan-badge _ngcontent-ng-c3641055193="" size="small" class="align-middle ng-star-inserted"><!----></ui-loan-badge></span></div>
+                                        <div class="ant-card-meta-description ng-star-inserted">Vigevano<!----><!----></div>
+                                      </div>
+                                    </nz-card-meta>
+                                  </div>
+                                </nz-card>
+                              </ui-player-card>
+                            </td>
+                            <!-- No auction price: the cell renders empty. -->
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="cost" style="text-align: center;"><!----><!----><!----></td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="stats.quotation.current.classic" style="text-align: center;"><!----><!----> 9 <!----></td>
+                          </tr>
+
+                          <tr class="ant-table-row ng-star-inserted">
+                            <td colspan="2" class="!p-0 ant-table-cell">
+                              <ui-player-card class="block group cursor-pointer" _nghost-ng-c3641055193="" data-id="9100004" data-size="small">
+                                <nz-card _ngcontent-ng-c3641055193="" nzsize="small" class="ant-card small ant-card-small" data-id="9100004">
+                                  <div class="ant-card-body">
+                                    <ui-player-role _ngcontent-ng-c3641055193="" type="vertical" _nghost-ng-c4159189330="" data-game-type="1" data-type="vertical" class="ng-star-inserted"><ui-role _ngcontent-ng-c4159189330="" _nghost-ng-c2235846313="" class="ng-star-inserted"><div _ngcontent-ng-c2235846313="" class="game-type-1 role role-m" data-len="1" data-role-index="3" data-role="C"></div></ui-role></ui-player-role>
+                                    <nz-card-meta _ngcontent-ng-c3641055193="" class="ant-card-meta overflow-hidden flex items-center ng-star-inserted">
+                                      <div class="ant-card-meta-detail ng-star-inserted">
+                                        <div class="ant-card-meta-title ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="player-name inline-flex ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="truncate">Pellegrino Sbarra</span><ui-loan-badge _ngcontent-ng-c3641055193="" size="small" class="align-middle ng-star-inserted"><!----></ui-loan-badge></span></div>
+                                        <!-- Free agent: no club shown. -->
+                                        <div class="ant-card-meta-description ng-star-inserted"><!----><!----></div>
+                                      </div>
+                                    </nz-card-meta>
+                                  </div>
+                                </nz-card>
+                              </ui-player-card>
+                            </td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="cost" style="text-align: center;"><!----><!----> 1 <!----></td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="stats.quotation.current.classic" style="text-align: center;"><!----><!----> 1 <!----></td>
+                          </tr>
+
+                          <tr class="ant-table-row ng-star-inserted">
+                            <td colspan="2" class="!p-0 ant-table-cell">
+                              <ui-player-card class="block group cursor-pointer" _nghost-ng-c3641055193="" data-id="9100005" data-size="small">
+                                <nz-card _ngcontent-ng-c3641055193="" nzsize="small" class="ant-card small ant-card-small" data-id="9100005">
+                                  <div class="ant-card-body">
+                                    <ui-player-role _ngcontent-ng-c3641055193="" type="vertical" _nghost-ng-c4159189330="" data-game-type="1" data-type="vertical" class="ng-star-inserted"><ui-role _ngcontent-ng-c4159189330="" _nghost-ng-c2235846313="" class="ng-star-inserted"><div _ngcontent-ng-c2235846313="" class="game-type-1 role role-f" data-len="1" data-role-index="4" data-role="A"></div></ui-role></ui-player-role>
+                                    <nz-card-meta _ngcontent-ng-c3641055193="" class="ant-card-meta overflow-hidden flex items-center ng-star-inserted">
+                                      <div class="ant-card-meta-detail ng-star-inserted">
+                                        <div class="ant-card-meta-title ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="player-name inline-flex ng-star-inserted"><span _ngcontent-ng-c3641055193="" class="truncate">Genoveffa Tortelli</span><ui-loan-badge _ngcontent-ng-c3641055193="" size="small" class="align-middle ng-star-inserted"><!----></ui-loan-badge></span></div>
+                                        <div class="ant-card-meta-description ng-star-inserted">Casalpusterlengo<!----><!----></div>
+                                      </div>
+                                    </nz-card-meta>
+                                  </div>
+                                </nz-card>
+                              </ui-player-card>
+                            </td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="cost" style="text-align: center;"><!----><!----> 214 <!----></td>
+                            <td class="!p-0 ant-table-cell ng-star-inserted" data-key="stats.quotation.current.classic" style="text-align: center;"><!----><!----> 18 <!----></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </nz-table-inner-default>
+                  <!-- Hidden by `nzhideonsinglepage`: the whole squad is in the DOM. -->
+                  <nz-pagination class="ant-pagination ant-table-pagination ant-pagination-mini ng-star-inserted" hidden=""><!----></nz-pagination>
+                </div>
+              </div>
+            </nz-spin>
+          </nz-table>
+        </ui-player-list>
+      </ui-team-roster>
+    </view-teams>
+  </app-root>
+</body>
+</html>

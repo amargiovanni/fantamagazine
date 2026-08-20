@@ -19,9 +19,17 @@ The project is organized into three components:
 
 2. **Scrape league data**:
    ```
-   npm run scrape -- --league        # teams, managers
+   npm run scrape -- --league        # teams, managers, credits, mode + every squad
    npm run scrape -- --matchday <n>  # NOT YET AVAILABLE — see "Recalibration status"
    ```
+
+   `--league` is a **two-phase scrape** on one login: the competition dashboard
+   for the roll-call, then each team's roster page for its squad. It writes
+   `data/<season>/league.json` **and** `data/<season>/rosters.json`. The second
+   phase is not optional extra work — a team's remaining `credits` and the
+   league's `mode` are rendered nowhere but a roster page, so a dashboard-only
+   run can only write `null` and `"unknown"`. Budget about a page load per
+   team; ten teams take under a minute.
 
 3. **Create a new issue** using the editorial skill in Claude Code:
    ```
@@ -59,8 +67,17 @@ what is calibrated, what is not, and what the site turned out to look like.
   dashboard, standings, rosters, one team's roster, fixtures — and, separately,
   the `legacy=true` documents (see below). Output lands in
   `scraper/fixtures/captured/` (gitignored).
-- **`--league`.** Writes `data/<season>/league.json` from the competition
-  dashboard: ten teams with id, name and manager.
+- **`--league`.** Writes `data/<season>/league.json` (ten teams with id, name,
+  manager, remaining credits and the league mode) and
+  `data/<season>/rosters.json` (every team's squad). See "Daily operations"
+  for why it is two phases.
+- **Roster parsing.** Calibrated against a real team's captured page. One
+  `ui-team-roster` holds the lot: the header's `ui-team-card[data-id]` (team
+  id, name, manager), the credits figure beside
+  `nz-icon[nztype="fc:credits"]`, and a `nz-table` whose every row pairs a
+  `ui-player-card` (role chip, name, club) with a `td[data-key="cost"]` — the
+  **auction price**, which is what the newsroom actually wants and is a
+  different column from the player's current quotation.
 - **Standings parsing.** Calibrated against the live table. Pre-season it is
   ten rows of honest zeros.
 
@@ -101,21 +118,43 @@ At matchday 1, re-run `npm run scrape -- --capture`, calibrate `PAGES`/`SEL`
 against the newly captured HTML, refresh the fixtures in `scraper/fixtures/`,
 and get `npm test` green before trusting a matchday scrape.
 
+### Two failure modes the roster scrape refuses rather than risks
+
+Both would produce a file that validates perfectly and is wrong, which is the
+only kind of scraping bug nobody notices:
+
+1. **The wrong team's squad.** The roster view is an Angular SPA that also
+   renders every other team in a sidebar; a navigation that did not re-render
+   would leave the previous squad on screen, and ten such visits give ten
+   copies of team one. `parseRoster` checks the rendered `data-id` against the
+   team it was asked for and fails hard on a mismatch.
+2. **Half a squad.** `nz-table` ships a pager, hidden today by
+   `nzhideonsinglepage`. If it ever shows, the rows in the DOM are one page of
+   the roster rather than all of it, and the parser refuses instead of
+   publishing a 12-man team.
+
 ### Known gaps
 
-- **`mode` is reported as `unknown`.** Nothing in the dashboard DOM states
-  whether the league is classic or mantra — the words appear only in CSS
-  custom property names. The roster pages do carry a signal
-  (`ui-role > div.game-type-1`), so it is recoverable at the cost of one page
-  load.
-- **`credits` is `null` for every team.** The figure exists, but on the
-  per-team roster page (beside `nz-icon[nztype="fc:credits"]`), i.e. one extra
-  navigation per team. `TeamSchema` allows `null` and the site renders it.
+- **`mode` and `credits` are filled** as of 2026-08-20 — both come from the
+  roster pages that `--league` now visits. `mode` is read from
+  `ui-player-role[data-game-type]` (`1` classic, `2` mantra) and is reported
+  as `unknown` unless every card on every team agrees; it is not decided by
+  majority vote.
+- **What the roster table shows and `rosters.json` does not carry.** Beside
+  the auction price the table also has the player's current quotation (`Qa`),
+  his `FVMp`, and pre-season-empty `MV`/`FM` columns; the header adds the
+  squad's total value ("Valore rosa"). None is scraped yet — say so before
+  writing a piece that needs one.
+- **A trailing `*` on a player's name is the site's own text**, not a parsing
+  artifact: it marks a player off the current quotation list, and it is passed
+  through verbatim rather than stripped. Two players carry one today.
 
 ### Fixtures are synthetic on purpose
 
-`scraper/fixtures/league.html` and `scraper/fixtures/standings.html` mirror the
-STRUCTURE of the real pages with INVENTED teams, managers, ids and results.
+`scraper/fixtures/league.html`, `scraper/fixtures/roster.html` and
+`scraper/fixtures/standings.html` mirror the STRUCTURE of the real pages with
+INVENTED teams, managers, ids, players and results — no real footballer's name
+is committed either.
 Real league members' names live in `data/` — which is the product — and never
 in a fixture. Recalibration means updating the fixture's shape from the
 captured HTML, never pasting the captured HTML in.
@@ -169,6 +208,7 @@ green build, broken page. Purge first, then scrape.
 1. Fill in `.env` with real fantacalcio.it credentials. Login, `--capture` and
    `--league` are calibrated (see "Recalibration status"); `--matchday` is not
    and will refuse to run until it has been calibrated at matchday 1.
-2. Run `npm run scrape -- --league` once, and produce issues with
-   `/nuovo-numero`. Matchday scrapes begin once the season does.
+2. Run `npm run scrape -- --league` once — it writes both `league.json` and
+   `rosters.json` — and produce issues with `/nuovo-numero`. Matchday scrapes
+   begin once the season does.
 3. `npx wrangler login` (first time only), then `npm run deploy`.

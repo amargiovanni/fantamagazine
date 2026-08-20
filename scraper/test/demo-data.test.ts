@@ -4,7 +4,7 @@ import { basename, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import type { ZodType } from 'zod';
-import { LeagueSchema, LineupsSchema, ResultsSchema, StandingsSchema } from '../src/schemas.js';
+import { LeagueSchema, LineupsSchema, ResultsSchema, RostersSchema, StandingsSchema } from '../src/schemas.js';
 
 // This test is the permanent guard on everything committed under data/: the
 // hand-written demo dataset today, every real scrape from now on. It is
@@ -16,6 +16,7 @@ const repoRoot = fileURLToPath(new URL('../../', import.meta.url));
 // Match by file name, exactly as the scraper writes them (see src/cli.ts).
 const schemasByFileName: Record<string, ZodType> = {
   'league.json': LeagueSchema,
+  'rosters.json': RostersSchema,
   'lineups.json': LineupsSchema,
   'results.json': ResultsSchema,
   'standings.json': StandingsSchema,

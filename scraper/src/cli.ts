@@ -4,11 +4,20 @@ import type { Page } from 'playwright';
 import { capturePage, dumpDebug, gotoSettled, withSession } from './browser.js';
 import { NotCalibratedError, PAGES } from './selectors.js';
 import { parseLeague } from './parsers/league.js';
+import { parseRoster, resolveMode } from './parsers/roster.js';
 import { parseStandings } from './parsers/standings.js';
 import { writeData } from './io.js';
-import { LeagueSchema, StandingsSchema } from './schemas.js';
+import { LeagueSchema, RostersSchema, StandingsSchema, type LeagueMode, type Roster } from './schemas.js';
 
-export const USAGE = 'Usage: npm run scrape -- --league | --matchday <1-38> | --capture';
+/**
+ * `--league` is a two-phase scrape, not just the dashboard: it writes both
+ * `league.json` and `rosters.json`, because `credits` and the league `mode`
+ * exist only on the per-team roster pages. See `runLeague`.
+ */
+export const USAGE =
+  'Usage: npm run scrape -- --league | --matchday <1-38> | --capture\n' +
+  '  --league   teams, managers, credits, league mode and every squad ' +
+  '(league.json + rosters.json)';
 
 const MIN_MATCHDAY = 1;
 const MAX_MATCHDAY = 38;
@@ -83,18 +92,58 @@ async function step<T>(page: Page, name: string, fn: () => Promise<T>): Promise<
 }
 
 /**
- * Writes `data/<season>/league.json` from the live competition dashboard.
+ * Writes `data/<season>/league.json` and `data/<season>/rosters.json` from the
+ * live site, in two phases and one authenticated session.
  *
- * Only the dashboard is loaded: since the 2026-08-20 recalibration the team
- * list comes from its standings card, so the separate roster navigation the
- * first version did is gone.
+ * **Phase 1** loads the competition dashboard and reads the roll-call off its
+ * standings card: every team's id, name and manager.
+ *
+ * **Phase 2** visits each of those teams' roster pages in turn, for the squad
+ * — and for the two things the dashboard cannot state. `credits` is only ever
+ * rendered on a roster page, and so is the league `mode`; `parseLeague`
+ * therefore returns `null` and `unknown`, and this is where both get their
+ * real values. That is why the two files are written by ONE command rather
+ * than a `--league` that leaves holes and a `--rosters` that fills them: a
+ * `league.json` on disk with `mode: unknown` beside a `rosters.json` that
+ * knows the mode is a contradiction nobody would notice.
+ *
+ * The cost is a page load per team (ten today), all on the same session. A
+ * team that fails takes the run down with it rather than writing nine teams
+ * into a file that claims to be the league — the failing team's id is in the
+ * step name, so `scraper/debug/` says which one and what its page looked like.
  */
 async function runLeague(page: Page): Promise<void> {
   const scrapedAt = new Date().toISOString();
 
   await step(page, 'navigate:dashboard', () => gotoSettled(page, PAGES.dashboard));
   const league = await step(page, 'parse:league', () => parseLeague(page, scrapedAt));
-  await step(page, 'write:league', async () => writeData('2026-27/league.json', LeagueSchema, league));
+
+  const rosters: Roster[] = [];
+  const modes: LeagueMode[] = [];
+
+  for (const team of league.teams) {
+    // Sequential on purpose: one page, one session, one navigation at a time.
+    await step(page, `navigate:roster:${team.id}`, () => gotoSettled(page, PAGES.roster(team.id)));
+    const parsed = await step(page, `parse:roster:${team.id}`, () => parseRoster(page, team.id));
+    rosters.push(parsed.roster);
+    modes.push(parsed.mode);
+  }
+
+  const mode = resolveMode(modes);
+  const creditsByTeam = new Map(rosters.map((roster) => [roster.teamId, roster.credits]));
+  const teams = league.teams.map((team) => ({ ...team, credits: creditsByTeam.get(team.id) ?? null }));
+
+  await step(page, 'write:league', async () =>
+    writeData('2026-27/league.json', LeagueSchema, { ...league, mode, teams }),
+  );
+  await step(page, 'write:rosters', async () =>
+    writeData('2026-27/rosters.json', RostersSchema, {
+      season: league.season,
+      mode,
+      scrapedAt,
+      teams: rosters,
+    }),
+  );
 }
 
 /**
