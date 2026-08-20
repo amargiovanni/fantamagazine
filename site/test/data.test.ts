@@ -116,6 +116,31 @@ describe('parseTeams', () => {
     );
   });
 
+  it('accepts a null credits value, as the scraper writes it when the page hides it', () => {
+    const input = broken(LEAGUE, (copy) => {
+      copy.teams[0].credits = null;
+    });
+    const teams = parseTeams(input, '../../../data/2026-27/league.json');
+    expect(teams[0]!.credits).toBeNull();
+    expect(teams[1]!.credits).toBe(225);
+  });
+
+  it('still rejects a credits value that is neither a number nor null', () => {
+    const input = broken(LEAGUE, (copy) => {
+      copy.teams[1].credits = '225';
+    });
+    expect(() => parseTeams(input, '../../../data/2026-27/league.json')).toThrowError(
+      /league\.json .*teams\[1\]\.credits is not a number/,
+    );
+  });
+
+  it('rejects a missing credits key: absent is not the same as explicitly null', () => {
+    const input = broken(LEAGUE, (copy) => delete copy.teams[0].credits);
+    expect(() => parseTeams(input, '../../../data/2026-27/league.json')).toThrowError(
+      /teams\[0\]\.credits is not a number/,
+    );
+  });
+
   it('rejects a teams field that is not an array', () => {
     const input = broken(LEAGUE, (copy) => {
       copy.teams = 'otto squadre';

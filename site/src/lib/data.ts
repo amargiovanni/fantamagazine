@@ -19,7 +19,12 @@ export interface Team {
   id: string;
   name: string;
   manager: string;
-  credits: number;
+  /**
+   * Residual credits. `null` when the roster page did not show them — the
+   * scraper's `TeamSchema` already allows it, and a team is still a team
+   * without a budget figure.
+   */
+  credits: number | null;
 }
 
 export interface StandingsRow {
@@ -95,6 +100,16 @@ function num(source: Record<string, unknown>, key: string, path: string, where: 
   return value;
 }
 
+/** A number the scraper is allowed to leave out, written as an explicit `null`. */
+function numOrNull(
+  source: Record<string, unknown>,
+  key: string,
+  path: string,
+  where: string,
+): number | null {
+  return source[key] === null ? null : num(source, key, path, where);
+}
+
 /** JSON modules come through Vite as `{ default: parsed }`. */
 function payload(module: unknown): unknown {
   return (module as { default: unknown }).default;
@@ -116,7 +131,7 @@ export function parseTeams(value: unknown, path: string): Team[] {
       id: text(team, 'id', path, `teams[${index}]`),
       name: text(team, 'name', path, `teams[${index}]`),
       manager: text(team, 'manager', path, `teams[${index}]`),
-      credits: num(team, 'credits', path, `teams[${index}]`),
+      credits: numOrNull(team, 'credits', path, `teams[${index}]`),
     };
   });
 }
