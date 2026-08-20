@@ -1,0 +1,17 @@
+{
+  "name": "scraper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "tsc -p . && node dist/src/cli.js",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  },
+  "dependencies": {
+    "playwright": "^1.62.1",
+    "zod": "^4.4.3"
+  }
+}

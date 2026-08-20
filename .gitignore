@@ -2,6 +2,7 @@ node_modules/
 .env
 scraper/debug/
 scraper/fixtures/captured/
+scraper/dist/
 site/dist/
 site/.astro/
 .DS_Store
