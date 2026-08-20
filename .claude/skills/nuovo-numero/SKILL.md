@@ -116,7 +116,7 @@ Required composition — file name is the column slug:
 | `type` | Articles |
 |---|---|
 | `pre` | `mercato.md` + `editoriale.md` |
-| `post` | `cronaca-pagelle.md` + `classifiche.md` + `editoriale.md` + `rubrica-fissa.md` |
+| `post` | `cronaca-pagelle.md` + `classifiche.md` + `editoriale.md` + `rubrica-fissa.md` (+ `mercato.md` optional teaser: "Le posizioni" replaces "Le probabili formazioni", per style guide §6.5) |
 | `midweek` | `editoriale.md` + one or two `approfondimento-1.md` / `approfondimento-2.md` |
 
 Follow the style guide's per-column formats (report card layout, the four
