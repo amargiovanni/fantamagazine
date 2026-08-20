@@ -191,10 +191,12 @@ Once the editor has approved, in this order:
    data files if this issue is the first to use them:
 
    ```
-   content: numero N — <headline>
+   feat(content): publish issue N
    ```
 
-   (follow the repository's commit conventions in `CLAUDE.md`).
+   The subject line is English and stays under 72 characters, per the commit
+   conventions in `CLAUDE.md`. The Italian headline belongs in the commit body,
+   never in the subject.
 
 2. Deploy:
 
