@@ -31,4 +31,11 @@ export const SEL = {
     homePoints: '.home-fpts', awayPoints: '.away-fpts',
     homeGoals: '.home-goals', awayGoals: '.away-goals',
   },
+  login: {
+    open: '.login-button',
+    user: 'input[name="username"]',
+    pass: 'input[name="password"]',
+    submit: 'button[type="submit"]',
+    loggedInMarker: '.user-menu',
+  },
 } as const;
