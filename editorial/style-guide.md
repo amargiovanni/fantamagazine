@@ -506,6 +506,12 @@ Un file per numero, in `content/<stagione>/issue-NNN/issue.json`:
 | `post` | `cronaca-pagelle` + `classifiche` + `editoriale` + `rubrica-fissa` (+ `mercato` opzionale, come teaser — vedi §6.5) | `data/<stagione>/matchday-NN/` deve esistere |
 | `midweek` | `editoriale` + 1–2 `approfondimento` | nessuna: usa solo storia già committata |
 
+Un **numero speciale** — dichiarato come tale nell'occhiello di uno dei suoi
+articoli (p.es. `SPECIALE INSEDIAMENTO:`) — può estendere la composizione
+`midweek` con `mercato` e `rubrica-fissa`, dove `mercato` segue la variante
+teaser del §6.5: non essendoci nulla da schierare, **"Le rose"** sostituiscono
+**"Le probabili formazioni"**.
+
 ### Nomi dei file
 
 Il nome del file è lo slug della rubrica: `cronaca-pagelle.md`, `editoriale.md`,

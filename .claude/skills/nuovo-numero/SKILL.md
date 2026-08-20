@@ -128,6 +128,11 @@ Required composition — file name is the column slug:
 | `post` | `cronaca-pagelle.md` + `classifiche.md` + `editoriale.md` + `rubrica-fissa.md` (+ `mercato.md` optional teaser: "Le posizioni" replaces "Le probabili formazioni", per style guide §6.5) |
 | `midweek` | `editoriale.md` + one or two `approfondimento-1.md` / `approfondimento-2.md` |
 
+A **numero speciale**, declared as such in the occhiello of one of its articles
+(e.g. `SPECIALE INSEDIAMENTO:`), may extend the `midweek` composition with
+`mercato.md` and `rubrica-fissa.md`, with `mercato` following the §6.5 teaser
+variant: "Le rose" replace "Le probabili formazioni" (style guide §9).
+
 Follow the style guide's per-column formats (report card layout, the four
 blocks of *Lo Sconfitto della Settimana*, the market disclaimer, the numbered
 chapters of an inchiesta) — they are what makes the magazine recognisable.
