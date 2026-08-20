@@ -1,5 +1,9 @@
 {
   "name": "fantidiano",
   "compatibility_date": "2026-08-20",
-  "assets": { "directory": "./dist", "not_found_handling": "404-page" }
+  "assets": { "directory": "./dist", "not_found_handling": "404-page" },
+  // Custom domain: Cloudflare provisions DNS + certificate on deploy,
+  // provided margiovanni.it is a zone in this account. The workers.dev
+  // URL keeps working alongside it.
+  "routes": [{ "pattern": "fantamagazine.margiovanni.it", "custom_domain": true }]
 }
