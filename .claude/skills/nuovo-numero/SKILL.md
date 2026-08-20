@@ -33,8 +33,8 @@ because the jokes have to compound across issues instead of resetting.
   seasons**: take the highest `issue-NNN` found anywhere under `content/` — every
   season, not only this one — and add one. Numbers are never reused, so the
   archive and the URLs stay unambiguous when a second season starts.
-  `issue-000` is the demo issue and counts. Only when `content/` holds no issues
-  at all is the number **0**.
+  When `content/` holds no issues at all the number is **1**: the demo-era
+  "numero 0 di collaudo" was purged at go-live and its number retires with it.
 - Fix the **season** (`2026-27` unless told otherwise) and, for `pre`/`post`,
   the **matchday**.
 
