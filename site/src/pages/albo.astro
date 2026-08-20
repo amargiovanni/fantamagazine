@@ -1,0 +1,213 @@
+---
+/**
+ * `/albo/` — l'Albo d'Oro della Vergogna: the paper's trophy cabinet, where
+ * the prizes nobody wants are kept.
+ *
+ * Grouped by award rather than by issue: the cabinet has one case per trophy,
+ * and each case is read newest first. An award pointing at an issue that is not
+ * (yet) published keeps its entry and loses its link, rather than shipping a
+ * 404 — `editorial/albo.json` is written by the newsroom, not generated.
+ */
+import Base from '../layouts/Base.astro';
+import { getAwards, type Award } from '../lib/data';
+import { getIssuesSorted, issuePath } from '../lib/issues';
+
+const awards = getAwards(); // newest issue first
+const issues = await getIssuesSorted();
+const published = new Set(issues.map((issue) => issue.data.number));
+
+/** Award name → its entries, newest first; cases in order of first appearance. */
+const cabinet = awards.reduce((cases, award) => {
+  const existing = cases.get(award.award);
+  if (existing) existing.push(award);
+  else cases.set(award.award, [award]);
+  return cases;
+}, new Map<string, Award[]>());
+
+const cases = [...cabinet.entries()];
+const managers = new Set(awards.map((award) => award.manager));
+---
+
+<Base
+  title="Albo d'Oro della Vergogna"
+  description="Ogni premio assegnato da Il Fatto Fantidiano, con motivazione e numero di riferimento. Nessuno lo ha ritirato di persona."
+>
+  <header class="albo__head">
+    <p class="kicker">Gli atti</p>
+    <h1 class="albo__title">L'Albo d'Oro della Vergogna</h1>
+    <p class="albo__note">
+      I premi di questa testata non si vincono: si subiscono. Qui sono conservati tutti,
+      con la motivazione depositata al momento dell'assegnazione, nella forma in cui è
+      stata depositata: agli atti, non a memoria.
+    </p>
+    <p class="dateline">
+      {awards.length === 1 ? '1 premio assegnato' : `${awards.length} premi assegnati`} ·{' '}
+      {managers.size === 1 ? '1 presidente coinvolto' : `${managers.size} presidenti coinvolti`}
+    </p>
+  </header>
+
+  <hr class="rule--double" />
+
+  {
+    cases.length === 0 ? (
+      <p class="albo__empty">
+        L'albo è vuoto. Non perché non sia successo niente: perché non è ancora andato in
+        stampa nessun numero che lo certifichi.
+      </p>
+    ) : (
+      <div class="cabinet">
+        {cases.map(([name, entries]) => (
+          <section class="case">
+            <header class="case__head">
+              <span class="case__medal" aria-hidden="true">
+                ★
+              </span>
+              <h2 class="case__title">{name}</h2>
+              <p class="dateline">
+                {entries.length === 1
+                  ? '1 assegnazione'
+                  : `${entries.length} assegnazioni`}
+              </p>
+            </header>
+
+            <ol class="case__list">
+              {entries.map((award) => (
+                <li class="award">
+                  <p class="award__manager">{award.manager}</p>
+                  <p class="award__motivation">«{award.motivation}»</p>
+                  <p class="award__source">
+                    {published.has(award.issue) ? (
+                      <a href={issuePath(award.issue)}>
+                        Numero {award.issue} <span aria-hidden="true">→</span>
+                      </a>
+                    ) : (
+                      <span class="dateline">Numero {award.issue} · in lavorazione</span>
+                    )}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
+    )
+  }
+</Base>
+
+<style>
+  .albo__title {
+    font-size: var(--step-4);
+    margin: 0 0 var(--space-2);
+  }
+
+  .albo__note,
+  .albo__empty {
+    max-width: var(--measure);
+    color: var(--ink-soft);
+  }
+
+  .albo__empty {
+    font-style: italic;
+  }
+
+  .cabinet {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 56rem) {
+    .cabinet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-5) var(--space-5);
+    }
+  }
+
+  /* One case of the cabinet: a heavy top rule, sunk paper, a hairline shadow
+     so it reads as a physical shelf. */
+  .case {
+    background: var(--paper-sunk);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--accent);
+    padding: var(--space-4) var(--space-3) var(--space-3);
+    box-shadow: 3px 3px 0 var(--paper-edge);
+  }
+
+  .case__head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-1) var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .case__medal {
+    grid-row: span 2;
+    font-size: var(--step-2);
+    line-height: 1;
+    color: var(--accent);
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: grid;
+    place-items: center;
+    transform: rotate(-4deg);
+  }
+
+  .case__title {
+    font-size: var(--step-2);
+    margin: 0;
+    align-self: center;
+  }
+
+  .case__head .dateline {
+    grid-column: 2;
+  }
+
+  .case__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .award {
+    border-top: 1px solid var(--rule);
+    padding-top: var(--space-3);
+  }
+
+  .award:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .award__manager {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 900;
+    margin: 0 0 var(--space-1);
+    letter-spacing: -0.01em;
+  }
+
+  .award__motivation {
+    margin: 0 0 var(--space-2);
+    font-style: italic;
+    max-width: var(--measure);
+  }
+
+  .award__source {
+    margin: 0;
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .award__source a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
+</style>

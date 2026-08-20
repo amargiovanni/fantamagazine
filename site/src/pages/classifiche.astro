@@ -1,0 +1,229 @@
+---
+/**
+ * `/classifiche/` — the full classifica, plus the two charts built from the
+ * same scraped standings. Everything is computed at build time; the page ships
+ * no client JavaScript.
+ */
+import Base from '../layouts/Base.astro';
+import StandingsBars from '../components/charts/StandingsBars.astro';
+import PointsTrend from '../components/charts/PointsTrend.astro';
+import { getTeams, joinTeams } from '../lib/data';
+import {
+  getAllStandings,
+  latestStandings,
+  matchdaysOf,
+  pointsByTeamAcrossMatchdays,
+} from '../lib/stats';
+import { rubricaPath } from '../lib/rubriche';
+
+const all = getAllStandings();
+const latest = latestStandings(all);
+const teams = latest ? getTeams(latest.season) : new Map();
+const entries = latest ? joinTeams(latest.rows, teams) : [];
+const matchdays = matchdaysOf(all);
+const series = pointsByTeamAcrossMatchdays(all);
+const names = Object.fromEntries([...teams].map(([id, team]) => [id, team.name]));
+
+const number = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 1 });
+---
+
+<Base
+  title="Classifiche"
+  description="La classifica completa di Fantac-ACCIA, i fantapunti totali e l'andamento giornata per giornata."
+>
+  <header class="classifiche__head">
+    <p class="kicker">Gli atti</p>
+    <h1 class="classifiche__title">La classifica, per intero</h1>
+    <p class="classifiche__note">
+      Otto squadre, nessuna attenuante. I numeri sono quelli ufficiali della lega: questa
+      testata si limita a metterli in fila e a trarne le conclusioni peggiori.
+    </p>
+    <p class="classifiche__pointer">
+      Il commento riga per riga è nella rubrica{' '}
+      <a href={rubricaPath('classifiche')}>Classifiche</a>, a cura di Aldo Catenaccio.
+    </p>
+    {
+      latest && (
+        <p class="dateline">
+          Stagione {latest.season} · aggiornata alla giornata {latest.matchday}
+        </p>
+      )
+    }
+  </header>
+
+  <hr class="rule--double" />
+
+  {
+    entries.length === 0 ? (
+      <p class="classifiche__empty">
+        Non è ancora stata giocata una giornata. La classifica è vuota e, per una volta,
+        nessuno è ultimo.
+      </p>
+    ) : (
+      <>
+        <section class="block" aria-labelledby="tabella">
+          <h2 class="section-title" id="tabella">
+            La classifica generale
+          </h2>
+          <div class="table-scroll" role="region" aria-label="Classifica completa" tabindex="0">
+            <table class="ledger">
+              <caption>
+                Classifica di Fantac-ACCIA dopo la giornata {latest!.matchday}
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="ledger__pos">
+                    Pos
+                  </th>
+                  <th scope="col">Squadra</th>
+                  <th scope="col">Presidente</th>
+                  <th scope="col" class="ledger__num">
+                    Punti
+                  </th>
+                  <th scope="col" class="ledger__num">
+                    Fantapunti
+                  </th>
+                  <th scope="col" class="ledger__num">
+                    V
+                  </th>
+                  <th scope="col" class="ledger__num">
+                    N
+                  </th>
+                  <th scope="col" class="ledger__num">
+                    P
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {entries.map((entry) => (
+                  <tr class:list={{ 'ledger__row--lead': entry.position === 1 }}>
+                    <td class="ledger__pos">{entry.position}</td>
+                    <th scope="row">{entry.teamName}</th>
+                    <td>{entry.manager}</td>
+                    <td class="ledger__num">
+                      <strong>{number.format(entry.points)}</strong>
+                    </td>
+                    <td class="ledger__num">{number.format(entry.fantapointsTotal)}</td>
+                    <td class="ledger__num">{entry.wins}</td>
+                    <td class="ledger__num">{entry.draws}</td>
+                    <td class="ledger__num">{entry.losses}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="block" aria-labelledby="fantapunti">
+          <h2 class="section-title" id="fantapunti">
+            I fantapunti, messi in fila
+          </h2>
+          <StandingsBars entries={entries} matchday={latest!.matchday} />
+        </section>
+
+        <section class="block" aria-labelledby="andamento">
+          <h2 class="section-title" id="andamento">
+            L'andamento, giornata per giornata
+          </h2>
+          <PointsTrend series={series} matchdays={matchdays} names={names} />
+        </section>
+      </>
+    )
+  }
+</Base>
+
+<style>
+  .classifiche__title {
+    font-size: var(--step-4);
+    margin: 0 0 var(--space-2);
+  }
+
+  .classifiche__note,
+  .classifiche__empty {
+    max-width: var(--measure);
+    color: var(--ink-soft);
+  }
+
+  .classifiche__empty {
+    font-style: italic;
+  }
+
+  .classifiche__pointer {
+    max-width: var(--measure);
+    font-size: var(--step--1);
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .block {
+    margin-bottom: var(--space-6);
+  }
+
+  /* The classifica is a ledger: tabular figures, hairline rules, alternating
+     paper. Wide on a desktop, scrollable inside its own box on a phone. */
+  .ledger {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+    min-width: 34rem;
+  }
+
+  .ledger caption {
+    caption-side: top;
+    text-align: start;
+    font-size: var(--step--2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-bottom: var(--space-1);
+  }
+
+  .ledger th,
+  .ledger td {
+    padding: 0.5em 0.6em;
+    border-bottom: 1px solid var(--rule);
+    text-align: start;
+    white-space: nowrap;
+  }
+
+  .ledger thead th {
+    font-size: var(--step--2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-bottom: 2px solid var(--rule-strong);
+  }
+
+  .ledger tbody tr:nth-child(odd) {
+    background: var(--paper-sunk);
+  }
+
+  .ledger tbody th {
+    font-family: var(--font-text);
+    font-weight: 700;
+  }
+
+  .ledger__num {
+    text-align: end;
+  }
+
+  .ledger__pos {
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: var(--ink-faint);
+    text-align: end;
+    width: 3ch;
+  }
+
+  /* The leader gets the accent rule, matching the accent bar in the chart
+     below — emphasis only: the position column already says who is first. */
+  .ledger__row--lead .ledger__pos {
+    color: var(--accent);
+  }
+
+  .ledger__row--lead th,
+  .ledger__row--lead td {
+    border-bottom-color: var(--accent);
+  }
+</style>

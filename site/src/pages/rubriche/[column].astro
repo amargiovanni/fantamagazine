@@ -1,0 +1,270 @@
+---
+/**
+ * `/rubriche/<column>/` — one rubrica and everything it has ever printed,
+ * newest first. The six columns are a technical contract (style guide §6), so
+ * the routes are generated from `COLUMNS` and a rubrica that has not published
+ * yet still gets its page: the desk exists, the archive is simply empty.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { COLUMNS, COLUMN_LABELS, type Column } from '../../content.config';
+import {
+  ISSUE_TYPE_LABELS,
+  articlePath,
+  getIssuesSorted,
+  issueNumberOf,
+  issuePath,
+} from '../../lib/issues';
+import { DESKS, rubricaPath } from '../../lib/rubriche';
+import { excerpt } from '../../lib/text';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const issues = await getIssuesSorted();
+  const byNumber = new Map(issues.map((issue) => [issue.data.number, issue]));
+  const articles = await getCollection('articles');
+
+  return COLUMNS.map((column) => ({
+    params: { column },
+    props: {
+      column,
+      pieces: articles
+        .filter((article) => article.data.column === column)
+        .map((article) => {
+          const number = issueNumberOf(article);
+          const issue = byNumber.get(number);
+          if (!issue) {
+            // Same rule as `assertIssueData`: a broken reference fails the
+            // build with a name, it does not render a half-empty card.
+            throw new Error(
+              `Article ${article.id} belongs to issue ${number}, but no issue.json ` +
+                `declares that number. Add content/<season>/issue-${String(number).padStart(3, '0')}/issue.json.`,
+            );
+          }
+          return { article, issue, lead: excerpt(article.body ?? '', 220) };
+        })
+        // Newest issue first; inside an issue, reading order.
+        .sort(
+          (a, b) =>
+            b.issue.data.number - a.issue.data.number ||
+            a.article.data.order - b.article.data.order,
+        ),
+    },
+  }));
+};
+
+const { column, pieces } = Astro.props;
+const desk = DESKS[column as Column];
+const label = COLUMN_LABELS[column as Column];
+
+const dateFormatter = new Intl.DateTimeFormat('it-IT', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const others = COLUMNS.filter((other) => other !== column);
+---
+
+<Base title={label} description={desk.blurb}>
+  <header class="rubrica__head">
+    <p class="kicker">La rubrica</p>
+    <h1 class="rubrica__title">{label}</h1>
+    <p class="rubrica__signature">
+      a cura di{' '}
+      {
+        desk.signatures.map((name, index) => (
+          <>
+            {index > 0 && <span class="rubrica__and"> e </span>}
+            <strong>{name}</strong>
+          </>
+        ))
+      }
+      <span class="rubrica__role">— {desk.role}</span>
+    </p>
+    <p class="rubrica__blurb">{desk.blurb}</p>
+    <p class="dateline">
+      {
+        pieces.length === 1
+          ? '1 pezzo agli atti'
+          : `${pieces.length} pezzi agli atti`
+      }
+    </p>
+  </header>
+
+  <hr class="rule--double" />
+
+  {
+    pieces.length === 0 ? (
+      <p class="rubrica__empty">
+        Questa rubrica non ha ancora pubblicato nulla. La redazione sostiene che sia una
+        scelta editoriale.
+      </p>
+    ) : (
+      <ol class="pieces">
+        {pieces.map(({ article, issue, lead }) => (
+          <li class="piece">
+            <p class="piece__folio">
+              <a class="piece__issue" href={issuePath(issue.data.number)}>
+                Numero {issue.data.number}
+              </a>
+              <span class="dateline">{dateFormatter.format(new Date(`${issue.data.date}T00:00:00Z`))}</span>
+              <span class="dateline">{ISSUE_TYPE_LABELS[issue.data.type]}</span>
+              {issue.data.matchday !== null && (
+                <span class="dateline">Giornata {issue.data.matchday}</span>
+              )}
+            </p>
+            <h2 class="piece__title">
+              <a href={articlePath(issue.data.number, article)}>{article.data.title}</a>
+            </h2>
+            <p class="byline">
+              di <strong>{article.data.byline}</strong>
+            </p>
+            {lead && <p class="piece__lead">{lead}</p>}
+          </li>
+        ))}
+      </ol>
+    )
+  }
+
+  <nav class="rubrica__siblings" aria-label="Le altre rubriche">
+    <p class="section-title">Le altre rubriche</p>
+    <ul>
+      {
+        others.map((other) => (
+          <li>
+            <a href={rubricaPath(other)}>{COLUMN_LABELS[other]}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</Base>
+
+<style>
+  .rubrica__title {
+    font-size: var(--step-4);
+    margin: 0 0 var(--space-2);
+  }
+
+  .rubrica__signature {
+    margin: 0 0 var(--space-2);
+    font-size: var(--step-0);
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .rubrica__signature strong {
+    font-style: normal;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .rubrica__role {
+    display: block;
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+  }
+
+  .rubrica__blurb {
+    max-width: var(--measure);
+    margin: 0 0 var(--space-2);
+  }
+
+  .rubrica__empty {
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+
+  .pieces {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .piece {
+    border-top: 1px solid var(--rule);
+    padding-top: var(--space-3);
+  }
+
+  .piece:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .piece__folio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-1) var(--space-3);
+    margin: 0 0 var(--space-2);
+  }
+
+  .piece__issue {
+    font-family: var(--font-text);
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
+
+  .piece__title {
+    font-size: var(--step-3);
+    margin: 0 0 var(--space-1);
+    max-width: 26ch;
+  }
+
+  .piece__title a {
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 180ms ease-out;
+  }
+
+  .piece__title a:hover,
+  .piece__title a:focus-visible {
+    background-size: 100% 2px;
+  }
+
+  .piece__lead {
+    margin: var(--space-2) 0 0;
+    max-width: var(--measure);
+    color: var(--ink-soft);
+  }
+
+  .rubrica__siblings {
+    margin-top: var(--space-6);
+  }
+
+  .rubrica__siblings ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0;
+    padding: 0;
+    font-size: var(--step--1);
+    font-weight: 600;
+  }
+
+  .rubrica__siblings a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .rubrica__siblings a:hover,
+  .rubrica__siblings a:focus-visible {
+    border-bottom-color: var(--accent);
+  }
+</style>

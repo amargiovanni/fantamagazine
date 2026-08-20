@@ -1,0 +1,35 @@
+---
+/**
+ * `/404` — Astro emits this as `dist/404.html`; Cloudflare Workers assets
+ * serves it for any unmatched route (`not_found_handling: "404-page"` in
+ * `wrangler.jsonc`). Editorial voice throughout, same as every other page:
+ * a missing route is just another thing this newsroom has to report on.
+ */
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Pagina non trovata"
+  description="La pagina cercata non esiste, o non ha mai superato la linea editoriale."
+>
+  <section class="notfound">
+    <p class="kicker">Errore 404</p>
+    <h1>Pagina non trovata. Come i punti della tua panchina.</h1>
+    <p class="notfound__note">
+      L'indirizzo che hai seguito non porta a nessun articolo pubblicato: forse è stato
+      spostato, forse non è mai esistito, forse qualcuno lo ha tolto dall'edicola per non
+      farlo leggere al direttore. <a href="/">Torna alla prima pagina</a> e riparti da lì.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    max-width: var(--measure);
+  }
+
+  .notfound__note {
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+</style>

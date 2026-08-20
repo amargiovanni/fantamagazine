@@ -1,0 +1,536 @@
+/* =========================================================================
+   Il Fatto Fantidiano — design system
+   Early-1900s Italian broadsheet meets modern tabloid.
+   Original parody: no real newspaper's logo, lockup or trade dress.
+   No client-side JavaScript anywhere in this stylesheet's world.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------- tokens */
+
+:root {
+  color-scheme: light;
+
+  /* Palette — aged newsprint, ink, one scandal red. */
+  --paper: #faf6ee;
+  --paper-sunk: #f3ecdc; /* panels, tables, pull quotes */
+  --paper-edge: #ece2cc; /* hairline fills */
+  --ink: #1a1814;
+  --ink-soft: #4b4438; /* bylines, captions, secondary text */
+  --ink-faint: #6e6455; /* datelines, folio numbers — 5.3:1 on paper */
+  --rule: #c9bda3; /* printed rules */
+  --rule-strong: #1a1814;
+  --accent: #a3172a; /* scandal red */
+  --accent-ink: #faf6ee; /* text on accent */
+  --stain: rgb(26 24 20 / 0.06); /* halftone dots, grain */
+
+  /* Type. Three families, all loaded in Base.astro via Google Fonts.
+     Bodoni is a didone: hairline serifs vanish at headline sizes, so it is
+     reserved for the huge masthead wordmark only. Headlines use Fraunces,
+     a display serif with low stroke contrast that stays readable small. */
+  --font-masthead: 'Bodoni Moda', 'Bodoni MT', Didot, 'Didot LT STD', 'Playfair Display',
+    'Times New Roman', Times, serif;
+  --font-display: 'Fraunces', 'Iowan Old Style', Charter, Georgia,
+    'Times New Roman', Times, serif;
+  --font-text: 'Source Serif 4', 'Source Serif Pro', Charter, 'Iowan Old Style', Georgia,
+    'Times New Roman', Times, serif;
+
+  /* Fluid scale, 320px → 1280px. */
+  --step--2: clamp(0.69rem, 0.67rem + 0.10vw, 0.75rem);
+  --step--1: clamp(0.83rem, 0.79rem + 0.19vw, 0.94rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  --step-1: clamp(1.2rem, 1.11rem + 0.44vw, 1.47rem);
+  --step-2: clamp(1.44rem, 1.29rem + 0.74vw, 1.88rem);
+  --step-3: clamp(1.73rem, 1.49rem + 1.19vw, 2.4rem);
+  --step-4: clamp(2.07rem, 1.7rem + 1.85vw, 3.07rem);
+  --step-5: clamp(2.49rem, 1.93rem + 2.8vw, 3.93rem);
+  --step-masthead: clamp(2.6rem, 1.2rem + 7vw, 6.5rem);
+
+  --space-1: 0.35rem;
+  --space-2: 0.7rem;
+  --space-3: 1.15rem;
+  --space-4: 1.8rem;
+  --space-5: 2.8rem;
+  --space-6: 4.4rem;
+
+  --measure: 36rem;
+  --page: 78rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    /* Ink and paper swap roles; the red keeps its hue but is lightened,
+       because #a3172a on a dark ground measures 2.4:1 and would fail
+       WCAG 2.2 AA (EN 301 549 / EAA). This tint measures ~5.1:1. */
+    --paper: #14120f;
+    --paper-sunk: #1e1b16;
+    --paper-edge: #2a251d;
+    --ink: #ece4d3;
+    --ink-soft: #b9ae99;
+    --ink-faint: #8c8271;
+    --rule: #423a2d;
+    --rule-strong: #ece4d3;
+    --accent: #e05a6b;
+    --accent-ink: #14120f;
+    --stain: rgb(236 228 211 / 0.05);
+  }
+}
+
+/* ------------------------------------------------------------------ base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  /* Paper tooth: two offset dot fields, barely visible, no image request. */
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--stain) 0.6px, transparent 0.7px),
+    radial-gradient(circle at 3px 4px, var(--stain) 0.5px, transparent 0.6px);
+  background-size: 7px 7px, 11px 11px;
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--step-0);
+  line-height: 1.62;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 640;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+  margin: 0 0 var(--space-2);
+}
+
+p {
+  margin: 0 0 var(--space-3);
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------- layout */
+
+.wrap {
+  width: 100%;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page > main {
+  flex: 1 0 auto;
+  padding-block: var(--space-5) var(--space-6);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: var(--space-2) var(--space-3);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* The broadsheet grid: one column on a phone, a front page on a desktop. */
+.front-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+  .front-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-5);
+  }
+}
+
+@media (min-width: 64rem) {
+  .front-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Column rules, drawn between the columns and never at the edges. */
+  .front-grid > * + * {
+    border-inline-start: 1px solid var(--rule);
+    padding-inline-start: var(--space-4);
+  }
+
+  .front-grid > .span-2 {
+    grid-column: span 2;
+  }
+
+  .front-grid > .span-full {
+    grid-column: 1 / -1;
+    border-inline-start: 0;
+    padding-inline-start: 0;
+  }
+}
+
+/* ----------------------------------------------------------- primitives */
+
+/* Small-caps kicker: the label above a headline. */
+.kicker {
+  font-family: var(--font-text);
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--space-1);
+}
+
+.byline {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0;
+}
+
+.byline strong {
+  font-style: normal;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.dateline {
+  font-size: var(--step--2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Printed rules. The double rule is the broadsheet's punctuation mark. */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: var(--space-4) 0;
+}
+
+.rule--double {
+  border: 0;
+  border-top: 3px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  height: 4px;
+  margin: var(--space-3) 0;
+}
+
+/* Halftone: the dot screen of a cheap press, used as a border. */
+.rule--halftone {
+  border: 0;
+  height: 9px;
+  background-image: radial-gradient(circle at center, var(--ink) 1.35px, transparent 1.5px);
+  background-size: 7px 9px;
+  opacity: 0.55;
+  margin: var(--space-3) 0;
+}
+
+.halftone-top {
+  border-top: 0;
+  padding-top: var(--space-3);
+  background-image: radial-gradient(circle at center, var(--ink) 1.2px, transparent 1.35px);
+  background-size: 6px 6px;
+  background-repeat: repeat-x;
+  background-position: top left;
+}
+
+.seal {
+  display: inline-block;
+  font-family: var(--font-text);
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  padding: 0.15em 0.5em;
+  transform: rotate(-1.5deg);
+}
+
+/* Section header: a centred small-caps label ruled off on both sides. */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-text);
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-4);
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  flex: 1 1 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* Riquadro: the boxed sidebar item of a printed page. */
+.panel {
+  background: var(--paper-sunk);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--rule-strong);
+  padding: var(--space-3);
+}
+
+.panel__title {
+  font-size: var(--step-1);
+  margin: 0 0 var(--space-1);
+}
+
+/* Strillo: the ink band that shouts one thing across the width of the page.
+   Ink and paper are swapped by the theme together, so the band stays the
+   inverse of the page in both modes (measured ≥ 12:1 either way). */
+.strillo {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-3) var(--space-4);
+  border-block: 3px solid var(--rule-strong);
+}
+
+.strillo .kicker,
+.strillo .dateline {
+  /* The scandal red is unreadable on ink; the band earns its emphasis from
+     weight and letterspacing instead. */
+  color: inherit;
+  opacity: 0.72;
+}
+
+.strillo a {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+
+.strillo a:hover,
+.strillo a:focus-visible {
+  color: inherit;
+  text-decoration-thickness: 2px;
+}
+
+/* ------------------------------------------------------- article prose */
+
+.prose {
+  max-width: var(--measure);
+  font-size: var(--step-0);
+  hyphens: auto;
+}
+
+.prose > p {
+  text-align: justify;
+  text-align-last: left;
+}
+
+/* Drop cap on the lead paragraph — display face, four lines deep. */
+.prose > p:first-of-type::first-letter {
+  float: inline-start;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.9em;
+  line-height: 0.78;
+  padding-inline-end: 0.06em;
+  padding-block-start: 0.06em;
+  color: var(--accent);
+}
+
+.prose > p:first-of-type::first-line {
+  font-variant-caps: small-caps;
+  letter-spacing: 0.03em;
+}
+
+.prose h2 {
+  font-size: var(--step-2);
+  margin-top: var(--space-5);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--rule);
+}
+
+.prose h3 {
+  font-size: var(--step-1);
+  margin-top: var(--space-4);
+}
+
+.prose blockquote {
+  margin: var(--space-4) 0;
+  padding: var(--space-2) 0 var(--space-2) var(--space-3);
+  border-inline-start: 4px solid var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose hr {
+  border: 0;
+  height: 9px;
+  background-image: radial-gradient(circle at center, var(--ink) 1.2px, transparent 1.35px);
+  background-size: 7px 9px;
+  opacity: 0.5;
+  margin: var(--space-5) auto;
+  width: 40%;
+}
+
+/* Pagelle — the two-line rule of style guide §6.1:
+     **Nome Squadra** — Presidente · **voto**
+     Prima riga: il fatto.
+     Seconda riga: la sentenza.
+   Those single newlines are meaningful, but Markdown collapses them into
+   spaces. They are restored here rather than in the Markdown pipeline: Astro's
+   default processor only accepts remark plugins with an extra dependency, and
+   this project's dependency list is closed.
+
+   The scope is deliberately narrow. `white-space: pre-line` applies only to
+   the pagella entries — paragraphs that open with the team name in bold,
+   inside the section whose heading Astro slugs to `le-pagelle…` — so that the
+   surrounding prose, hard-wrapped at ~80 columns in the source, keeps
+   reflowing normally. A later section of the same level ends the scope. The
+   prefix match keeps a heading like "Le pagelle della giornata" working. */
+.prose [id^='le-pagelle'] ~ p:has(> strong:first-child) {
+  white-space: pre-line;
+}
+
+/* The guard has to repeat `:has(...)`: without it the selector is less
+   specific than the rule above and never wins. */
+.prose [id^='le-pagelle'] ~ h2 ~ p:has(> strong:first-child) {
+  white-space: normal;
+}
+
+/* Tables (classifiche). A ledger, not a card. */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.prose caption {
+  caption-side: top;
+  text-align: start;
+  font-size: var(--step--2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-bottom: var(--space-1);
+}
+
+.prose th,
+.prose td {
+  padding: 0.45em 0.6em;
+  border-bottom: 1px solid var(--rule);
+  text-align: start;
+}
+
+.prose thead th {
+  font-family: var(--font-text);
+  font-size: var(--step--2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--rule-strong);
+  white-space: nowrap;
+}
+
+.prose tbody tr:nth-child(odd) {
+  background: var(--paper-sunk);
+}
+
+.prose td[align='right'],
+.prose th[align='right'] {
+  text-align: end;
+}
+
+/* A wide table must scroll inside itself, never push the page sideways. */
+.table-scroll {
+  overflow-x: auto;
+}
+
+/* Long-form reading on a wide screen: two columns with a printed rule. */
+@media (min-width: 64rem) {
+  .prose--columns {
+    max-width: none;
+    columns: 2;
+    column-gap: var(--space-5);
+    column-rule: 1px solid var(--rule);
+  }
+
+  .prose--columns > h2,
+  .prose--columns > table {
+    column-span: all;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+}

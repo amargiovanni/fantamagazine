@@ -1,0 +1,186 @@
+---
+/**
+ * `/rubriche/` — the desks of the paper, one card each.
+ *
+ * The task plan had no index route: the six rubrica pages would have been
+ * reachable only from each other, which makes them orphans for a reader
+ * arriving at the front page. A three-line index costs less than a nav item
+ * pointing at an arbitrary "first" rubrica, so this page exists and the
+ * masthead links it.
+ */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { COLUMN_LABELS, type Column } from '../../content.config';
+import { articlePath, getIssuesSorted, issueNumberOf } from '../../lib/issues';
+import { DESKS, RUBRICHE, rubricaPath } from '../../lib/rubriche';
+
+const issues = await getIssuesSorted();
+const byNumber = new Map(issues.map((issue) => [issue.data.number, issue]));
+const articles = await getCollection('articles');
+
+const desks = RUBRICHE.map((column) => {
+  const pieces = articles
+    .filter((article) => article.data.column === column)
+    .map((article) => ({ article, number: issueNumberOf(article) }))
+    .sort((a, b) => b.number - a.number || a.article.data.order - b.article.data.order);
+
+  const latest = pieces[0];
+  return {
+    column,
+    label: COLUMN_LABELS[column as Column],
+    desk: DESKS[column as Column],
+    count: pieces.length,
+    latest:
+      latest && byNumber.has(latest.number)
+        ? {
+            title: latest.article.data.title,
+            href: articlePath(latest.number, latest.article),
+            number: latest.number,
+          }
+        : null,
+  };
+});
+---
+
+<Base
+  title="Le rubriche"
+  description="Le sei rubriche de Il Fatto Fantidiano e le firme che se ne assumono la responsabilità."
+>
+  <header class="desks__head">
+    <p class="kicker">La redazione</p>
+    <h1 class="desks__title">Le rubriche</h1>
+    <p class="desks__note">
+      Sei rubriche, sei modi diversi di prendersela con qualcuno. Ogni firma risponde della
+      propria: la redazione non si nasconde dietro il «noi», tranne nell'editoriale, dove è
+      una posa deliberata.
+    </p>
+  </header>
+
+  <hr class="rule--double" />
+
+  <ul class="desks">
+    {
+      desks.map(({ column, label, desk, count, latest }) => (
+        <li class="desk">
+          <h2 class="desk__title">
+            <a href={rubricaPath(column)}>{label}</a>
+          </h2>
+          <p class="desk__signature">
+            a cura di <strong>{desk.signatures.join(' e ')}</strong>
+          </p>
+          <p class="desk__blurb">{desk.blurb}</p>
+          <p class="desk__foot">
+            <span class="dateline">
+              {count === 0 ? 'Nessun pezzo' : count === 1 ? '1 pezzo' : `${count} pezzi`}
+            </span>
+            {latest && (
+              <a class="desk__latest" href={latest.href}>
+                Ultimo: {latest.title}
+              </a>
+            )}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
+
+<style>
+  .desks__title {
+    font-size: var(--step-4);
+    margin: 0 0 var(--space-2);
+  }
+
+  .desks__note {
+    max-width: var(--measure);
+    color: var(--ink-soft);
+  }
+
+  .desks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 40rem) {
+    .desks {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .desks {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .desk {
+    background: var(--paper-sunk);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--rule-strong);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .desk__title {
+    font-size: var(--step-2);
+    margin: 0;
+  }
+
+  .desk__title a {
+    text-decoration: none;
+  }
+
+  .desk__title a:hover,
+  .desk__title a:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+
+  .desk__signature {
+    margin: 0;
+    font-size: var(--step--1);
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .desk__signature strong {
+    font-style: normal;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .desk__blurb {
+    margin: var(--space-1) 0 0;
+    font-size: var(--step--1);
+    flex: 1 1 auto;
+  }
+
+  .desk__foot {
+    margin: var(--space-2) 0 0;
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .desk__latest {
+    font-size: var(--step--1);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    align-self: start;
+  }
+
+  .desk__latest:hover,
+  .desk__latest:focus-visible {
+    border-bottom-color: var(--accent);
+  }
+</style>

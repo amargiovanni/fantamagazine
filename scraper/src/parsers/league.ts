@@ -1,0 +1,45 @@
+import type { Page } from 'playwright';
+import { LeagueSchema, type League } from '../schemas.js';
+import { SEL } from '../selectors.js';
+
+/**
+ * Reads the league roll-call off the competition dashboard.
+ *
+ * Calibrated 2026-08-20 against the live site. The source is the dashboard's
+ * `ui-standings-card`: one `li` per team, each carrying a link to that team's
+ * roster. The team id is the last segment of that href
+ * (`/fantac-accia/view/rosters/5322780` -> `5322780`), which is the same id the
+ * roster and lineup pages key on, so ids in `league.json` join to everything
+ * scraped later. Rows without a roster link are skipped: the card renders
+ * placeholder `li`s while the SPA is still loading.
+ *
+ * `mode` is reported as `unknown` and `credits` as `null` for every team.
+ * Neither is a gap in this parser: the dashboard DOM states neither figure —
+ * `classic`/`mantra` appear only as CSS custom property names — and both are
+ * rendered only on the per-team roster pages. `--league` visits those pages in
+ * its second phase and overwrites both fields with what it found there (see
+ * `runLeague` and `parseRoster`), so what this function returns is an
+ * intermediate value, not what lands in `league.json`.
+ *
+ * This function keeps saying `unknown`/`null` anyway, rather than being handed
+ * the answer: what a dashboard parse honestly knows is what it should return,
+ * and any future caller that reads only the dashboard inherits that honesty.
+ */
+export async function parseLeague(page: Page, scrapedAt: string): Promise<League> {
+  const teams = await page.evaluate((sel) => {
+    return [...document.querySelectorAll(sel.teamRow)]
+      .map((row) => {
+        const link = row.querySelector(sel.rosterLink);
+        const href = link?.getAttribute('href') ?? '';
+        return {
+          id: href.split('/').filter(Boolean).pop() ?? '',
+          name: link?.textContent?.trim() ?? '',
+          manager: row.querySelector(sel.manager)?.textContent?.trim() ?? '',
+          credits: null,
+        };
+      })
+      .filter((team) => team.id !== '');
+  }, SEL.league);
+
+  return LeagueSchema.parse({ season: '2026-27', mode: 'unknown', scrapedAt, teams });
+}

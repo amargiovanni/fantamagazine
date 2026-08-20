@@ -1,0 +1,175 @@
+---
+/**
+ * `/numeri/numero-N/` — one whole issue, printed in order.
+ */
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import IssueNav from '../../components/IssueNav.astro';
+import { COLUMN_LABELS } from '../../content.config';
+import {
+  ISSUE_TYPE_LABELS,
+  articlePath,
+  articleSlug,
+  getArticlesForIssue,
+  getIssuesSorted,
+  issueSlug,
+} from '../../lib/issues';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const issues = await getIssuesSorted(); // newest first
+  return issues.map((issue, index) => ({
+    params: { slug: issueSlug(issue.data.number) },
+    props: {
+      issue,
+      // Reading order, not array order: `next` is the newer issue.
+      next: issues[index - 1],
+      previous: issues[index + 1],
+    },
+  }));
+};
+
+const { issue, previous, next } = Astro.props;
+const articles = await getArticlesForIssue(issue.data.number);
+const rendered = await Promise.all(
+  articles.map(async (article) => ({ article, Content: (await render(article)).Content })),
+);
+
+const dateLabel = new Intl.DateTimeFormat('it-IT', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(new Date(`${issue.data.date}T00:00:00Z`));
+---
+
+<Base
+  title={`Numero ${issue.data.number}`}
+  description={issue.data.headline}
+  issueNumber={issue.data.number}
+  date={issue.data.date}
+>
+  <header class="issue__head">
+    <div class="issue__folio">
+      <span class="seal">Numero {issue.data.number}</span>
+      <span class="dateline">{dateLabel}</span>
+      <span class="dateline">{ISSUE_TYPE_LABELS[issue.data.type]}</span>
+      {
+        issue.data.matchday !== null && (
+          <span class="dateline">Giornata {issue.data.matchday}</span>
+        )
+      }
+    </div>
+    <h1 class="issue__headline">{issue.data.headline}</h1>
+    <hr class="rule--double" />
+    <nav class="issue__sommario" aria-label="Sommario del numero">
+      <ol>
+        {
+          articles.map((article) => (
+            <li>
+              <a href={`#${articleSlug(article)}`}>{article.data.title}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+  </header>
+
+  {
+    rendered.map(({ article, Content }) => (
+      <article class="issue__piece" id={articleSlug(article)}>
+        <hr class="rule--halftone" />
+        <p class="kicker">{COLUMN_LABELS[article.data.column]}</p>
+        <h2 class="issue__title">
+          <a href={articlePath(issue.data.number, article)}>{article.data.title}</a>
+        </h2>
+        <p class="byline">
+          di <strong>{article.data.byline}</strong>
+        </p>
+        <div class="prose prose--columns table-scroll">
+          <Content />
+        </div>
+      </article>
+    ))
+  }
+
+  <IssueNav previous={previous} next={next} />
+</Base>
+
+<style>
+  .issue__folio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .issue__headline {
+    font-size: var(--step-4);
+    margin: 0;
+    overflow-wrap: break-word;
+    hyphens: manual;
+  }
+
+  .issue__sommario ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    font-size: var(--step--1);
+    font-weight: 600;
+    line-height: 1.3;
+    counter-reset: sommario;
+  }
+
+  .issue__sommario li {
+    counter-increment: sommario;
+    max-width: 22rem;
+  }
+
+  .issue__sommario a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .issue__sommario a::before {
+    content: counter(sommario) '. ';
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: var(--accent);
+  }
+
+  .issue__sommario a:hover,
+  .issue__sommario a:focus-visible {
+    border-bottom-color: var(--accent);
+  }
+
+  .issue__piece {
+    margin-top: var(--space-5);
+    scroll-margin-top: var(--space-4);
+  }
+
+  .issue__title {
+    font-size: var(--step-3);
+    margin: 0 0 var(--space-2);
+    max-width: 26ch;
+  }
+
+  .issue__title a {
+    text-decoration: none;
+  }
+
+  .issue__title a:hover,
+  .issue__title a:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+
+  .issue__piece .prose {
+    margin-top: var(--space-3);
+  }
+</style>

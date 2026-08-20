@@ -1,0 +1,227 @@
+---
+/**
+ * `/numeri/` — the archive, as a stack of back issues on a newsstand: most
+ * recent on top, each sheet showing its headline and its summary of contents.
+ */
+import Base from '../../layouts/Base.astro';
+import { COLUMN_LABELS } from '../../content.config';
+import {
+  ISSUE_TYPE_LABELS,
+  articlePath,
+  getArticlesForIssue,
+  getIssuesSorted,
+  issuePath,
+} from '../../lib/issues';
+
+const issues = await getIssuesSorted();
+const stack = await Promise.all(
+  issues.map(async (issue) => ({
+    issue,
+    articles: await getArticlesForIssue(issue.data.number),
+  })),
+);
+
+const dateFormatter = new Intl.DateTimeFormat('it-IT', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+function formatDate(date: string): string {
+  return dateFormatter.format(new Date(`${date}T00:00:00Z`));
+}
+---
+
+<Base
+  title="Archivio"
+  description="Tutti i numeri de Il Fatto Fantidiano, dal più recente al primo verbale."
+>
+  <header class="archive__head">
+    <p class="kicker">Emeroteca</p>
+    <h1 class="archive__title">L'archivio dei numeri</h1>
+    <p class="archive__note">
+      {issues.length === 1
+        ? 'Un solo numero agli atti. È già abbastanza compromettente.'
+        : `${issues.length} numeri agli atti, dal più recente al primo verbale.`}
+    </p>
+  </header>
+
+  <hr class="rule--double" />
+
+  {
+    stack.length === 0 ? (
+      <p class="archive__empty">L'archivio è vuoto: nessun numero è mai andato in stampa.</p>
+    ) : (
+      <ol class="stack">
+        {stack.map(({ issue, articles }) => (
+          <li class="stack__sheet">
+            <div class="stack__folio">
+              <span class="stack__number">
+                <span class="stack__number-label">Numero</span>
+                {issue.data.number}
+              </span>
+              <span class="dateline">{formatDate(issue.data.date)}</span>
+              <span class="dateline">{ISSUE_TYPE_LABELS[issue.data.type]}</span>
+              {issue.data.matchday !== null && (
+                <span class="dateline">Giornata {issue.data.matchday}</span>
+              )}
+            </div>
+
+            <h2 class="stack__headline">
+              <a href={issuePath(issue.data.number)}>{issue.data.headline}</a>
+            </h2>
+
+            <ul class="sommario">
+              {articles.map((article) => (
+                <li class="sommario__item">
+                  <span class="sommario__column">{COLUMN_LABELS[article.data.column]}</span>
+                  <a href={articlePath(issue.data.number, article)}>{article.data.title}</a>
+                </li>
+              ))}
+            </ul>
+
+            <p class="stack__open">
+              <a href={issuePath(issue.data.number)}>
+                Apri il numero{' '}
+                <span aria-hidden="true">→</span>
+              </a>
+            </p>
+          </li>
+        ))}
+      </ol>
+    )
+  }
+</Base>
+
+<style>
+  .archive__title {
+    font-size: var(--step-4);
+    margin: 0 0 var(--space-2);
+  }
+
+  .archive__note,
+  .archive__empty {
+    margin: 0;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+
+  .stack {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  /* Each back issue is a printed sheet: paper tone, a strong top rule for the
+     fold, and a hairline shadow so the stack reads as physical. */
+  .stack__sheet {
+    background: var(--paper-sunk);
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--rule-strong);
+    padding: var(--space-4) var(--space-4) var(--space-3);
+    box-shadow: 3px 3px 0 var(--paper-edge);
+  }
+
+  .stack__folio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+
+  .stack__number {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .stack__number-label {
+    font-family: var(--font-text);
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-inline-end: 0.4em;
+  }
+
+  .stack__headline {
+    font-size: var(--step-2);
+    margin: 0 0 var(--space-3);
+    max-width: 40ch;
+  }
+
+  .stack__headline a {
+    text-decoration: none;
+  }
+
+  .stack__headline a:hover,
+  .stack__headline a:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+
+  .sommario {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    gap: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .sommario {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-4);
+    }
+  }
+
+  .sommario__item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1em;
+    padding-block: var(--space-2);
+    border-bottom: 1px solid var(--rule);
+    font-size: var(--step--1);
+  }
+
+  .sommario__column {
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .sommario__item a {
+    text-decoration: none;
+    line-height: 1.35;
+  }
+
+  .sommario__item a:hover,
+  .sommario__item a:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+
+  .stack__open {
+    margin: var(--space-3) 0 0;
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .stack__open a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
+</style>

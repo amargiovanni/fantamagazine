@@ -1,0 +1,422 @@
+---
+/**
+ * Punti in classifica giornata per giornata — small multiples, printed at
+ * build time as inline SVG. No client JavaScript.
+ *
+ * DESIGN NOTES (dataviz skill)
+ * - Form: change over time for eight teams. Eight lines on one plot would need
+ *   eight categorical hues; this design system has two colours (ink and one
+ *   scandal red), and the skill's series ladder says to facet rather than
+ *   invent hues. So: one small multiple per team, shared y scale, read in
+ *   classifica order. Converging lines and a legend of eight swatches are both
+ *   avoided by construction.
+ * - Colour: identity comes from the facet's own heading, never from colour.
+ *   The leader's line takes the accent as emphasis only.
+ * - Marks: 2px line (non-scaling so it stays 2px at every facet size), an end
+ *   marker of r=4 with a 2px surface ring, hairline solid baseline, the last
+ *   value direct-labelled in the facet heading.
+ * - Missing matchdays are drawn as a gap in the line, never as a zero.
+ * - `<details>` below the grid carries the table view of every plotted number.
+ * - Fewer than two matchdays is not a chart: it is an empty state, in the
+ *   paper's voice.
+ */
+import type { TeamSeries } from '../../lib/stats';
+import { axisTicks, lineRuns } from '../../lib/stats';
+
+interface Props {
+  series: TeamSeries[];
+  /** Matchdays the series are aligned to, ascending. */
+  matchdays: number[];
+  /** teamId → team name, for the facet headings. */
+  names: Record<string, string>;
+}
+
+const { series, matchdays, names } = Astro.props;
+
+const enough = matchdays.length >= 2 && series.length > 0;
+
+/** Facet geometry, in viewBox units. */
+const W = 240;
+const H = 68;
+const PAD = { top: 8, right: 6, bottom: 8, left: 6 };
+
+const values = series.flatMap((team) => team.series).filter((value): value is number => value !== null);
+const domain = axisTicks(Math.max(0, ...values), 3).at(-1)!;
+
+const step = matchdays.length > 1 ? (W - PAD.left - PAD.right) / (matchdays.length - 1) : 0;
+const x = (index: number): number => PAD.left + index * step;
+const y = (value: number): number => H - PAD.bottom - (value / domain) * (H - PAD.top - PAD.bottom);
+
+const number = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 1 });
+
+/**
+ * A team's line, placed: the contiguous runs of observed matchdays (from
+ * `lineRuns`, which is where that rule is tested) turned into coordinates. A run
+ * of two or more is a polyline; a run of one cannot be a line and is drawn as a
+ * dot, because an observation with no neighbours still happened.
+ */
+function segments(points: (number | null)[]): {
+  lines: string[];
+  dots: { cx: number; cy: number }[];
+} {
+  const runs = lineRuns(points).map((run) =>
+    run.map((index) => ({ cx: x(index), cy: y(points[index]!) })),
+  );
+
+  return {
+    lines: runs
+      .filter((run) => run.length > 1)
+      .map((run) => run.map((point) => `${point.cx.toFixed(1)},${point.cy.toFixed(1)}`).join(' ')),
+    dots: runs.filter((run) => run.length === 1).map((run) => run[0]!),
+  };
+}
+
+const facets = series.map((team, rank) => {
+  const lastIndex = team.series.reduce(
+    (found, value, index) => (value === null ? found : index),
+    -1,
+  );
+  const last = lastIndex === -1 ? null : team.series[lastIndex]!;
+  const drawn = segments(team.series);
+  return {
+    teamId: team.teamId,
+    name: names[team.teamId] ?? team.teamId,
+    rank: rank + 1,
+    lead: rank === 0,
+    lines: drawn.lines,
+    dots: drawn.dots,
+    end: last === null ? null : { cx: x(lastIndex), cy: y(last) },
+    last,
+    // The spoken version of the line, for a screen reader.
+    spoken: team.series
+      .map((value, index) =>
+        value === null
+          ? `giornata ${matchdays[index]}: dato assente`
+          : `giornata ${matchdays[index]}: ${number.format(value)}`,
+      )
+      .join('; '),
+  };
+});
+---
+
+{
+  enough ? (
+    <figure class="chart">
+      <figcaption class="chart__caption">
+        <span class="kicker">Punti in classifica, giornata per giornata</span>
+        <span class="chart__note">
+          Un riquadro per squadra · asse y comune 0–{number.format(domain)} punti
+        </span>
+      </figcaption>
+
+      <ol class="facets">
+        {facets.map((facet) => (
+          <li class="facet">
+            <p class="facet__head">
+              <span class="facet__rank">{facet.rank}</span>
+              <span class="facet__name">{facet.name}</span>
+              <span class="facet__value">
+                {facet.last === null ? '—' : `${number.format(facet.last)} pt`}
+              </span>
+            </p>
+
+            <svg
+              class="spark"
+              viewBox={`0 0 ${W} ${H}`}
+              preserveAspectRatio="xMidYMid meet"
+              role="img"
+              aria-label={`${facet.name}, punti in classifica — ${facet.spoken}.`}
+            >
+              <line
+                class="spark__base"
+                x1={PAD.left}
+                x2={W - PAD.right}
+                y1={y(0)}
+                y2={y(0)}
+                shape-rendering="crispEdges"
+              />
+              {matchdays.map((_, index) => (
+                <line
+                  class="spark__tick"
+                  x1={x(index)}
+                  x2={x(index)}
+                  y1={y(0)}
+                  y2={y(0) + 4}
+                  shape-rendering="crispEdges"
+                />
+              ))}
+              {facet.lines.map((points) => (
+                <polyline
+                  class:list={['spark__line', { 'spark__line--lead': facet.lead }]}
+                  points={points}
+                  vector-effect="non-scaling-stroke"
+                />
+              ))}
+              {facet.dots.map((dot) => (
+                <circle
+                  class:list={['spark__end', { 'spark__end--lead': facet.lead }]}
+                  cx={dot.cx}
+                  cy={dot.cy}
+                  r="3"
+                />
+              ))}
+              {facet.end && (
+                <circle
+                  class:list={['spark__end', { 'spark__end--lead': facet.lead }]}
+                  cx={facet.end.cx}
+                  cy={facet.end.cy}
+                  r="4"
+                />
+              )}
+            </svg>
+
+            <p class="facet__axis" aria-hidden="true">
+              <span>G{matchdays[0]}</span>
+              <span>G{matchdays.at(-1)}</span>
+            </p>
+          </li>
+        ))}
+      </ol>
+
+      <details class="chart__table">
+        <summary>Tutti i numeri, giornata per giornata</summary>
+        <div class="table-scroll" role="region" aria-label="Punti per squadra e giornata" tabindex="0">
+          <table class="ledger">
+            <caption>Punti in classifica per squadra e giornata</caption>
+            <thead>
+              <tr>
+                <th scope="col">Squadra</th>
+                {matchdays.map((matchday) => (
+                  <th scope="col" class="ledger__num">
+                    G{matchday}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {series.map((team) => (
+                <tr>
+                  <th scope="row">{names[team.teamId] ?? team.teamId}</th>
+                  {team.series.map((value) => (
+                    <td class="ledger__num">{value === null ? '—' : number.format(value)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </figure>
+  ) : (
+    <aside class="tooearly">
+      <p class="kicker">L'andamento nel tempo</p>
+      <p class="tooearly__line">Troppo presto per illudersi.</p>
+      <p class="tooearly__note">
+        Con una sola giornata agli atti non esiste una tendenza: esiste un episodio. Questa
+        redazione pubblicherà il grafico quando ci sarà una seconda giornata da confrontare, e
+        non un minuto prima.
+      </p>
+    </aside>
+  )
+}
+
+<style>
+  .chart {
+    margin: 0;
+    background: var(--paper-sunk);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--rule-strong);
+    padding: var(--space-3);
+  }
+
+  .chart__caption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .chart__note {
+    font-size: var(--step--2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .facets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3) var(--space-4);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 30rem) {
+    .facets {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .facets {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .facet {
+    border-top: 1px solid var(--rule);
+    padding-top: var(--space-2);
+  }
+
+  .facet__head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4em;
+    margin: 0 0 var(--space-1);
+    font-size: var(--step--1);
+    line-height: 1.2;
+  }
+
+  .facet__rank {
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: var(--ink-faint);
+  }
+
+  .facet__name {
+    font-weight: 600;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .facet__value {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .spark {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .spark__base,
+  .spark__tick {
+    stroke: var(--rule);
+    stroke-width: 1;
+  }
+
+  .spark__line {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .spark__line--lead {
+    stroke: var(--accent);
+  }
+
+  /* The 2px ring is the surface colour, so an end marker stays legible where
+     it sits on the baseline or on its own line. */
+  .spark__end {
+    fill: var(--ink);
+    stroke: var(--paper-sunk);
+    stroke-width: 2;
+  }
+
+  .spark__end--lead {
+    fill: var(--accent);
+  }
+
+  .facet__axis {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    font-size: var(--step--2);
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chart__table {
+    margin-top: var(--space-4);
+    border-top: 1px solid var(--rule);
+    padding-top: var(--space-2);
+    font-size: var(--step--1);
+  }
+
+  .chart__table summary {
+    cursor: pointer;
+    font-size: var(--step--2);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .ledger {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-2);
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ledger caption {
+    caption-side: top;
+    text-align: start;
+    font-size: var(--step--2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-bottom: var(--space-1);
+  }
+
+  .ledger th,
+  .ledger td {
+    padding: 0.35em 0.6em;
+    border-bottom: 1px solid var(--rule);
+    text-align: start;
+    white-space: nowrap;
+  }
+
+  .ledger thead th {
+    font-size: var(--step--2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-bottom: 2px solid var(--rule-strong);
+  }
+
+  .ledger__num {
+    text-align: end;
+  }
+
+  .tooearly {
+    background: var(--paper-sunk);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--rule-strong);
+    padding: var(--space-3);
+  }
+
+  .tooearly__line {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    font-style: italic;
+    margin: 0 0 var(--space-2);
+  }
+
+  .tooearly__note {
+    margin: 0;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+</style>

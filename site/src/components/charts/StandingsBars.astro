@@ -1,0 +1,266 @@
+---
+/**
+ * Fantapunti totali per squadra — a horizontal bar chart, printed at build
+ * time as inline SVG. No client JavaScript, here or anywhere on this site.
+ *
+ * DESIGN NOTES (dataviz skill)
+ * - Form: magnitude comparison across nominal categories → horizontal bars,
+ *   sorted by the classifica, zero baseline. Long team names read better on a
+ *   line of their own above each bar than squeezed into a left gutter, which is
+ *   also what keeps the chart legible at 360px without a scroll container.
+ * - Colour: one series, so every bar takes the same ink. The leader's bar is
+ *   the accent — pure emphasis: rank is already carried by the order, the
+ *   number and the label, so nothing here is encoded by colour alone (accent
+ *   and ink measure 2.3:1 against each other, which would be too close if it
+ *   were). Marks vs the panel surface measure 15.1:1 (ink) and 6.6:1 (accent)
+ *   in light, 13.6:1 and 4.8:1 in dark — all above the 3:1 floor. Axis text is
+ *   `--ink-faint`: 4.9:1 / 4.5:1, above the 4.5:1 text floor. Gridlines are
+ *   deliberately recessive at ~1.55:1, as chrome and not as data.
+ * - Marks: 12px bars, 4px rounded data-end squared off at the baseline,
+ *   hairline solid gridlines, value direct-labelled at the tip.
+ * - Geometry: the SVG has NO viewBox on purpose. User units are CSS pixels and
+ *   bar lengths are percentages of the rendered width, so the chart reflows to
+ *   any viewport while the type stays exactly the size the design system asked
+ *   for — a viewBox would scale the labels with the box and blur them at 360px.
+ * - The table above the chart is its table view: every plotted number is also
+ *   available as text.
+ */
+import type { StandingsEntry } from '../../lib/data';
+import { axisTicks } from '../../lib/stats';
+
+interface Props {
+  entries: StandingsEntry[];
+  /** Matchday the standings belong to — used for the caption and the ids. */
+  matchday: number;
+}
+
+const { entries, matchday } = Astro.props;
+
+/** Row height, bar height and the axis strip, in CSS pixels. */
+const ROW = 46;
+const BAR = 12;
+const AXIS = 26;
+
+/**
+ * The longest bar stops at 74% of the width: the remaining 26% is the gutter
+ * the tip labels live in (~40px of text at the narrowest supported viewport).
+ */
+const PLOT = 74;
+
+const ticks = axisTicks(Math.max(0, ...entries.map((entry) => entry.fantapointsTotal)));
+const domain = ticks.at(-1)!;
+const height = entries.length * ROW + AXIS;
+
+/** A value on the fantapoints scale → an x position as a percentage string. */
+function x(value: number): string {
+  return `${((value / domain) * PLOT).toFixed(3)}%`;
+}
+
+const number = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 1 });
+const titleId = `bars-title-${matchday}`;
+const descId = `bars-desc-${matchday}`;
+const leader = entries[0];
+---
+
+<figure class="chart">
+  <figcaption class="chart__caption">
+    <span class="kicker">Fantapunti totali</span>
+    <span class="chart__note">
+      Giornata {matchday} · ordine di classifica, non di fantapunti · scala
+      0–{number.format(domain)} fantapunti, base zero.
+    </span>
+  </figcaption>
+
+  <svg
+    class="bars"
+    width="100%"
+    height={height}
+    role="img"
+    aria-labelledby={`${titleId} ${descId}`}
+  >
+    <title id={titleId}>Fantapunti totali per squadra, giornata {matchday}</title>
+    <desc id={descId}>
+      {
+        entries
+          .map((entry) => `${entry.teamName}: ${number.format(entry.fantapointsTotal)}`)
+          .join('; ')
+      }. Le barre seguono l'ordine di classifica, non quello dei fantapunti. Gli stessi
+      numeri sono nella tabella qui sopra.
+    </desc>
+
+    {
+      ticks.slice(1).map((tick) => (
+        <line
+          class="bars__grid"
+          x1={x(tick)}
+          x2={x(tick)}
+          y1="0"
+          y2={entries.length * ROW}
+          shape-rendering="crispEdges"
+        />
+      ))
+    }
+    <line
+      class="bars__axis"
+      x1="0"
+      x2="0"
+      y1="0"
+      y2={entries.length * ROW}
+      shape-rendering="crispEdges"
+    />
+
+    {
+      entries.map((entry, index) => {
+        const top = index * ROW;
+        const lead = index === 0;
+        return (
+          <>
+            <text class="bars__name" x="0" y={top + 14}>
+              <tspan class="bars__rank">{entry.position}</tspan>
+              <tspan dx="7">{entry.teamName}</tspan>
+            </text>
+            {/* rx rounds all four corners; the 6px stub squares the baseline
+                end — and is skipped at zero, where a stub would draw a bar for a
+                team that has nothing to show. */}
+            <rect
+              class:list={['bars__bar', { 'bars__bar--lead': lead }]}
+              x="0"
+              y={top + 20}
+              width={x(entry.fantapointsTotal)}
+              height={BAR}
+              rx="4"
+            />
+            {entry.fantapointsTotal > 0 && (
+              <rect
+                class:list={['bars__bar', { 'bars__bar--lead': lead }]}
+                x="0"
+                y={top + 20}
+                width="6"
+                height={BAR}
+              />
+            )}
+            <text
+              class="bars__value"
+              x={x(entry.fantapointsTotal)}
+              dx="8"
+              y={top + 30}
+            >
+              {number.format(entry.fantapointsTotal)}
+            </text>
+          </>
+        );
+      })
+    }
+
+    {
+      ticks.map((tick, index) => (
+        <text
+          class="bars__tick"
+          x={x(tick)}
+          y={height - 8}
+          text-anchor={index === 0 ? 'start' : 'middle'}
+        >
+          {number.format(tick)}
+        </text>
+      ))
+    }
+  </svg>
+
+  {
+    leader && (
+      <p class="chart__read">
+        In testa <strong>{leader.teamName}</strong> di {leader.manager}, con{' '}
+        {number.format(leader.fantapointsTotal)} fantapunti. Il resto della lega è agli atti.
+      </p>
+    )
+  }
+</figure>
+
+<style>
+  .chart {
+    margin: 0;
+    background: var(--paper-sunk);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--rule-strong);
+    padding: var(--space-3);
+  }
+
+  .chart__caption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .chart__note {
+    font-size: var(--step--2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .chart__read {
+    margin: var(--space-3) 0 0;
+    font-size: var(--step--1);
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+
+  .bars {
+    display: block;
+    overflow: visible;
+  }
+
+  .bars__grid {
+    stroke: var(--rule);
+    stroke-width: 1;
+  }
+
+  .bars__axis {
+    stroke: var(--ink-faint);
+    stroke-width: 1;
+  }
+
+  .bars__bar {
+    fill: var(--ink);
+  }
+
+  .bars__bar--lead {
+    fill: var(--accent);
+  }
+
+  .bars__name {
+    font-family: var(--font-text);
+    font-size: 0.82rem;
+    font-weight: 600;
+    fill: var(--ink);
+  }
+
+  .bars__rank {
+    font-family: var(--font-display);
+    font-weight: 900;
+    fill: var(--ink-faint);
+    letter-spacing: 0.08em;
+  }
+
+  /* Text never wears the data colour — including the leader's: the bar beside
+     it carries the emphasis. */
+  .bars__value {
+    font-family: var(--font-text);
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    fill: var(--ink);
+  }
+
+  .bars__tick {
+    font-family: var(--font-text);
+    font-size: 0.69rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+    fill: var(--ink-faint);
+  }
+</style>

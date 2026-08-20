@@ -1,0 +1,50 @@
+---
+/**
+ * `/` — the prima pagina: the most recent issue, laid out as a scandal sheet.
+ */
+import Base from '../layouts/Base.astro';
+import FrontPage from '../components/FrontPage.astro';
+import { getLatestAward, getLatestStandings } from '../lib/data';
+import { getArticlesForIssue, getIssuesSorted } from '../lib/issues';
+
+const issues = await getIssuesSorted();
+const latest = issues[0];
+const articles = latest ? await getArticlesForIssue(latest.data.number) : [];
+const standings = getLatestStandings();
+const award = getLatestAward();
+---
+
+<Base
+  title={latest ? 'Prima pagina' : 'Prima pagina — in attesa di notizie'}
+  description={latest
+    ? latest.data.headline
+    : 'Il Fatto Fantidiano non ha ancora pubblicato il suo primo numero.'}
+  issueNumber={latest?.data.number}
+  date={latest?.data.date}
+>
+  {
+    latest ? (
+      <FrontPage issue={latest} articles={articles} standings={standings} award={award} />
+    ) : (
+      <section class="empty">
+        <p class="kicker">Nessun numero in edicola</p>
+        <h1>La redazione è ancora in riunione.</h1>
+        <p class="empty__note">
+          Nessun numero è stato pubblicato. Torna quando qualcuno avrà lasciato un
+          attaccante in panchina.
+        </p>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .empty {
+    max-width: var(--measure);
+  }
+
+  .empty__note {
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+</style>
