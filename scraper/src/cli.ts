@@ -98,19 +98,30 @@ async function runLeague(page: Page): Promise<void> {
   await step(page, 'write:league', async () => writeData('2026-27/league.json', LeagueSchema, league));
 }
 
+/**
+ * All three pages are navigated and parsed BEFORE anything is written.
+ *
+ * A matchday directory holding `lineups.json` but no `results.json` is worse
+ * than one that does not exist: the site's referential check keys on
+ * `results.json`, and the newsroom reads whatever files it finds. The failure
+ * is not hypothetical — run before kickoff, the results and standings pages
+ * have nothing to parse, which is exactly when a half-populated directory
+ * would be left behind.
+ */
 async function runMatchday(page: Page, matchday: number): Promise<void> {
   const dir = `2026-27/matchday-${pad2(matchday)}`;
 
   await step(page, 'navigate:lineups', () => page.goto(PAGES.lineups(matchday), { waitUntil: 'networkidle' }));
   const lineups = await step(page, 'parse:lineups', () => parseLineups(page, matchday));
-  await step(page, 'write:lineups', async () => writeData(`${dir}/lineups.json`, LineupsSchema, lineups));
 
   await step(page, 'navigate:results', () => page.goto(PAGES.results(matchday), { waitUntil: 'networkidle' }));
   const results = await step(page, 'parse:results', () => parseResults(page, matchday));
-  await step(page, 'write:results', async () => writeData(`${dir}/results.json`, ResultsSchema, results));
 
   await step(page, 'navigate:standings', () => page.goto(PAGES.standings(matchday), { waitUntil: 'networkidle' }));
   const standings = await step(page, 'parse:standings', () => parseStandings(page, matchday));
+
+  await step(page, 'write:lineups', async () => writeData(`${dir}/lineups.json`, LineupsSchema, lineups));
+  await step(page, 'write:results', async () => writeData(`${dir}/results.json`, ResultsSchema, results));
   await step(page, 'write:standings', async () => writeData(`${dir}/standings.json`, StandingsSchema, standings));
 }
 
