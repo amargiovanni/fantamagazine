@@ -5,4 +5,5 @@ scraper/fixtures/captured/
 scraper/dist/
 site/dist/
 site/.astro/
+.astro/
 .DS_Store
