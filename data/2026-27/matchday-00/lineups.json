@@ -1,0 +1,213 @@
+{
+  "matchday": 0,
+  "teams": [
+    {
+      "teamId": "t1",
+      "module": "3-4-3",
+      "starters": [
+        { "name": "Aldo Ostinelli", "role": "P", "club": "Torino", "vote": 6, "fantavote": 6 },
+        { "name": "Fulvio Zappalorto", "role": "D", "club": "Bologna", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Nello Trombetta", "role": "D", "club": "Cagliari", "vote": 6, "fantavote": 5.5 },
+        { "name": "Oreste Randazzoli", "role": "D", "club": "Napoli", "vote": 7, "fantavote": 7 },
+        { "name": "Piero Bricchetti", "role": "C", "club": "Lazio", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Remo Melacotta", "role": "C", "club": "Atalanta", "vote": 6.5, "fantavote": 7.5 },
+        { "name": "Tullio Sguazzini", "role": "C", "club": "Udinese", "vote": 6, "fantavote": 6 },
+        { "name": "Ugo Salamandri", "role": "C", "club": "Verona", "vote": 6, "fantavote": 5.5 },
+        { "name": "Vasco Grimaldelli", "role": "A", "club": "Inter", "vote": 7, "fantavote": 10 },
+        { "name": "Zeno Tamburotti", "role": "A", "club": "Milan", "vote": 6, "fantavote": 9 },
+        { "name": "Amilcare Scardovini", "role": "A", "club": "Roma", "vote": 6, "fantavote": 9 }
+      ],
+      "bench": [
+        { "name": "Berto Crepaldini", "role": "P", "club": "Lecce", "vote": 6, "fantavote": 6 },
+        { "name": "Cirillo Muggini", "role": "D", "club": "Parma", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Dino Ronchetti", "role": "D", "club": "Como", "vote": null, "fantavote": null },
+        { "name": "Elmo Torresani", "role": "C", "club": "Genoa", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Fosco Palladini", "role": "C", "club": "Fiorentina", "vote": 7, "fantavote": 7 },
+        { "name": "Gualtiero Verzieri", "role": "A", "club": "Pisa", "vote": 5, "fantavote": 5 },
+        { "name": "Ilario Bissolatti", "role": "A", "club": "Sassuolo", "vote": null, "fantavote": null }
+      ]
+    },
+    {
+      "teamId": "t2",
+      "module": "4-4-2",
+      "starters": [
+        { "name": "Libero Ferrettoni", "role": "P", "club": "Empoli", "vote": 6, "fantavote": 4 },
+        { "name": "Marino Gorgonzoli", "role": "D", "club": "Cremonese", "vote": 6, "fantavote": 5.5 },
+        { "name": "Nestore Panzarotti", "role": "D", "club": "Verona", "vote": 5, "fantavote": 5 },
+        { "name": "Osvaldo Squinziani", "role": "D", "club": "Lecce", "vote": 5, "fantavote": 3 },
+        { "name": "Pompeo Marmorini", "role": "D", "club": "Parma", "vote": 6, "fantavote": 6 },
+        { "name": "Rinaldo Vinaccia", "role": "C", "club": "Genoa", "vote": 6, "fantavote": 5.5 },
+        { "name": "Silvio Tabusso", "role": "C", "club": "Torino", "vote": 6, "fantavote": 6 },
+        { "name": "Terzo Sbrizzolo", "role": "C", "club": "Udinese", "vote": 5, "fantavote": 5 },
+        { "name": "Ubaldo Lombrichetti", "role": "C", "club": "Como", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Vittorio Zampieretti", "role": "A", "club": "Monza", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Alceste Cordovani", "role": "A", "club": "Pisa", "vote": 6, "fantavote": 6 }
+      ],
+      "bench": [
+        { "name": "Bonifacio Postiglione", "role": "P", "club": "Sassuolo", "vote": null, "fantavote": null },
+        { "name": "Cesare Quaresimin", "role": "D", "club": "Bologna", "vote": 6, "fantavote": 6 },
+        { "name": "Dario Rubinetti", "role": "D", "club": "Cagliari", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Ettore Scaramuzzi", "role": "C", "club": "Lazio", "vote": 6.5, "fantavote": 7.5 },
+        { "name": "Gino Uggeri", "role": "C", "club": "Milan", "vote": 6, "fantavote": 6 },
+        { "name": "Ademaro Prunetti", "role": "A", "club": "Atalanta", "vote": 7.5, "fantavote": 13.5 },
+        { "name": "Ivo Vanzetti", "role": "A", "club": "Roma", "vote": 6, "fantavote": 6 }
+      ]
+    },
+    {
+      "teamId": "t3",
+      "module": "3-5-2",
+      "starters": [
+        { "name": "Lauro Zoccoletti", "role": "P", "club": "Fiorentina", "vote": 6, "fantavote": 6 },
+        { "name": "Mauro Brambillaschi", "role": "D", "club": "Inter", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Sergio Ceccherelli", "role": "D", "club": "Napoli", "vote": 6, "fantavote": 6 },
+        { "name": "Quirino Doninelli", "role": "D", "club": "Torino", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Egisto Ercolani", "role": "C", "club": "Bologna", "vote": 6, "fantavote": 6 },
+        { "name": "Fulgenzio Fumagalli", "role": "C", "club": "Monza", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Gaspare Ghisleri", "role": "C", "club": "Lecce", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Lamberto Lampugnani", "role": "C", "club": "Roma", "vote": 6, "fantavote": 6 },
+        { "name": "Ottone Mazzacurati", "role": "C", "club": "Genoa", "vote": 5, "fantavote": 5 },
+        { "name": "Peppino Nespoli", "role": "A", "club": "Milan", "vote": 6, "fantavote": 6 },
+        { "name": "Quintino Oliviero", "role": "A", "club": "Atalanta", "vote": 7, "fantavote": 7 }
+      ],
+      "bench": [
+        { "name": "Rutilio Peverelli", "role": "P", "club": "Udinese", "vote": null, "fantavote": null },
+        { "name": "Silvano Quattrini", "role": "D", "club": "Cremonese", "vote": 6, "fantavote": 6 },
+        { "name": "Tarcisio Rovagnati", "role": "D", "club": "Pisa", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Umberto Sartoretti", "role": "C", "club": "Verona", "vote": 6.5, "fantavote": 7.5 },
+        { "name": "Vitaliano Trebbi", "role": "C", "club": "Como", "vote": 6, "fantavote": 6 },
+        { "name": "Zaccaria Ubaldeschi", "role": "A", "club": "Parma", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Anselmo Vernazzi", "role": "A", "club": "Empoli", "vote": 6, "fantavote": 6 }
+      ]
+    },
+    {
+      "teamId": "t4",
+      "module": "4-3-3",
+      "starters": [
+        { "name": "Bartolomeo Zecchinelli", "role": "P", "club": "Como", "vote": 6.5, "fantavote": 5.5 },
+        { "name": "Casimiro Barbaresco", "role": "D", "club": "Cagliari", "vote": 6, "fantavote": 6 },
+        { "name": "Damiano Cornacchia", "role": "D", "club": "Sassuolo", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Eligio Dell'Orto", "role": "D", "club": "Lazio", "vote": 5, "fantavote": 5 },
+        { "name": "Fiorenzo Ferrigatti", "role": "D", "club": "Bologna", "vote": 6, "fantavote": 6 },
+        { "name": "Gervasio Gattopardi", "role": "C", "club": "Inter", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Ippolito Ligabò", "role": "C", "club": "Napoli", "vote": 6, "fantavote": 6 },
+        { "name": "Leandro Moscardini", "role": "C", "club": "Pisa", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Maurizio Nughedu", "role": "A", "club": "Torino", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Nicomede Piccinelli", "role": "A", "club": "Monza", "vote": 5, "fantavote": 5 },
+        { "name": "Onorato Quarantotto", "role": "A", "club": "Milan", "vote": 7.5, "fantavote": 7.5 }
+      ],
+      "bench": [
+        { "name": "Placido Rizzoletti", "role": "P", "club": "Genoa", "vote": null, "fantavote": null },
+        { "name": "Quirico Sportelli", "role": "D", "club": "Verona", "vote": 6, "fantavote": 6 },
+        { "name": "Romualdo Tinazzi", "role": "D", "club": "Udinese", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Saverio Uslenghi", "role": "C", "club": "Lecce", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Teodoro Vergagni", "role": "C", "club": "Cremonese", "vote": 6, "fantavote": 6 },
+        { "name": "Ulisse Zampini", "role": "A", "club": "Empoli", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Venanzio Ambrogetti", "role": "A", "club": "Parma", "vote": null, "fantavote": null }
+      ]
+    },
+    {
+      "teamId": "t5",
+      "module": "3-4-3",
+      "starters": [
+        { "name": "Alarico Bertolazzi", "role": "P", "club": "Napoli", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Baldo Chiaravalle", "role": "D", "club": "Inter", "vote": 6, "fantavote": 6 },
+        { "name": "Cleto Donadeo", "role": "D", "club": "Milan", "vote": 7, "fantavote": 7 },
+        { "name": "Delfino Esposti", "role": "D", "club": "Roma", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Eusebio Falcinieri", "role": "C", "club": "Lazio", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Fedele Guarnaccia", "role": "C", "club": "Atalanta", "vote": 6, "fantavote": 6 },
+        { "name": "Gervaso Imbrogno", "role": "C", "club": "Bologna", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Icaro Lucherini", "role": "C", "club": "Fiorentina", "vote": 6, "fantavote": 7 },
+        { "name": "Lucio Mengarelli", "role": "A", "club": "Torino", "vote": 6, "fantavote": 9 },
+        { "name": "Modesto Nizzoli", "role": "A", "club": "Genoa", "vote": 5, "fantavote": 8 },
+        { "name": "Nicodemo Ottaviani", "role": "A", "club": "Cagliari", "vote": 7, "fantavote": 7 }
+      ],
+      "bench": [
+        { "name": "Odorico Penzo", "role": "P", "club": "Como", "vote": null, "fantavote": null },
+        { "name": "Pacifico Quintavalle", "role": "D", "club": "Sassuolo", "vote": 6, "fantavote": 6 },
+        { "name": "Quarto Ravasi", "role": "D", "club": "Lecce", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Raimondo Storchi", "role": "C", "club": "Verona", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Sisto Tabanelli", "role": "C", "club": "Parma", "vote": 6, "fantavote": 6 },
+        { "name": "Tancredi Uboldi", "role": "A", "club": "Monza", "vote": 5, "fantavote": 5 },
+        { "name": "Urbano Vaghi", "role": "A", "club": "Pisa", "vote": null, "fantavote": null }
+      ]
+    },
+    {
+      "teamId": "t6",
+      "module": "4-4-2",
+      "starters": [
+        { "name": "Vitale Zilioli", "role": "P", "club": "Cremonese", "vote": 6, "fantavote": 5 },
+        { "name": "Ansaldo Bagatelli", "role": "D", "club": "Torino", "vote": 6, "fantavote": 6 },
+        { "name": "Benvenuto Cavalcanti", "role": "D", "club": "Napoli", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Cassiano Dorigatti", "role": "D", "club": "Inter", "vote": 6, "fantavote": 6 },
+        { "name": "Domizio Ferrandi", "role": "D", "club": "Bologna", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Emiliano Ghirardelli", "role": "C", "club": "Milan", "vote": 6, "fantavote": 6 },
+        { "name": "Fabrizio Imbriani", "role": "C", "club": "Lazio", "vote": 6, "fantavote": 5.5 },
+        { "name": "Gerardo Lanzarotti", "role": "C", "club": "Genoa", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Ilarione Maroncelli", "role": "C", "club": "Atalanta", "vote": 6, "fantavote": 6 },
+        { "name": "Liberato Novelli", "role": "A", "club": "Fiorentina", "vote": 6, "fantavote": 6 },
+        { "name": "Mansueto Orsucci", "role": "A", "club": "Udinese", "vote": 6.5, "fantavote": 6.5 }
+      ],
+      "bench": [
+        { "name": "Nazario Pignataro", "role": "P", "club": "Empoli", "vote": null, "fantavote": null },
+        { "name": "Oddone Quirico", "role": "D", "club": "Parma", "vote": 6, "fantavote": 6 },
+        { "name": "Pancrazio Rastellini", "role": "D", "club": "Como", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Quintiliano Sbarbaro", "role": "C", "club": "Lecce", "vote": 7, "fantavote": 7 },
+        { "name": "Rodolfo Tavecchini", "role": "C", "club": "Pisa", "vote": 6, "fantavote": 6 },
+        { "name": "Saturno Uggetti", "role": "A", "club": "Monza", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Timoteo Valdameri", "role": "A", "club": "Sassuolo", "vote": null, "fantavote": null }
+      ]
+    },
+    {
+      "teamId": "t7",
+      "module": "4-4-2",
+      "starters": [
+        { "name": "Ubaldino Zerbini", "role": "P", "club": "Roma", "vote": 6, "fantavote": 4 },
+        { "name": "Valerio Amidei", "role": "D", "club": "Milan", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Zenone Bragantini", "role": "D", "club": "Inter", "vote": 6, "fantavote": 6 },
+        { "name": "Adalberto Cattabriga", "role": "D", "club": "Napoli", "vote": 5, "fantavote": 4.5 },
+        { "name": "Bernardo Dallagiovanna", "role": "D", "club": "Bologna", "vote": 7, "fantavote": 7 },
+        { "name": "Ciriaco Ferrarese", "role": "C", "club": "Lazio", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Diomede Gozzoli", "role": "C", "club": "Atalanta", "vote": 6, "fantavote": 6 },
+        { "name": "Erasmo Lippolis", "role": "C", "club": "Torino", "vote": 7, "fantavote": 7 },
+        { "name": "Fioravante Merlini", "role": "C", "club": "Genoa", "vote": 6, "fantavote": 6 },
+        { "name": "Giacinto Nocera", "role": "A", "club": "Fiorentina", "vote": 6, "fantavote": 9 },
+        { "name": "Ireneo Pastorelli", "role": "A", "club": "Cagliari", "vote": 6, "fantavote": 9 }
+      ],
+      "bench": [
+        { "name": "Leopoldo Quadrelli", "role": "P", "club": "Cremonese", "vote": null, "fantavote": null },
+        { "name": "Marziano Rusconi", "role": "D", "club": "Verona", "vote": 6, "fantavote": 6 },
+        { "name": "Nunzio Sacchetti", "role": "D", "club": "Como", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Ottorino Tremolanti", "role": "C", "club": "Udinese", "vote": 7, "fantavote": 8 },
+        { "name": "Pellegrino Ubaldini", "role": "C", "club": "Lecce", "vote": 6, "fantavote": 6 },
+        { "name": "Quirino Vezzosi", "role": "A", "club": "Parma", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Romeo Zangrandi", "role": "A", "club": "Pisa", "vote": null, "fantavote": null }
+      ]
+    },
+    {
+      "teamId": "t8",
+      "module": "3-4-3",
+      "starters": [
+        { "name": "Silverio Bandirali", "role": "P", "club": "Bologna", "vote": 6, "fantavote": 6 },
+        { "name": "Tiburzio Cappellini", "role": "D", "club": "Inter", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Ubertino Danesi", "role": "D", "club": "Milan", "vote": 6, "fantavote": 6 },
+        { "name": "Venceslao Fabbroni", "role": "D", "club": "Napoli", "vote": 6, "fantavote": 6 },
+        { "name": "Aristide Gandolfi", "role": "C", "club": "Roma", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Bartolo Ingrassia", "role": "C", "club": "Lazio", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Cesarino Lodigiani", "role": "C", "club": "Atalanta", "vote": 6, "fantavote": 6 },
+        { "name": "Dionigi Manzotti", "role": "C", "club": "Torino", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Erminio Nardozza", "role": "A", "club": "Genoa", "vote": 6, "fantavote": 9 },
+        { "name": "Fortunato Piovanelli", "role": "A", "club": "Fiorentina", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Gustavo Rambaldi", "role": "A", "club": "Cagliari", "vote": 6.5, "fantavote": 7.5 }
+      ],
+      "bench": [
+        { "name": "Innocenzo Salvemini", "role": "P", "club": "Empoli", "vote": null, "fantavote": null },
+        { "name": "Lodovico Tessitore", "role": "D", "club": "Parma", "vote": 6, "fantavote": 6 },
+        { "name": "Melchiorre Uccellini", "role": "D", "club": "Verona", "vote": 5.5, "fantavote": 5.5 },
+        { "name": "Napoleone Vaccari", "role": "C", "club": "Como", "vote": 6.5, "fantavote": 6.5 },
+        { "name": "Onofrio Zambelli", "role": "C", "club": "Lecce", "vote": 6, "fantavote": 6 },
+        { "name": "Pandolfo Aliprandi", "role": "A", "club": "Monza", "vote": 5, "fantavote": 5 },
+        { "name": "Quinto Bonaventura", "role": "A", "club": "Pisa", "vote": null, "fantavote": null }
+      ]
+    }
+  ]
+}

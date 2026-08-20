@@ -1,0 +1,15 @@
+{
+  "season": "2026-27",
+  "mode": "classic",
+  "scrapedAt": "2026-08-20T09:00:00Z",
+  "teams": [
+    { "id": "t1", "name": "Real Sarcasmo", "manager": "Furio", "credits": 245 },
+    { "id": "t2", "name": "Sconforto Cosenza", "manager": "Ottavio", "credits": 198 },
+    { "id": "t3", "name": "Atletico Malinconia", "manager": "Clemente", "credits": 210 },
+    { "id": "t4", "name": "Palla Lunga e Pedalare FC", "manager": "Gastone", "credits": 180 },
+    { "id": "t5", "name": "Dinamo Rimpianto", "manager": "Ernesto", "credits": 225 },
+    { "id": "t6", "name": "Bidone d'Oro United", "manager": "Ulderico", "credits": 150 },
+    { "id": "t7", "name": "Aspettative Zero", "manager": "Prospero", "credits": 165 },
+    { "id": "t8", "name": "Cugini della Zia", "manager": "Baldassarre", "credits": 200 }
+  ]
+}
