@@ -23,8 +23,13 @@
   --accent-ink: #faf6ee; /* text on accent */
   --stain: rgb(26 24 20 / 0.06); /* halftone dots, grain */
 
-  /* Type. Two families only, both loaded in Base.astro via Google Fonts. */
-  --font-display: 'Bodoni Moda', 'Bodoni MT', Didot, 'Didot LT STD', 'Playfair Display',
+  /* Type. Three families, all loaded in Base.astro via Google Fonts.
+     Bodoni is a didone: hairline serifs vanish at headline sizes, so it is
+     reserved for the huge masthead wordmark only. Headlines use Fraunces,
+     a display serif with low stroke contrast that stays readable small. */
+  --font-masthead: 'Bodoni Moda', 'Bodoni MT', Didot, 'Didot LT STD', 'Playfair Display',
+    'Times New Roman', Times, serif;
+  --font-display: 'Fraunces', 'Iowan Old Style', Charter, Georgia,
     'Times New Roman', Times, serif;
   --font-text: 'Source Serif 4', 'Source Serif Pro', Charter, 'Iowan Old Style', Georgia,
     'Times New Roman', Times, serif;
@@ -105,9 +110,9 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.012em;
+  font-weight: 640;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
   text-wrap: balance;
   margin: 0 0 var(--space-2);
 }
@@ -366,7 +371,7 @@ img {
   text-align-last: left;
 }
 
-/* Drop cap on the lead paragraph — Bodoni, four lines deep. */
+/* Drop cap on the lead paragraph — display face, four lines deep. */
 .prose > p:first-of-type::first-letter {
   float: inline-start;
   font-family: var(--font-display);
