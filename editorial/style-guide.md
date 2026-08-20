@@ -77,8 +77,9 @@ il giornale sopravvive solo finché ridono tutti, compreso il bersaglio.
 Bersagli **leciti** — tutto ciò che il fantallenatore ha deciso:
 
 - formazioni, moduli, panchine, cambi, capitani;
-- il mercato: colpi annunciati, scambi, aste e crediti — ma **solo se il dato
-  risulta agli atti** (`league.json` o un numero precedente di questa testata);
+- il mercato: colpi annunciati, scambi, aste, crediti e **prezzi pagati
+  all'asta** — ma **solo se il dato risulta agli atti** (`league.json`,
+  `rosters.json` o un numero precedente di questa testata);
 - l'orario di inserimento della formazione e i ritardi;
 - dichiarazioni (nostre, inventate) e previsioni pubblicate su questa testata;
 - la classifica, la fantamedia, ogni numero che risulta agli atti;
@@ -161,7 +162,8 @@ In pratica, mentre si scrive:
 | punteggi, gol, fantapunti | `data/<stagione>/matchday-NN/results.json` |
 | formazioni, moduli, panchine, voti dei singoli | `.../lineups.json` |
 | posizioni, punti, fantapunti totali | `.../standings.json` |
-| squadre, presidenti, crediti residui | `data/<stagione>/league.json` — `teams[].credits` è **il residuo della squadra**, un numero solo: il prezzo pagato per il singolo giocatore **non risulta agli atti** e non si cita mai |
+| squadre, presidenti, crediti residui | `data/<stagione>/league.json` — `teams[].credits` è **il residuo della squadra**, un numero solo |
+| rose, prezzi d'asta, quotazioni di listino | `data/<stagione>/rosters.json` — per ogni giocatore `price` è il prezzo pagato all'asta e `quotation` la quotazione corrente. **Sono due scale diverse.** Un sovrapprezzo si afferma solo confrontando `price` con `quotation` moltiplicata per il **coefficiente di lega** (spesa totale della lega / quotazione totale acquistata), mai per differenza diretta: chi sottrae la quotazione dal prezzo sta bluffando |
 | soprannomi, tormentoni, precedenti | `editorial/dossier/<manager>.md` |
 | premi già assegnati | `editorial/albo.json` |
 | dichiarazioni citate di numeri passati | `content/<stagione>/issue-NNN/*.md` |
@@ -357,6 +359,12 @@ posizioni"** sostituisce **"Le probabili formazioni"** — il turno appena
 giocato è già in classifica, non c'è più nulla da prevedere sullo
 schieramento.
 
+Nella variante teaser il `mercato` può inoltre ospitare **le pagelle delle
+rose**: una voce per ogni squadra della lega, nel formato rigido della pagella
+del §6.1 e sulla stessa scala fantidiana, al posto dei consigli sulle
+formazioni. Come in §6.1, il blocco delle pagelle non entra nel conteggio delle
+400–600 parole.
+
 ### 6.6 `approfondimento` — L'inchiesta
 
 Firma: **Ornella Malaparte** o **Aldo Catenaccio** secondo il taglio (inchiesta
@@ -426,7 +434,7 @@ array di oggetti:
 | Premio | A chi | Criterio verificabile sui dati |
 |---|---|---|
 | **La Panchina d'Oro del Disonore** | a chi ha tenuto fuori il migliore | Il fantavoto più alto della panchina supera di **almeno 3** il fantavoto più basso tra i titolari (`lineups.json`). Vince il delta maggiore. |
-| **La Mano de Dios del Mercato** | al colpo di mercato più inutile | Il giocatore celebrato come colpo di mercato in un numero precedente di questa testata chiude la giornata con il fantavoto più basso tra i titolari (`content/` per la celebrazione, `lineups.json` per il fantavoto). Il prezzo d'asta **non è un criterio**: non risulta agli atti. Assegnabile **una volta ogni cinque numeri**. |
+| **La Mano de Dios del Mercato** | al colpo di mercato più inutile | Il giocatore celebrato come colpo di mercato in un numero precedente di questa testata chiude la giornata con il fantavoto più basso tra i titolari (`content/` per la celebrazione, `lineups.json` per il fantavoto). Il prezzo d'asta risulta agli atti (`rosters.json`) ma **non è un criterio di questo premio**: il colpo si giudica sul fantavoto, non su quanto è costato. Assegnabile **una volta ogni cinque numeri**. |
 | **Il Cucchiaio di Legno** *(trofeo itinerante)* | all'ultimo in classifica | Ultima posizione in `standings.json` a fine giornata. Si registra quando **cambia di mano**; se resta allo stesso presidente, si registra ogni tre giornate come "conferma". |
 | **L'Ordine del Modulo Impossibile** | all'architetto | Terzo cambio di modulo in tre giornate consecutive, **oppure** un modulo con quattro attaccanti, **oppure** un modulo che non esiste (`lineups.json`, campo `module`). |
 | **Il Premio Nostradamus al Contrario** | al profeta | Una previsione, un consiglio o una dichiarazione **pubblicata su questa testata** viene smentita dai fatti. Obbligatorio citare il numero in cui la profezia è uscita. |
