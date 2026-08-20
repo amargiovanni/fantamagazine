@@ -495,14 +495,14 @@ Un file per numero, in `content/<stagione>/issue-NNN/issue.json`:
 | `number` | number | Progressivo del numero; coincide con `NNN` della cartella (`issue-001` → `1`) |
 | `type` | enum | `pre`, `post` o `midweek` |
 | `date` | string | `YYYY-MM-DD` |
-| `matchday` | number \| null | La giornata di riferimento; **`null`** per i numeri `midweek` |
+| `matchday` | number \| null | La giornata di riferimento; **`null`** per i numeri `midweek`. In un numero `pre` è la giornata **in arrivo**, un puntatore editoriale e non una fonte: i dati citati sono quelli della giornata precedente (§4), e il sito non pretende dati per la giornata dichiarata |
 | `headline` | string | Titolo di apertura del numero, tipicamente uguale al `title` dell'articolo con `order: 1` |
 
 ### Composizione obbligatoria per tipo di numero
 
 | `type` | Rubriche | Cartella dati richiesta |
 |---|---|---|
-| `pre` | `mercato` + `editoriale` | `data/<stagione>/matchday-NN/` deve esistere |
+| `pre` | `mercato` + `editoriale` | nessuna per la giornata dichiarata: si cita la giornata precedente, già committata |
 | `post` | `cronaca-pagelle` + `classifiche` + `editoriale` + `rubrica-fissa` (+ `mercato` opzionale, come teaser — vedi §6.5) | `data/<stagione>/matchday-NN/` deve esistere |
 | `midweek` | `editoriale` + 1–2 `approfondimento` | nessuna: usa solo storia già committata |
 

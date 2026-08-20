@@ -39,14 +39,20 @@ State type, number, season and matchday back to the user before continuing.
 
 ## Step 2 — Verify the data exists (`pre` and `post` only)
 
-For `pre` and `post`, check that `data/<season>/matchday-NN/` exists
-(zero-padded) and contains the files the issue needs:
+For `post`, check that `data/<season>/matchday-NN/` exists (zero-padded) and
+contains `results.json`, `standings.json` and `lineups.json`.
 
-- `post` → `results.json`, `standings.json`, `lineups.json`;
-- `pre` → at minimum `lineups.json` (and `data/<season>/league.json`).
+For `pre`, the declared matchday is the giornata **about to be played**: no data
+for it exists yet and none is expected. Check the **previous** matchday instead
+— `data/<season>/matchday-(NN-1)/` with its `results.json` — plus
+`data/<season>/league.json`. That is where a `pre` issue's numbers come from
+(style guide §4). When NN is the first matchday of the season there is no
+previous one: skip the check and run on `league.json` alone.
 
-**If the directory or the files are missing, STOP.** Do not invent the data and
-do not fall back to an older matchday. Tell the user to run the scraper:
+**If a required directory or file is missing, STOP.** Do not invent the data and
+do not fall back to an older matchday. Tell the user to run the scraper on the
+matchday that is missing — the declared one for `post`, the previous one for
+`pre`:
 
 ```
 npm run scrape -- --matchday NN
