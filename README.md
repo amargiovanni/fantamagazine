@@ -39,7 +39,7 @@ The project is organized into three components:
 
 Note: Credentials live only in `.env`, never committed to git.
 
-Live URL: (set after first deploy)
+Live URL: https://fantidiano.soapboxmargio.workers.dev
 
 ## Recalibration (before the first real scrape)
 

@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   // Static output only.
-  // TODO: set `site` to the `*.workers.dev` URL after the first `npm run deploy`.
+  site: 'https://fantidiano.soapboxmargio.workers.dev',
   output: 'static',
   // Markdown is left on Astro's default processor. The pagelle's single-newline
   // line breaks are restored in CSS (see `.prose` in src/styles/global.css):
