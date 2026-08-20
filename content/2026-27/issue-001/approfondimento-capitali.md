@@ -55,13 +55,12 @@ quattordici meno diciotto fa **zero**. La somma dei dieci bilanci è
 esattamente 10.000 crediti, al credito. Non manca niente e non avanza niente:
 mancano e avanzano crediti nei posti sbagliati.
 
-Non c'è una perdita. C'è un movimento. Trentadue crediti si sono spostati da due
-squadre a una terza, e sono ancora tutti dentro il perimetro della lega.
+Non c'è una perdita. I libri non tornano a mille e tornano a zero.
 
 Questa testata precisa, per dovere di cronaca, che i movimenti di capitali tra
 presidenti sono operazioni ordinarie del gioco e che nessuno dei tre risulta
-indagato. Precisa anche che li registra, che li numera e che d'ora in avanti li
-guarda.
+indagato. Precisa anche di non essere in grado di dire come i tre scostamenti si
+siano prodotti, e che agli atti non c'è altro. La Procura registra. Non spiega.
 
 Il presidente del COCA JUNIORS, raggiunto telefonicamente, ha dichiarato: «I
 trentadue crediti me li sono guadagnati. Non ricordo come, ma me li sono

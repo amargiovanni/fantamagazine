@@ -21,7 +21,7 @@
 
 | Soprannome | Origine | Numero |
 |---|---|---|
-| **l'Abbonato a un Solo Pullman** | sei giocatori dell'Atalanta su venticinque e tre portieri su tre dell'Atalanta: il reparto portieri viaggia interamente sullo stesso club | 1 |
+| **l'Abbonato a un Solo Pullman** | sei giocatori dell'Atalanta su venticinque, e tre di quei sei sono i suoi tre portieri: il reparto viaggia interamente sullo stesso club | 1 |
 
 ## Running joke attivi
 
@@ -46,8 +46,8 @@
 | Giornata | Il fatto | Fonte |
 |---|---|---|
 | Asta 2026-27 | Acquisto più caro della rosa: Krstovic a 120 crediti, il tetto di spesa più basso della lega | `rosters.json` |
-| Asta 2026-27 | Tre portieri su tre dall'Atalanta | `rosters.json` |
-| Asta 2026-27 | Sei giocatori dell'Atalanta su venticinque, come l'Aston pirla | `rosters.json` |
+| Asta 2026-27 | Sei giocatori dell'Atalanta su venticinque, come l'Aston pirla; tre dei sei sono i tre portieri Vismara, Carnesecchi e Sportiello | `rosters.json` |
+| Asta 2026-27 | Anche Krstovic, l'acquisto più caro della rosa, è dell'Atalanta: quattro dei sei sono portieri o l'attaccante di punta | `rosters.json` |
 | Asta 2026-27 | 148 crediti residui, 852 spesi, scarto sul coefficiente +19 | `league.json`, `rosters.json` |
 
 ## Materiale inutilizzato

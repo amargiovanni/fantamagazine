@@ -29,7 +29,7 @@
 
 - **Nato nel numero:** 1
 - **Stato:** attivo
-- **Il fatto d'origine:** asta 2026-27: Martinez Jo. (76), Provedel (55) e Di Gennaro (1), tutti e tre dell'Inter (`rosters.json`)
+- **Il fatto d'origine:** asta 2026-27: Martinez Jo. (76), Provedel (55) e Di Gennaro (1), tutti e tre dell'Inter; i 55 di Provedel per una quotazione di 2 sono il rapporto record dell'asta, 7,83 (`rosters.json`)
 - **Come si usa:** si richiama a ogni turno in cui l'Inter gioca male, perché il presidente non ha alternative
 - **Ultimo utilizzo:** numero 1
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
@@ -49,6 +49,7 @@
 | Asta 2026-27 | 980 crediti spesi per 263 punti di quotazione: gli stessi 263 punti del GinTonici, pagati 317 crediti in più | `rosters.json` |
 | Asta 2026-27 | Sedici giocatori su venticinque da tre soli club: 6 Roma, 5 Inter, 5 Como | `rosters.json` |
 | Asta 2026-27 | Douvikas pagato 211 crediti, quotazione 20, valore a coefficiente 70 | `rosters.json` |
+| Asta 2026-27 | Provedel pagato 55 crediti per una quotazione di 2: rapporto 7,83 sul coefficiente, il sovrapprezzo relativo record dell'intera asta | `rosters.json` |
 
 ## Materiale inutilizzato
 

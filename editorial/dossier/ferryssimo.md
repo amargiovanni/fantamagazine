@@ -47,7 +47,7 @@
 |---|---|---|
 | Asta 2026-27 | Kolo Muani pagato 302 crediti, il 42% della spesa complessiva | `rosters.json` |
 | Asta 2026-27 | 205 punti di quotazione acquistati, il totale più basso della lega | `rosters.json` |
-| Asta 2026-27 | Scarto sul coefficiente pari a zero: 720 spesi contro 720 di valore, unico bilancio in pari della lega | `rosters.json` |
+| Asta 2026-27 | Scarto sul coefficiente inferiore al credito: 720 spesi contro 720,3 di valore, l'unico bilancio in pari della lega | `rosters.json` |
 | Asta 2026-27 | Bilancio d'asta di 986 crediti (720 + 266) contro i 1000 di dotazione | `league.json`, `rosters.json` |
 
 ## Materiale inutilizzato

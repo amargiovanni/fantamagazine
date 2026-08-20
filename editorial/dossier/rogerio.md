@@ -47,7 +47,7 @@
 |---|---|---|
 | Asta 2026-27 | 1000 crediti spesi su 1000, zero residui | `league.json` |
 | Asta 2026-27 | 287 crediti in difesa, la spesa difensiva più alta della lega | `rosters.json` |
-| Asta 2026-27 | Geubbels pagato 142 crediti per una quotazione di 9: rapporto 4,49, il sovrapprezzo relativo record dell'asta | `rosters.json` |
+| Asta 2026-27 | Geubbels pagato 142 crediti per una quotazione di 9: rapporto 4,49, secondo sovrapprezzo relativo dell'asta dietro ai 7,83 di Provedel | `rosters.json` |
 | Asta 2026-27 | Ramos G. pagato 296 crediti, quotazione 27, valore a coefficiente 95 | `rosters.json` |
 
 ## Materiale inutilizzato

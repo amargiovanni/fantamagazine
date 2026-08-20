@@ -41,7 +41,7 @@ Ha comprato meglio di tutti e ha pagato Dovbyk 225 per una quotazione di 16: la 
 
 **COCA JUNIORS** — PAOCRI86 · **5**
 Trenta virgola sette per cento del budget in attacco, la quota più bassa della lega: 250 crediti, di cui 210 per il solo Kean.
-Sobrio, misurato, prudente. Gli altri cinque attaccanti sono costati quaranta crediti in una sera di prudenza.
+Gli altri cinque attaccanti gli sono costati quaranta crediti in tutto: ha comprato un attaccante e cinque testimoni.
 
 **Borussia Addurmt** — Rogerio · **4,5**
 Duecentottantasette crediti in difesa, la spesa difensiva più alta del campionato, e zero crediti residui su mille.

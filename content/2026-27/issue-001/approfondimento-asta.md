@@ -1,6 +1,6 @@
 ---
 column: approfondimento
-title: "L'INCHIESTA: 8615 crediti per dieci rose che ne valgono 2452"
+title: "L'INCHIESTA: 263 punti di listino, uno paga 663, l'altro 980"
 byline: "Ornella Malaparte"
 order: 1
 ---
@@ -13,6 +13,10 @@ la durata dell'asta.
 Dieci presidenti. Diecimila crediti. Duecentocinquanta giocatori.
 Ottomilaseicentoquindici crediti spesi contro duemilaquattrocentocinquantadue
 punti di quotazione acquistati. Da qui in avanti sono solo divisioni.
+
+Una di queste divisioni dice che due presidenti hanno portato a casa la stessa
+identica quantità di listino e che uno l'ha pagata 317 crediti più dell'altro.
+Ci arriviamo.
 
 **Capitolo I — Il movente**
 
@@ -30,10 +34,11 @@ reparto obbligatorio per regolamento, pagati meno dei tre attaccanti più cari
 dell'asta messi insieme — Yildiz, Kolo Muani e Thuram fanno 929.
 
 Raggiunto telefonicamente da questa testata, un dirigente che chiede l'anonimato
-— e che risulta essere l'unico presente all'asta con un foglio di calcolo — ha
-dichiarato: «L'attaccante lo vedi. Il portiere lo scopri a novembre. Io compro
-solo quello che vedo, ed è per questo che non ho mai comprato un centrocampista
-di copertura in vita mia».
+— e che non è nessuno dei dieci presidenti, pur essendone uno — ha dichiarato:
+«L'attaccante lo vedi. Il portiere lo scopri a novembre, e a novembre io sono
+già un'altra persona con altri problemi. Se avessi voluto comprare un uomo che
+para, avrei comprato un uomo che para. Ho comprato chi segna, e ho intenzione di
+lamentarmene fino a maggio».
 
 **Capitolo II — I fatti**
 
@@ -43,8 +48,7 @@ coefficiente di lega.
 Il calcolo è elementare e per questo non è mai stato fatto da nessuno: si prende
 la spesa complessiva della lega, 8615 crediti, e la si divide per la quotazione
 complessiva delle rose acquistate, 2452 punti. Il risultato è **3,51 crediti per
-punto di quotazione**. È il prezzo che, in questa lega e in questa asta, un
-punto di listino ha effettivamente avuto.
+punto di quotazione**.
 
 Da qui discende l'unico giudizio che questa testata considera ammissibile. Non
 si confronta il prezzo con la quotazione — sono due scale diverse, e chi le
@@ -66,11 +70,19 @@ resta quello di Squadra 9: il presidente ha pagato Yildiz 327 crediti avendo in
 rosa Martinez L., che il listino quota 35 contro 23. Trentuno crediti in più per
 dodici punti in meno, nella stessa serata e sullo stesso reparto.
 
-Il primato tecnico dell'asta, tuttavia, non è di Yildiz. È di Geubbels, pagato
-142 crediti dal Borussia Addurmt a fronte di un valore a coefficiente di 32: un
-rapporto di 4,49, il più alto della lega. Il giornale registra che il secondo e
-il terzo posto di questa classifica sono Yildiz a 4,05 e Dovbyk, pagato 225
-crediti dall'Amaro Luciano per una quotazione di 16, a 4,00.
+Il primato tecnico dell'asta, tuttavia, non è di Yildiz, e non è di un
+attaccante.
+
+È di Provedel, portiere, pagato 55 crediti dal J medical a fronte di una
+quotazione di 2: valore a coefficiente, 7. Il rapporto è **7,83**, quasi il
+doppio di chiunque altro in questa lega. È stato pagato così nel ruolo che tutta
+la Fantac-ACCIA ha deciso di non pagare, e dal presidente che al reparto
+portieri ha destinato 132 crediti, il più costoso del campionato, prendendoli
+tutti e tre dall'Inter.
+
+La classifica dei rapporti, per intero: Provedel 7,83; Geubbels, 142 crediti per
+una quotazione di 9, 4,49; Yildiz 4,05; Dovbyk, 225 crediti dall'Amaro Luciano
+per una quotazione di 16, 4,00.
 
 **Capitolo III — Le omissioni**
 
@@ -81,15 +93,19 @@ Sessantotto giocatori su duecentocinquanta — il ventisette per cento della leg
 — sono stati acquistati per un credito. Uno. Il minimo consentito dal sistema,
 che è anche il minimo consentito dalla convinzione.
 
-Tra questi risultano:
+I cinque affari più grossi dell'asta, misurati sullo stesso coefficiente e nella
+direzione opposta, sono questi:
 
-| Giocatore | Squadra | Pagato | Valore a coefficiente |
-|---|---|---|---|
-| Pavlovic | GinTonici | 1 | 49 |
-| Esposito Se. | Squadra 9 | 1 | 46 |
-| Pellegrino M. | Amaro Luciano | 10 | 53 |
-| Kevin Carlos | Borussia Addurmt | 7 | 46 |
-| Nkunku | COCA JUNIORS | 7 | 46 |
+| Giocatore | Squadra | Pagato | Valore a coefficiente | Risparmio |
+|---|---|---|---|---|
+| Pavlovic | GinTonici | 1 | 49 | −48 |
+| Esposito Se. | Squadra 9 | 1 | 46 | −45 |
+| Pellegrino M. | Amaro Luciano | 10 | 53 | −43 |
+| Kevin Carlos | Borussia Addurmt | 7 | 46 | −39 |
+| Nkunku | COCA JUNIORS | 7 | 46 | −39 |
+
+Tre dei cinque sono costati più di un credito, il che in questa lega si chiama
+già investimento.
 
 Il presidente di Squadra 9 ha speso 327 crediti per Yildiz e un credito per
 Esposito Se. Nella stessa asta. Con lo stesso portafogli. A distanza, risulta,
@@ -119,12 +135,12 @@ Applicato il coefficiente alle dieci rose, il quadro è questo:
 | Atletico Piedini | Margio | 797 | 748 | +49 |
 | Aston pirla | Alessandro | 861 | 840 | +21 |
 | Deportivo La Carogna | Acciacarlos | 852 | 833 | +19 |
-| Nostalgia Nera | Ferryssimo | 720 | 720 | 0 |
+| Nostalgia Nera | Ferryssimo | 720 | 720,3 | −0,3 |
 | Amaro Luciano | max | 945 | 949 | −4 |
 | COCA JUNIORS | PAOCRI86 | 815 | 878 | −63 |
 | GinTonici | AnDreher | 663 | 924 | −261 |
 
-Il Nostalgia Nera chiude con lo scarto zero: 720 crediti spesi contro 720 di
+Il Nostalgia Nera chiude in pari a meno di un credito: 720 spesi contro 720,3 di
 valore a coefficiente, l'unico bilancio in pari dell'intera lega. Lo ha ottenuto
 un presidente che ha investito 302 crediti su un solo attaccante, cioè il
 quarantadue per cento di tutto quello che ha speso. La media è una scienza

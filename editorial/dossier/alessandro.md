@@ -54,4 +54,4 @@
 
 - Centrocampo da 403 crediti — più dell'attacco (340) e della difesa (30) messi insieme — con McTominay pagato 183 — `rosters.json` — *ancora buono per:* un'inchiesta tattica.
 - Sei giocatori dell'Atalanta, esattamente come il Deportivo La Carogna — `rosters.json` — *ancora buono per:* un pezzo sulle forniture parallele.
-- 139 crediti residui, quarto tesoretto della lega — `league.json` — *ancora buono per:* un oroscopo.
+- 139 crediti residui, sesto tesoretto della lega — `league.json` — *ancora buono per:* un oroscopo.

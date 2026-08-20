@@ -21,7 +21,7 @@
 
 | Soprannome | Origine | Numero |
 |---|---|---|
-| **l'Uomo dei 225** | Dovbyk pagato 225 crediti a fronte di una quotazione di 16: rapporto 4,00 sul coefficiente di lega, terzo sovrapprezzo relativo dell'asta | 1 |
+| **l'Uomo dei 225** | Dovbyk pagato 225 crediti a fronte di una quotazione di 16: rapporto 4,00 sul coefficiente di lega, quarto sovrapprezzo relativo dell'asta | 1 |
 
 ## Running joke attivi
 
