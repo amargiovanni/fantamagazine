@@ -51,6 +51,7 @@
 | Asta 2026-27 | Malen pagato 296 crediti, quotazione 34, valore a coefficiente 119 | `rosters.json` |
 | Asta 2026-27 | Pavlovic pagato 1 credito contro un valore a coefficiente di 49, il miglior affare assoluto dell'asta | `rosters.json`, pubblicato nel numero 1 |
 | Asta 2026-27 | Petagna, uno dei due giocatori della lega con l'asterisco di fuori listino, pagato 1 credito | `rosters.json`, pubblicato nel numero 1 |
+| Bombe di Tancredi Soffiata | Svilar per Thuram, e Malen più 31 crediti per Yildiz: il Banchiere paga per comprarsi il sovrapprezzo record dell'asta — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
 
 ## Materiale inutilizzato
 

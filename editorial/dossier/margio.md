@@ -49,6 +49,7 @@
 | Asta 2026-27 | Otto crediti anche per il solo Mangas, difensore: la porta vale un uomo | `rosters.json` |
 | Asta 2026-27 | Thuram pagato 300 crediti, quotazione 29, valore a coefficiente 102 | `rosters.json` |
 | Asta 2026-27 | 213 punti di quotazione acquistati, penultimo totale della lega, con 203 crediti lasciati in cassa | `rosters.json`, `league.json` |
+| Bombe di Tancredi Soffiata | Thuram per Svilar, pari e patta: cede il 37% della spesa per un portiere che vale 12,5 volte la sua porta da 8 crediti — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
 
 ## Materiale inutilizzato
 

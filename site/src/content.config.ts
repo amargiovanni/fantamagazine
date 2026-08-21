@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { COLUMNS } from './lib/columns';
 
 /**
  * Content collections for Il Fatto Fantidiano.
@@ -10,27 +11,7 @@ import { glob } from 'astro/loaders';
  * If a contract changes, both sides change in the same commit.
  */
 
-/** Column slugs are a technical contract (style guide §6). */
-export const COLUMNS = [
-  'cronaca-pagelle',
-  'editoriale',
-  'rubrica-fissa',
-  'classifiche',
-  'mercato',
-  'approfondimento',
-] as const;
-
-export type Column = (typeof COLUMNS)[number];
-
-/** Human-readable kicker for each column, used by the design system. */
-export const COLUMN_LABELS: Record<Column, string> = {
-  'cronaca-pagelle': 'Cronaca e pagelle',
-  editoriale: 'Editoriale',
-  'rubrica-fissa': 'La rubrica',
-  classifiche: 'Classifiche',
-  mercato: 'Mercato',
-  approfondimento: 'Approfondimento',
-};
+export { COLUMNS, COLUMN_LABELS, type Column } from './lib/columns';
 
 const articles = defineCollection({
   // Entry id looks like `2026-27/issue-000/cronaca-pagelle`.

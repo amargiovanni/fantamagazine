@@ -50,6 +50,7 @@
 | Asta 2026-27 | Geubbels pagato 142 crediti per una quotazione di 9: rapporto 4,49, secondo sovrapprezzo relativo dell'asta dietro ai 7,83 di Provedel | `rosters.json` |
 | Asta 2026-27 | Ramos G. pagato 296 crediti, quotazione 27, valore a coefficiente 95 | `rosters.json` |
 | Asta 2026-27 | Kevin Carlos pagato 7 crediti contro un valore a coefficiente di 46 | `rosters.json`, pubblicato nel numero 1 |
+| Bombe di Tancredi Soffiata | Geubbels (142, q9) per Esposito Se. (1, q13), senza conguaglio perché nessuna delle due squadre ha un credito — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
 
 ## Materiale inutilizzato
 

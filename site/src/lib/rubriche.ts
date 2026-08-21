@@ -6,7 +6,7 @@
  * source of truth for the editorial rules; this file is the reader-facing copy
  * of the desk assignments, and the two change in the same commit.
  */
-import { COLUMNS, type Column } from '../content.config';
+import { COLUMNS, type Column } from './columns';
 
 export interface Desk {
   /** The bylines the style guide assigns to this rubrica (§7). */
@@ -54,6 +54,12 @@ export const DESKS: Record<Column, Desk> = {
     blurb:
       'L’inchiesta del mercoledì. Si nutre solo di storia già agli atti: dati passati, dossier, numeri precedenti.',
   },
+  bombe: {
+    signatures: ['Tancredi Soffiata'],
+    role: 'inviato di mercato, fonti a sua insaputa',
+    blurb:
+      'Scambi che nessuno ha proposto, garantiti da fonti che nessuno ha incontrato. Ogni bomba è confermata al cento per cento; il bilancio di carriera è in testa al pezzo.',
+  },
 };
 
 /** `/rubriche/mercato/` — the canonical URL of a rubrica. */
@@ -61,5 +67,5 @@ export function rubricaPath(column: Column): string {
   return `/rubriche/${column}/`;
 }
 
-/** The six rubriche, in the order the style guide lists them (§6). */
+/** The rubriche, in the order the style guide lists them (§6). */
 export const RUBRICHE: readonly Column[] = COLUMNS;

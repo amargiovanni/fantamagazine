@@ -86,6 +86,9 @@ Read, in this order, all of it, every time:
 3. The **last three issues** in `content/<season>/` — so the issue does not
    repeat a joke, reuse an opening, or hit the same target twice in a row.
 4. `editorial/albo.json` — who has already won what, and when.
+   `editorial/bombe.json` — every bomba Tancredi Soffiata has launched, with
+   its `status`; the career tally printed at the top of `bombe.md` is computed
+   from this file (style guide §6.7).
 5. `editorial/opt-out.json` — the managers who asked not to appear. They are
    never named, never nicknamed, never awarded; see style guide §3.
 6. The data files for this issue, plus `data/<season>/league.json` for the exact
@@ -128,8 +131,8 @@ order: 1
 ```
 
 `column` is one of `cronaca-pagelle`, `editoriale`, `rubrica-fissa`,
-`classifiche`, `mercato`, `approfondimento`. `byline` is one of the six fixed
-bylines in the style guide. `order` starts at 1, no gaps, no duplicates.
+`classifiche`, `mercato`, `approfondimento`, `bombe`. `byline` is one of the
+seven fixed bylines in the style guide. `order` starts at 1, no gaps, no duplicates.
 
 Required composition — file name is the column slug:
 
@@ -143,6 +146,11 @@ A **numero speciale**, declared as such in the occhiello of one of its articles
 (e.g. `SPECIALE INSEDIAMENTO:`), may extend the `midweek` composition with
 `mercato.md` and `rubrica-fissa.md`, with `mercato` following the §6.5 teaser
 variant: "Le rose" replace "Le probabili formazioni" (style guide §9).
+
+`bombe.md` (style guide §6.7) may be added to **any** composition and is never
+required. Three to five bombe; every player name, price, quotation and credit
+balance comes from `rosters.json`/`league.json`, the swap itself is invented.
+A `pre` issue is its natural home, but it runs whenever the editor asks.
 
 In that teaser variant `mercato` may also carry **le pagelle delle rose** — one
 entry per squad in the rigid §6.1 pagella format, on the fantidiana scale, in
@@ -187,6 +195,12 @@ In the same working tree, before building:
   `league.json`. Maximum three awards per issue; no manager twice in one issue.
 - Create a dossier from `editorial/dossier/_template.md` for any manager who
   does not have one yet.
+- If the issue has `bombe.md`, append one object per bomba to
+  `editorial/bombe.json`: `{ "issue": N, "player": ..., "from": ..., "to": ...,
+  "status": "lanciata" }`, with team names matching `league.json`. Check earlier
+  entries against the committed data: a swap that actually happened becomes
+  `confermata`, one the data rules out becomes `smentita`. The tally at the top
+  of `bombe.md` must equal the file's counts.
 
 An issue that ships without its dossier update is incomplete work.
 
