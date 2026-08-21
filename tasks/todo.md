@@ -36,6 +36,7 @@
 ## 15 Telegram Instant View markup (FM-003, planned)
 
 - [x] 15.0 `IV.md`: template, publishing steps, rhash link usage
+- [x] 15.0b `npm run iv-links -- N`: IV link per article of an issue (`site/src/lib/iv.ts` + test)
 - [ ] 15.1 `<time datetime>` on the article dateline; `published_date` rule in the template
 - [ ] 15.2 `<address class="byline" rel="author">` instead of `<p class="byline">`
 - [ ] 15.3 `og:type=article`, `article:published_time`, `article:author`, `og:site_name`

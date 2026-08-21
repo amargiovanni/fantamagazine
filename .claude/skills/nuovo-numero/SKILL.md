@@ -256,5 +256,11 @@ Once the editor has approved, in this order:
 
 3. Report the commit hash and the deployed URL.
 
+4. Print the Telegram Instant View links for the channel post (see `IV.md`):
+
+   ```
+   cd site && npm run iv-links -- N
+   ```
+
 If approval never arrives, the issue stays in the working tree. That is a
 perfectly acceptable outcome; publishing without approval is not.
