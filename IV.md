@@ -89,15 +89,16 @@ Notes on the rules:
 
 A link of the form `https://t.me/iv?url=<article>&rhash=<IV_RHASH>` posted in a
 channel, a group or a private chat shows the article with the Instant View
-button, regardless of approval status. The URL must be percent-encoded:
+button, regardless of approval status. After a deploy, print one link per
+article of an issue with:
 
 ```sh
-node -e 'console.log("https://t.me/iv?url=" + encodeURIComponent(process.argv[1]) + "&rhash=" + process.env.IV_RHASH)' \
-  https://fantamagazine.margiovanni.it/numeri/numero-1/approfondimento-asta/
+cd site && npm run iv-links -- 1          # issue number, season defaults to 2026-27
 ```
 
-When an issue is published, one IV link per article (or one for the opening
-piece, with the issue page linked in the post) is what goes to the channel.
+The script (`site/scripts/iv-links.mjs`, logic in `site/src/lib/iv.ts`) reads
+`IV_RHASH` from `site/.env`, walks `content/<season>/issue-NNN/*.md` in
+`order`, and prints title + IV link, ready to paste into the channel post.
 
 ### Checking that the template still works
 
