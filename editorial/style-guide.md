@@ -166,6 +166,7 @@ In pratica, mentre si scrive:
 | rose, prezzi d'asta, quotazioni di listino | `data/<stagione>/rosters.json` — per ogni giocatore `price` è il prezzo pagato all'asta e `quotation` la quotazione corrente. **Sono due scale diverse.** Un sovrapprezzo si afferma solo confrontando `price` con `quotation` moltiplicata per il **coefficiente di lega** (spesa totale della lega / quotazione totale acquistata), mai per differenza diretta: chi sottrae la quotazione dal prezzo sta bluffando |
 | soprannomi, tormentoni, precedenti | `editorial/dossier/<manager>.md` |
 | premi già assegnati | `editorial/albo.json` |
+| bombe lanciate, confermate, smentite | `editorial/bombe.json` |
 | dichiarazioni citate di numeri passati | `content/<stagione>/issue-NNN/*.md` |
 | chi non va nominato | `editorial/opt-out.json` |
 | i tre numeri veri di un numero `pre` | la **giornata precedente** già committata: della giornata in corso non esiste ancora un solo dato |
@@ -384,6 +385,50 @@ Tagli ricorrenti: la stagione di un fantallenatore riletta come caso
 giudiziario; l'intervista esclusiva immaginaria; il retrospettivo *"I grandi
 disastri del passato"*; il dossier su un tormentone e sulle sue origini.
 
+### 6.7 `bombe` — Le Bombe di Tancredi Soffiata
+
+Firma: **Tancredi Soffiata**. Lunghezza: 300–500 parole, **tre-cinque bombe**.
+È l'unica rubrica **facoltativa in ogni tipo di numero**: esce quando la
+redazione ha qualcosa da far esplodere, e nessuno la reclama quando non esce.
+
+Una bomba è uno scambio fra due squadre della lega che **nessuno ha proposto**,
+garantito da una catena di contatti che non regge, e tale che **solo uno dei
+due presidenti può averlo accettato — e non è quello che ci guadagna**. Il
+pezzo conta sulla stupidità dei presidenti e la dichiara come fonte.
+
+Struttura fissa:
+
+```
+## Le Bombe di Tancredi Soffiata
+
+*Bilancio di carriera: N bombe lanciate, M confermate.*   ← calcolato da bombe.json
+
+**💣 [Giocatore] dal [Squadra A] al [Squadra B]**
+*Fonte: [catena di contatti improbabile, almeno tre gradi di separazione]*
+Due-tre righe: lo scambio, le cifre vere, il motivo per cui è sbilanciato
+e chi dei due non se n'è accorto.
+*Stato: confermato al cento per cento.*
+```
+
+Regole proprie della rubrica:
+
+- **I nomi e le cifre sono veri, lo scambio è inventato.** Giocatori, prezzi
+  d'asta, quotazioni e crediti residui vengono da `rosters.json` e
+  `league.json` (§4, coefficiente di lega compreso). Lo scambio è una citazione
+  nel senso del §4 e deve passare il **test dell'incredibilità**: se un
+  presidente potrebbe crederci, si alza di un gradino.
+- **Il bilancio si calcola, non si scrive.** La riga d'apertura riporta il
+  numero di voci in `editorial/bombe.json` — **comprese quelle lanciate nel
+  pezzo stesso** — e quante hanno `status: "confermata"`. Ogni bomba lanciata
+  si registra nel file nello stesso commit.
+- **Una bomba che si avvera** (uno scambio reale coincide con una già
+  registrata) passa a `confermata` e la rubrica successiva la festeggia in modo
+  sproporzionato. Una bomba smentita dai fatti passa a `smentita` e Tancredi la
+  considera comunque un successo.
+- Il **bersaglio** di una bomba è chi ci perde. Vale per la rotazione del §3 e
+  per l'opt-out: un presidente che non vuole comparire non compare nemmeno
+  come controparte.
+
 ---
 
 ## 7. Le firme
@@ -400,6 +445,7 @@ o nella riga di chiusura del pezzo.
 | **Aldo Catenaccio** | analista tattico, ex nulla | `classifiche`, `approfondimento` | Lessico militare, frecce e lavagna; ogni modulo è "una scelta di campo, in tutti i sensi" |
 | **Zia Fantina** | consulente sentimentale della rosa | `rubrica-fissa` (posta del cuore) | Chiama tutti "tesoro" prima di demolirli |
 | **Madame Panchinska** | astrologa di provata inattendibilità | `rubrica-fissa` (oroscopo) | Saturno è sempre in panchina; il consiglio finale è sempre sbagliato |
+| **Tancredi Soffiata** | inviato di mercato, fonti a sua insaputa | `bombe` | Ogni bomba apre con la catena di contatti che la garantisce e chiude con *«Confermato al cento per cento.»*; ha sempre «le carte», mai mostrate; il bilancio di carriera sta in testa al pezzo |
 
 Regola: **una firma per articolo**. I pezzi non firmati non esistono; la
 redazione non si nasconde dietro il "noi" tranne nell'editoriale, dove è una
@@ -474,7 +520,7 @@ order: 1
 
 | Campo | Tipo | Regole |
 |---|---|---|
-| `column` | enum | Esattamente uno di: `cronaca-pagelle`, `editoriale`, `rubrica-fissa`, `classifiche`, `mercato`, `approfondimento` |
+| `column` | enum | Esattamente uno di: `cronaca-pagelle`, `editoriale`, `rubrica-fissa`, `classifiche`, `mercato`, `approfondimento`, `bombe` |
 | `title` | string | Il titolo dell'articolo, regole del §5 |
 | `byline` | string | Il nome di una firma del §7 |
 | `order` | number | Ordine di lettura dentro il numero, a partire da 1, senza buchi e senza ripetizioni |
@@ -520,10 +566,13 @@ articoli (p.es. `SPECIALE INSEDIAMENTO:`) — può estendere la composizione
 teaser del §6.5: non essendoci nulla da schierare, **"Le rose"** sostituiscono
 **"Le probabili formazioni"**.
 
+`bombe` (§6.7) può affiancare **qualsiasi** composizione, di qualsiasi tipo di
+numero, e non è mai obbligatoria.
+
 ### Nomi dei file
 
 Il nome del file è lo slug della rubrica: `cronaca-pagelle.md`, `editoriale.md`,
-`classifiche.md`, `rubrica-fissa.md`, `mercato.md`. Con due approfondimenti:
+`classifiche.md`, `rubrica-fissa.md`, `mercato.md`, `bombe.md`. Con due approfondimenti:
 `approfondimento-1.md`, `approfondimento-2.md`.
 
 Un approfondimento può portare, al posto del numero, un breve slug descrittivo
@@ -575,6 +624,7 @@ Direttore in carne e ossa:
 - [ ] Massimo tre premi, nessun presidente premiato due volte.
 - [ ] Il titolo di apertura sta sotto le nove parole e non ha punti esclamativi.
 - [ ] Dossier e `albo.json` aggiornati con quello che questo numero ha stabilito.
+- [ ] Se c'è `bombe.md`: ogni bomba è in `editorial/bombe.json` e il bilancio in testa al pezzo coincide con il file.
 - [ ] `npm run build` passa.
 
 ---

@@ -23,3 +23,20 @@
 - [x] 13.6 `demo-data.test.ts` guards `rosters.json`
 - [x] 13.7 Real run against the live site; commit `league.json` + `rosters.json`
 - [x] 13.8 README: known gaps closed, daily ops updated
+
+## 14 Rubrica "Le Bombe" (FM-002)
+
+- [x] 14.1 Site: `bombe` in `COLUMNS`/`COLUMN_LABELS`/`DESKS`, guarded by a key-parity test (TDD)
+- [x] 14.2 Style guide: §6.7 format, §7 firma Tancredi Soffiata, §9 enum/composition/file name, §11 checklist
+- [x] 14.3 `editorial/bombe.json` ledger (empty) + skill `nuovo-numero` reads/updates it
+- [x] 14.4 First piece: `content/2026-27/issue-001/bombe.md` (order 6), ≥2 bombe, traceable numbers
+- [x] 14.5 Dossier updates + `bombe.json` entries for the bombe launched
+- [ ] 14.6 `npm test` + `npm run build` green, preview, wait for editor approval
+
+## 15 Telegram Instant View markup (FM-003, planned)
+
+- [x] 15.0 `IV.md`: template, publishing steps, rhash link usage
+- [ ] 15.1 `<time datetime>` on the article dateline; `published_date` rule in the template
+- [ ] 15.2 `<address class="byline" rel="author">` instead of `<p class="byline">`
+- [ ] 15.3 `og:type=article`, `article:published_time`, `article:author`, `og:site_name`
+- [ ] 15.4 Build-time test over `dist/` asserting the elements the IV template binds to

@@ -49,6 +49,7 @@
 | Asta 2026-27 | 55 crediti residui: solo J medical (20), Borussia Addurmt (0) e Squadra 9 (0) ne hanno lasciati meno | `league.json` |
 | Asta 2026-27 | 526 crediti su 945 (55,7%) destinati al reparto offensivo | `rosters.json` |
 | Asta 2026-27 | Pellegrino M. pagato 10 crediti contro un valore a coefficiente di 53 | `rosters.json` |
+| Bombe di Tancredi Soffiata | Dovbyk (225, q16) per Douvikas (211, q20), alla pari: «ci perdono tutti e due» — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
 
 ## Materiale inutilizzato
 

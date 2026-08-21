@@ -51,6 +51,7 @@
 | Asta 2026-27 | Douvikas pagato 211 crediti, quotazione 20, valore a coefficiente 70 | `rosters.json` |
 | Asta 2026-27 | Provedel pagato 55 crediti per una quotazione di 2: rapporto 7,83 sul coefficiente, il sovrapprezzo relativo record dell'intera asta | `rosters.json` |
 | Asta 2026-27 | 20 crediti residui, il residuo più basso tra chi ne ha lasciati | `league.json`, pubblicato nel numero 1 |
+| Bombe di Tancredi Soffiata | Douvikas (211, q20) per Dovbyk (225, q16), alla pari, con 20 crediti in cassa per non poter chiedere nulla — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
 
 ## Materiale inutilizzato
 
