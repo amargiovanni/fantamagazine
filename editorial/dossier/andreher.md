@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: 663 crediti spesi su 1000, residuo 337, il più alto della lega (`league.json`)
 - **Come si usa:** si cita ogni volta che serve un metro per una spesa altrui, e ogni volta che il presidente si lamenta di qualcosa
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 

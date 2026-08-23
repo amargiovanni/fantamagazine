@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: 6 giocatori su 25 dall'Atalanta, di cui i tre portieri Vismara, Carnesecchi e Sportiello (`rosters.json`)
 - **Come si usa:** si richiama a ogni sosta per le nazionali e a ogni turno in cui l'Atalanta riposa
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 

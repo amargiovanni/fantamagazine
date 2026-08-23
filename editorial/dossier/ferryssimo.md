@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: Kolo Muani pagato 302 crediti su 720 complessivi, quotazione 26, valore a coefficiente 91 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che quel giocatore non gioca, e ogni volta che gioca
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 

@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: Dovbyk (Bologna) acquistato per 225 crediti, quotazione 16, valore a coefficiente 56 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che un acquisto viene giustificato con l'istinto: «duecentoventicinque crediti di istinto»
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 

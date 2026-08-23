@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: Martinez Jo. (76), Provedel (55) e Di Gennaro (1), tutti e tre dell'Inter; i 55 di Provedel per una quotazione di 2 sono il rapporto record dell'asta, 7,83 (`rosters.json`)
 - **Come si usa:** si richiama a ogni turno in cui l'Inter gioca male, perché il presidente non ha alternative
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 

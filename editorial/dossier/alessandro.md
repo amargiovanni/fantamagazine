@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: spesa difensiva complessiva di 30 crediti su 861, contro i 287 del Borussia Addurmt (`rosters.json`)
 - **Come si usa:** si cita come unità di misura: «un difensore da trenta crediti», cioè otto difensori
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 

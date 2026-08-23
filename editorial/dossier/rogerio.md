@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: 1000 crediti spesi su 1000 disponibili, residuo 0 (`league.json`, `rosters.json`)
 - **Come si usa:** si richiama a ogni occasione di mercato futura: il presidente non ha con che cosa partecipare
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 

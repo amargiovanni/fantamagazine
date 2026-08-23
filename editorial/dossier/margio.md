@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: reparto portieri completo costruito con 8 crediti su 797 spesi, l'1% del budget (`rosters.json`)
 - **Come si usa:** si usa come metro di paragone per qualunque spesa: «vale quattro porte dell'Atletico Piedini»
-- **Ultimo utilizzo:** numero 1
+- **Ultimo utilizzo:** numero 2
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 
