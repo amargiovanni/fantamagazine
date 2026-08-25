@@ -31,15 +31,22 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: 6 giocatori su 25 dall'Atalanta, di cui i tre portieri Vismara, Carnesecchi e Sportiello (`rosters.json`)
 - **Come si usa:** si richiama a ogni sosta per le nazionali e a ogni turno in cui l'Atalanta riposa
-- **Ultimo utilizzo:** numero 2
+- **Ultimo utilizzo:** numero 3
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
+### Berardi o Leao, quello sbagliato
+
+- **Nato nel numero:** 3
+- **Stato:** attivo
+- **Il fatto d'origine:** l'oroscopo del numero 1 prevedeva «ne schiererai sempre uno solo, e sarà quello sbagliato»; alla giornata 1 schiera Berardi e lascia Leao in panchina, e nessuno dei due ha voto (`matchday-01/lineups.json`, `content/2026-27/issue-001/rubrica-fissa.md`)
+- **Come si usa:** a ogni giornata si verifica quale dei due ha schierato e si annota se era quello sbagliato; Madame Panchinska ne rivendica la paternità
+- **Ultimo utilizzo:** numero 3
 
 ## Premi vinti
 
 | Premio | Numero | Motivazione |
 |---|---|---|
-| — | — | Nessuno. I premi del §8 si calcolano sui risultati di una giornata e al numero 1 non ne è stata giocata nessuna. |
+| La Coppa del Vincitore Involontario | 3 | Vittoria per 2-1 con 74,5 fantapunti, il punteggio più basso tra i vincitori e inferiore a tre squadre che hanno pareggiato. |
 
 ## Precedenti notevoli
 
@@ -50,6 +57,8 @@
 | Asta 2026-27 | Anche Krstovic, l'acquisto più caro della rosa, è dell'Atalanta: quattro dei sei sono portieri o l'attaccante di punta | `rosters.json` |
 | Asta 2026-27 | 148 crediti residui, 852 spesi, scarto sul coefficiente +19 | `league.json`, `rosters.json` |
 | Asta 2026-27 | Leao pagato 81 crediti e Berardi 82: due attaccanti separati da un solo credito | `rosters.json`, pubblicato nel numero 1 |
+| Giornata 1 | Vittoria 2-1 sull'Aston pirla con 74,5: il punteggio più basso tra i vincitori, meno di tre squadre che hanno pareggiato; secondo in classifica | `matchday-01/results.json`, `standings.json` |
+| Giornata 1 | Krstovic, 120 crediti, miglior fantavoto della squadra con 11; Cissè A., un credito, 10 in panchina; Berardi titolare e Alajbegovic senza voto, Leao in panchina senza voto | `matchday-01/lineups.json` |
 
 ## Materiale inutilizzato
 

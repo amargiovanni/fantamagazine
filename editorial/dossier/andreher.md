@@ -31,9 +31,16 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: 663 crediti spesi su 1000, residuo 337, il più alto della lega (`league.json`)
 - **Come si usa:** si cita ogni volta che serve un metro per una spesa altrui, e ogni volta che il presidente si lamenta di qualcosa
-- **Ultimo utilizzo:** numero 2
+- **Ultimo utilizzo:** numero 3
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
+### Il portiere da un credito
+
+- **Nato nel numero:** 3
+- **Stato:** attivo
+- **Il fatto d'origine:** giornata 1: in porta Stankovic F., 1 credito, fantavoto 3,5 (secondo più basso della lega); in panchina Svilar, 100 crediti, fantavoto 7; Malen fa 18,5, il più alto della giornata (`matchday-01/lineups.json`)
+- **Come si usa:** il Banchiere considera il portiere titolare «un costo fisso, e i costi fissi sono quelli da un credito»; si richiama ogni volta che Svilar resta in panchina
+- **Ultimo utilizzo:** numero 3
 
 ## Premi vinti
 
@@ -52,6 +59,10 @@
 | Asta 2026-27 | Pavlovic pagato 1 credito contro un valore a coefficiente di 49, il miglior affare assoluto dell'asta | `rosters.json`, pubblicato nel numero 1 |
 | Asta 2026-27 | Petagna, uno dei due giocatori della lega con l'asterisco di fuori listino, pagato 1 credito | `rosters.json`, pubblicato nel numero 1 |
 | Bombe di Tancredi Soffiata | Svilar per Thuram, e Malen più 31 crediti per Yildiz: il Banchiere paga per comprarsi il sovrapprezzo record dell'asta — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
+| Giornata 1 | Pareggio 2-2 con il Borussia Addurmt, 76 a 75,5; quarto in classifica | `matchday-01/results.json`, `standings.json` |
+| Giornata 1 | Malen 18,5, il fantavoto più alto della giornata (16 crediti per fantapunto); Stankovic F. 3,5 in porta con Svilar a 7 in panchina; Molina N. senza voto | `matchday-01/lineups.json` |
+| Giornata 1 | Fantamedia del Rimorso migliore della lega: 11,5 fantapunti ogni 100 crediti spesi | `content/2026-27/issue-003/classifiche.md` |
+| Giornata 1 | Bombe: cede Svilar per Corvi più 95 crediti, e Malen per Pulisic più 136: arriverebbe a 568 crediti in cassa — scambi inventati, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
 
 ## Materiale inutilizzato
 

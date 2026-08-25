@@ -1,0 +1,1786 @@
+{
+  "matchday": 1,
+  "teams": [
+    {
+      "teamId": "5627234",
+      "module": "3-4-3",
+      "starters": [
+        {
+          "name": "Carnesecchi",
+          "role": "P",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Vojvoda",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Ostigard",
+          "role": "D",
+          "club": null,
+          "vote": 7,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Bernasconi",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Bernardeschi",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Zaniolo",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Alajbegovic",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Ederson D.S.",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Krstovic",
+          "role": "A",
+          "club": null,
+          "vote": 7,
+          "fantavote": 11
+        },
+        {
+          "name": "Santos A.",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Berardi",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ],
+      "bench": [
+        {
+          "name": "Sportiello",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Vismara",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Cacciamani",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Schmid",
+          "role": "C",
+          "club": null,
+          "vote": 5,
+          "fantavote": 4.5
+        },
+        {
+          "name": "Calò",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Cissè A.",
+          "role": "C",
+          "club": null,
+          "vote": 7,
+          "fantavote": 10
+        },
+        {
+          "name": "Norton-Cuffy",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Obert",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Bella-Kotchap",
+          "role": "D",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Lucumì",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Puczka",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Adams A.",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Cutrone",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Leao",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "18761003",
+      "module": "3-4-3",
+      "starters": [
+        {
+          "name": "Butez",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5
+        },
+        {
+          "name": "Kristensen T.",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "N'Dicka",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Tiago Gabriel",
+          "role": "D",
+          "club": null,
+          "vote": 7,
+          "fantavote": 10
+        },
+        {
+          "name": "Orsolini",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Vlasic",
+          "role": "C",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "McTominay",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Zalewski",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Dia",
+          "role": "A",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 7.5
+        },
+        {
+          "name": "Hojlund",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Scamacca",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        }
+      ],
+      "bench": [
+        {
+          "name": "Borrelli",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Vaz",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Loftus-Cheek",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Gaetano",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 7.5
+        },
+        {
+          "name": "Pasalic",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Zerbin",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Zappa",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Ismajli",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Martin",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Tornqvist",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Vigorito",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "5620502",
+      "module": "3-4-3",
+      "starters": [
+        {
+          "name": "Corvi",
+          "role": "P",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 4.5
+        },
+        {
+          "name": "Troilo",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Haps",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Marusic",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Calhanoglu",
+          "role": "C",
+          "club": null,
+          "vote": 7,
+          "fantavote": 9.5
+        },
+        {
+          "name": "Da Cunha",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Taylor K.",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Casadei",
+          "role": "C",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Yeboah J.",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Esposito F.P.",
+          "role": "A",
+          "club": null,
+          "vote": 7.5,
+          "fantavote": 11
+        },
+        {
+          "name": "Raspadori",
+          "role": "A",
+          "club": null,
+          "vote": 7,
+          "fantavote": 10
+        }
+      ],
+      "bench": [
+        {
+          "name": "Thuram",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Raimondo",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Milik",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Mangas",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Jashari",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Adopo",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 7
+        },
+        {
+          "name": "Amondarain",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Colpani",
+          "role": "C",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Pedraza",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Calvani",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6
+        },
+        {
+          "name": "Pellegrini Lu.",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Valle",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Palmisani",
+          "role": "P",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Desplanches",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "8775659",
+      "module": "4-3-3",
+      "starters": [
+        {
+          "name": "Martinez Jo.",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5
+        },
+        {
+          "name": "Ramon",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Kalulu",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Akanji",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Bastoni",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Mastantuono",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Baturina",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Perrone",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Simeone",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Douvikas",
+          "role": "A",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 9.5
+        },
+        {
+          "name": "Dybala",
+          "role": "A",
+          "club": null,
+          "vote": 8,
+          "fantavote": 11.5
+        }
+      ],
+      "bench": [
+        {
+          "name": "Soulè",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Castro S.",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Vitinha O.",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Ekkelenkamp",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 7.5
+        },
+        {
+          "name": "Liberali",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Pisilli",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 9.5
+        },
+        {
+          "name": "Thuram K.",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Frendrup",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Hermoso",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6
+        },
+        {
+          "name": "Rensch",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Gallo",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Idzes",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Provedel",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Di Gennaro",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "5621158",
+      "module": "4-3-3",
+      "starters": [
+        {
+          "name": "Skorupski",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5
+        },
+        {
+          "name": "Dimarco",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Di Lorenzo",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Carlos Augusto",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Bartesaghi",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Paz N.",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Thorstvedt",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Cristante",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Kevin Carlos",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Ramos G.",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Geubbels",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        }
+      ],
+      "bench": [
+        {
+          "name": "Di Gregorio",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Pessina Mas.",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Cancellieri",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5
+        },
+        {
+          "name": "Vergara",
+          "role": "C",
+          "club": null,
+          "vote": 7.5,
+          "fantavote": 12
+        },
+        {
+          "name": "Karlstrom",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Doekhi",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Koulierakis",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Obrador",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Adams C.",
+          "role": "A",
+          "club": null,
+          "vote": 7,
+          "fantavote": 10
+        },
+        {
+          "name": "Ghedjemis",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Grillitsch",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Bracaglia",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Ekhator",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "8775876",
+      "module": "4-4-2",
+      "starters": [
+        {
+          "name": "Stankovic F.",
+          "role": "P",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 3.5
+        },
+        {
+          "name": "Chalobah T.",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Pavlovic",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Rrahmani",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Molina N.",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Saelemaekers",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Rowe",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Zambo Anguissa",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Politano",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5
+        },
+        {
+          "name": "Colombo",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Malen",
+          "role": "A",
+          "club": null,
+          "vote": 8.5,
+          "fantavote": 18.5
+        }
+      ],
+      "bench": [
+        {
+          "name": "Svilar",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 7
+        },
+        {
+          "name": "Okoye",
+          "role": "P",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Valeri",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Gabbia",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Coco",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Jimenez A.",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Baldanzi",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Fazzini",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5
+        },
+        {
+          "name": "Berisha M.",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Pellegrini Lo.",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Pinamonti",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Noslin",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Kulenovic",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Petagna *",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "5620165",
+      "module": "4-4-2",
+      "starters": [
+        {
+          "name": "Maignan",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5
+        },
+        {
+          "name": "Mina",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Mancini",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Wesley",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Bertola",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Chukwueze",
+          "role": "C",
+          "club": null,
+          "vote": 7,
+          "fantavote": 9
+        },
+        {
+          "name": "Barella",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Bernabè",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Conceicao",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 7.5
+        },
+        {
+          "name": "Piccoli",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Kean",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        }
+      ],
+      "bench": [
+        {
+          "name": "Caprile",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 7
+        },
+        {
+          "name": "Comuzzo",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Romero D.",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Rrahmani Al.",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Matic",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Monterisi",
+          "role": "D",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "El Aynaoui",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Nkunku",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Ratkov",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Muric",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 4
+        },
+        {
+          "name": "Pulisic",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Douglas Luiz",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Ahanor",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Candè",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "7231597",
+      "module": "4-3-3",
+      "starters": [
+        {
+          "name": "Meret",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 7
+        },
+        {
+          "name": "Gaspar K.",
+          "role": "D",
+          "club": null,
+          "vote": 7,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Bremer",
+          "role": "D",
+          "club": null,
+          "vote": 7.5,
+          "fantavote": 11.5
+        },
+        {
+          "name": "Bisseck",
+          "role": "D",
+          "club": null,
+          "vote": 7,
+          "fantavote": 10
+        },
+        {
+          "name": "Joao Mario",
+          "role": "D",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Zielinski",
+          "role": "C",
+          "club": null,
+          "vote": 7,
+          "fantavote": 10
+        },
+        {
+          "name": "Konè M.",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Diouf",
+          "role": "C",
+          "club": null,
+          "vote": 7,
+          "fantavote": 10
+        },
+        {
+          "name": "Yildiz",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Martinez L.",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5
+        },
+        {
+          "name": "Tourè E.",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        }
+      ],
+      "bench": [
+        {
+          "name": "Milinkovic-Savic V.",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Bijlow",
+          "role": "P",
+          "club": null,
+          "vote": 6,
+          "fantavote": 4
+        },
+        {
+          "name": "Bonny",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Bowie",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Esposito Se.",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Sucic P.",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Frattesi",
+          "role": "C",
+          "club": null,
+          "vote": 7.5,
+          "fantavote": 11.5
+        },
+        {
+          "name": "Ndour",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Isaksen",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Fagioli",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5
+        },
+        {
+          "name": "Scalvini",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Pavard",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Carboni A.",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Spence",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "5627067",
+      "module": "3-5-2",
+      "starters": [
+        {
+          "name": "De Gea",
+          "role": "P",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 1.5
+        },
+        {
+          "name": "Couto",
+          "role": "D",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Cambiaso",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Stones",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "De Bruyne",
+          "role": "C",
+          "club": null,
+          "vote": 7.5,
+          "fantavote": 12.5
+        },
+        {
+          "name": "McKennie",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Rabiot",
+          "role": "C",
+          "club": null,
+          "vote": 7.5,
+          "fantavote": 11.5
+        },
+        {
+          "name": "Zaccagni",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Rodriguez Je.",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Dovbyk",
+          "role": "A",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Diao",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        }
+      ],
+      "bench": [
+        {
+          "name": "Davis K.",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "De Ketelaere",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Elphege",
+          "role": "A",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Pellegrino M.",
+          "role": "A",
+          "club": null,
+          "vote": 5,
+          "fantavote": 4.5
+        },
+        {
+          "name": "Adzic",
+          "role": "C",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Samardzic",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Zhegrova",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Delprato",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Zappacosta",
+          "role": "D",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Dragusin",
+          "role": "D",
+          "club": null,
+          "vote": 4,
+          "fantavote": 4
+        },
+        {
+          "name": "Kelly L.",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Tavares N.",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Perin",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Christensen O.",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        }
+      ]
+    },
+    {
+      "teamId": "5322780",
+      "module": "3-5-2",
+      "starters": [
+        {
+          "name": "Mandas",
+          "role": "P",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 7.5
+        },
+        {
+          "name": "Solet",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Marin R.",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Spinazzola",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Locatelli",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Lobotka",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Modric",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Atta",
+          "role": "C",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Gudmundsson A.",
+          "role": "C",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Kolo Muani",
+          "role": "A",
+          "club": null,
+          "vote": 5,
+          "fantavote": 5
+        },
+        {
+          "name": "Laurientè",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        }
+      ],
+      "bench": [
+        {
+          "name": "Falcone",
+          "role": "P",
+          "club": null,
+          "vote": 7,
+          "fantavote": 8
+        },
+        {
+          "name": "Motta",
+          "role": "P",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Kempf",
+          "role": "D",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Floriani Mussolini",
+          "role": "D",
+          "club": null,
+          "vote": 6,
+          "fantavote": 5.5
+        },
+        {
+          "name": "Zè Pedro",
+          "role": "D",
+          "club": null,
+          "vote": 5.5,
+          "fantavote": 5
+        },
+        {
+          "name": "Pierotti",
+          "role": "C",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "Romano",
+          "role": "C",
+          "club": null,
+          "vote": 7,
+          "fantavote": 11
+        },
+        {
+          "name": "Rovella",
+          "role": "C",
+          "club": null,
+          "vote": 6.5,
+          "fantavote": 6.5
+        },
+        {
+          "name": "Maldini",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        },
+        {
+          "name": "David",
+          "role": "A",
+          "club": null,
+          "vote": null,
+          "fantavote": null
+        },
+        {
+          "name": "Boga",
+          "role": "A",
+          "club": null,
+          "vote": 6,
+          "fantavote": 6
+        }
+      ]
+    }
+  ]
+}

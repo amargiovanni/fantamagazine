@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "award": "Lo Sconfitto della Settimana",
+    "issue": 3,
+    "manager": "PAOCRI86",
+    "motivation": "Settantasette fantapunti, terzo punteggio della giornata, sei gol subiti e due titolari senza voto: nono in classifica con zero punti."
+  },
+  {
+    "award": "La Panchina d'Oro del Disonore",
+    "issue": 3,
+    "manager": "Rogerio",
+    "motivation": "Vergara lasciato in panchina con 12 fantapunti contro i 5 del titolare Skorupski: delta 7, il più alto della giornata."
+  },
+  {
+    "award": "La Coppa del Vincitore Involontario",
+    "issue": 3,
+    "manager": "Acciacarlos",
+    "motivation": "Vittoria per 2-1 con 74,5 fantapunti, il punteggio più basso tra i vincitori e inferiore a tre squadre che hanno pareggiato."
+  }
+]

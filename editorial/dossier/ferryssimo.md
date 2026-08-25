@@ -31,7 +31,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: Kolo Muani pagato 302 crediti su 720 complessivi, quotazione 26, valore a coefficiente 91 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che quel giocatore non gioca, e ogni volta che gioca
-- **Ultimo utilizzo:** numero 2
+- **Ultimo utilizzo:** numero 3
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 
@@ -52,6 +52,9 @@
 | Asta 2026-27 | 266 crediti residui, secondo tesoretto della lega | `league.json`, pubblicato nel numero 1 |
 | Asta 2026-27 | Circati, uno dei due giocatori della lega con l'asterisco di fuori listino, pagato 8 crediti | `rosters.json`, pubblicato nel numero 1 |
 | Asta 2026-27 | David e Boga pagati un credito ciascuno | `rosters.json`, pubblicato nel numero 1 |
+| Giornata 1 | Pareggio 1-1 con l'Amaro Luciano, 66 a 71,5: il totale più basso della giornata; ottavo in classifica | `matchday-01/results.json`, `standings.json` |
+| Giornata 1 | Kolo Muani 5 (60,4 crediti per fantapunto); Romano, 2 crediti, 11 in panchina; Falcone 8 in panchina contro Mandas 7,5 titolare; Gudmundsson A. senza voto; panchina di 11 uomini su 14 | `matchday-01/lineups.json` |
+| Giornata 1 | Bomba: riceve Frattesi (30, fantavoto 11,5) per Kolo Muani (302) — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
 
 ## Materiale inutilizzato
 

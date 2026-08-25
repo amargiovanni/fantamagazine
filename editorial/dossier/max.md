@@ -31,9 +31,16 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: Dovbyk (Bologna) acquistato per 225 crediti, quotazione 16, valore a coefficiente 56 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che un acquisto viene giustificato con l'istinto: «duecentoventicinque crediti di istinto»
-- **Ultimo utilizzo:** numero 2
+- **Ultimo utilizzo:** numero 3
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
+### L'uno virgola cinque
+
+- **Nato nel numero:** 3
+- **Stato:** attivo
+- **Il fatto d'origine:** giornata 1: De Gea, 62 crediti, il portiere più caro della rosa, chiude a 1,5, il fantavoto più basso dell'intera lega; De Bruyne 12,5 e Rabiot 11,5 nella stessa formazione (`matchday-01/lineups.json`)
+- **Come si usa:** «ha chiesto al sistema se fosse un errore di trascrizione» (numero 3); unità di misura per qualunque voto basso di un portiere
+- **Ultimo utilizzo:** numero 3
 
 ## Premi vinti
 
@@ -50,6 +57,9 @@
 | Asta 2026-27 | 526 crediti su 945 (55,7%) destinati al reparto offensivo | `rosters.json` |
 | Asta 2026-27 | Pellegrino M. pagato 10 crediti contro un valore a coefficiente di 53 | `rosters.json` |
 | Bombe di Tancredi Soffiata | Dovbyk (225, q16) per Douvikas (211, q20), alla pari: «ci perdono tutti e due» — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
+| Giornata 1 | Pareggio 1-1 con il Nostalgia Nera, 71,5 a 66; settimo in classifica | `matchday-01/results.json`, `standings.json` |
+| Giornata 1 | De Gea 1,5, il fantavoto più basso della giornata; De Bruyne 12,5, Rabiot 11,5; Dovbyk, 225 crediti, 5 (45 crediti per fantapunto) | `matchday-01/lineups.json` |
+| Giornata 1 | Bomba: cede De Gea (62) per Skorupski (42) alla pari — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
 
 ## Materiale inutilizzato
 

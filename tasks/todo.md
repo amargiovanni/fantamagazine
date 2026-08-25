@@ -41,3 +41,12 @@
 - [ ] 15.2 `<address class="byline" rel="author">` instead of `<p class="byline">`
 - [ ] 15.3 `og:type=article`, `article:published_time`, `article:author`, `og:site_name`
 - [ ] 15.4 Build-time test over `dist/` asserting the elements the IV template binds to
+
+## 16 Calibrate `--matchday` on the live season (matchday 1)
+
+- [x] 16.1 `PAGES.lineups(N)` = Angular `round/N`; `PAGES.results` = legacy calendario; drop `NotCalibratedError`
+- [x] 16.2 `SEL.results` (legacy `.match-frame`/`li.match`) + `parseResults(page, N)` picking frame N
+- [x] 16.3 `SEL.lineups` (round page: match list, showcase, 4 player columns) + `parseRoundMatch` + click driver
+- [x] 16.4 Fixtures from the real capture (`round.html`, trimmed `calendar.html`) + tests; retire synthetic ones
+- [x] 16.5 `--matchday N` wired: results → lineups → standings; real run writes `data/2026-27/matchday-01/`
+- [ ] 16.6 `npm test` green (done 2026-08-25, 66+84 tests); data + issue 3 committed after editor approval

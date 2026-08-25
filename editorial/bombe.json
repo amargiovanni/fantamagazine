@@ -1,6 +1,58 @@
 [
-  { "issue": 1, "player": "Thuram", "from": "Atletico Piedini", "to": "GinTonici", "status": "lanciata" },
-  { "issue": 1, "player": "Geubbels", "from": "Borussia Addurmt", "to": "Squadra 9", "status": "lanciata" },
-  { "issue": 1, "player": "Malen", "from": "GinTonici", "to": "Squadra 9", "status": "lanciata" },
-  { "issue": 1, "player": "Dovbyk", "from": "Amaro Luciano", "to": "J medical", "status": "lanciata" }
+  {
+    "issue": 1,
+    "player": "Thuram",
+    "from": "Atletico Piedini",
+    "to": "GinTonici",
+    "status": "lanciata"
+  },
+  {
+    "issue": 1,
+    "player": "Geubbels",
+    "from": "Borussia Addurmt",
+    "to": "Squadra 9",
+    "status": "lanciata"
+  },
+  {
+    "issue": 1,
+    "player": "Malen",
+    "from": "GinTonici",
+    "to": "Squadra 9",
+    "status": "lanciata"
+  },
+  {
+    "issue": 1,
+    "player": "Dovbyk",
+    "from": "Amaro Luciano",
+    "to": "J medical",
+    "status": "lanciata"
+  },
+  {
+    "issue": 3,
+    "player": "De Gea",
+    "from": "Amaro Luciano",
+    "to": "Borussia Addurmt",
+    "status": "lanciata"
+  },
+  {
+    "issue": 3,
+    "player": "Frattesi",
+    "from": "Squadra 9",
+    "to": "Nostalgia Nera",
+    "status": "lanciata"
+  },
+  {
+    "issue": 3,
+    "player": "Svilar",
+    "from": "GinTonici",
+    "to": "Atletico Piedini",
+    "status": "lanciata"
+  },
+  {
+    "issue": 3,
+    "player": "Malen",
+    "from": "GinTonici",
+    "to": "COCA JUNIORS",
+    "status": "lanciata"
+  }
 ]

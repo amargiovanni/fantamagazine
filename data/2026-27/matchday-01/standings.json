@@ -1,0 +1,95 @@
+{
+  "matchday": 1,
+  "rows": [
+    {
+      "position": 1,
+      "teamId": "7231597",
+      "points": 3,
+      "fantapointsTotal": 91,
+      "wins": 1,
+      "draws": 0,
+      "losses": 0
+    },
+    {
+      "position": 2,
+      "teamId": "5627234",
+      "points": 3,
+      "fantapointsTotal": 74.5,
+      "wins": 1,
+      "draws": 0,
+      "losses": 0
+    },
+    {
+      "position": 3,
+      "teamId": "5620502",
+      "points": 1,
+      "fantapointsTotal": 77.5,
+      "wins": 0,
+      "draws": 1,
+      "losses": 0
+    },
+    {
+      "position": 4,
+      "teamId": "8775876",
+      "points": 1,
+      "fantapointsTotal": 76,
+      "wins": 0,
+      "draws": 1,
+      "losses": 0
+    },
+    {
+      "position": 5,
+      "teamId": "5621158",
+      "points": 1,
+      "fantapointsTotal": 75.5,
+      "wins": 0,
+      "draws": 1,
+      "losses": 0
+    },
+    {
+      "position": 6,
+      "teamId": "8775659",
+      "points": 1,
+      "fantapointsTotal": 74.5,
+      "wins": 0,
+      "draws": 1,
+      "losses": 0
+    },
+    {
+      "position": 7,
+      "teamId": "5627067",
+      "points": 1,
+      "fantapointsTotal": 71.5,
+      "wins": 0,
+      "draws": 1,
+      "losses": 0
+    },
+    {
+      "position": 8,
+      "teamId": "5322780",
+      "points": 1,
+      "fantapointsTotal": 66,
+      "wins": 0,
+      "draws": 1,
+      "losses": 0
+    },
+    {
+      "position": 9,
+      "teamId": "5620165",
+      "points": 0,
+      "fantapointsTotal": 77,
+      "wins": 0,
+      "draws": 0,
+      "losses": 1
+    },
+    {
+      "position": 10,
+      "teamId": "18761003",
+      "points": 0,
+      "fantapointsTotal": 69.5,
+      "wins": 0,
+      "draws": 0,
+      "losses": 1
+    }
+  ]
+}

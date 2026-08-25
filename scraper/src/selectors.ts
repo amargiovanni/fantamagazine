@@ -1,23 +1,6 @@
 import { COMPETITION_DASHBOARD, COMPETITION_ID, LEAGUE_BASE } from './config.js';
 
 /**
- * Raised by the page builders that have not been calibrated against the live
- * site yet, so a caller gets a sentence naming the reason instead of a scrape
- * of an error page. Thrown at build time, before any navigation happens.
- */
-export class NotCalibratedError extends Error {
-  constructor(what: string) {
-    super(
-      `${what} is not yet calibrated for the live season. Season 2026-27 has not started: ` +
-        'the site publishes no lineups and no results, so there is no markup to align the ' +
-        'parser with. Re-run --capture at matchday 1 and calibrate PAGES/SEL against the ' +
-        'captured HTML before scraping a matchday.',
-    );
-    this.name = 'NotCalibratedError';
-  }
-}
-
-/**
  * Page URLs, calibrated 2026-08-20 against the live league.
  *
  * The site is an Angular SPA with a legacy tail: some views are native
@@ -50,27 +33,31 @@ export const PAGES = {
   fixturesLegacy: `${LEAGUE_BASE}/calendario?id=${COMPETITION_ID}&app=true&legacy=true`,
 
   /**
-   * NOT CALIBRATED. Season 2026-27 has not started, so no matchday has
-   * lineups or results and there is no markup to design a URL against. Both
-   * almost certainly hang off the same legacy competition pattern as
-   * `fixturesLegacy` (`/formazioni`, `/risultati`, with `id` and a matchday
-   * parameter whose NAME IS UNVERIFIED), which is why the shape is recorded
-   * here rather than guessed silently. Re-verify at matchday 1.
+   * One matchday's matches, lineups and votes — the native Angular "round"
+   * view, calibrated 2026-08-25 against matchday 1 of the live season. The
+   * page lists the matchday's matches in a side box and renders ONE match at
+   * a time; the others are reached by clicking their rows (`SEL.lineups`).
    */
-  lineups: (_matchday: number): string => {
-    throw new NotCalibratedError('--matchday (lineups)');
-  },
-  results: (_matchday: number): string => {
-    throw new NotCalibratedError('--matchday (results)');
-  },
+  lineups: (matchday: number): string =>
+    `${LEAGUE_BASE}/view/competition/${COMPETITION_ID}/round/${matchday}`,
+
   /**
-   * NOT CALIBRATED. The live standings page shows the season total only; how
-   * a per-matchday standings URL is addressed is unverified until matchday 1.
-   * `standingsLegacy` above is the calibrated season-to-date table.
+   * Results come off the legacy calendario, which renders every matchday as
+   * a `.match-frame` block with the final score and fantapoints per side. No
+   * per-matchday URL exists: the parser picks the block titled `N° Giornata`
+   * (`SEL.results`). Same document as `fixturesLegacy`, named for what it is
+   * read for.
    */
-  standingsAt: (_matchday: number): string => {
-    throw new NotCalibratedError('--matchday (standings)');
-  },
+  results: (_matchday: number): string => `${LEAGUE_BASE}/calendario?id=${COMPETITION_ID}&app=true&legacy=true`,
+
+  /**
+   * The classifica has no per-matchday address: it is always the season to
+   * date. `--matchday N` reads it and stamps it N, which is only true when
+   * the scrape runs after matchday N and before matchday N+1 is calculated.
+   * Re-scraping an OLD matchday would silently produce a newer table, which
+   * is why `runMatchday` refuses a table whose games-played count is not N.
+   */
+  standingsAt: (_matchday: number): string => `${LEAGUE_BASE}/classifica?id=${COMPETITION_ID}&app=true&legacy=true`,
 } as const;
 
 export const SEL = {
@@ -228,6 +215,8 @@ export const SEL = {
     row: 'tbody tr[data-id]',
     teamIdAttr: 'data-id',
     position: 'td[data-key="index"]',
+    /** Games played ("G"): the guard that the table is the matchday it is stamped with. */
+    played: 'td[data-key="rank-g"]',
     points: 'td[data-key="rank-pt"]',
     fantapoints: 'td[data-key="rank-fp"]',
     wins: 'td[data-key="rank-v"]',
@@ -235,26 +224,69 @@ export const SEL = {
     losses: 'td[data-key="rank-p"]',
   },
 
-  // ---------------------------------------------------------------------
-  // NOT CALIBRATED — designed against the synthetic fixtures and untouched
-  // by the 2026-08-20 recalibration. Season 2026-27 has not started, so the
-  // live site renders neither lineups nor results. These, their fixtures and
-  // their tests are all awaiting matchday 1.
-  // ---------------------------------------------------------------------
+  /**
+   * The round view (`PAGES.lineups(N)`), calibrated 2026-08-25 against
+   * matchday 1. Native Angular, no legacy iframe.
+   *
+   *   ui-box > ul > li                      one row per match, clickable
+   *     ui-team-card nz-card[data-id] ×2    home, away
+   *   ui-match-showcase                     the match currently shown
+   *     ui-team-shirt nz-avatar[data-src]   ×2, home then away; the shirt
+   *                                         file name starts with the team id
+   *     "3-4-3"                             the module, text in the same block
+   *   ui-match-players
+   *     four columns of ui-match-player:    home starters, away starters,
+   *                                         home bench, away bench — in DOM
+   *                                         order, the bench pair under a
+   *                                         "Panchina" label
+   *
+   * Anchored on `ui-*` element names and the app's `data-*` attributes; the
+   * layout is Tailwind utility classes and nothing here reads one. The four
+   * columns are found structurally — an element whose direct children are
+   * `ui-match-player`s — instead of by class.
+   */
   lineups: {
-    teamBlock: '[data-lineup-team]',
-    teamAttr: 'data-lineup-team',
-    module: '.module',
-    starterRow: '.starters [data-player]',
-    benchRow: '.bench [data-player]',
-    playerName: '.p-name', playerRole: '.p-role', playerClub: '.p-club',
-    playerVote: '.p-vote', playerFantavote: '.p-fvote',
+    matchRow: 'ui-box li',
+    matchTeamCard: 'ui-team-card nz-card[data-id]',
+    teamIdAttr: 'data-id',
+
+    showcase: 'ui-match-showcase',
+    showcaseShirt: 'ui-team-shirt nz-avatar[data-src]',
+    shirtSrcAttr: 'data-src',
+    /** `.../maglietta_2026/5620502_03164848.png` → `5620502`. */
+    shirtTeamId: /\/maglietta_\d+\/(\d+)_/,
+    module: /\b(\d+-\d+(?:-\d+)+)\b/,
+
+    players: 'ui-match-players',
+    player: 'ui-match-player',
+    playerCard: 'ui-player-card nz-card[data-id]',
+    playerName: '.player-name',
+    roleChip: 'ui-role [data-role]',
+    roleAttr: 'data-role',
+    /** Newspaper vote and fantavote; either reads `s.v.` (or is absent) for a player without one. */
+    vote: 'ui-match-grade',
+    fantavote: 'ui-match-fantagrade',
   },
+
+  /**
+   * The legacy calendario (`PAGES.results(N)`), calibrated 2026-08-25. One
+   * `.match-frame` per matchday, titled `N° Giornata`; inside, one `li.match`
+   * per fixture with a `.team-home`/`.team-away` carrying the team id (the
+   * SAME id the rosters and standings use), the goals and the fantapoints. A
+   * frame not yet calculated carries `.next-match` on its widget and empty
+   * score cells: the parser refuses it rather than write zeros.
+   */
   results: {
-    fixtureRow: '[data-fixture]',
-    homeId: 'data-home-id', awayId: 'data-away-id',
-    homePoints: '.home-fpts', awayPoints: '.away-fpts',
-    homeGoals: '.home-goals', awayGoals: '.away-goals',
+    frame: '.match-frame',
+    frameTitle: '.widget-title',
+    frameTitleMatchday: /^\s*(\d+)°\s*Giornata/,
+    notCalculated: '.next-match',
+    fixture: 'li.match',
+    home: '.team-home',
+    away: '.team-away',
+    teamIdAttr: 'data-id',
+    goals: '.team-score',
+    fantapoints: '.team-fpt',
   },
 
   /**
