@@ -22,6 +22,7 @@
 | Soprannome | Origine | Numero |
 |---|---|---|
 | **il Presidente dei 1032** | bilancio d'asta di 1032 crediti (815 spesi più 217 residui), trentadue in più dei mille di partenza | 1 |
+| **il Secondo per Fantapunti** | dopo due giornate ha 161,5 fantapunti, il secondo totale della lega, e tre punti: quinto in classifica, dietro a una squadra che ne ha 146 | 4 |
 
 ## Running joke attivi
 
@@ -40,8 +41,17 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: 77 fantapunti, terzo punteggio della lega, sconfitta 2-6 contro Squadra 9; due titolari (Mina, Bertola) e Pulisic in panchina senza voto (`matchday-01/results.json`, `lineups.json`)
 - **Come si usa:** ogni volta che il COCA JUNIORS fa un buon punteggio si ricorda che «i fantapunti non li conta lui, li conta il sistema» (dichiarazione nostra, numero 3)
-- **Ultimo utilizzo:** numero 3
-- **Note:** bersaglio principale del numero 3 (titolo di apertura e Sconfitto della Settimana): non può esserlo nel numero 4.
+- **Ultimo utilizzo:** numero 4
+- **Note:** bersaglio principale del numero 3 (titolo di apertura e Sconfitto della Settimana): non lo è stato nel numero 4, dove compare nella Posta del Cuore. Rinnovato da un fatto nuovo: alla giornata 2 fa 84,5, il massimo di giornata, vince 3-4 in trasferta e resta quinto con 161,5 fantapunti complessivi, il secondo totale del campionato.
+
+### Il progetto che funziona dove non è finanziato
+
+- **Nato nel numero:** 4
+- **Stato:** attivo
+- **Il fatto d'origine:** giornata 2: quattro gol segnati con un solo attaccante in campo, Piccoli (29 crediti) a 5, mentre Kean (210) è in panchina senza voto e Pulisic (160) è titolare senza voto. I fantapunti li fa la difesa: Comuzzo (5) 9,5, Wesley (105) 8, Mancini (44) 7,5, Monterisi (2) 7 (`matchday-02/lineups.json`, `rosters.json`)
+- **Come si usa:** «il COCA JUNIORS vince quando i suoi acquisti non partecipano»; si verifica a ogni giornata quanti crediti d'attacco abbiano prodotto un fantavoto
+- **Ultimo utilizzo:** numero 4
+- **Note:** Pulisic è senza voto per la seconda giornata consecutiva, in panchina alla prima e da titolare alla seconda.
 
 ## Premi vinti
 
@@ -63,6 +73,11 @@
 | Giornata 1 | Sconfitta 2-6 contro Squadra 9 con 77 fantapunti, terzo punteggio della giornata; nono in classifica | `matchday-01/results.json`, `standings.json` |
 | Giornata 1 | Due titolari senza voto (Mina, Bertola) e Pulisic, 160 crediti, in panchina senza voto; Chukwueze da 5 crediti miglior fantavoto della squadra con 9, Kean da 210 a 6 | `matchday-01/lineups.json` |
 | Giornata 1 | Bersaglio principale del numero 3: titolo di apertura e Sconfitto della Settimana | `content/2026-27/issue-003/` |
+| Giornata 2 | Vittoria 3-4 in trasferta sul GinTonici con 84,5 fantapunti, il massimo di giornata alla pari con il J medical; quinto con 3 punti e 161,5 fantapunti, secondo totale della lega | `matchday-02/results.json`, `standings.json` |
+| Giornata 2 | Modulo cambiato dal 4-4-2 al 4-5-1, un solo attaccante in campo: Piccoli (29) a 5. I quattro gol arrivano dalla difesa, Comuzzo (5) 9,5, Wesley (105) 8, Mancini (44) 7,5, Monterisi (2) 7 | `matchday-02/lineups.json` |
+| Giornata 2 | Kean (210) in panchina senza voto e Pulisic (160) titolare senza voto: 370 crediti e zero fantavoti nella giornata della prima vittoria | `matchday-02/lineups.json` |
+| Giornata 2 | Indice di Giustizia Differita −3: secondo per fantapunti, quinto per punti. Avversari affrontati per 169 fantapunti complessivi, il totale più alto della lega | `content/2026-27/issue-004/classifiche.md` |
+| Giornata 2 | Lettera alla Posta del Cuore firmata «Uno che Adesso i Fantapunti li Conta» | `content/2026-27/issue-004/rubrica-fissa.md` |
 
 ## Materiale inutilizzato
 

@@ -22,6 +22,7 @@
 | Soprannome | Origine | Numero |
 |---|---|---|
 | **l'Uomo di un Colpo Solo** | 302 crediti su 720 spesi — il 42% — investiti sul solo Kolo Muani | 1 |
+| **il Presidente del Portiere Fermo** | alla giornata 2 Falcone fa 1,5 dalla panchina, il fantavoto più basso dell'intera giornata, senza essere mai entrato in campo | 4 |
 
 ## Running joke attivi
 
@@ -31,9 +32,19 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: Kolo Muani pagato 302 crediti su 720 complessivi, quotazione 26, valore a coefficiente 91 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che quel giocatore non gioca, e ogni volta che gioca
-- **Ultimo utilizzo:** numero 3
+- **Ultimo utilizzo:** numero 4
+- **Note:** rinnovato dalla giornata 2, la prima in cui Kolo Muani gioca davvero: chiude a 6. In due giornate il quarantadue per cento ha prodotto 11 fantapunti.
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
+
+### Falcone da fermo
+
+- **Nato nel numero:** 4
+- **Stato:** attivo
+- **Il fatto d'origine:** giornata 2: Falcone, 20 crediti, portiere, chiude a 1,5 in panchina — il fantavoto più basso dell'intera giornata — senza essere mai entrato in campo, mentre il titolare Mandas (35 crediti) fa 7. Alla giornata 1 lo stesso Falcone aveva fatto 8 da seduto contro il 7,5 di Mandas (`matchday-01/lineups.json`, `matchday-02/lineups.json`)
+- **Come si usa:** unità di misura del disastro immobile: «ha fatto un Falcone», cioè ha peggiorato la situazione stando fermo
+- **Ultimo utilizzo:** numero 4
+- **Note:** è anche la prima volta in cui una scelta di Ferryssimo risulta corretta dai dati, e il giornale lo ha registrato senza entusiasmo.
 
 ## Premi vinti
 
@@ -55,6 +66,10 @@
 | Giornata 1 | Pareggio 1-1 con l'Amaro Luciano, 66 a 71,5: il totale più basso della giornata; ottavo in classifica | `matchday-01/results.json`, `standings.json` |
 | Giornata 1 | Kolo Muani 5 (60,4 crediti per fantapunto); Romano, 2 crediti, 11 in panchina; Falcone 8 in panchina contro Mandas 7,5 titolare; Gudmundsson A. senza voto; panchina di 11 uomini su 14 | `matchday-01/lineups.json` |
 | Giornata 1 | Bomba: riceve Frattesi (30, fantavoto 11,5) per Kolo Muani (302) — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
+| Giornata 2 | Sconfitta 1-2 con l'Atletico Piedini, 68,5 a 77; ottavo con 1 punto e 134,5 fantapunti | `matchday-02/results.json`, `standings.json` |
+| Giornata 2 | Kolo Muani (302 crediti) finalmente in campo: 6. Atta (61) 4, peggior titolare; Locatelli (3) 7,5, migliore; Mandas confermato in porta a 7; modulo cambiato dal 3-5-2 al 3-4-3 | `matchday-02/lineups.json` |
+| Giornata 2 | Falcone (20 crediti) 1,5 in panchina, il fantavoto più basso dell'intera giornata; Romano (2) 6, sempre in panchina, dopo che il numero 3 ne aveva previsto lo schieramento «al posto sbagliato» | `matchday-02/lineups.json`, `content/2026-27/issue-003/mercato.md` |
+| Giornata 2 | Bomba: riceve Yildiz (327) da Squadra 9 cedendo Kolo Muani (302) più tutti i 266 crediti in cassa — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
 
 ## Materiale inutilizzato
 

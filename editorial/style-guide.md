@@ -220,8 +220,16 @@ OCCHIELLO IN MAIUSCOLO: fatto all'indicativo presente, poi la caduta
 - **nessun gioco di parole sui cognomi reali** delle persone della lega: il
   soprannome sì, se è già registrato nel dossier; la storpiatura del cognome no;
 - l'occhiello ruota: `SCANDALO`, `ESCLUSIVO`, `L'INCHIESTA`, `PARLA IL
-  PROTAGONISTA`, `RETROSCENA`, `IL CASO`, `DOCUMENTI`, `SI DIMETTE`. Mai lo
-  stesso occhiello due numeri di fila.
+  PROTAGONISTA`, `RETROSCENA`, `IL CASO`, `DOCUMENTI`, `SI DIMETTE`, `AGLI
+  ATTI`, `LA PERIZIA`, `L'INTERROGATORIO`, `LA CONTROPROVA`, `L'ISTRUTTORIA`,
+  `LE CARTE`. Mai lo stesso occhiello due numeri di fila, e la regola vale per
+  **ogni** articolo del numero, non solo per l'apertura: con quattordici
+  occhielli disponibili, un numero da otto pezzi ne trova sei liberi anche
+  dopo un numero da sei. Se un giorno non li trova, si allunga questa lista —
+  non si riusa un occhiello.
+- un **numero speciale** (§9) si dichiara premettendo `SPECIALE` all'occhiello
+  di uno dei suoi articoli — `SPECIALE INSEDIAMENTO`, `SPECIALE ISTRUTTORIA` —
+  e la forma con `SPECIALE` conta come occhiello distinto da quella senza.
 
 **Esempi in target** (questo è il livello, non un'aspirazione):
 
