@@ -32,9 +32,11 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: 663 crediti spesi su 1000, residuo 337, il più alto della lega (`league.json`)
 - **Come si usa:** si cita ogni volta che serve un metro per una spesa altrui, e ogni volta che il presidente si lamenta di qualcosa
-- **Ultimo utilizzo:** numero 4
+- **Ultimo utilizzo:** numero 5
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Note:** quarto utilizzo consecutivo nel numero 5 (i 337 sono intatti dopo tre giornate e la prima vittoria). Nessun fatto nuovo lo rinnova: passa in **osservazione**, torna il giorno in cui un credito si muove.
+
 ### Il portiere da un credito
 
 - **Nato nel numero:** 3
@@ -50,14 +52,16 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: GinTonici 78 fantapunti, sconfitta 3-4 con il COCA JUNIORS; Squadra 9 fa gli stessi 78 e vince 3-0 (`matchday-02/results.json`)
 - **Come si usa:** il 78 è l'unità di misura della giustizia in questa lega: «ne ha fatti abbastanza per vincere, contro chiunque altro»
-- **Ultimo utilizzo:** numero 4
+- **Ultimo utilizzo:** numero 5
 - **Note:** nasce insieme alla correzione riuscita e inutile del portiere: il Banchiere ha fatto la cosa giusta e ha perso, ed è il motivo della sua Sconfitto della Settimana.
+- **Note:** rinnovato alla giornata 3: vince 2-0 con 73, il punteggio più basso dei quattro vincitori, una settimana dopo aver perso con 78. Coppa del Vincitore Involontario del numero 5: «ha preso tre punti al ribasso».
 
 ## Premi vinti
 
 | Premio | Numero | Motivazione |
 |---|---|---|
 | Lo Sconfitto della Settimana | 4 | Settantotto fantapunti, gli stessi con cui Squadra 9 ha vinto 3-0 nello stesso pomeriggio, e sconfitta per 3-4: un punto in due giornate con il quinto totale della lega, 154. |
+| La Coppa del Vincitore Involontario | 5 | Vittoria per 2-0 con 73 fantapunti, il punteggio più basso tra i quattro vincitori della terza giornata, una settimana dopo aver perso con 78. |
 
 ## Precedenti notevoli
 
@@ -78,6 +82,9 @@
 | Giornata 2 | Svilar (100 crediti) finalmente titolare, 7,5, secondo miglior portiere della giornata; Stankovic F. (1) 4,5 e Okoye (19) 4 in panchina | `matchday-02/lineups.json` |
 | Giornata 2 | Malen 14,5, il fantavoto più alto tra i titolari della lega per la seconda giornata consecutiva; Jimenez A. (15) 4, peggior titolare; Rowe (36) senza voto | `matchday-02/lineups.json` |
 | Giornata 2 | Sconfitto della Settimana del numero 4: ha corretto l'unico errore che gli veniva contestato e ha perso lo stesso | `content/2026-27/issue-004/rubrica-fissa.md` |
+| Giornata 3 | Vittoria 2-0 sull'Aston pirla con 73, il più basso dei quattro vincitori; quinto con 4 punti e 227 fantapunti | `matchday-03/results.json`, `standings.json` |
+| Giornata 3 | Modulo cambiato dal 4-4-2 al 4-3-3; Svilar (100) 5; Politano (13) 9,5 miglior titolare; Malen (296) 6; Jimenez A. senza voto; Stankovic F. 3 e Okoye 4 in panchina | `matchday-03/lineups.json` |
+| Giornata 3 | Segno d'oroscopo nel numero 5; nessuna bomba a suo carico | `content/2026-27/issue-005/rubrica-fissa.md` |
 
 ## Materiale inutilizzato
 
@@ -85,3 +92,4 @@
 - Svilar pagato 100 crediti: reparto portieri da 120, secondo della lega alla pari con il COCA JUNIORS e dietro ai 132 del J medical — `rosters.json` — *ancora buono per:* una classifica.
 - Coefficiente della porta 13,3 alla giornata 2 (100 crediti diviso 7,5): terzo peggiore della lega pur avendo il secondo miglior portiere di giornata — `content/2026-27/issue-004/classifiche.md` — *ancora buono per:* una statistica della vergogna.
 - I 337 crediti sono intatti dopo due giornate e quattro bombe che ne prevedevano il movimento — `editorial/bombe.json` — *ancora buono per:* il giorno in cui li spende, che va celebrato come un evento nazionale.
+- Svilar 7 (panchina), 7,5, 5: il portiere da cento crediti rende meno ogni domenica in cui gioca — `matchday-0*/lineups.json` — *ancora buono per:* il pezzo sui portieri, seconda puntata.

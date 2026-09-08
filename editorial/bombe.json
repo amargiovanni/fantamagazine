@@ -82,5 +82,33 @@
     "from": "J medical",
     "to": "Atletico Piedini",
     "status": "lanciata"
+  },
+  {
+    "issue": 5,
+    "player": "Palmisani",
+    "from": "Atletico Piedini",
+    "to": "Amaro Luciano",
+    "status": "lanciata"
+  },
+  {
+    "issue": 5,
+    "player": "Soulè",
+    "from": "J medical",
+    "to": "COCA JUNIORS",
+    "status": "lanciata"
+  },
+  {
+    "issue": 5,
+    "player": "Maignan",
+    "from": "COCA JUNIORS",
+    "to": "Nostalgia Nera",
+    "status": "lanciata"
+  },
+  {
+    "issue": 5,
+    "player": "Diao",
+    "from": "Amaro Luciano",
+    "to": "Deportivo La Carogna",
+    "status": "lanciata"
   }
 ]

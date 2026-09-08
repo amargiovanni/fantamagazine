@@ -48,10 +48,11 @@
 - **Come si usa:** ogni risultato di Squadra 9 si legge contro la profezia: una
   vittoria «conferma quanto già deliberato dalla lega», una sconfitta «apre
   un'istruttoria sul titolo assegnato ad agosto»
-- **Ultimo utilizzo:** numero 4
+- **Ultimo utilizzo:** numero 5
 - **Note:** alla giornata 1 la profezia si avvera (6-2, 91 fantapunti) ma con Yildiz 5,5 e Martinez L. 5; alla giornata 2 regge di nuovo (3-0, sei punti su sei) e stavolta con Yildiz non depositato affatto: due fatti nuovi in due giornate, il tormentone è rinnovato fino al numero 6. È anche una trappola a orologeria: se Squadra 9 non vince il
   campionato, la profezia pubblicata è materiale da Premio Nostradamus al
   Contrario — per la lega che l'ha pronunciata, non per il presidente.
+- **Note:** giornata 3: prima sconfitta, 3-5 con l'Atletico Piedini, 82,5 a 87,5, e la squadra scende terza pur avendo il totale più alto della lega (251,5). Come da formula, il numero 5 apre «un'istruttoria sul titolo assegnato ad agosto». Rinnovato.
 
 ### Il venticinquesimo nome
 
@@ -59,8 +60,9 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: la rosa depositata contiene 24 uomini su 25 e il nome mancante è Yildiz, 327 crediti, quotazione 23, valore a coefficiente 81, sovrapprezzo +246 e record assoluto dell'asta (`matchday-02/lineups.json`, `rosters.json`)
 - **Come si usa:** a ogni giornata si conta quanti nomi ha depositato; l'uomo più caro della lega si cita come «il venticinquesimo», mai come un assente per infortunio, che sarebbe un fatto sulla persona e non sulla scelta
-- **Ultimo utilizzo:** numero 4
+- **Ultimo utilizzo:** numero 5
 - **Note:** il reparto offensivo da 623 crediti ha prodotto 10,5 fantapunti alla giornata 1 e 6 alla giornata 2, totale 16,5 in due giornate, con sei punti su sei in classifica.
+- **Note:** giornata 3: Yildiz non depositato per la seconda giornata consecutiva, e stavolta Squadra 9 perde. Martinez L. (296) fa 14, il primo voto degno dei 623 crediti. Madame Panchinska aveva scritto nel numero 4 che il venticinquesimo sarebbe tornato il giorno della prima sconfitta: la sconfitta è arrivata, lui no.
 
 ## Premi vinti
 
@@ -90,6 +92,9 @@
 | Giornata 2 | Avversari affrontati in due giornate per complessivi 136,5 fantapunti: il totale più basso della lega alla pari con il Borussia Addurmt, contro i 169 del COCA JUNIORS | `matchday-01/results.json`, `matchday-02/results.json` |
 | Giornata 2 | Bersaglio principale del numero 4: titolo di apertura e inchiesta speciale. Non può esserlo nel numero 5 | `content/2026-27/issue-004/` |
 | Giornata 2 | Bomba: cede Yildiz al Nostalgia Nera e incassa Kolo Muani (302) più 266 crediti, i primi della sua stagione — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
+| Giornata 3 | Sconfitta 3-5 con l'Atletico Piedini, 82,5 a 87,5, il terzo punteggio della giornata; terzo con 6 punti e 251,5 fantapunti, il totale più alto della lega (Indice di Giustizia Differita −2) | `matchday-03/results.json`, `standings.json` |
+| Giornata 3 | Martinez L. (296) 14, Frattesi 11; Meret 4; Esposito Se. titolare senza voto; Bijlow (14) 1,5 in panchina senza entrare, «un Falcone»; Yildiz (327) non depositato per la seconda volta di fila | `matchday-03/lineups.json` |
+| Giornata 3 | Non bersaglio principale del numero 5 (rotazione §3); la profezia del numero 4 di Madame Panchinska (Yildiz torna il giorno della sconfitta) smentita dai fatti | `content/2026-27/issue-005/` |
 
 ## Materiale inutilizzato
 
@@ -99,3 +104,4 @@
 - Il campione designato ha vinto «con gli uomini sbagliati»: 59,5 crediti per fantapunto su Yildiz alla giornata 1 — `content/2026-27/issue-003/classifiche.md` — *ancora buono per:* un approfondimento sui 623 crediti, se la tendenza regge tre giornate.
 - Indice di rimpianto panchinaro 6,5 alla giornata 1 e 3,0 alla giornata 2, il più basso tra le prime quattro: non sceglie meglio, ha semplicemente una panchina che non vale il rimpianto — `content/2026-27/issue-004/approfondimento-panchine.md` — *ancora buono per:* una statistica della vergogna.
 - Il giorno in cui Yildiz torna in campo è già scritto nell'oroscopo del numero 4 come il giorno della prima sconfitta: se succede, è un Nostradamus al Contrario per Madame Panchinska, non per il presidente — `content/2026-27/issue-004/rubrica-fissa.md` — *ancora buono per:* l'albo, se la profezia salta.
+- Squadra 9 ha il totale più alto della lega ed è terza: se resta fuori dal podio con il primo totale per due giornate, è un Nostradamus al Contrario per la lega intera — `matchday-03/standings.json` — *ancora buono per:* l'editoriale.
