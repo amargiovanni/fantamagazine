@@ -28,12 +28,19 @@
 ### Il quarantadue per cento su un uomo solo
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: Kolo Muani pagato 302 crediti su 720 complessivi, quotazione 26, valore a coefficiente 91 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che quel giocatore non gioca, e ogni volta che gioca
-- **Ultimo utilizzo:** numero 3
-- **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
-  osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Ultimo utilizzo:** numero 4
+- **Note:** quarto utilizzo consecutivo nel numero 4 (nato nel 1, ripreso nei numeri 2, 3 e 4): passa in osservazione per la regola del tre (style-guide §10) e torna solo se un dato nuovo lo rinnova.
+
+### Il silenzio di Ferryssimo
+
+- **Nato nel numero:** 4
+- **Stato:** attivo
+- **Il fatto d'origine:** nei numeri 1, 2 e 3 il presidente del Nostalgia Nera è l'unico dei dieci a cui questa testata non ha attribuito una sola dichiarazione virgolettata (`content/2026-27/issue-001..003/`); il Casellario del numero 4 lo registra come «non risulta» e lo legge contro i dati: 66 fantapunti, Kolo Muani 5 con 302 crediti, Romano 11 in panchina con 2 (`matchday-01/`)
+- **Come si usa:** «il quarantadue per cento è la dichiarazione»; ogni volta che un altro presidente parla troppo, si ricorda che uno non parla affatto; si rompe il giorno in cui gli attribuiremo una frase, e quel giorno è un fatto nuovo
+- **Ultimo utilizzo:** numero 4
 
 ## Premi vinti
 
@@ -55,6 +62,8 @@
 | Giornata 1 | Pareggio 1-1 con l'Amaro Luciano, 66 a 71,5: il totale più basso della giornata; ottavo in classifica | `matchday-01/results.json`, `standings.json` |
 | Giornata 1 | Kolo Muani 5 (60,4 crediti per fantapunto); Romano, 2 crediti, 11 in panchina; Falcone 8 in panchina contro Mandas 7,5 titolare; Gudmundsson A. senza voto; panchina di 11 uomini su 14 | `matchday-01/lineups.json` |
 | Giornata 1 | Bomba: riceve Frattesi (30, fantavoto 11,5) per Kolo Muani (302) — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
+| Numero 4 | Casellario delle dichiarazioni: unico presidente senza una dichiarazione agli atti, «il quarantadue per cento è la dichiarazione»; pagella delle rose 4,5: 9,2 fantapunti ogni cento crediti, quinto rendimento | `content/2026-27/issue-004/approfondimento-casellario.md`, `mercato.md` |
+| Numero 4 | Bomba: riceve De Gea (62, fantavoto 1,5) per Romano (2, fantavoto 11) senza conguaglio pur avendo 266 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
 
 ## Materiale inutilizzato
 

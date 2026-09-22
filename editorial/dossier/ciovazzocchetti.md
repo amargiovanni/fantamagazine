@@ -28,12 +28,11 @@
 ### La porta dell'Inter in triplice copia
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: Martinez Jo. (76), Provedel (55) e Di Gennaro (1), tutti e tre dell'Inter; i 55 di Provedel per una quotazione di 2 sono il rapporto record dell'asta, 7,83 (`rosters.json`)
 - **Come si usa:** si richiama a ogni turno in cui l'Inter gioca male, perché il presidente non ha alternative
-- **Ultimo utilizzo:** numero 3
-- **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
-  osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Ultimo utilizzo:** numero 4
+- **Note:** quarto utilizzo consecutivo nel numero 4 (nato nel 1, ripreso nei numeri 2, 3 e 4): passa in osservazione per la regola del tre (style-guide §10) e torna solo se un dato nuovo lo rinnova.
 
 ## Premi vinti
 
@@ -54,6 +53,9 @@
 | Bombe di Tancredi Soffiata | Douvikas (211, q20) per Dovbyk (225, q16), alla pari, con 20 crediti in cassa per non poter chiedere nulla — scambio inventato, cifre vere; stato `lanciata` in `editorial/bombe.json` | `content/2026-27/issue-001/bombe.md` |
 | Giornata 1 | Pareggio 2-2 con l'Atletico Piedini, 74,5 a 77,5; sesto in classifica con gli stessi fantapunti del secondo | `matchday-01/results.json`, `standings.json` |
 | Giornata 1 | Dybala, 120 crediti, 11,5 (miglior fantavoto della partita); Douvikas, 211, 9,5; Martinez Jo., 76, 5; Provedel, 55, in panchina senza voto; Pisilli, 2 crediti, 9,5 in panchina | `matchday-01/lineups.json` |
+| Numero 4 | Casellario delle dichiarazioni: «Siamo pronti. La rosa è profonda» (numero 2) attribuita per esclusione al J medical; verifica: Pisilli 9,5 in panchina per due crediti, «i 9,5 stavano in fondo» | `content/2026-27/issue-004/approfondimento-casellario.md` |
+| Numero 4 | Primo segno d'oroscopo (ascendente: tre portieri dell'Inter, uno in campo); pagella delle rose 4,5: 7,6 fantapunti ogni cento crediti contro gli 11,5 del GinTonici per gli stessi 263 punti di listino | `content/2026-27/issue-004/rubrica-fissa.md`, `mercato.md` |
+| Numero 4 | Bomba: riceve Vergara e Adams C. (22 fantapunti per 4 crediti) per Provedel (55, q2, 27,5 volte la quotazione) — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
 
 ## Materiale inutilizzato
 

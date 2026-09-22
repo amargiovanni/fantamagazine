@@ -31,17 +31,17 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: spesi 815 + residui 217 = 1032, contro i 1000 assegnati; gli altri due scostamenti della lega valgono −14 e −18 e la somma dei dieci bilanci resta 10.000 esatti (`league.json`, `rosters.json`)
 - **Come si usa:** si cita come voce di bilancio non spiegata, mai come accusa: «i trentadue crediti, agli atti»
-- **Ultimo utilizzo:** numero 1
-- **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
-  osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Ultimo utilizzo:** numero 4
+- **Note:** usato nei numeri 1 e 4, non consecutivi: resta attivo e fresco (style-guide §10). Nel numero 4 l'oroscopo prevede che «si muoveranno a gennaio».
+
 ### I settantasette che non contano
 
 - **Nato nel numero:** 3
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: 77 fantapunti, terzo punteggio della lega, sconfitta 2-6 contro Squadra 9; due titolari (Mina, Bertola) e Pulisic in panchina senza voto (`matchday-01/results.json`, `lineups.json`)
 - **Come si usa:** ogni volta che il COCA JUNIORS fa un buon punteggio si ricorda che «i fantapunti non li conta lui, li conta il sistema» (dichiarazione nostra, numero 3)
-- **Ultimo utilizzo:** numero 3
-- **Note:** bersaglio principale del numero 3 (titolo di apertura e Sconfitto della Settimana): non può esserlo nel numero 4.
+- **Ultimo utilizzo:** numero 4
+- **Note:** bersaglio principale del numero 3 (titolo di apertura e Sconfitto della Settimana); nel numero 4 non è bersaglio principale, come da rotazione §3. Torna disponibile dal numero 5.
 
 ## Premi vinti
 
@@ -63,6 +63,8 @@
 | Giornata 1 | Sconfitta 2-6 contro Squadra 9 con 77 fantapunti, terzo punteggio della giornata; nono in classifica | `matchday-01/results.json`, `standings.json` |
 | Giornata 1 | Due titolari senza voto (Mina, Bertola) e Pulisic, 160 crediti, in panchina senza voto; Chukwueze da 5 crediti miglior fantavoto della squadra con 9, Kean da 210 a 6 | `matchday-01/lineups.json` |
 | Giornata 1 | Bersaglio principale del numero 3: titolo di apertura e Sconfitto della Settimana | `content/2026-27/issue-003/` |
+| Numero 4 | Casellario delle dichiarazioni: «i gol erano sei» classificata come confessione di gol subiti; pagella delle rose 5: 9,4 fantapunti ogni cento crediti, terzo rendimento della lega, zero punti | `content/2026-27/issue-004/approfondimento-casellario.md`, `mercato.md` |
+| Numero 4 | Segno d'oroscopo (ascendente: trentadue crediti che nessuno ha visto entrare); Maignan 5 in campo, Caprile 7 in panchina | `content/2026-27/issue-004/rubrica-fissa.md`, `matchday-01/lineups.json` |
 
 ## Materiale inutilizzato
 
