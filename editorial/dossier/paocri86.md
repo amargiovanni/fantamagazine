@@ -32,10 +32,11 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** asta 2026-27: spesi 815 + residui 217 = 1032, contro i 1000 assegnati; gli altri due scostamenti della lega valgono −14 e −18 e la somma dei dieci bilanci resta 10.000 esatti (`league.json`, `rosters.json`)
 - **Come si usa:** si cita come voce di bilancio non spiegata, mai come accusa: «i trentadue crediti, agli atti»
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 - **Note:** secondo utilizzo nel numero 5, nella bomba Maignan-Falcone e nell'oroscopo: «i trentadue crediti sono finalmente coperti da qualcosa». Resta fresco.
+- **Note:** usato nei numeri 1 e 6, non consecutivi: resta attivo e fresco (style-guide §10). Nel numero 6 l'oroscopo prevede che «si muoveranno a gennaio».
 
 ### I settantasette che non contano
 
@@ -43,7 +44,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: 77 fantapunti, terzo punteggio della lega, sconfitta 2-6 contro Squadra 9; due titolari (Mina, Bertola) e Pulisic in panchina senza voto (`matchday-01/results.json`, `lineups.json`)
 - **Come si usa:** ogni volta che il COCA JUNIORS fa un buon punteggio si ricorda che «i fantapunti non li conta lui, li conta il sistema» (dichiarazione nostra, numero 3)
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** bersaglio principale del numero 3 (titolo di apertura e Sconfitto della Settimana): non lo è stato nel numero 4, dove compare nella Posta del Cuore. Rinnovato da un fatto nuovo: alla giornata 2 fa 84,5, il massimo di giornata, vince 3-4 in trasferta e resta quinto con 161,5 fantapunti complessivi, il secondo totale del campionato.
 - **Note:** rinnovato alla giornata 3: fa 75, perde 2-3, ed è ottavo con il terzo totale della lega (236,5). Indice di Giustizia Differita −5, il divario più ampio della stagione; avversari per 247,5, il calendario più duro.
 
@@ -53,9 +54,10 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: quattro gol segnati con un solo attaccante in campo, Piccoli (29 crediti) a 5, mentre Kean (210) è in panchina senza voto e Pulisic (160) è titolare senza voto. I fantapunti li fa la difesa: Comuzzo (5) 9,5, Wesley (105) 8, Mancini (44) 7,5, Monterisi (2) 7 (`matchday-02/lineups.json`, `rosters.json`)
 - **Come si usa:** «il COCA JUNIORS vince quando i suoi acquisti non partecipano»; si verifica a ogni giornata quanti crediti d'attacco abbiano prodotto un fantavoto
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** Pulisic è senza voto per la seconda giornata consecutiva, in panchina alla prima e da titolare alla seconda.
 - **Note:** giornata 3: Pulisic (160) senza voto per la terza giornata su tre; Kean (210) titolare fa 7,5; Caprile (33) al posto di Maignan (75) fa 7, il miglior portiere titolare della giornata, «l'unica correzione riuscita della lega», e la squadra perde.
+- **Note:** bersaglio principale del numero 3 (titolo di apertura e Sconfitto della Settimana); nel numero 6 non è bersaglio principale, come da rotazione §3. Torna disponibile dal numero 7.
 
 ## Premi vinti
 
@@ -85,6 +87,8 @@
 | Giornata 3 | Sconfitta 2-3 con l'Amaro Luciano, 75 a 78,5; ottavo con 3 punti e 236,5 fantapunti, terzo totale della lega (Indice di Giustizia Differita −5); avversari per 247,5 fantapunti, il totale più alto | `matchday-03/results.json`, `standings.json`, `content/2026-27/issue-005/classifiche.md` |
 | Giornata 3 | Caprile (33) titolare al posto di Maignan (75): 7, il miglior portiere titolare della giornata, con Maignan 5 in panchina; Kean (210) 7,5; Piccoli 9; Pulisic (160) titolare senza voto per la terza giornata su tre; Monterisi senza voto; modulo tornato al 4-4-2 | `matchday-03/lineups.json` |
 | Giornata 3 | Segno d'oroscopo nel numero 5 (primo); bombe: riceve Soulè (7) dal J medical cedendo Pulisic (160), e cede Maignan (75) al Nostalgia Nera per Falcone (20) più 100 crediti — scambi inventati, cifre vere; stato `lanciata` | `content/2026-27/issue-005/rubrica-fissa.md`, `bombe.md` |
+| Numero 6 | Casellario delle dichiarazioni: «i gol erano sei» classificata come confessione di gol subiti; pagella delle rose 5: 9,4 fantapunti ogni cento crediti, terzo rendimento della lega, zero punti | `content/2026-27/issue-006/approfondimento-casellario.md`, `mercato.md` |
+| Numero 6 | Segno d'oroscopo (ascendente: trentadue crediti che nessuno ha visto entrare); Maignan 5 in campo, Caprile 7 in panchina | `content/2026-27/issue-006/rubrica-fissa.md`, `matchday-01/lineups.json` |
 
 ## Materiale inutilizzato
 

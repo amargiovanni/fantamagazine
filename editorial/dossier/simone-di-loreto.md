@@ -21,6 +21,7 @@
 
 | Soprannome | Origine | Numero |
 |---|---|---|
+| **il Presidente delle Sei Offerte** | sei offerte depositate per Calhanoglu (Atletico Piedini, 160 crediti) con zero crediti in cassa, tutte respinte con la stessa parola: «Lautaro» — offerte inventate, cifre vere | 6 |
 | **il Presidente Senza Insegna** | la squadra si chiama «Squadra 9», il nome che il sistema aveva già nella casella: nove presidenti su dieci ne hanno scelto uno, il decimo no | 1 |
 | **il Presidente del Venticinquesimo Nome** | alla giornata 2 deposita 24 nomi su 25 e l'unico assente è Yildiz, 327 crediti, il sovrapprezzo record dell'asta: non tra gli 11 titolari, non tra i 13 di panchina | 4 |
 
@@ -29,12 +30,13 @@
 ### La squadra senza nome
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** `league.json`: `teams[].name` vale «Squadra 9», unica denominazione non personalizzata delle dieci della lega
 - **Come si usa:** si usa solo sul nome della squadra, mai sulla persona: il nome è una scelta del presidente e rientra nei bersagli leciti (§3)
-- **Ultimo utilizzo:** numero 4
+- **Ultimo utilizzo:** numero 6
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Note:** ripreso nel numero 6, lo speciale di metà settimana scritto sui dati della giornata 1.
 
 ### Il campione designato
 
@@ -48,7 +50,7 @@
 - **Come si usa:** ogni risultato di Squadra 9 si legge contro la profezia: una
   vittoria «conferma quanto già deliberato dalla lega», una sconfitta «apre
   un'istruttoria sul titolo assegnato ad agosto»
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** alla giornata 1 la profezia si avvera (6-2, 91 fantapunti) ma con Yildiz 5,5 e Martinez L. 5; alla giornata 2 regge di nuovo (3-0, sei punti su sei) e stavolta con Yildiz non depositato affatto: due fatti nuovi in due giornate, il tormentone è rinnovato fino al numero 6. È anche una trappola a orologeria: se Squadra 9 non vince il
   campionato, la profezia pubblicata è materiale da Premio Nostradamus al
   Contrario — per la lega che l'ha pronunciata, non per il presidente.
@@ -60,9 +62,19 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: la rosa depositata contiene 24 uomini su 25 e il nome mancante è Yildiz, 327 crediti, quotazione 23, valore a coefficiente 81, sovrapprezzo +246 e record assoluto dell'asta (`matchday-02/lineups.json`, `rosters.json`)
 - **Come si usa:** a ogni giornata si conta quanti nomi ha depositato; l'uomo più caro della lega si cita come «il venticinquesimo», mai come un assente per infortunio, che sarebbe un fatto sulla persona e non sulla scelta
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** il reparto offensivo da 623 crediti ha prodotto 10,5 fantapunti alla giornata 1 e 6 alla giornata 2, totale 16,5 in due giornate, con sei punti su sei in classifica.
 - **Note:** giornata 3: Yildiz non depositato per la seconda giornata consecutiva, e stavolta Squadra 9 perde. Martinez L. (296) fa 14, il primo voto degno dei 623 crediti. Madame Panchinska aveva scritto nel numero 4 che il venticinquesimo sarebbe tornato il giorno della prima sconfitta: la sconfitta è arrivata, lui no.
+- **Note:** alla giornata 1 la profezia si avvera (6-2, 91 fantapunti) ma con Yildiz 5,5 e Martinez L. 5: fatto nuovo che rinnova il tormentone. Nel numero 6 la lega aggiunge una parola, «vince *ancora* lui», registrata dall'editoriale come dichiarazione della lega e non come fatto: nessun titolo passato risulta in `data/`. Trappola a orologeria: se Squadra 9 non vince, la profezia è un Nostradamus al Contrario per la lega che l'ha pronunciata.
+
+### Il Turco, ovvero il nono dell'Inter
+
+- **Nato nel numero:** 6
+- **Stato:** attivo
+- **Il fatto d'origine:** `rosters.json`: otto giocatori dell'Inter su venticinque in rosa (Bisseck, Spence, Pavard, Sucic P., Diouf, Zielinski, Bonny, Martinez L.), nessun'altra rosa ne ha più di cinque; Calhanoglu (Inter) è dell'Atletico Piedini a 160 crediti, quotazione 27, valore a coefficiente 95, 9,5 alla giornata 1; l'oroscopo del numero 1 consigliava «prendi il nono»; Squadra 9 ha zero crediti (`league.json`) e l'intero centrocampo le è costato 136 crediti, meno dei 160 del solo Calhanoglu
+- **Come si usa:** il presidente lo chiama «il Turco» seguito da un'espressione che questa testata riporta solo come citazione sua, con la sua ortografia («dimmerda», una parola): il bersaglio è l'ossessione di mercato, mai il calciatore; l'unica contropartita che gli viene chiesta è Martinez L. (296) ed è l'unica che non offre («Lautaro è il progetto»); Madame Panchinska rivendica la paternità del consiglio; si riapre a ogni voce di mercato, a ogni voto di Calhanoglu e a ogni voto di Martinez L.
+- **Ultimo utilizzo:** numero 6
+- **Note:** bersaglio principale del numero 6 (titolo di apertura): non può esserlo nel numero 7. Il numero chiuso: portieri 60 + difensori 131 + centrocampisti 136 = 327 crediti, esattamente il prezzo di Yildiz (`rosters.json`).
 
 ## Premi vinti
 
@@ -95,6 +107,11 @@
 | Giornata 3 | Sconfitta 3-5 con l'Atletico Piedini, 82,5 a 87,5, il terzo punteggio della giornata; terzo con 6 punti e 251,5 fantapunti, il totale più alto della lega (Indice di Giustizia Differita −2) | `matchday-03/results.json`, `standings.json` |
 | Giornata 3 | Martinez L. (296) 14, Frattesi 11; Meret 4; Esposito Se. titolare senza voto; Bijlow (14) 1,5 in panchina senza entrare, «un Falcone»; Yildiz (327) non depositato per la seconda volta di fila | `matchday-03/lineups.json` |
 | Giornata 3 | Non bersaglio principale del numero 5 (rotazione §3); la profezia del numero 4 di Madame Panchinska (Yildiz torna il giorno della sconfitta) smentita dai fatti | `content/2026-27/issue-005/` |
+| Numero 6 | Bersaglio principale dello speciale: sei offerte per Calhanoglu (Esposito Se.; Esposito Se. più otto da un credito; Frattesi; il nome della squadra; l'asterisco di fuori listino; Yildiz più 167 di conguaglio), tutte respinte con «Lautaro» — offerte inventate, cifre vere | `content/2026-27/issue-006/approfondimento-turco.md` |
+| Numero 6 | Diciannove giocatori (P+D+C) costati 327 crediti in tutto, quanto Yildiz da solo; centrocampo da 136 crediti contro i 160 del solo Calhanoglu | `rosters.json`, pubblicato nel numero 6 |
+| Numero 6 | Editoriale «dice, dice, e intanto è primo con 91»: la legge «chi parla di più perde» dichiarata abrogata; il pool Formazioni Pulite trascriverà ogni dichiarazione fino a giugno | `content/2026-27/issue-006/editoriale.md` |
+| Numero 6 | Lettera «Innamorato di un Centrocampista Altrui» alla Posta del Cuore; segno d'oroscopo (ascendente: il nono giocatore dell'Inter, che non c'è) | `content/2026-27/issue-006/rubrica-fissa.md` |
+| Numero 6 | Bomba: cede Martinez L. (296) per Calhanoglu (160) alla pari, non potendo chiedere i 136 di differenza — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 
@@ -105,3 +122,5 @@
 - Indice di rimpianto panchinaro 6,5 alla giornata 1 e 3,0 alla giornata 2, il più basso tra le prime quattro: non sceglie meglio, ha semplicemente una panchina che non vale il rimpianto — `content/2026-27/issue-004/approfondimento-panchine.md` — *ancora buono per:* una statistica della vergogna.
 - Il giorno in cui Yildiz torna in campo è già scritto nell'oroscopo del numero 4 come il giorno della prima sconfitta: se succede, è un Nostradamus al Contrario per Madame Panchinska, non per il presidente — `content/2026-27/issue-004/rubrica-fissa.md` — *ancora buono per:* l'albo, se la profezia salta.
 - Squadra 9 ha il totale più alto della lega ed è terza: se resta fuori dal podio con il primo totale per due giornate, è un Nostradamus al Contrario per la lega intera — `matchday-03/standings.json` — *ancora buono per:* l'editoriale.
+- Le sei offerte sono un contatore: la settima («la settima è gratis», consigli del numero 6) si conta alla prima voce di mercato reale che coinvolga Squadra 9 — *ancora buono per:* una bomba o una voce di corridoio.
+- Se Calhanoglu fa più di Martinez L. in una giornata, il fascicolo si riapre da solo; se Martinez L. fa più di Calhanoglu, «il progetto» ha ragione per una settimana — `lineups.json` delle prossime giornate — *ancora buono per:* una pagella.

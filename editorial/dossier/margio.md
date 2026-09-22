@@ -29,14 +29,15 @@
 ### Gli otto crediti della porta
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: reparto portieri completo costruito con 8 crediti su 797 spesi, l'1% del budget (`rosters.json`)
 - **Come si usa:** si usa come metro di paragone per qualunque spesa: «vale quattro porte dell'Atletico Piedini»
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato dalla giornata 2, che lo ribalta a suo favore: Palmisani, un credito, fa 7; Corvi, cinque crediti, fa 4 dalla panchina. Il coefficiente della porta dell'Atletico Piedini vale 0,14 crediti per fantapunto contro i 31,0 dell'Amaro Luciano.
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 - **Note:** quarto utilizzo consecutivo nel numero 5, rinnovato e ribaltato: Palmisani fa 4, il peggior titolare dell'Atletico Piedini, e la squadra fa 87,5, il massimo di giornata, e va prima. Tesi dell'inchiesta L'ISTRUTTORIA del numero 5: «la porta non conta, e lui lo sapeva dall'asta» (il cartello dei portieri).
+- **Note:** ripreso nel numero 6, lo speciale di metà settimana scritto sui dati della giornata 1.
 
 ### I trecento crediti in panchina
 
@@ -44,7 +45,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: Thuram, 300 crediti (37% della spesa), in panchina senza voto; l'Atletico Piedini fa 77,5, il miglior punteggio tra i non vincitori, con Esposito F.P. (31) a 11 e Raspadori (64) a 10; Corvi (5 crediti) a 4,5 (`matchday-01/lineups.json`)
 - **Come si usa:** «ha avuto ragione a lasciarlo fuori, e il giornale lo trova sospetto»; si riapre a ogni giornata in cui Thuram gioca o non gioca
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato e ribaltato alla giornata 2: Thuram viene schierato e chiude a 5,5, il fantavoto più basso dei suoi titolari alla pari con Raspadori. I 300 crediti sono passati dalla panchina al campo senza cambiare esito. Vale La Mano de Dios del Mercato del numero 4.
 - **Note:** rinnovato alla giornata 3: Thuram torna in panchina e fa 10, mentre Raimondo (4) titolare fa 14,5. «Ha ragione anche quando ha torto.»
 
@@ -54,7 +55,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: Raimondo, pagato 4 crediti, fa 14,5 in panchina — il fantavoto più alto dell'intera giornata alla pari con Malen, che ne è costati 296. Colpani, 6 crediti, fa 9,5, sempre seduto. Delta panchina-titolare 9,0 (`matchday-02/lineups.json`)
 - **Come si usa:** Raimondo è l'unità di conversione tra credito e fantapunto in questa lega: «vale settantaquattro Raimondo»
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato alla giornata 3: Raimondo titolare fa di nuovo 14,5, il massimo di giornata alla pari con Diao. Due 14,5 consecutivi, 29 fantapunti per 4 crediti.
 
 ### Il cartello dei portieri
@@ -63,7 +64,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** i dieci reparti portieri della lega costano 764 crediti; 756 vengono da nove presidenti, 8 dall'Atletico Piedini. Dopo tre giornate il portiere da un credito fa 4 e la squadra è prima con il massimo di giornata (`rosters.json`, `matchday-03/lineups.json`)
 - **Come si usa:** tesi dietrologica: all'asta ha rilanciato sui portieri altrui e poi si è ritirato («fuoco di copertura»); il Casellario ha aperto la voce e l'ha lasciata vuota; «ho un foglio di calcolo» è la sua difesa fissa
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 
 ### Primo con otto uomini
 
@@ -71,8 +72,16 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 3: Pedraza, Jashari e Raspadori titolari senza voto; con otto uomini votati l'Atletico Piedini fa 87,5, il massimo di giornata, batte 5-3 Squadra 9 e va primo (`matchday-03/lineups.json`, `results.json`)
 - **Come si usa:** «nessuno arriva primo con le mani pulite, lui è arrivato con otto»; si conta a ogni giornata quanti titolari dell'Atletico Piedini risultano
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** bersaglio principale del numero 5 (titolo di apertura): non può esserlo nel numero 6.
+
+### La parola sola («Lautaro»)
+
+- **Nato nel numero:** 6
+- **Stato:** attivo
+- **Il fatto d'origine:** `rosters.json`: Calhanoglu è dell'Atletico Piedini (160 crediti, quotazione 27, 9,5 alla giornata 1) e Squadra 9 lo reclama con zero crediti in cassa; il presidente risponde a ogni offerta con la stessa parola, il nome di Martinez L. (296, quotazione 35) — risposta inventata, cifre vere; l'Atletico ha già Thuram (Inter, 300) in panchina: con Martinez L. avrebbe 596 crediti su due attaccanti dell'Inter, il 75% della spesa
+- **Come si usa:** «sette lettere, non le cambio perché funzionano»; l'unico presidente che fa mercato a monosillabi, e la parte a monosillabi è in vantaggio; si richiama a ogni voce che coinvolga Calhanoglu, Thuram o Martinez L.
+- **Ultimo utilizzo:** numero 6
 
 ## Premi vinti
 
@@ -101,6 +110,9 @@
 | Giornata 3 | Vittoria 5-3 su Squadra 9 con 87,5, il massimo di giornata; primo con 7 punti e 242 fantapunti | `matchday-03/results.json`, `standings.json` |
 | Giornata 3 | Palmisani (1) 4, peggior titolare; Pedraza, Jashari e Raspadori titolari senza voto; Raimondo (4) titolare 14,5, massimo di giornata alla pari con Diao; Thuram (300) 10, Yeboah J. (21) 10 e Valle 8 in panchina; delta 6,0; Marusic e Casadei non depositati | `matchday-03/lineups.json` |
 | Giornata 3 | Bersaglio principale del numero 5: titolo di apertura «primo con otto uomini» e inchiesta sul cartello dei portieri; bomba: cede Palmisani (1) all'Amaro Luciano per De Gea (62) più 54 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-005/` |
+| Numero 6 | Controparte dello speciale Ossessione: proprietario di Calhanoglu (160, q27, coefficiente 95, fantavoto 9,5), risponde a sei offerte di Squadra 9 con «Lautaro»; ha 203 crediti in cassa contro gli zero dell'offerente | `content/2026-27/issue-006/approfondimento-turco.md`, `rosters.json`, `league.json` |
+| Numero 6 | Casellario delle dichiarazioni: la domanda «se ho ragione quando lo lascio fuori, perché l'ho comprato?» registrata come autodenuncia con punto interrogativo | `content/2026-27/issue-006/approfondimento-casellario.md` |
+| Numero 6 | Bomba: riceve Martinez L. (296) per Calhanoglu (160) alla pari e lo mette in panchina accanto a Thuram: 596 crediti seduti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 
@@ -110,3 +122,4 @@
 - Panchina di 11 uomini su 14 alla giornata 2, tre caselle vuote: lo stesso difetto per cui l'Aston pirla viene sfottuto dal numero 3, e a lui non lo ha ancora contestato nessuno — `matchday-02/lineups.json` — *ancora buono per:* una pagella o una posta del cuore.
 - La porta da otto crediti ha prodotto il miglior coefficiente della lega alla seconda giornata: il tormentone nato per deriderlo si sta trasformando in una tesi — `content/2026-27/issue-004/classifiche.md` — *ancora buono per:* un approfondimento sul reparto portieri.
 - Tre titolari senza voto e primo posto: se ricapita, la Percentuale di Titolari Fantasma diventa una statistica personale — `matchday-03/lineups.json` — *ancora buono per:* una statistica della vergogna.
+- Tre giocatori dell'Inter su venticinque (Calhanoglu 160, Esposito F.P. 31, Thuram 300): 491 crediti, il 62% della spesa, su un solo club — `rosters.json` — *ancora buono per:* una pagella alla prima sosta o al primo turno storto dell'Inter.

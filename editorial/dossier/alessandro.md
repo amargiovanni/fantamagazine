@@ -44,7 +44,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: panchina consegnata con 11 uomini su 14 posti, tre caselle vuote, con 25 giocatori in rosa; sconfitta 1-2 con 69,5, ultimo in classifica (`matchday-01/lineups.json`, `standings.json`)
 - **Come si usa:** «le tre caselle sono una scelta di campo, non ricordo quale» (dichiarazione nostra, numero 3); si verifica a ogni giornata se le caselle si riempiono, e il conteggio si pubblica
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** alla giornata 2 le caselle vuote scendono da tre a due: il tormentone diventa un contatore ed è rinnovato da un fatto nuovo. Il numero 3 aveva previsto che ne avrebbe riempita «almeno una, con calma», ed è l'unica previsione di questa testata che si sia avverata. Ultimo in classifica: il Cucchiaio di Legno non è stato assegnato né nel numero 3 né nel numero 4 (tre premi già dati in entrambi) e resta da registrare.
 - **Note:** giornata 3: panchina di quattro uomini su quattordici, dieci caselle vuote, dieci giocatori non depositati per 328 crediti (McTominay 183, Orsolini 125). Il contatore 3 → 2 → 10 è il fatto del numero 5: Sconfitto della Settimana. Il tormentone cambia natura: da caselle vuote a rosa non depositata.
 
@@ -54,14 +54,16 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 3: 328 crediti di rosa non depositati, il totale più alto della lega, con McTominay (183) e Orsolini (125) a casa mentre Kristensen T. e Zerbin, titolari, chiudono senza voto (`matchday-03/lineups.json`, `rosters.json`)
 - **Come si usa:** «quattro riserve bastavano, perché ne sono entrate due» (dichiarazione nostra, numero 5); si conta a ogni giornata quanti crediti dell'Aston pirla non risultano
-- **Ultimo utilizzo:** numero 5
-- **Note:** il Cucchiaio di Legno gli spetta dalla giornata 1 e non è ancora registrato: nei numeri 3 e 4 per il tetto dei tre premi, nel numero 5 perché ha già lo Sconfitto e lo statuto vieta il doppio premio. Resta da registrare alla prima occasione utile.
+- **Ultimo utilizzo:** numero 6
+- **Note:** il Cucchiaio di Legno gli spetta dalla giornata 1 e non è ancora registrato: nei numeri 3 e 4 per il tetto dei tre premi, nel numero 5 perché ha già lo Sconfitto e lo statuto vieta il doppio premio. Resta da registrare alla prima occasione utile. Registrato nel numero 6, lo speciale scritto sui dati della giornata 1.
+- **Note:** Cucchiaio di Legno assegnato nel numero 6 alla prima giornata utile; il trofeo è itinerante e si registra di nuovo quando cambia di mano o ogni tre giornate come conferma.
 
 ## Premi vinti
 
 | Premio | Numero | Motivazione |
 |---|---|---|
 | Lo Sconfitto della Settimana | 5 | Panchina depositata di quattro uomini su quattordici, dieci giocatori a casa per 328 crediti fra cui McTominay e Orsolini, sconfitta 0-2 con 65: terza sconfitta su tre, zero punti, ultimo per punti e per fantapunti. |
+| Il Cucchiaio di Legno | 6 | Ultimo in classifica dopo la giornata 1 con zero punti e 69,5 fantapunti, panchina consegnata con tre caselle vuote su quattordici: il trofeo itinerante inizia il suo viaggio. |
 
 ## Precedenti notevoli
 
@@ -83,11 +85,12 @@
 | Giornata 3 | Panchina di quattro uomini (Mota, Zalewski, Ismajli, Tornqvist); dieci non depositati per 328 crediti: McTominay 183, Orsolini 125, Borrelli 9, Zappa 3, Walukiewicz 2, Martin 2, Vigorito, Hien, Vaz, Dia | `matchday-03/lineups.json`, `rosters.json` |
 | Giornata 3 | Modulo cambiato per la prima volta, dal 3-4-3 al 3-5-2; Hojlund (240) 10 per la seconda giornata di fila senza che la squadra segni; Butez 5; Gaetano 4,5; Kristensen T. e Zerbin senza voto | `matchday-03/lineups.json` |
 | Giornata 3 | Sconfitto della Settimana del numero 5; Indice di Rimpianto Panchinaro 1,5, il più basso della giornata, «per progetto» | `content/2026-27/issue-005/rubrica-fissa.md`, `classifiche.md` |
+| Numero 6 | Il Cucchiaio di Legno, consegnato nella rubrica mercato «alla prima giornata utile»; pagella delle rose 3: 8,1 fantapunti ogni cento crediti, centrocampo da 403 crediti a 22,5 in quattro | `content/2026-27/issue-006/mercato.md`, `matchday-01/standings.json`, `lineups.json` |
+| Numero 6 | Casellario delle dichiarazioni: «una scelta di campo che il suo autore non ricorda non è una scelta: è un campo»; segno d'oroscopo (ascendente: tre caselle vuote), Tiago Gabriel 10 a un credito contro Hojlund 5,5 a 240 | `content/2026-27/issue-006/approfondimento-casellario.md`, `rubrica-fissa.md` |
 
 ## Materiale inutilizzato
 
 - Centrocampo da 403 crediti, più dell'attacco (340) e della difesa (30) messi insieme — `rosters.json` — *ancora buono per:* un'inchiesta tattica.
 - Reparto portieri da 88 crediti, di cui 86 per il solo Butez — `rosters.json` — *ancora buono per:* un pezzo sul reparto portieri.
-- Ultimo in classifica dopo la giornata 1 e dopo la giornata 2, non premiato in nessuno dei due numeri: il Cucchiaio di Legno si registra come conferma alla giornata 3, oppure quando cambia di mano — `matchday-02/standings.json` — *ancora buono per:* l'albo, numero 5.
 - Hojlund ha fatto 10 nelle due giornate in cui la squadra non ha segnato: se accade una terza volta è un tormentone — `matchday-02/lineups.json`, `matchday-03/lineups.json` — *ancora buono per:* una pagella.
-- Il Cucchiaio di Legno non assegnato per tre numeri di fila: alla quarta occasione va registrato prima di qualunque altro premio — `editorial/albo.json` — *ancora buono per:* l'albo, numero 6.
+- Il Cucchiaio di Legno è stato consegnato nel numero 6: la prossima registrazione scatta quando cambia di mano o alla terza giornata consecutiva da ultimo — `standings.json` — *ancora buono per:* l'albo.

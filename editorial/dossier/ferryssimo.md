@@ -29,10 +29,10 @@
 ### Il quarantadue per cento su un uomo solo
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: Kolo Muani pagato 302 crediti su 720 complessivi, quotazione 26, valore a coefficiente 91 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che quel giocatore non gioca, e ogni volta che gioca
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato dalla giornata 2, la prima in cui Kolo Muani gioca davvero: chiude a 6. In due giornate il quarantadue per cento ha prodotto 11 fantapunti.
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
@@ -44,9 +44,18 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: Falcone, 20 crediti, portiere, chiude a 1,5 in panchina — il fantavoto più basso dell'intera giornata — senza essere mai entrato in campo, mentre il titolare Mandas (35 crediti) fa 7. Alla giornata 1 lo stesso Falcone aveva fatto 8 da seduto contro il 7,5 di Mandas (`matchday-01/lineups.json`, `matchday-02/lineups.json`)
 - **Come si usa:** unità di misura del disastro immobile: «ha fatto un Falcone», cioè ha peggiorato la situazione stando fermo
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** è anche la prima volta in cui una scelta di Ferryssimo risulta corretta dai dati, e il giornale lo ha registrato senza entusiasmo.
 - **Note:** giornata 3: Falcone fa 5 in panchina, senza danni; ma Bijlow (Squadra 9) fa 1,5 da seduto ed è «un Falcone perfetto, alla seconda occorrenza nella lega». L'unità di misura è entrata nell'uso.
+- **Note:** ripreso nel numero 6, lo speciale di metà settimana scritto sui dati della giornata 1.
+
+### Il silenzio di Ferryssimo
+
+- **Nato nel numero:** 6
+- **Stato:** attivo
+- **Il fatto d'origine:** nei numeri 1, 2 e 3 il presidente del Nostalgia Nera è l'unico dei dieci a cui questa testata non ha attribuito una sola dichiarazione virgolettata (`content/2026-27/issue-001..003/`); il Casellario del numero 6 lo registra come «non risulta» e lo legge contro i dati: 66 fantapunti, Kolo Muani 5 con 302 crediti, Romano 11 in panchina con 2 (`matchday-01/`)
+- **Come si usa:** «il quarantadue per cento è la dichiarazione»; ogni volta che un altro presidente parla troppo, si ricorda che uno non parla affatto; si rompe il giorno in cui gli attribuiremo una frase, e quel giorno è un fatto nuovo
+- **Ultimo utilizzo:** numero 6
 
 ## Premi vinti
 
@@ -75,6 +84,8 @@
 | Giornata 3 | Pareggio 1-1 con il Deportivo La Carogna, 71,5 a 69; nono con 2 punti e 206 fantapunti, l'unica squadra senza vittorie che non sia ultima | `matchday-03/results.json`, `standings.json` |
 | Giornata 3 | Kolo Muani (302) 4,5; Maldini (19) 11 miglior titolare; Romano (2) finalmente titolare, 6,5; Mandas 5,5 (20 in tre giornate, il totale più alto tra i portieri); Falcone 5 in panchina; non depositati Circati, Gudmundsson A. (32), Rovella, David | `matchday-03/lineups.json` |
 | Giornata 3 | Segno d'oroscopo nel numero 5; bomba: riceve Maignan (75) dal COCA JUNIORS cedendo Falcone (20) più 100 dei suoi 266 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-005/rubrica-fissa.md`, `bombe.md` |
+| Numero 6 | Casellario delle dichiarazioni: unico presidente senza una dichiarazione agli atti, «il quarantadue per cento è la dichiarazione»; pagella delle rose 4,5: 9,2 fantapunti ogni cento crediti, quinto rendimento | `content/2026-27/issue-006/approfondimento-casellario.md`, `mercato.md` |
+| Numero 6 | Bomba: riceve De Gea (62, fantavoto 1,5) per Romano (2, fantavoto 11) senza conguaglio pur avendo 266 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 

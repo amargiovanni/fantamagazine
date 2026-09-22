@@ -110,5 +110,33 @@
     "from": "Amaro Luciano",
     "to": "Deportivo La Carogna",
     "status": "lanciata"
+  },
+  {
+    "issue": 6,
+    "player": "Martinez L.",
+    "from": "Squadra 9",
+    "to": "Atletico Piedini",
+    "status": "lanciata"
+  },
+  {
+    "issue": 6,
+    "player": "De Gea",
+    "from": "Amaro Luciano",
+    "to": "Nostalgia Nera",
+    "status": "lanciata"
+  },
+  {
+    "issue": 6,
+    "player": "Vergara e Adams C.",
+    "from": "Borussia Addurmt",
+    "to": "J medical",
+    "status": "lanciata"
+  },
+  {
+    "issue": 6,
+    "player": "Leao e Berardi",
+    "from": "Deportivo La Carogna",
+    "to": "GinTonici",
+    "status": "lanciata"
   }
 ]

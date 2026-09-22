@@ -44,7 +44,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: De Gea, 62 crediti, il portiere più caro della rosa, chiude a 1,5, il fantavoto più basso dell'intera lega; De Bruyne 12,5 e Rabiot 11,5 nella stessa formazione (`matchday-01/lineups.json`)
 - **Come si usa:** «ha chiesto al sistema se fosse un errore di trascrizione» (numero 3); unità di misura per qualunque voto basso di un portiere
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato da un fatto nuovo alla giornata 2: De Gea chiude a 2. In due giornate la porta dell'Amaro Luciano ha prodotto 3,5 fantapunti, e il coefficiente della porta vale 31,0 crediti per fantapunto, il peggiore della lega.
 - **Note:** giornata 3: De Gea fa 4, il suo massimo stagionale; 7,5 fantapunti in tre domeniche, meno di quanto Falcone ha fatto in una da seduto. Quarto utilizzo consecutivo, rinnovato dal dato nuovo.
 
@@ -54,9 +54,10 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: in panchina Samardzic (12 crediti) 11, Tavares N. (1) 8,5, Diao (50) 7,5; il miglior titolare è Adzic a 8. Delta panchina-titolare 9,0, il più alto della giornata alla pari con l'Atletico Piedini (`matchday-02/lineups.json`)
 - **Come si usa:** si conta ogni domenica quanti dei tre migliori uomini di max abbiano giocato, e la risposta si dà in cifre
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** vale la Panchina d'Oro del Disonore del numero 4.
 - **Note:** rinnovato in modo decisivo alla giornata 3: Diao (50) 14,5, il massimo di giornata, Adzic (11) 11 e Pellegrino M. (10) 9,5 in panchina; miglior titolare Dovbyk 9,5; delta 10,5, record della lega. Seconda Panchina d'Oro consecutiva, e l'Amaro Luciano ha vinto: «ha smesso di essere un errore, è un metodo».
+- **Note:** nel numero 6 il Casellario classifica la richiesta al sistema come ricorso, e il ricorso come respinto; la bomba di Tancredi cede De Gea al Nostalgia Nera per Romano.
 
 ## Premi vinti
 
@@ -85,6 +86,8 @@
 | Giornata 3 | De Gea 4 (1,5 + 2 + 4 = 7,5 in tre giornate); Dovbyk (225) 9,5 miglior titolare; Davis K. (165) 8, Couto 8, Zaccagni 7,5; Rodriguez Je. titolare senza voto | `matchday-03/lineups.json` |
 | Giornata 3 | Diao (50) 14,5, Adzic (11) 11, Pellegrino M. (10) 9,5 in panchina: delta 10,5, il più alto mai registrato; seconda Panchina d'Oro consecutiva | `matchday-03/lineups.json`, `content/2026-27/issue-005/classifiche.md` |
 | Giornata 3 | Segno d'oroscopo nel numero 5; bombe: riceve Palmisani (1) cedendo De Gea (62) più 54 dei suoi 55 crediti, e riceve Zaniolo (101) più 100 crediti cedendo Diao (50) — scambi inventati, cifre vere; stato `lanciata` | `content/2026-27/issue-005/rubrica-fissa.md`, `bombe.md` |
+| Numero 6 | Casellario delle dichiarazioni: «l'unica squadra la cui freccia parte da dietro la propria porta»; pagella delle rose 4,5: 270 punti di listino, il totale più alto, e 7,6 fantapunti ogni cento crediti | `content/2026-27/issue-006/approfondimento-casellario.md`, `mercato.md` |
+| Numero 6 | Bomba: cede De Gea (62) per Romano (2, fantavoto 11): la porta passa da 64 crediti (De Gea, Perin, Christensen O.) a 2 — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 

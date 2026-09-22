@@ -29,10 +29,10 @@
 ### La porta dell'Inter in triplice copia
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: Martinez Jo. (76), Provedel (55) e Di Gennaro (1), tutti e tre dell'Inter; i 55 di Provedel per una quotazione di 2 sono il rapporto record dell'asta, 7,83 (`rosters.json`)
 - **Come si usa:** si richiama a ogni turno in cui l'Inter gioca male, perché il presidente non ha alternative
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato e ribaltato alla giornata 2: Martinez Jo. chiude a 7, il primo voto pieno del reparto. Il tormentone si sposta sui due che restano fuori.
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
@@ -44,8 +44,9 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** Provedel, 55 crediti per una quotazione di 2 — rapporto 7,83 sul coefficiente, sovrapprezzo relativo record dell'intera asta — chiude senza voto in panchina sia alla giornata 1 sia alla giornata 2 (`matchday-01/lineups.json`, `matchday-02/lineups.json`, `rosters.json`)
 - **Come si usa:** si conta la sua striscia di panchine senza voto e la si tratta come un primato sportivo
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** giornata 3: terza panchina su tre senza voto. Il tormentone si rinomina da solo: le tre panchine di Provedel, e il contatore continua.
+- **Note:** ripreso nel numero 6, lo speciale di metà settimana scritto sui dati della giornata 1.
 
 ## Premi vinti
 
@@ -74,6 +75,9 @@
 | Giornata 3 | Sconfitta 2-4 con il Borussia Addurmt, 75,5 a 85; dal secondo al quarto posto con 4 punti e 234,5 fantapunti | `matchday-03/results.json`, `standings.json` |
 | Giornata 3 | Martinez Jo. (76) 4,5 peggior titolare; Hermoso (3) 10; Baturina 9,5; Dybala 7,5; Douvikas (211) 5,5; Soulè (7) 12 in panchina, il migliore della squadra; Provedel terza panchina senza voto; delta 7,5 | `matchday-03/lineups.json` |
 | Giornata 3 | Unica squadra della lega ad aver depositato tutti e 25 i nomi: «la completezza non è un'attenuante»; bomba: riceve Pulisic (160) dal COCA JUNIORS cedendo Soulè (7) senza conguaglio — scambio inventato, cifre vere; stato `lanciata` | `matchday-03/lineups.json`, `content/2026-27/issue-005/bombe.md` |
+| Numero 6 | Casellario delle dichiarazioni: «Siamo pronti. La rosa è profonda» (numero 2) attribuita per esclusione al J medical; verifica: Pisilli 9,5 in panchina per due crediti, «i 9,5 stavano in fondo» | `content/2026-27/issue-006/approfondimento-casellario.md` |
+| Numero 6 | Primo segno d'oroscopo (ascendente: tre portieri dell'Inter, uno in campo); pagella delle rose 4,5: 7,6 fantapunti ogni cento crediti contro gli 11,5 del GinTonici per gli stessi 263 punti di listino | `content/2026-27/issue-006/rubrica-fissa.md`, `mercato.md` |
+| Numero 6 | Bomba: riceve Vergara e Adams C. (22 fantapunti per 4 crediti) per Provedel (55, q2, 27,5 volte la quotazione) — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 

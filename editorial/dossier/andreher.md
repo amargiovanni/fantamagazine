@@ -29,13 +29,14 @@
 ### Il tesoretto dei 337
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: 663 crediti spesi su 1000, residuo 337, il più alto della lega (`league.json`)
 - **Come si usa:** si cita ogni volta che serve un metro per una spesa altrui, e ogni volta che il presidente si lamenta di qualcosa
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 - **Note:** quarto utilizzo consecutivo nel numero 5 (i 337 sono intatti dopo tre giornate e la prima vittoria). Nessun fatto nuovo lo rinnova: passa in **osservazione**, torna il giorno in cui un credito si muove.
+- **Note:** ripreso nel numero 6, lo speciale di metà settimana scritto sui dati della giornata 1.
 
 ### Il portiere da un credito
 
@@ -43,7 +44,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: in porta Stankovic F., 1 credito, fantavoto 3,5 (secondo più basso della lega); in panchina Svilar, 100 crediti, fantavoto 7; Malen fa 18,5, il più alto della giornata (`matchday-01/lineups.json`)
 - **Come si usa:** il Banchiere considera il portiere titolare «un costo fisso, e i costi fissi sono quelli da un credito»; si richiama ogni volta che Svilar resta in panchina
-- **Ultimo utilizzo:** numero 4
+- **Ultimo utilizzo:** numero 6
 - **Note:** ribaltato alla giornata 2: Svilar titolare a 7,5, secondo miglior portiere della giornata, con Stankovic F. in panchina a 4,5 e Okoye a 4. Il fatto d'origine non esiste più. Passa in **osservazione**: torna solo se il portiere da un credito torna in porta (§10).
 
 ### I settantotto che valgono zero
@@ -52,9 +53,10 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 2: GinTonici 78 fantapunti, sconfitta 3-4 con il COCA JUNIORS; Squadra 9 fa gli stessi 78 e vince 3-0 (`matchday-02/results.json`)
 - **Come si usa:** il 78 è l'unità di misura della giustizia in questa lega: «ne ha fatti abbastanza per vincere, contro chiunque altro»
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** nasce insieme alla correzione riuscita e inutile del portiere: il Banchiere ha fatto la cosa giusta e ha perso, ed è il motivo della sua Sconfitto della Settimana.
 - **Note:** rinnovato alla giornata 3: vince 2-0 con 73, il punteggio più basso dei quattro vincitori, una settimana dopo aver perso con 78. Coppa del Vincitore Involontario del numero 5: «ha preso tre punti al ribasso».
+- **Note:** nel numero 6 il Casellario ribalta la dichiarazione del numero 1 («i soldi fermi non rendono»): 11,5 fantapunti ogni cento crediti, il rendimento migliore della lega; «i soldi fermi non rendono, i portieri fermi sì».
 
 ## Premi vinti
 
@@ -85,6 +87,8 @@
 | Giornata 3 | Vittoria 2-0 sull'Aston pirla con 73, il più basso dei quattro vincitori; quinto con 4 punti e 227 fantapunti | `matchday-03/results.json`, `standings.json` |
 | Giornata 3 | Modulo cambiato dal 4-4-2 al 4-3-3; Svilar (100) 5; Politano (13) 9,5 miglior titolare; Malen (296) 6; Jimenez A. senza voto; Stankovic F. 3 e Okoye 4 in panchina | `matchday-03/lineups.json` |
 | Giornata 3 | Segno d'oroscopo nel numero 5; nessuna bomba a suo carico | `content/2026-27/issue-005/rubrica-fissa.md` |
+| Numero 6 | Casellario delle dichiarazioni: «i soldi fermi non rendono» smentita dai propri risultati (11,5 fantapunti ogni cento crediti, il migliore della lega); pagella delle rose 5,5 | `content/2026-27/issue-006/approfondimento-casellario.md`, `mercato.md` |
+| Numero 6 | Bomba: riceve Leao e Berardi (163 crediti) per Stankovic F. (1 credito, 3,5): arriva a otto attaccanti e resta a 337 in cassa — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 

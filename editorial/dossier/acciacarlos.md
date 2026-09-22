@@ -28,14 +28,15 @@
 ### Il pullman dell'Atalanta
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: 6 giocatori su 25 dall'Atalanta, di cui i tre portieri Vismara, Carnesecchi e Sportiello (`rosters.json`)
 - **Come si usa:** si richiama a ogni sosta per le nazionali e a ogni turno in cui l'Atalanta riposa
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato dalla giornata 2: Carnesecchi, uno dei tre portieri dell'Atalanta, fa 8 ed è il miglior fantavoto tra i titolari, mentre Krstovic, l'altro atalantino e acquisto più caro della rosa, è il peggiore a 5. Il pullman è arrivato, ed è arrivato solo il pullman.
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
 - **Note:** quarto utilizzo consecutivo nel numero 5, rinnovato dal dato nuovo: Carnesecchi 5 e Krstovic 5, «il pullman è arrivato con due uomini e nessuno dei due è sceso»; Cissè A. (1), che sul pullman non c'era, fa 9,5.
+- **Note:** ripreso nel numero 6, lo speciale di metà settimana scritto sui dati della giornata 1.
 
 ### Berardi o Leao, quello sbagliato
 
@@ -43,7 +44,7 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** l'oroscopo del numero 1 prevedeva «ne schiererai sempre uno solo, e sarà quello sbagliato»; alla giornata 1 schiera Berardi e lascia Leao in panchina, e nessuno dei due ha voto (`matchday-01/lineups.json`, `content/2026-27/issue-001/rubrica-fissa.md`)
 - **Come si usa:** a ogni giornata si verifica quale dei due ha schierato e si annota se era quello sbagliato; Madame Panchinska ne rivendica la paternità
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
 - **Note:** rinnovato in modo decisivo alla giornata 2: Berardi finisce in panchina e fa 11, il miglior fantavoto della squadra, e Leao non risulta né in campo né in panchina. Ne ha schierato zero. Madame Panchinska ha rivendicato la profezia nel numero 4.
 - **Note:** giornata 3: Berardi titolare fa 6,5; Leao non depositato per la seconda volta. Zia Fantina nel numero 5: «l'unica previsione di questa testata che qualcuno abbia superato al ribasso, in serie».
 
@@ -53,7 +54,8 @@
 - **Stato:** attivo
 - **Il fatto d'origine:** Leao (81) e Zaniolo (101) non depositati alle giornate 2 e 3, alla giornata 3 con Norton-Cuffy (21): 203 crediti che non risultano; lettera «Uno che Non Deposita» alla Posta del Cuore, «l'ho fatto per proteggerli» (`matchday-02/lineups.json`, `matchday-03/lineups.json`, `content/2026-27/issue-005/rubrica-fissa.md`)
 - **Come si usa:** si conta a ogni giornata quanti crediti del Deportivo La Carogna non risultano; «proteggerli da cosa» è la domanda fissa di Zia Fantina
-- **Ultimo utilizzo:** numero 5
+- **Ultimo utilizzo:** numero 6
+- **Note:** nel numero 6 la bomba di Tancredi li cede entrambi al GinTonici per Stankovic F.: «se ne schiero zero, ne sbaglio zero».
 
 ## Premi vinti
 
@@ -80,6 +82,8 @@
 | Giornata 3 | Krstovic (120) 5 per la seconda volta di fila; Carnesecchi 5; Ederson D.S. (61) 10; Cissè A. (1) titolare 9,5; Berardi (82) titolare 6,5; panchina di 11 su 14 | `matchday-03/lineups.json` |
 | Giornata 3 | Non depositati Leao (81), Zaniolo (101), Norton-Cuffy (21) e Vismara: 204 crediti a casa, secondo totale della lega dopo l'Aston pirla | `matchday-03/lineups.json`, `rosters.json` |
 | Giornata 3 | Lettera «Uno che Non Deposita» alla Posta del Cuore del numero 5; bomba: riceve Diao (50) dall'Amaro Luciano cedendo Zaniolo (101) più 100 dei suoi 148 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-005/rubrica-fissa.md`, `bombe.md` |
+| Numero 6 | Casellario delle dichiarazioni: alla domanda «ho sbagliato tutto o soltanto un pullman?» la risposta è «né l'uno né l'altro: i due che non erano sul pullman»; pagella delle rose 5,5: Leao 81 e Berardi 82, 163 crediti senza voto | `content/2026-27/issue-006/approfondimento-casellario.md`, `mercato.md` |
+| Numero 6 | Bomba: cede Leao e Berardi (163 crediti, q18 ciascuno) per Stankovic F. (1, q6, fantavoto 3,5) — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 
