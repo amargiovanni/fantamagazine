@@ -28,20 +28,20 @@
 ### Zero in cassa
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: 1000 crediti spesi su 1000 disponibili, residuo 0 (`league.json`, `rosters.json`)
 - **Come si usa:** si richiama a ogni occasione di mercato futura: il presidente non ha con che cosa partecipare
-- **Ultimo utilizzo:** numero 3
-- **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
-  osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Ultimo utilizzo:** numero 4
+- **Note:** quarto utilizzo consecutivo nel numero 4 (nato nel 1, ripreso nei numeri 2, 3 e 4): passa in osservazione per la regola del tre (style-guide §10) e torna solo se un dato nuovo lo rinnova.
+
 ### La panchina da quattro crediti
 
 - **Nato nel numero:** 3
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: Vergara (2 crediti) fa 12 e Adams C. (2 crediti) fa 10 in panchina, mentre il titolare Skorupski fa 5 e Carlos Augusto e Kevin Carlos restano senza voto; pareggio 2-2 con 75,5 (`matchday-01/lineups.json`, `results.json`)
 - **Come si usa:** la difesa da 287 crediti «si è difesa soprattutto dalla panchina»; ogni panchinaro che fa più dei titolari si misura in Vergara
-- **Ultimo utilizzo:** numero 3
-- **Note:** vale la Panchina d'Oro del Disonore del numero 3.
+- **Ultimo utilizzo:** numero 4
+- **Note:** vale la Panchina d'Oro del Disonore del numero 3. Nel numero 4: «Vergara lo avevo visto» verificata dal Casellario come esatta in ogni parte («vedere e schierare sono due operazioni distinte»); bomba Vergara e Adams C. per Provedel.
 
 ## Premi vinti
 
@@ -62,6 +62,8 @@
 | Giornata 1 | Pareggio 2-2 con il GinTonici, 75,5 a 76 | `matchday-01/results.json` |
 | Giornata 1 | Vergara 12 e Adams C. 10 in panchina (4 crediti in tutto); Skorupski 5, due titolari senza voto; delta panchina-titolare 7, il più alto della lega | `matchday-01/lineups.json` |
 | Giornata 1 | Bomba: riceve De Gea (62, fantavoto 1,5) per Skorupski (42), alla pari — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
+| Numero 4 | Casellario delle dichiarazioni: «Vergara lo avevo visto» risulta esatta, Vergara 12 in panchina è il terzo voto della giornata; pagella delle rose 5: 7,6 fantapunti ogni cento crediti, il rendimento più basso a pari merito | `content/2026-27/issue-004/approfondimento-casellario.md`, `mercato.md` |
+| Numero 4 | Bomba: cede Vergara e Adams C. (2 crediti ciascuno, 12 e 10) per Provedel (55, q2) senza conguaglio — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
 
 ## Materiale inutilizzato
 

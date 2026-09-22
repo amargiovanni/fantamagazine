@@ -28,19 +28,20 @@
 ### Il tesoretto dei 337
 
 - **Nato nel numero:** 1
-- **Stato:** attivo
+- **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: 663 crediti spesi su 1000, residuo 337, il più alto della lega (`league.json`)
 - **Come si usa:** si cita ogni volta che serve un metro per una spesa altrui, e ogni volta che il presidente si lamenta di qualcosa
-- **Ultimo utilizzo:** numero 3
-- **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
-  osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Ultimo utilizzo:** numero 4
+- **Note:** quarto utilizzo consecutivo nel numero 4 (nato nel 1, ripreso nei numeri 2, 3 e 4): passa in osservazione per la regola del tre (style-guide §10) e torna solo se un dato nuovo lo rinnova.
+
 ### Il portiere da un credito
 
 - **Nato nel numero:** 3
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: in porta Stankovic F., 1 credito, fantavoto 3,5 (secondo più basso della lega); in panchina Svilar, 100 crediti, fantavoto 7; Malen fa 18,5, il più alto della giornata (`matchday-01/lineups.json`)
 - **Come si usa:** il Banchiere considera il portiere titolare «un costo fisso, e i costi fissi sono quelli da un credito»; si richiama ogni volta che Svilar resta in panchina
-- **Ultimo utilizzo:** numero 3
+- **Ultimo utilizzo:** numero 4
+- **Note:** nel numero 4 il Casellario ribalta la dichiarazione del numero 1 («i soldi fermi non rendono»): 11,5 fantapunti ogni cento crediti, il rendimento migliore della lega; «i soldi fermi non rendono, i portieri fermi sì».
 
 ## Premi vinti
 
@@ -63,6 +64,8 @@
 | Giornata 1 | Malen 18,5, il fantavoto più alto della giornata (16 crediti per fantapunto); Stankovic F. 3,5 in porta con Svilar a 7 in panchina; Molina N. senza voto | `matchday-01/lineups.json` |
 | Giornata 1 | Fantamedia del Rimorso migliore della lega: 11,5 fantapunti ogni 100 crediti spesi | `content/2026-27/issue-003/classifiche.md` |
 | Giornata 1 | Bombe: cede Svilar per Corvi più 95 crediti, e Malen per Pulisic più 136: arriverebbe a 568 crediti in cassa — scambi inventati, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
+| Numero 4 | Casellario delle dichiarazioni: «i soldi fermi non rendono» smentita dai propri risultati (11,5 fantapunti ogni cento crediti, il migliore della lega); pagella delle rose 5,5 | `content/2026-27/issue-004/approfondimento-casellario.md`, `mercato.md` |
+| Numero 4 | Bomba: riceve Leao e Berardi (163 crediti) per Stankovic F. (1 credito, 3,5): arriva a otto attaccanti e resta a 337 in cassa — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
 
 ## Materiale inutilizzato
 

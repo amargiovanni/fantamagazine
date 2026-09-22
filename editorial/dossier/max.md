@@ -34,13 +34,15 @@
 - **Ultimo utilizzo:** numero 3
 - **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
   osservazione e va rinnovato da un dato nuovo (style-guide §10).
+
 ### L'uno virgola cinque
 
 - **Nato nel numero:** 3
 - **Stato:** attivo
 - **Il fatto d'origine:** giornata 1: De Gea, 62 crediti, il portiere più caro della rosa, chiude a 1,5, il fantavoto più basso dell'intera lega; De Bruyne 12,5 e Rabiot 11,5 nella stessa formazione (`matchday-01/lineups.json`)
 - **Come si usa:** «ha chiesto al sistema se fosse un errore di trascrizione» (numero 3); unità di misura per qualunque voto basso di un portiere
-- **Ultimo utilizzo:** numero 3
+- **Ultimo utilizzo:** numero 4
+- **Note:** nel numero 4 il Casellario classifica la richiesta al sistema come ricorso, e il ricorso come respinto; la bomba di Tancredi cede De Gea al Nostalgia Nera per Romano.
 
 ## Premi vinti
 
@@ -60,6 +62,8 @@
 | Giornata 1 | Pareggio 1-1 con il Nostalgia Nera, 71,5 a 66; settimo in classifica | `matchday-01/results.json`, `standings.json` |
 | Giornata 1 | De Gea 1,5, il fantavoto più basso della giornata; De Bruyne 12,5, Rabiot 11,5; Dovbyk, 225 crediti, 5 (45 crediti per fantapunto) | `matchday-01/lineups.json` |
 | Giornata 1 | Bomba: cede De Gea (62) per Skorupski (42) alla pari — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
+| Numero 4 | Casellario delle dichiarazioni: «l'unica squadra la cui freccia parte da dietro la propria porta»; pagella delle rose 4,5: 270 punti di listino, il totale più alto, e 7,6 fantapunti ogni cento crediti | `content/2026-27/issue-004/approfondimento-casellario.md`, `mercato.md` |
+| Numero 4 | Bomba: cede De Gea (62) per Romano (2, fantavoto 11): la porta passa da 64 crediti (De Gea, Perin, Christensen O.) a 2 — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
 
 ## Materiale inutilizzato
 

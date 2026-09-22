@@ -54,5 +54,33 @@
     "from": "GinTonici",
     "to": "COCA JUNIORS",
     "status": "lanciata"
+  },
+  {
+    "issue": 4,
+    "player": "Martinez L.",
+    "from": "Squadra 9",
+    "to": "Atletico Piedini",
+    "status": "lanciata"
+  },
+  {
+    "issue": 4,
+    "player": "De Gea",
+    "from": "Amaro Luciano",
+    "to": "Nostalgia Nera",
+    "status": "lanciata"
+  },
+  {
+    "issue": 4,
+    "player": "Vergara e Adams C.",
+    "from": "Borussia Addurmt",
+    "to": "J medical",
+    "status": "lanciata"
+  },
+  {
+    "issue": 4,
+    "player": "Leao e Berardi",
+    "from": "Deportivo La Carogna",
+    "to": "GinTonici",
+    "status": "lanciata"
   }
 ]
