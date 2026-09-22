@@ -1,109 +1,70 @@
 ---
 column: mercato
-title: "LA PERIZIA: dieci rose rivalutate, l'Aston pirla riceve il Cucchiaio"
+title: "AGLI ATTI: 2014 crediti chiudono a cinque, e giocheranno ancora"
 byline: "Ornella Malaparte"
-order: 4
+order: 7
 ---
 
-Il mercato della lega Fantac-ACCIA è aperto da agosto e non risulta una sola
-operazione conclusa. Risultano sei offerte per lo stesso centrocampista da
-parte dello stesso presidente, tutte respinte con la stessa parola. Questa
-rubrica ha quindi deciso di fare quello che i presidenti non fanno: la perizia
-delle dieci rose a valore corrente, cioè dopo una giornata.
+La terza giornata si avvicina e questa testata è in grado di anticipare che i
+trentuno titolari che hanno chiuso a cinque o meno nelle prime due giornate —
+2014 crediti d'asta, sessantacinque a testa — risultano tutti confermati.
+Risulta anche il motivo: sono stati pagati.
 
-## Le rose
+## Le posizioni
 
-La perizia usa un metro solo, i fantapunti prodotti ogni cento crediti spesi
-all'asta, e il metro dice questo. In testa il GinTonici con 11,5: 76 fantapunti
-per 663 crediti, con 337 fermi in cassa che risultano il miglior acquisto del
-Banchiere. Segue l'Atletico Piedini con 9,7, ottenuto lasciando in panchina 300
-dei suoi 797 crediti: la rosa che rende di più è quella che si schiera di meno.
-Terzo il COCA JUNIORS con 9,4, che con quel rendimento ha zero punti. Quarto
-Squadra 9 con 9,3, che con quel rendimento è primo. Il metro, risulta, non
-misura la classifica.
+Squadra 9 è prima con sei punti e un attaccante da 327 crediti che non figura
+nei documenti della seconda giornata. Ambienti vicini alla panchina riferiscono
+che il presidente «lo sta gestendo». Alla richiesta di specificare da dove, la
+fonte ha risposto: da fuori.
 
-In coda tre squadre con lo stesso 7,6: Borussia Addurmt, J medical e Amaro
-Luciano, che insieme hanno speso 2925 crediti, il trentaquattro per cento di
-tutto il denaro della lega, e hanno prodotto 221,5 fantapunti in tre, meno di
-quanto ne abbiano fatti Squadra 9, Atletico Piedini e COCA JUNIORS con 2594. Un
-dirigente che chiede l'anonimato, e che ha zero crediti in cassa come il
-presidente del Borussia Addurmt pur non essendolo, ci ha detto: «Il mercato è
-aperto. Noi siamo chiusi».
+Il J medical è secondo con 159 fantapunti e il portiere dell'Inter finalmente a
+7. Risulta che Ciovazzocchetti abbia chiesto se il 7 vada considerato ripetibile
+o una tantum ai fini del bilancio. L'Atletico Piedini è terzo con la porta
+risolta da Palmisani, un credito, e con Raimondo — 4 crediti, 14,5 — che risulta
+non essere ancora stato informato. Thuram, 300 crediti, risulta confermato: è la
+seconda settimana in cui questa testata scrive una frase su Thuram, e la seconda
+in cui è diversa dalla precedente.
 
-Al centro della perizia c'è un solo cartellino conteso: Calhanoglu, Atletico
-Piedini, 160 crediti, 9,5 alla prima giornata. Risulta richiesto da Squadra 9
-con sei offerte e zero crediti. Risulta che il proprietario chieda in cambio
-Martinez L., 296, e che lo chieda con una sola parola. Il Fatto Fantidiano
-registra che è la prima trattativa della stagione condotta interamente a
-monosillabi da una parte e a paragrafi dall'altra, e che la parte a monosillabi
-è in vantaggio.
+Il Borussia Addurmt è quarto avendo vinto con il punteggio più basso dei
+vincitori e senza correggere nulla. Un dirigente che chiede l'anonimato, e che
+ha zero crediti in cassa da agosto, riferisce che Rogerio «non tocca niente
+finché la classifica non se ne accorge». Il COCA JUNIORS è quinto con 161,5
+fantapunti, il secondo totale del campionato: risulta che il presidente abbia
+chiesto formalmente se i fantapunti maturino interessi.
 
-Infine l'Aston pirla. Decimo con 69,5 e zero punti, tre caselle vuote in
-panchina, 8,1 fantapunti ogni cento crediti. Il Cucchiaio di Legno, trofeo
-itinerante di questa testata, gli viene consegnato in questo numero alla prima
-giornata utile, con la motivazione che il presidente troverà nell'albo e che
-non gli chiediamo di ricordare.
+Il Deportivo La Carogna è sesto e risulta avere un problema di reparto
+offensivo che ha risolto non depositandolo. Il GinTonici è settimo con 154
+fantapunti e un punto: risulta che il Banchiere abbia smesso di correggere,
+avendo constatato che correggere costa. Il Nostalgia Nera è ottavo e ha in
+panchina un portiere che, da fermo, ha prodotto 1,5 fantapunti.
 
-## Le pagelle delle rose
-
-**Squadra 9** — Simone Di Loreto · **6,5**
-Ha vinto 6-2 con 91, e la rosa che ha vinto è quella da 327 crediti: portieri, difesa e centrocampo insieme costano esattamente quanto Yildiz da solo.
-Il giornale non è convinto perché non lo è lui: vuole aggiungere un centrocampista da 160 a un reparto che ne è costato 136 e ha fatto 25,5 in tre.
-
-**GinTonici** — AnDreher · **5,5**
-Undici virgola cinque fantapunti ogni cento crediti, il miglior rendimento della lega, con 337 crediti che non hanno giocato.
-La rosa più efficiente del campionato ha in porta un uomo da un credito che ha fatto 3,5: il Banchiere l'ha registrato come ammortamento.
-
-**Atletico Piedini** — Margio · **5,5**
-Duecentotre crediti in cassa, 300 in panchina e 160 in mezzo al campo che un altro presidente reclama da agosto: la rosa più corteggiata della lega ha speso otto crediti in porta.
-Ha l'unico centrocampista che qualcuno chiede e il portiere che nessuno chiederebbe, Corvi 4,5: il conto della porta è arrivato e lui l'ha messo in cassa con gli altri 203.
-
-**Deportivo La Carogna** — Acciacarlos · **5,5**
-Vince con 74,5 e con due titolari senza voto: nove uomini che giocano, due che non giocano e quattordici in panchina a fare compagnia.
-Leao 81 e Berardi 82 fanno 163 crediti di attaccanti senza voto: il pullman ha due posti vuoti e li paga entrambi.
-
-**COCA JUNIORS** — PAOCRI86 · **5**
-Settantasette fantapunti con nove uomini, 9,4 ogni cento crediti, il terzo rendimento della lega, e zero punti.
-Il bilancio da 1032 crediti resta senza spiegazione e Pulisic, 160, resta senza voto: i trentadue crediti in più sono l'unica cosa della rosa che ha reso.
-
-**Borussia Addurmt** — Rogerio · **5**
-Mille crediti spesi, 7,6 fantapunti ogni cento, il rendimento più basso della lega a pari merito con altri due.
-La panchina ha fatto 22 con quattro crediti e la difesa 6, 6,5, 6 e un senza voto con 287: la rosa è costruita al contrario e funziona al contrario.
-
-**J medical** — Ciovazzocchetti · **4,5**
-Novecentottanta crediti per 74,5 fantapunti: gli stessi 263 punti di listino del GinTonici, pagati 317 crediti in più, rendono 7,6 contro 11,5.
-Tre portieri dell'Inter, un 5 in campo e due senza voto in panchina: la rosa è profonda, e la profondità è tutta in porta.
-
-**Amaro Luciano** — max · **4,5**
-Duecentosettanta punti di listino, il totale più alto della lega, e 7,6 fantapunti ogni cento crediti: la rosa migliore sulla carta rende come le peggiori sul campo.
-De Gea, 62 crediti, ha fatto 1,5 e ha chiesto conferma al sistema: la rosa non ha un problema di qualità, ha un portiere.
-
-**Nostalgia Nera** — Ferryssimo · **4,5**
-Sessantasei fantapunti, il totale più basso della lega, ma 9,2 ogni cento crediti, quinto rendimento: ha speso poco e ha reso poco, con precisione.
-Kolo Muani 302 crediti per 5 fantapunti, Romano 2 crediti per 11 in panchina: la rosa ha il rapporto qualità-prezzo invertito, e non è un incidente.
-
-**Aston pirla** — Alessandro · **3**
-Ultimo con 69,5 e zero punti, 8,1 fantapunti ogni cento crediti, tre caselle vuote in panchina e un centrocampo da 403 crediti che ha fatto 22,5 in quattro.
-Riceve il Cucchiaio di Legno, trofeo itinerante, alla prima giornata utile: è l'unico oggetto della stagione che gli sia stato consegnato completo.
+L'Amaro Luciano è nono con il peggior punteggio della giornata e un portiere a
+2 dopo l'1,5 della prima: risulta che max stia valutando il terzo portiere, e
+risulta che il terzo portiere sia costato un credito, il che in questa lega è
+un'ottima notizia. L'Aston pirla è decimo con zero punti e due caselle vuote:
+Alessandro risulta averne riempita una e risulta intenzionato a fermarsi lì,
+per non rovinare la serie.
 
 ## Voci di corridoio
 
-Risulta che un presidente abbia chiesto alla lega se un centrocampista si
-possa «tenere in comproprietà a giornate alterne, una a testa, il Turco
-dispari». Ambienti vicini a una trattativa riferiscono che il nome di una
-squadra sia stato messo sul tavolo come contropartita, e che la controparte
-abbia chiesto in che ruolo giocasse. Un dirigente che chiede l'anonimato, e che
-ha 203 crediti in cassa senza essere il presidente dell'Atletico Piedini, ci ha
-detto: «La risposta è sempre la stessa. Sette lettere. Non le cambio perché
-funzionano».
+Risulta che un presidente abbia chiesto se un giocatore non depositato conti
+come panchinaro ai fini della statistica, e che la risposta lo abbia rassicurato
+al punto da fargli chiedere se poteva non depositarne due. Ambienti vicini a
+quattro panchine diverse riferiscono di aver «capito il meccanismo», e tutti e
+quattro descrivono un meccanismo diverso. Un dirigente che chiede l'anonimato,
+e che risulta aver segnato quattro gol con un solo attaccante in campo, ci ha
+detto: «Il progetto sta funzionando». Gli abbiamo chiesto quale. Ha risposto:
+«Quello che non ho pagato».
 
 ## I consigli della redazione
 
-Se volete un giocatore altrui, chiedetelo sei volte: la settima è gratis. Se
-avete zero crediti, offrite il nome della squadra: vale quello che vale, ma
-almeno si vede che non lo usavate. E se vi chiedono un attaccante da 296 per un
-centrocampista da 160, dite di no con fermezza: tenetevi i vostri 5 fantapunti,
-li avete pagati.
+Comprate peggio: due giornate di atti dimostrano che un fantavoto da dieci
+prodotto in panchina costa 1,3 crediti e uno prodotto in campo ne costa 9,9. Non
+correggete l'errore che vi viene contestato: chi domenica ha finalmente messo in
+porta il portiere da cento crediti ha fatto 7,5 e ha perso, e chi ha finalmente
+schierato l'uomo da 300 lo ha visto chiudere peggiore dei suoi.
+E non depositate il vostro giocatore più caro: è l'unica strategia che in questa
+lega abbia prodotto sei punti su sei.
 
 > *Il Fatto Fantidiano non risponde delle formazioni schierate seguendo questi
 > consigli, né di quelle schierate ignorandoli.*

@@ -1,0 +1,75 @@
+# Publishes Il Fatto Fantidiano on every push to `main`.
+#
+# The editorial rule (style guide §12, skill `nuovo-numero` step 9) is that
+# nothing is deployed without the editor's explicit approval. Merging a PR into
+# `main` IS that approval: this workflow only turns the merge into a deploy.
+#
+# Secrets (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN   token from the "Edit Cloudflare Workers" template,
+#                          scoped to the account and to the margiovanni.it zone
+#   CLOUDFLARE_ACCOUNT_ID  the account that owns the `fantidiano` worker
+#   IV_RHASH               optional: the Telegram Instant View template hash
+#                          (see IV.md). When set, the job summary prints the
+#                          IV links of the newest issue, ready for the channel.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One production deploy at a time, in order: a queued run is never dropped.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy to Cloudflare Workers
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Site tests
+        run: npm test -w site
+
+      # `astro build && wrangler deploy`, run from site/ (see site/package.json).
+      # Wrangler authenticates from the environment: no `wrangler login` here.
+      - name: Build and deploy
+        run: npm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # `iv-links` refuses to run without IV_RHASH, so the step decides in the
+      # shell (the `secrets` context is not available in a step's `if`).
+      - name: Instant View links of the newest issue
+        env:
+          IV_RHASH: ${{ secrets.IV_RHASH }}
+        run: |
+          if [ -z "$IV_RHASH" ]; then
+            echo '_Secret `IV_RHASH` non impostato: link Instant View non generati (vedi IV.md)._' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          latest=$(ls -d content/*/issue-* | awk -F'issue-' '{ print $2 " " $0 }' | sort -n | tail -1 | cut -d' ' -f2)
+          season=$(basename "$(dirname "$latest")")
+          number=$((10#$(basename "$latest" | sed 's/issue-//')))
+          {
+            echo "## Numero $number — link Instant View"
+            echo
+            echo '```'
+            npm run --silent iv-links -w site -- "$number" "$season"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

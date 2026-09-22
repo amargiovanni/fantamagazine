@@ -22,6 +22,7 @@
 | Soprannome | Origine | Numero |
 |---|---|---|
 | **l'Uomo di un Colpo Solo** | 302 crediti su 720 spesi — il 42% — investiti sul solo Kolo Muani | 1 |
+| **il Presidente del Portiere Fermo** | alla giornata 2 Falcone fa 1,5 dalla panchina, il fantavoto più basso dell'intera giornata, senza essere mai entrato in campo | 4 |
 
 ## Running joke attivi
 
@@ -31,16 +32,30 @@
 - **Stato:** in osservazione
 - **Il fatto d'origine:** asta 2026-27: Kolo Muani pagato 302 crediti su 720 complessivi, quotazione 26, valore a coefficiente 91 (`rosters.json`)
 - **Come si usa:** si richiama ogni volta che quel giocatore non gioca, e ogni volta che gioca
-- **Ultimo utilizzo:** numero 4
-- **Note:** quarto utilizzo consecutivo nel numero 4 (nato nel 1, ripreso nei numeri 2, 3 e 4): passa in osservazione per la regola del tre (style-guide §10) e torna solo se un dato nuovo lo rinnova.
+- **Ultimo utilizzo:** numero 6
+- **Note:** rinnovato dalla giornata 2, la prima in cui Kolo Muani gioca davvero: chiude a 6. In due giornate il quarantadue per cento ha prodotto 11 fantapunti.
+- **Note:** nasce con il numero 1; alla quarta ripresa consecutiva passa in
+  osservazione e va rinnovato da un dato nuovo (style-guide §10).
+- **Note:** quarto utilizzo consecutivo nel numero 5, rinnovato dal dato nuovo: Kolo Muani fa 4,5 alla giornata 3, 15,5 fantapunti in tre giornate, meno del 14 di Martinez L. in una; Maldini (19) fa 11.
 
-### Il silenzio di Ferryssimo
+### Falcone da fermo
 
 - **Nato nel numero:** 4
 - **Stato:** attivo
-- **Il fatto d'origine:** nei numeri 1, 2 e 3 il presidente del Nostalgia Nera è l'unico dei dieci a cui questa testata non ha attribuito una sola dichiarazione virgolettata (`content/2026-27/issue-001..003/`); il Casellario del numero 4 lo registra come «non risulta» e lo legge contro i dati: 66 fantapunti, Kolo Muani 5 con 302 crediti, Romano 11 in panchina con 2 (`matchday-01/`)
+- **Il fatto d'origine:** giornata 2: Falcone, 20 crediti, portiere, chiude a 1,5 in panchina — il fantavoto più basso dell'intera giornata — senza essere mai entrato in campo, mentre il titolare Mandas (35 crediti) fa 7. Alla giornata 1 lo stesso Falcone aveva fatto 8 da seduto contro il 7,5 di Mandas (`matchday-01/lineups.json`, `matchday-02/lineups.json`)
+- **Come si usa:** unità di misura del disastro immobile: «ha fatto un Falcone», cioè ha peggiorato la situazione stando fermo
+- **Ultimo utilizzo:** numero 6
+- **Note:** è anche la prima volta in cui una scelta di Ferryssimo risulta corretta dai dati, e il giornale lo ha registrato senza entusiasmo.
+- **Note:** giornata 3: Falcone fa 5 in panchina, senza danni; ma Bijlow (Squadra 9) fa 1,5 da seduto ed è «un Falcone perfetto, alla seconda occorrenza nella lega». L'unità di misura è entrata nell'uso.
+- **Note:** ripreso nel numero 6, lo speciale di metà settimana scritto sui dati della giornata 1.
+
+### Il silenzio di Ferryssimo
+
+- **Nato nel numero:** 6
+- **Stato:** attivo
+- **Il fatto d'origine:** nei numeri 1, 2 e 3 il presidente del Nostalgia Nera è l'unico dei dieci a cui questa testata non ha attribuito una sola dichiarazione virgolettata (`content/2026-27/issue-001..003/`); il Casellario del numero 6 lo registra come «non risulta» e lo legge contro i dati: 66 fantapunti, Kolo Muani 5 con 302 crediti, Romano 11 in panchina con 2 (`matchday-01/`)
 - **Come si usa:** «il quarantadue per cento è la dichiarazione»; ogni volta che un altro presidente parla troppo, si ricorda che uno non parla affatto; si rompe il giorno in cui gli attribuiremo una frase, e quel giorno è un fatto nuovo
-- **Ultimo utilizzo:** numero 4
+- **Ultimo utilizzo:** numero 6
 
 ## Premi vinti
 
@@ -62,11 +77,19 @@
 | Giornata 1 | Pareggio 1-1 con l'Amaro Luciano, 66 a 71,5: il totale più basso della giornata; ottavo in classifica | `matchday-01/results.json`, `standings.json` |
 | Giornata 1 | Kolo Muani 5 (60,4 crediti per fantapunto); Romano, 2 crediti, 11 in panchina; Falcone 8 in panchina contro Mandas 7,5 titolare; Gudmundsson A. senza voto; panchina di 11 uomini su 14 | `matchday-01/lineups.json` |
 | Giornata 1 | Bomba: riceve Frattesi (30, fantavoto 11,5) per Kolo Muani (302) — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-003/bombe.md` |
-| Numero 4 | Casellario delle dichiarazioni: unico presidente senza una dichiarazione agli atti, «il quarantadue per cento è la dichiarazione»; pagella delle rose 4,5: 9,2 fantapunti ogni cento crediti, quinto rendimento | `content/2026-27/issue-004/approfondimento-casellario.md`, `mercato.md` |
-| Numero 4 | Bomba: riceve De Gea (62, fantavoto 1,5) per Romano (2, fantavoto 11) senza conguaglio pur avendo 266 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
+| Giornata 2 | Sconfitta 1-2 con l'Atletico Piedini, 68,5 a 77; ottavo con 1 punto e 134,5 fantapunti | `matchday-02/results.json`, `standings.json` |
+| Giornata 2 | Kolo Muani (302 crediti) finalmente in campo: 6. Atta (61) 4, peggior titolare; Locatelli (3) 7,5, migliore; Mandas confermato in porta a 7; modulo cambiato dal 3-5-2 al 3-4-3 | `matchday-02/lineups.json` |
+| Giornata 2 | Falcone (20 crediti) 1,5 in panchina, il fantavoto più basso dell'intera giornata; Romano (2) 6, sempre in panchina, dopo che il numero 3 ne aveva previsto lo schieramento «al posto sbagliato» | `matchday-02/lineups.json`, `content/2026-27/issue-003/mercato.md` |
+| Giornata 2 | Bomba: riceve Yildiz (327) da Squadra 9 cedendo Kolo Muani (302) più tutti i 266 crediti in cassa — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-004/bombe.md` |
+| Giornata 3 | Pareggio 1-1 con il Deportivo La Carogna, 71,5 a 69; nono con 2 punti e 206 fantapunti, l'unica squadra senza vittorie che non sia ultima | `matchday-03/results.json`, `standings.json` |
+| Giornata 3 | Kolo Muani (302) 4,5; Maldini (19) 11 miglior titolare; Romano (2) finalmente titolare, 6,5; Mandas 5,5 (20 in tre giornate, il totale più alto tra i portieri); Falcone 5 in panchina; non depositati Circati, Gudmundsson A. (32), Rovella, David | `matchday-03/lineups.json` |
+| Giornata 3 | Segno d'oroscopo nel numero 5; bomba: riceve Maignan (75) dal COCA JUNIORS cedendo Falcone (20) più 100 dei suoi 266 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-005/rubrica-fissa.md`, `bombe.md` |
+| Numero 6 | Casellario delle dichiarazioni: unico presidente senza una dichiarazione agli atti, «il quarantadue per cento è la dichiarazione»; pagella delle rose 4,5: 9,2 fantapunti ogni cento crediti, quinto rendimento | `content/2026-27/issue-006/approfondimento-casellario.md`, `mercato.md` |
+| Numero 6 | Bomba: riceve De Gea (62, fantavoto 1,5) per Romano (2, fantavoto 11) senza conguaglio pur avendo 266 crediti — scambio inventato, cifre vere; stato `lanciata` | `content/2026-27/issue-006/bombe.md` |
 
 ## Materiale inutilizzato
 
 - 415 crediti su 720 (58%) in attacco, la quota offensiva più alta dopo Squadra 9 — `rosters.json` — *ancora buono per:* un'inchiesta tattica.
 - Reparto portieri da 61 crediti: Mandas 35, Falcone 20, Motta 6 — `rosters.json` — *ancora buono per:* un pezzo sul reparto portieri.
 - L'approfondimento sui casi limite del listino non è ancora stato scritto: il numero 1 si è limitato a registrare i due asterischi — `content/2026-27/issue-001/approfondimento-capitali.md` — *ancora buono per:* un approfondimento.
+- Mandas ha il miglior totale della lega tra i portieri (20 in tre giornate) per 35 crediti: l'unica cosa che funziona nel Nostalgia Nera è quella che il giornale non ha mai sfottuto — `matchday-0*/lineups.json` — *ancora buono per:* il pezzo sui portieri, seconda puntata.

@@ -1,66 +1,63 @@
 ---
 column: bombe
-title: "SI CONSEGNA: Martinez L. per Calhanoglu, Tancredi ha le carte"
+title: "LE CARTE: dodici bombe, zero esplose, il mercato è fermo"
 byline: "Tancredi Soffiata"
-order: 6
+order: 8
 ---
 
 ## Le Bombe di Tancredi Soffiata
 
-*Bilancio di carriera: 12 bombe lanciate, 0 confermate. Le otto precedenti restano in lavorazione.*
+*Bilancio di carriera: 12 bombe lanciate, 0 confermate.*
 
-Le mie fonti si erano dimesse nel numero 3. Si sono ripresentate: senza di me
-non le ascoltava nessuno. Le otto bombe precedenti risultano in lavorazione. La
-collega Malaparte scrive in prima pagina che Squadra 9 non avrà mai Calhanoglu.
-La collega Malaparte non ha le carte. Io sì.
+Otto bombe lanciate, nessuna esplosa, e ne aggiungo quattro. Mi si fa notare che
+il rapporto non è brillante. Rispondo che in due giornate non si è mosso un solo
+giocatore fra le dieci squadre: non sono io in ritardo, è il mercato fermo.
 
-**💣 Martinez L. da Squadra 9 all'Atletico Piedini, per Calhanoglu**
-*Fonte: il tecnico che ha installato la connessione nella sede dell'Atletico Piedini, che dal numero 3 riferisce quello che vede e adesso vede anche i messaggi in arrivo.*
-Martinez L., 296 crediti, quotazione 35, 5 fantapunti alla prima giornata.
-Calhanoglu, 160, quotazione 27, 9,5. Simone Di Loreto cede il progetto per il
-Turco, alla pari, perché con zero crediti non può chiedere i 136 di differenza
-e Margio, che ne ha 203, non li offre. Margio riceve il secondo attaccante
-dell'Inter e lo mette in panchina accanto al primo: 596 crediti seduti, il
-settantacinque per cento della sua spesa d'asta. Ci guadagna Margio. Ha
-accettato Simone Di Loreto, perché «il nono lo prendo comunque, e così ho anche
-il posto». In attacco gli resta Yildiz, 5,5.
+**💣 Yildiz da Squadra 9 al Nostalgia Nera**
+*Fonte: il cugino del ragazzo che consegna al bar dove un presidente ha lasciato il telefono acceso, riferito da chi ha pagato il caffè.*
+Yildiz, 327 crediti, quotazione 23, il sovrapprezzo record dell'asta, alla
+seconda giornata non risulta né in campo né in panchina. Ferryssimo cede Kolo
+Muani, 302 crediti, quotazione 26, più i 266 crediti che ha in cassa: tutti.
+Simone Di Loreto incassa i primi 266 crediti della sua stagione, avendo chiuso
+l'asta a zero, e cede un uomo che non deposita. Ci guadagna Simone Di Loreto. Ha
+accettato Ferryssimo, perché «il quarantadue per cento gli stava stretto e
+voleva il quarantasei».
 *Stato: confermato al cento per cento.*
 
-**💣 De Gea dall'Amaro Luciano al Nostalgia Nera, per Romano**
-*Fonte: il barista che ha servito a max il caffè dopo l'uno virgola cinque, e che da allora glielo serve decaffeinato.*
-De Gea, 62 crediti, quotazione 13, 1,5 alla prima giornata, il fantavoto più
-basso dell'intera lega. Romano, 2 crediti, quotazione 5, 11 in panchina.
-Ferryssimo cede il miglior voto della sua panchina per il peggior voto del
-campionato e non chiede conguaglio pur avendo 266 crediti in cassa, perché «un
-portiere da 62 è un portiere da 62». Max resta con Perin e Christensen O., un
-credito ciascuno: la sua porta passa da 64 crediti a 2, e da 1,5 a qualunque
-altro numero. Ci guadagna max. Ha accettato Ferryssimo, perché Mandas 7,5 e
-Falcone 8 «parano troppo per essere due».
+**💣 Raimondo dall'Atletico Piedini al Deportivo La Carogna**
+*Fonte: chi era seduto accanto in sala d'attesa, riferito all'infermiera, riferito a me.*
+Raimondo, 4 crediti, quotazione 7, ha fatto 14,5 in panchina: il massimo di
+giornata assieme a Malen. Acciacarlos cede Berardi, 82 crediti, che di fantavoto
+ne ha fatti 11, sempre in panchina, più 100 dei suoi 148 crediti: 182 crediti per
+migliorare la propria panchina di tre fantapunti e mezzo. Ci guadagna Margio. Ha
+accettato Acciacarlos, perché «voleva la panchina più forte della lega», e ce
+l'ha fatta.
 *Stato: confermato al cento per cento.*
 
-**💣 Vergara e Adams C. dal Borussia Addurmt al J medical, per Provedel**
-*Fonte: l'uomo che al battesimo del numero 1 non era invitato e ha tenuto comunque il discorso.*
-Vergara e Adams C., 2 crediti ciascuno, 12 e 10 in panchina: 22 fantapunti per
-4 crediti, la panchina migliore della lega. Provedel, 55 crediti per una
-quotazione di 2, 7,83 volte il valore a coefficiente, il sovrapprezzo relativo
-record dell'asta, in panchina senza voto. Nessun conguaglio: Rogerio ha zero
-crediti, Ciovazzocchetti ne ha 20 e li tiene. Ci guadagna Ciovazzocchetti, che
-riceve 22 fantapunti seduti e si libera del sovrapprezzo record tenendosi due
-portieri dell'Inter su tre. Ha accettato Rogerio, perché «la panchina mi
-rendeva più dei titolari e la cosa creava tensione nello spogliatoio».
+**💣 Bracaglia dal Borussia Addurmt all'Aston pirla**
+*Fonte: l'idraulico che ha lavorato in una casa col vivavoce acceso, riferito al collega che gli aveva prestato la chiave inglese.*
+Bracaglia, 5 crediti, quotazione 5, ha fatto 11 in panchina. Alessandro cede
+Butez, 86 crediti, che in porta ha fatto 4,5, più 100 dei suoi 139 crediti: la
+linea difensiva da trenta crediti in otto uomini acquisisce così il suo primo
+difensore da centocinque. Rogerio arriva a 100 crediti, i primi da agosto, e li
+userà, dice, «per non usarli». Ci guadagna Rogerio. Ha accettato Alessandro.
 *Stato: confermato al cento per cento.*
 
-**💣 Leao e Berardi dal Deportivo La Carogna al GinTonici, per Stankovic F.**
-*Fonte: un cliente del bar dove AnDreher non ha mai pagato con i 337 crediti, e che li ha visti.*
-Leao 81 e Berardi 82, quotazione 18 ciascuno: 163 crediti di attaccanti che
-alla prima giornata non hanno giocato, uno in campo e uno in panchina.
-Stankovic F., 1 credito, quotazione 6, 3,5 in porta, il secondo voto più basso
-della lega. AnDreher riceve due attaccanti, ne schiererà uno solo e sarà quello
-sbagliato, come da oroscopo del numero 1. Acciacarlos riceve un quarto portiere,
-avendone già tre dell'Atalanta, e la certezza di non dover più scegliere. Ci
-guadagna AnDreher, che arriva a otto attaccanti e resta a 337 crediti. Ha
-accettato Acciacarlos, perché «se ne schiero zero, ne sbaglio zero».
+**💣 Provedel dal J medical all'Atletico Piedini**
+*Fonte: la stessa persona dell'idraulico, che nel frattempo ha cambiato mestiere e ora consegna pacchi.*
+Provedel, 55 crediti per una quotazione di 2, il sovrapprezzo relativo record
+dell'asta, ha collezionato due panchine su due senza voto. Margio cede Corvi, 5
+crediti, più 50 dei suoi 203: compra il terzo portiere di un'altra squadra
+spendendo sei volte l'intero reparto che si era costruito da solo, nella
+settimana in cui il suo portiere da un credito ha fatto 7. Ciovazzocchetti sale
+a 70 crediti. Ci guadagna Ciovazzocchetti. Ha accettato Margio, perché «una
+porta da otto crediti non è una porta, è un preventivo».
 *Stato: confermato al cento per cento.*
 
-*Tancredi Soffiata è inviato di mercato di questa testata. Le sue fonti sono
-tornate e non se n'era accorto nessuno.*
+L'Atletico Piedini compare in due bombe: incassa 100 crediti e ne spende 50 per
+cambiare un portiere che domenica aveva già cambiato da solo, gratis. Gli ho
+chiesto se fosse consapevole. Ha risposto che ha un foglio di calcolo. Non me lo
+ha mostrato, come io non mostro le carte.
+
+*Tancredi Soffiata è inviato di mercato di questa testata. Le sue fonti si
+tramandano, e non si incontrano mai.*

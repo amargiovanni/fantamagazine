@@ -1,0 +1,65 @@
+{
+  "matchday": 3,
+  "fixtures": [
+    {
+      "home": {
+        "teamId": "5627234",
+        "fantapoints": 69,
+        "goals": 1
+      },
+      "away": {
+        "teamId": "5322780",
+        "fantapoints": 71.5,
+        "goals": 1
+      }
+    },
+    {
+      "home": {
+        "teamId": "5620502",
+        "fantapoints": 87.5,
+        "goals": 5
+      },
+      "away": {
+        "teamId": "7231597",
+        "fantapoints": 82.5,
+        "goals": 3
+      }
+    },
+    {
+      "home": {
+        "teamId": "5621158",
+        "fantapoints": 85,
+        "goals": 4
+      },
+      "away": {
+        "teamId": "8775659",
+        "fantapoints": 75.5,
+        "goals": 2
+      }
+    },
+    {
+      "home": {
+        "teamId": "18761003",
+        "fantapoints": 65,
+        "goals": 0
+      },
+      "away": {
+        "teamId": "8775876",
+        "fantapoints": 73,
+        "goals": 2
+      }
+    },
+    {
+      "home": {
+        "teamId": "5627067",
+        "fantapoints": 78.5,
+        "goals": 3
+      },
+      "away": {
+        "teamId": "5620165",
+        "fantapoints": 75,
+        "goals": 2
+      }
+    }
+  ]
+}

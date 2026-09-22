@@ -18,8 +18,44 @@
     "motivation": "Vittoria per 2-1 con 74,5 fantapunti, il punteggio più basso tra i vincitori e inferiore a tre squadre che hanno pareggiato."
   },
   {
-    "award": "Il Cucchiaio di Legno",
+    "award": "Lo Sconfitto della Settimana",
     "issue": 4,
+    "manager": "AnDreher",
+    "motivation": "Settantotto fantapunti, gli stessi con cui Squadra 9 ha vinto 3-0 nello stesso pomeriggio, e sconfitta per 3-4: un punto in due giornate con il quinto totale della lega, 154."
+  },
+  {
+    "award": "La Panchina d'Oro del Disonore",
+    "issue": 4,
+    "manager": "max",
+    "motivation": "Samardzic lasciato in panchina con 11 fantapunti contro i 2 del titolare De Gea: delta 9, il più alto della giornata alla pari con l'Atletico Piedini, con il fantavoto più basso dell'intera lega tra i titolari."
+  },
+  {
+    "award": "La Mano de Dios del Mercato",
+    "issue": 4,
+    "manager": "Margio",
+    "motivation": "Thuram, 300 crediti e colpo celebrato nei numeri 1 e 2, chiude a 5,5 il fantavoto più basso tra i titolari dell'Atletico Piedini alla pari con Raspadori, mentre Raimondo da 4 crediti fa 14,5 in panchina."
+  },
+  {
+    "award": "Lo Sconfitto della Settimana",
+    "issue": 5,
+    "manager": "Alessandro",
+    "motivation": "Panchina depositata di quattro uomini su quattordici, dieci giocatori a casa per 328 crediti fra cui McTominay e Orsolini, sconfitta 0-2 con 65: terza sconfitta su tre, zero punti, ultimo per punti e per fantapunti."
+  },
+  {
+    "award": "La Panchina d'Oro del Disonore",
+    "issue": 5,
+    "manager": "max",
+    "motivation": "Diao lasciato in panchina con 14,5 fantapunti, il massimo di giornata, contro i 4 del titolare De Gea: delta 10,5, il più alto mai registrato nella lega, con Adzic 11 e Pellegrino M. 9,5 anch'essi seduti."
+  },
+  {
+    "award": "La Coppa del Vincitore Involontario",
+    "issue": 5,
+    "manager": "AnDreher",
+    "motivation": "Vittoria per 2-0 con 73 fantapunti, il punteggio più basso tra i quattro vincitori della terza giornata, una settimana dopo aver perso con 78."
+  },
+  {
+    "award": "Il Cucchiaio di Legno",
+    "issue": 6,
     "manager": "Alessandro",
     "motivation": "Ultimo in classifica dopo la giornata 1 con zero punti e 69,5 fantapunti, panchina consegnata con tre caselle vuote su quattordici: il trofeo itinerante inizia il suo viaggio."
   }
