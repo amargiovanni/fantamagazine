@@ -231,9 +231,13 @@ status or retired.
 Then wait for the editor to read the issue. Apply any requested change and, if
 the content changed, run step 7 again. Keep waiting until approval is explicit.
 
-**Do not commit and do not deploy in this step.** Silence is not approval.
+**Do not merge and do not deploy in this step.** When the editor cannot reach a
+local preview — a remote session, for instance — a commit on a branch and a
+**draft** pull request are the preview: hand over the PR URL instead of the
+`npm run dev` URL. A draft on a branch publishes nothing; `main` is not touched
+until approval is explicit. Silence is not approval.
 
-## Step 9 — Only after approval: commit and deploy
+## Step 9 — Only after approval: commit, open the pull request, merge
 
 Once the editor has approved, in this order:
 
@@ -248,19 +252,21 @@ Once the editor has approved, in this order:
    conventions in `CLAUDE.md`. The Italian headline belongs in the commit body,
    never in the subject.
 
-2. Deploy:
+2. Push the branch and open a pull request against `main` (or mark the draft
+   from step 8 as ready). **Merging it is the deploy**:
+   `.github/workflows/deploy.yml` runs the site tests, builds and executes
+   `wrangler deploy` on every push to `main`, so the merge is the editor's
+   explicit approval made executable. Never run `npm run deploy` by hand from
+   this skill; the laptop fallback described in `README.md` is for emergencies.
 
-   ```
-   npm run deploy
-   ```
-
-3. Report the commit hash and the deployed URL.
-
-4. Print the Telegram Instant View links for the channel post (see `IV.md`):
+3. After the merge, report the commit hash on `main` and the `Deploy` workflow
+   run. Its job summary prints the Telegram Instant View links of the newest
+   issue when the `IV_RHASH` secret is set (see `IV.md`); locally the same list
+   comes from:
 
    ```
    cd site && npm run iv-links -- N
    ```
 
-If approval never arrives, the issue stays in the working tree. That is a
+If approval never arrives, the issue stays on its branch, unmerged. That is a
 perfectly acceptable outcome; publishing without approval is not.

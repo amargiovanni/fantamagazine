@@ -172,18 +172,30 @@ captured HTML, never pasting the captured HTML in.
 ## Deploying
 
 The site deploys to Cloudflare Workers static assets via `site/wrangler.jsonc`
-(worker name `fantidiano`). Wrangler needs to be authenticated once per
-machine:
+(worker name `fantidiano`), and it deploys **from GitHub Actions**: every push
+to `main` runs `.github/workflows/deploy.yml`, which installs, runs the site
+tests and executes `npm run deploy` (`astro build && wrangler deploy`, from
+`site/`). Merging a pull request into `main` is therefore the act of
+publishing — which is exactly the editor's approval the style guide (§12) and
+the `nuovo-numero` skill (step 9) require before any deploy.
 
-```
-npx wrangler login
-```
+The workflow needs two repository secrets (Settings → Secrets and variables →
+Actions), never committed:
 
-After that, `npm run deploy` from the repo root builds the site and pushes
-it (`astro build && wrangler deploy`, run from `site/`). Once the first
-deploy succeeds, set `site` in `site/astro.config.mjs` to the resulting
-`*.workers.dev` URL and redeploy so absolute URLs (OG tags, etc.) resolve
-correctly, then update the "Live URL" line above.
+- `CLOUDFLARE_API_TOKEN` — created from the *Edit Cloudflare Workers* token
+  template, scoped to the account and to the `margiovanni.it` zone (the worker
+  has a custom domain there);
+- `CLOUDFLARE_ACCOUNT_ID` — the account that owns the worker.
+
+Optionally `IV_RHASH` (see `IV.md`): when set, the run's job summary prints the
+Telegram Instant View links of the newest issue, ready to paste in the channel.
+Without it that step is skipped with a note.
+
+A deploy can also be started by hand from the Actions tab (*Run workflow*), for
+instance after adding the secrets to a `main` that had already been merged.
+
+Deploying from a laptop still works — `npx wrangler login` once, then
+`npm run deploy` from the repo root — but it is the fallback, not the path.
 
 ## Go live with real league data
 
@@ -221,4 +233,4 @@ green build, broken page. Purge first, then scrape.
 2. Run `npm run scrape -- --league` once — it writes both `league.json` and
    `rosters.json` — and produce issues with `/nuovo-numero`. Matchday scrapes
    begin once the season does.
-3. `npx wrangler login` (first time only), then `npm run deploy`.
+3. Merge to `main`: the `Deploy` workflow publishes (see "Deploying").
