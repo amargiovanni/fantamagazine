@@ -7,10 +7,10 @@ order: 6
 
 ## Le Bombe di Tancredi Soffiata
 
-*Bilancio di carriera: 12 bombe lanciate, 0 confermate. Le otto precedenti restano in lavorazione.*
+*Bilancio di carriera: 20 bombe lanciate, 0 confermate. Le sedici precedenti restano in lavorazione.*
 
 Le mie fonti si erano dimesse nel numero 3. Si sono ripresentate: senza di me
-non le ascoltava nessuno. Le otto bombe precedenti risultano in lavorazione. La
+non le ascoltava nessuno. Le sedici bombe precedenti risultano in lavorazione. La
 collega Malaparte scrive in prima pagina che Squadra 9 non avrà mai Calhanoglu.
 La collega Malaparte non ha le carte. Io sì.
 
